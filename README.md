@@ -1,27 +1,9 @@
-Welcome to Glitch
-=================
+Kurulum - Windows
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
-------------
-
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+1. Adım: Node.JS programını kurun. (nodejs.org)
+2. Adım: Projeyi bilgisayarınıza indirin.
+3. Adım: Proje dosyalarını açın, proje dosyalarının olduğu klasörde komut penceresini açın (Ctrl+Sağ tık > komut penceresini burada aç)
+4. Adım: Açılan komut penceresine npm install komutunu yazın ve modüllerin yüklenmesini bekleyin.
+5. Adım: Ayarlar.json dosyasını açıp ayarlarınızı yapın.
+6. Adım: Modüller yüklendikten sonra, komut penceresine node bot.js komutunu yazın ve botu çalıştırın.
+Botun altyapısı için kullandığım kaynak: https://github.com/AnIdiotsGuide/Tutorial-Bot
