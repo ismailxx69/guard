@@ -122,6 +122,24 @@ client.on("message", async message => {
   var lvl = await db.fetch(`lvl_${id}_${gid}`);
   var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
   
+  if(!lvl) {
+    
+    db.set(`xp_${id}_${gid}`, 5);
+    db.set(`lvl_${id}_${gid}`, 1);
+    db.set(`xpToLvl_${id}_${gid}`, 100);
+    
+  } else {
+    
+    var random = Math.random() * (8 - 3) + 3;
+    db.add(`xp_${id}_${gid}`, random.toFixed());
+    
+    if(xp > xpToLvl) {
+      
+      
+    }
+    
+  }
+  
   
   
 });
