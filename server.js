@@ -132,9 +132,13 @@ client.on("message", async message => {
     
     var random = Math.random() * (8 - 3) + 3;
     db.add(`xp_${id}_${gid}`, random.toFixed());
+    console.log(xp);
     
     if(xp > xpToLvl) {
       
+      db.add(`lvl_${id}_${gid}`, 1);
+      db.add(`xpToLvl_${id}_${gid}`, await db.fetch(`lvl_${id}_${gid}`));
+      message.channel.send("Tebrikler, " + message.author + ". Seviye atladın! Yeni seviyen: **" + lvl + "**");
       
     }
     
