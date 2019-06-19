@@ -4,6 +4,7 @@ const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
+const db = require("quick.db");
 require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
@@ -107,6 +108,29 @@ client.on("guildMemberAdd", member => {
 });
 
 ////////////////////////
+
+
+client.on("message", async message => {
+  
+  if(message.content.startsWith(prefix)) return;
+  if(message.author.bot) return;
+  
+  var id = message.author.id;
+  var gid = message.guild.id;
+  
+  var xp = await db.fetch(`xp_${id}_${gid}`);
+  var lvl = await db.fetch(`lvl_${id}_${gid}`);
+  var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
+  
+  
+  
+});
+
+
+
+
+////////////////////////
+
 
 client.elevation = message => {
   if(!message.guild) {
