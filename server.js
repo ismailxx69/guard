@@ -137,7 +137,7 @@ client.on("message", async message => {
     if(xp > xpToLvl) {
       
       db.add(`lvl_${id}_${gid}`, 1);
-      db.add(`xpToLvl_${id}_${gid}`, await db.fetch(`lvl_${id}_${gid}`));
+      db.add(`xpToLvl_${id}_${gid}`, await db.fetch(`lvl_${id}_${gid}`) * 100);
       message.channel.send("Tebrikler, " + message.author + ". Seviye atladın! Yeni seviyen: **" + lvl + "**");
       
     }

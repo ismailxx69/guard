@@ -4,7 +4,8 @@ const db = require("quick.db");
 
 exports.run = async (client, message) => {
 
-  var id = message.mentions.users.first().id || message.author.id;
+  var user = message.mentions.users.first() || message.author;
+  var id = user.id
   var gid = message.guild.id;
   
   var xp = await db.fetch(`xp_${id}_${gid}`);
@@ -12,11 +13,11 @@ exports.run = async (client, message) => {
   var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
   
   var embed = new Discord.RichEmbed()
-    .setAuthor(message.guild.users.get(id).tag)
+    .setAuthor(user.tag)
     .addField("Level: ", lvl ? lvl : "0")
     .addField("XP: ", xp ? xp : "0")
-    .setFooter("Level atlamaya kalan son " + xp ? xpToLvl - xp : "0" +  " XP")
-  message.channel.send(embed)
+    .setFooter(`Level atlamaya kalan son ${xp ? xpToLvl - xp : "0"} XP`)
+  message.channel.send(embed);
   
 };
 
