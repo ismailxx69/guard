@@ -154,57 +154,6 @@ client.on("message", async message => {
 ////////////////////////
 
 
-client.on("message", message => {
-  
-const args = message.content.slice(prefix.length).split(' ');
-const command = args.shift().toLowerCase();
-  
-  if(command === "remind") {
-    
-    var msg = message;
-    var returntime;
-		var timemeasure;
-		msg = args
-    console.log('Message recieved from ' + message.author.id + ' at ' + Date.now().toString());
-    
-    timemeasure = msg[1].substring((msg[1].length - 1), (msg[1].length))
-		returntime = msg[1].substring(0, (msg[1].length - 1))
-    
-    switch (timemeasure) {
-				case 's':
-					returntime = returntime * 1000;
-					break;
-
-				case 'm':
-					returntime = returntime * 1000 * 60;
-					break;
-
-				case 'h':
-					returntime = returntime * 1000 * 60 * 60;
-					break;
-
-				case 'd':
-					returntime = returntime * 1000 * 60 * 60 * 24;
-					break;
-
-				default:
-					returntime = returntime * 1000;
-					break;
-			}
-    
-    client.setTimeout(function () {
-				msg.shift();
-				msg.shift();
-
-				var content = msg.join();
-				message.reply(content);
-				console.log('Message sent to ' + message.author.id + ' at ' + Date.now().toString());
-			}, returntime)
-    
-  }
-  
-});
-
 
 ////////////////////////
 
