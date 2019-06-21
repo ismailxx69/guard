@@ -5,6 +5,9 @@ const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
 const db = require("quick.db");
+const express = require("express");
+const http = require("http");
+const app = express();
 require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
@@ -78,6 +81,19 @@ client.unload = command => {
     }
   });
 };
+
+
+
+app.listen(process.env.PORT);
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 5000);
+
+
+
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
