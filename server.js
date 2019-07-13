@@ -157,7 +157,14 @@ client.on("message", async message => {
       
       db.add(`lvl_${id}_${gid}`, 1);
       db.add(`xpToLvl_${id}_${gid}`, await db.fetch(`lvl_${id}_${gid}`) * 100);
+      var lvl = await db.fetch(`lvl_${id}_${gid}`);
       message.channel.send("Tebrikler, " + message.author + ". Seviye atladın! Yeni seviyen: **" + lvl + "**");
+      var role = message.guild.roles.get(await db.fetch(`role_${gid}_${lvl}seviye`));
+      if(!role) return;
+      else {
+        message.member.addRole(role);
+        message.channel.send("Tebrikler! **" + lvl + "** seviye olarak @" + role.name + " rolünü kazandınız.");
+      }
       
     }
     
