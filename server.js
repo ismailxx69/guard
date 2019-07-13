@@ -134,12 +134,10 @@ client.on("message", async message => {
   var id = message.author.id;
   var gid = message.guild.id;
   
-  var msgs = await db.fetch(`msgs_${id}_${gid}`);
   var xp = await db.fetch(`xp_${id}_${gid}`);
   var lvl = await db.fetch(`lvl_${id}_${gid}`);
   var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
   
-  db.add(`msgs_${id}_${gid}`);
   
   if(!lvl) {
     
