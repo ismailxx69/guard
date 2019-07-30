@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
 const db = require("quick.db");
+const request = require("request");
 const ms = require("parse-ms");
 const express = require("express");
 const http = require("http");
@@ -204,6 +205,31 @@ client.on("message", async message => {
 
 
 ////////////////////////
+
+function küfürFiltre(msg) {
+  
+  request(
+    "https://pinkie-api.glitch.me/api/kufur",
+    (err, res, body) => {
+      const json = JSON.parse(body)
+      
+      const contains = 
+            json.filter(word => {
+              
+            })
+    }
+  )
+  
+}
+
+client.on("message", message => {
+  if(!message.guild) return;
+  if(message.author.bot) return;
+  küfürFiltre(message) 
+});
+
+////////////////////////
+
 
 
 client.elevation = message => {

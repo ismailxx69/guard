@@ -19,7 +19,8 @@
     "math-expression-evaluator": "^1.2.17",
     "moment": "^2.24.0",
     "parse-ms": "^2.1.0",
-    "quick.db": "^7.0.0-b22"
+    "quick.db": "^7.0.0-b22",
+    "request": "^2.88.0"
   },
   "engines": {
     "node": "8.x"
