@@ -206,30 +206,6 @@ client.on("message", async message => {
 
 ////////////////////////
 
-function küfürFiltre(msg) {
-  
-  request(
-    "https://pinkie-api.glitch.me/api/kufur",
-    (err, res, body) => {
-      const json = JSON.parse(body)
-      
-      const contains = 
-            json.filter(word => {
-              
-            })
-    }
-  )
-  
-}
-
-client.on("message", message => {
-  if(!message.guild) return;
-  if(message.author.bot) return;
-  küfürFiltre(message) 
-});
-
-////////////////////////
-
 
 
 client.elevation = message => {
