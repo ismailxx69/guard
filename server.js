@@ -179,7 +179,28 @@ client.on("message", async message => {
 ////////////////////////
 
 
-
+client.on("message", async message => {
+  
+  if(message.author.bot) return;
+  if(!message.guild) return;
+  if(message.content.includes(`${prefix}afk`)) return;
+  
+  /*if(await db.fetch(`afk_${message.author.id}`)) {
+    db.delete(`afk_${message.author.id}`);
+    db.delete(`afk_süre_${message.author.id}`);
+    message.reply("Başarıyla afk modundan çıktınız.");
+  }*/
+  
+  var USER = message.mentions.users.first();
+  if(!USER) return;
+  var REASON = await db.fetch(`afk_${USER.id}`);
+  
+  if(REASON) {
+    let süre = await db.fetch(`afk`)
+    message.channel.send(USER + " kullanıcısı afk. Sebep: " + REASON)
+  }
+  
+});
 
 
 ////////////////////////
