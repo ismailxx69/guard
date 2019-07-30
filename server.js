@@ -185,11 +185,11 @@ client.on("message", async message => {
   if(!message.guild) return;
   if(message.content.includes(`${prefix}afk`)) return;
   
-  /*if(await db.fetch(`afk_${message.author.id}`)) {
+  if(await db.fetch(`afk_${message.author.id}`)) {
     db.delete(`afk_${message.author.id}`);
     db.delete(`afk_süre_${message.author.id}`);
     message.reply("Başarıyla afk modundan çıktınız.");
-  }*/
+  }
   
   var USER = message.mentions.users.first();
   if(!USER) return;
