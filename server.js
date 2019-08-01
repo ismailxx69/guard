@@ -206,41 +206,24 @@ client.on("message", async message => {
 
 //////küfür filtresi//////
 client.on("message", message => {
-  
   if(!message.guild) return;
   if(message.author.bot) return;
-  
-  
-  request.get("https://pinkie-api.glitch.me/api/kufur", (err, res, body) => {
-    
-    const json = JSON.parse(body)
-    
+  request.get("https://pinkie-api.glitch.me/api/kufur", (err, res, body) => { //Barış Demirci tarafından hazırlanmıştır xd
+    const json = JSON.parse(body);
     const contains = json.filter(word => {
-      
       const wordExp = new RegExp("(\\b)+(" + word + ")+(\\b)", "gui");
       return (wordExp.test(message.content));
-      
     }).length > 0 || false;
-    
     if(contains) {
-      
       message.delete();
-      
-      request.get("https://pinkie-api.glitch.me/api/kufurCevap", (err, res, body) => {
-        
-
+      request.get("https://pinkie-api.glitch.me/api/kufurCevap", (err, res, body) => { //API Barış Demirciye aittir
         const cevaplar = JSON.parse(body);
         var rand = cevaplar[Math.floor(Math.random() * cevaplar.length)];
-        var cevap = rand.replace("%member%", message.author)
+        var cevap = rand.replace("%member%", message.author);
         message.channel.send(cevap);
-        
       });
-      
     }
-    
-  })
-  
-  
+  });
 });
 //////////////////////////
 
