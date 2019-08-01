@@ -217,10 +217,26 @@ client.on("message", message => {
     
     const contains = json.filter(word => {
       
-      const wordExp = new RegExp("(\\b) + (" + word + ") + (\\b)", "gui");
+      const wordExp = new RegExp("(\\b)+(" + word + ")+(\\b)", "gui");
       return (wordExp.test(message.content));
       
-    })
+    }).length > 0 || false;
+    
+    if(contains) {
+      
+      message.delete();
+      
+      request.get("https://pinkie-api.glitch.me/api/kufurCevap", (err, res, body) => {
+        
+
+        const cevaplar = JSON.parse(body);
+        var rand = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+        var cevap = rand.replace("%member%", message.author)
+        message.channel.send(cevap);
+        
+      });
+      
+    }
     
   })
   
