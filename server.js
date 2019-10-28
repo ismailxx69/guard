@@ -235,7 +235,43 @@ client.on("voiceStateUpdate", async (oldChannel, newChannel) => {
   if (!oldChannel.guild.channels.get(categoryID)) return console.log("kategori bulunamadı");
   const channelID = "638323937180385300";
   if (!oldChannel.guild.channels.get(channelID)) return console.log("kanal bulunamadı.");
+  if (oldChannel.user.bot) return;
+  if (newChannel.user.bot) return;
   
+  if (newChannel.voiceChannelID === channelID) {   
+    newChannel.guild.createChannel("geçici-" + newChannel.user.username, "voice").then(newVoiceChannel => {  
+      newVoiceChannel.overwritePermissions(newChannel.user, {
+        CONNECT: true,
+        SPEAK: true,
+        MOVE_MEMBERS: true,
+        VIEW_CHANNEL: true,
+        USE_VAD: true,
+        PRIORITY_SPEAKER: true
+      })
+      newVoiceChannel.setParent(newChannel.guild.channels.get(categoryID))
+      newChannel.setVoiceChannel(newChannel.guild.channels.get(newVoiceChannel.id));
+    })
+  }
+  
+  if (oldChannel.voiceChannelID) {
+    
+    oldChannel.guild.channels.forEach(allChannels => {
+      
+      if (allChannels.parentID === categoryID) {
+        
+        if (allChannels.id === channelID) return;
+        
+        if (oldChannel.voiceChannelID === allChannels.id) {
+            
+          if (oldChannel.voiceChannel.members.size == 0) allChannels.delete();
+          
+        }
+        
+      }
+      
+    })
+    
+  }
   
   
 })
