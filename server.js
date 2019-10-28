@@ -227,6 +227,21 @@ client.on("message", message => {
 });
 //////////////////////////
 
+////// GEÇİCİ KANAL //////
+
+client.on("voiceStateUpdate", async (oldChannel, newChannel) => {
+  
+  const categoryID = "638323890107449373";
+  if (!oldChannel.guild.channels.get(categoryID)) return console.log("kategori bulunamadı");
+  const channelID = "638323937180385300";
+  if (!oldChannel.guild.channels.get(channelID)) return console.log("kanal bulunamadı.");
+  
+  
+  
+})
+
+//////////////////////////
+
 
 
 client.elevation = message => {
