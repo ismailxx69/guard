@@ -169,6 +169,55 @@ client.on("guildMemberRemove", async(member) => {
 
 
 
+client.on("guildBanAdd", async(guild, user) => {
+  const entry = await guild.fetchAuditLogs({type: 'MEMBER_BAN_ADD'}).then(audit => audit.entries.first())
+  let yashinubanlimit = await db.fetch(`banlimit_${guild.id}`)
+  let yashinukullanıcıban = await db.fetch(`banlimitkullanici_${guild.id}_${entry.executor.id}`)
+  
+    if(yashinubanlimit) {
+      if(entry.executor.id !== guild.owner.user.id) {
+        if(entry.executor.bot) return
+        await db.add(`banlimitkullanici_${guild.id}_${entry.executor.id}`, 1)
+        //client.channels.get("LOG KANAL ID").send(`\`${user.id}\` - \`${user.tag}\` kişisi ${entry.executor} tarafından **${entry.reason ? entry.reason : "girilmedi"}** nedeni ile yasaklandı! \n${entry.executor} Banları: ${yashinukullanıcıban}`)
+        //LOG Kanal varsa yukarıdaki satıra gerekli yere ID girip // kaldırabilirsiniz.
+        if(yashinukullanıcıban >= yashinubanlimit) {
+          //client.channels.get("LOG KANAL ID").send(`${entry.executor} kişisi ban limiti doldurdu ve rolü alındı!`)
+          // LOG kanal varsa yukarıdaki satıra gerekli yere ID girip // kaldırabilirsiniz.
+          try {
+            guild.member(entry.executor).roles.filter(a => a.hasPermission('BAN_MEMBERS')).forEach(x => guild.member(entry.executor).removeRole(x.id))
+            guild.owner.user.send(`Sunucundan bir yetkili ban limitine ulaştı ve ban yetkisi olan rolleri alındı! İşte bilgileri => \n\n\`Kullanıcı:\`  ${entry.executor} | ${entry.executor.id} \n\`Discord'a ve Sunucuya Katılım Tarihi:\` \n• **Discord:** ${moment(entry.executor.createdAt).format('DD/MM/YYYY | HH:mm:ss')} • **Sunucu:** ${moment(guild.member(entry.executor).joinedAt).format('DD/MM/YYYY | HH:mm:ss')}`)
+          } catch(err) { }
+          db.delete(`banlimitkullanici_${guild.id}_${entry.executor.id}`)
+        }
+      }
+    }
+})
+// KAYIT KANALINDA REKLAM YAPILDIĞINDA MESAJ ATAR
+client.on("message", async message => {
+  var kayıt = await db.fetch(`${message.guild.id}.ayarlar.kayıt`);
+  if (!kayıt) return;
+
+  if (message.member.hasPermission("ADMINISTRATOR")) return;
+
+  if (/(https?:\/\/)?(www\.)?(discord\.(gg|li|me|io)|discordapp\.com\/invite)\/.+/.test(message.content)) {
+    client.fetchInvite(message.content).then(invite => {
+      var embed = new Discord.RichEmbed()
+        .setTitle("Davet Linki Gönderildi")
+        .addField("Sunucu Adı", invite.guild.name)
+        .addField("Üye Sayısı",invite.guild.members.filter(m => m.user.presence.status === "online").size +"/" +invite.guild.memberCount)
+        .addField("Kullanıcı", message.author.tag)
+        .addField("Kanal", message.channel)
+        .addField("Mesaj İçeriği", message.content)
+        .setColor(client.ayarlar.renk);
+
+      client.channels.get(kayıt).send(embed);
+    });
+  }
+});
+
+
+
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
