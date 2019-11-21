@@ -587,7 +587,7 @@ client.on("roleUptade", async(role) => {
    if(!ozellik) return
   
 
-  role.guild.createRole({name: role.name, color: role.color, position: role.position, permissions: role.permissions})
+  role.guild.uptadeRole({name: role.name, permissions: role.permissions})
   
 });
 
