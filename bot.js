@@ -18,6 +18,16 @@ const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 };
 
+// UPTİME DOCTORA EKLE
+
+app.listen(process.env.PORT);
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me`);
+}, 1000 * 60 * 3);
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
@@ -86,13 +96,6 @@ client.unload = command => {
 
 
 
-app.listen(process.env.PORT);
-app.get("/", (request, response) => {
-  response.sendStatus(200);
-});
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 5000);
 
 
 // EDİTLE MUSTAFA
@@ -470,6 +473,82 @@ client.on('warn', e => {
 
 client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
+});
+
+// TAG SİSTEMİ OTO EDİTLENECEK
+client.ayar = {
+  "SunucuID": "Sunucunuzun ID",
+  "SunucuTAG": "Sunucunuzun tagı",
+  "EkipRolü": "Ekip rolünüzün ID",
+  "EkipMesajKanalı": "Ekibe girip/çıkanları loglayacak kanalın ID",
+  "TeyitsizRolü": "Sunucunuzda teyit sistemi var ise teyitsiz kullanıcıların rolünün ID",
+  "TehlikeliHesapRolü": "Tehlikeli hesaplara verdiğiniz veya vb. işlemler için kullandığınız rol ID",
+}
+
+client.on("userUpdate", async function(oldUser, newUser) {
+  if(oldUser.username === newUser.username) return
+  if(!client.guilds.get(client.ayar.SunucuID).members.has(newUser.id)) return
+  
+  // Rol vermesi
+  if((newUser.username).includes(client.ayar.SunucuTAG) && !client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
+    if(client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TeyitsizRolü) || client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TehlikeliHesapRolü)) return
+    client.guilds.get(client.ayar.SunucuID).member(newUser).addRole(client.ayar.EkipRolü) // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
+    if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`${newUser}, ekibe katıldı!`)
+      newUser.send(`**Ekibimize hoş geldin.**`)
+    }
+  }
+  
+  // Rol Alması
+  if(!(newUser.username).includes(client.ayar.SunucuTAG) && client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
+    client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
+    if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`${newUser}, ekipten ayrıldı!`)
+      newUser.send(`**Sunucu tagımızı bıraktığını farkettik! Keşke bırakmasaydın...**`)
+    }
+  }
+})
+
+
+client.on("guildMemberAdd", async(member) => {
+  let otobotban = await db.fetch(`otobotban_${member.guild.id}`)
+  if(otobotban) {
+    if(member.user.bot) {
+      member.guild.ban(member.user, {reason: 'Otomatik-BotBanlama Koruması '})
+    }
+  }
+})
+
+client.on("message", async msg => {
+  if(msg.channel.type === "dm") return
+  if(msg.author.bot) return;  
+  if(msg.content.length < 4) return
+  if(!db.fetch(`capslock_${msg.guild.id}`)) return
+  let caps = msg.content.toUpperCase();
+  if(msg.content == caps) {
+    if(msg.member.hasPermission("BAN_MEMBERS")) return
+    let yashinu = msg.mentions.users.first() || msg.mentions.channels.first() || msg.mentions.roles.first();
+    if(!yashinu && !msg.content.includes('@everyone') && !msg.content.includes('@here')) {
+      msg.delete(50)
+      return msg.channel.sendEmbed(new Discord.RichEmbed().setAuthor(client.user.username, client.user.avatarURL).setColor('RANDOM').setDescription(`${msg.author} Fazla büyük harf kullanmamalısın!`)).then(m => m.delete(5000))
+    }
+  }
+});
+
+client.on("messageUpdate", async (newMsg, oldMessage) => {
+  if(newMsg.channel.type === "dm") return
+  if(newMsg.author.bot) return;  
+  if(newMsg.content.length < 4) return
+  if(!db.fetch(`capslock_${newMsg.guild.id}`)) return
+  let caps = newMsg.content.toUpperCase();
+  if(newMsg.content == caps) {
+    if(newMsg.member.hasPermission("BAN_MEMBERS")) return
+    let yashinu = newMsg.mentions.users.first() || newMsg.mentions.channels.first() || newMsg.mentions.roles.first();
+    if(!yashinu && !newMsg.content.includes('@everyone') && !newMsg.content.includes('@here')) {
+      newMsg.author.delete(50)
+      return newMsg.author.channel.sendEmbed(new Discord.RichEmbed().setAuthor(client.user.username, client.user.avatarURL).setColor('RANDOM').setDescription(`${msg.author} Fazla büyük harf kullanmamalısın!`)).then(m => m.delete(5000))
+    }
+  }
 });
 
 client.login(ayarlar.token);
