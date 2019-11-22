@@ -98,13 +98,12 @@ client.unload = command => {
 
 
 
-// EDİTLE MUSTAFA
 client.ayar = {
-  "SunucuID": "647086548403355694",
-  "SahipRolüID": "647106232980865034",
-  "TeyitYetkilisi": "647111890170019860",
-  "TeyitsizRolü": "647106242812182529",
-  "TeyitKanal": "647330247783481364",
+  "SunucuID": "Sunucunuzun ID",
+  "SahipRolüID": "Sunucu sahibinin rolünün ID",
+  "TeyitYetkilisi": "Teyit yetkilisi rolünün ID",
+  "TeyitsizRolü": "Teyitsiz kişilerin rol ID",
+  "TeyitKanal": "Sunucuya katılan kişilerin teyit edileceği kanalın ID",
   "ErkekÜye": "647106240861962280",
   "KızÜye": "647106241314684938",
   "SohbetKanalID": "647300952931434507"

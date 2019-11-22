@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 exports.run = async (client, message, args) => {
-  if(!message.member.roles.has(client.ayar.SahipRolüID) || !message.member.roles.has(client.ayar.TeyitYetkilisi)) return message.reply('Yetkin Yetmiyor Kardeşim!:blush:');
+  if(!message.member.roles.has(client.ayar.SahipRolüID) && !message.member.roles.has(client.ayar.TeyitYetkilisi)) return message.reply('Bu komutu kullanabilmek için teyit yetkilisi olmalısın!');
   let user = message.mentions.users.first() || client.users.get(args[0]);
   if(!user) return message.reply(`**Geçerli bir kişi belirtmelisin!**`).then(x => x.delete(5000));
   await(message.guild.member(user).removeRole(client.ayar.TeyitsizRolü));
