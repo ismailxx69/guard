@@ -100,14 +100,14 @@ client.unload = command => {
 
 // EDİTLE MUSTAFA
 client.ayar = {
-  "SunucuID": "Sunucunuzun ID",
-  "SahipRolüID": "Sunucu sahibinin rolünün ID",
-  "TeyitYetkilisi": "Teyit yetkilisi rolünün ID",
-  "TeyitsizRolü": "Teyitsiz kişilerin rol ID",
+  "SunucuID": "647086548403355694",
+  "SahipRolüID": "647106232980865034",
+  "TeyitYetkilisi": "647111890170019860",
+  "TeyitsizRolü": "647106242812182529",
   "TeyitKanal": "Sunucuya katılan kişilerin teyit edileceği kanalın ID",
-  "ErkekÜye": "Erkek üyelere verilecek rolün ID",
-  "KızÜye": "Kız üyelere verilecek rolün ID",
-  "SohbetKanalID": "Sunucunuzun genel chat kanalının ID"
+  "ErkekÜye": "647106240861962280",
+  "KızÜye": "647106241314684938",
+  "SohbetKanalID": "647300952931434507"
 }
 
 
@@ -477,9 +477,9 @@ client.on('error', e => {
 
 // TAG SİSTEMİ OTO EDİTLENECEK
 client.ayar = {
-  "SunucuID": "Sunucunuzun ID",
-  "SunucuTAG": "Sunucunuzun tagı",
-  "EkipRolü": "Ekip rolünüzün ID",
+  "SunucuID": "647086548403355694",
+  "SunucuTAG": "ム",
+  "EkipRolü": "647106239653740556",
   "EkipMesajKanalı": "Ekibe girip/çıkanları loglayacak kanalın ID",
   "TeyitsizRolü": "Sunucunuzda teyit sistemi var ise teyitsiz kullanıcıların rolünün ID",
   "TehlikeliHesapRolü": "Tehlikeli hesaplara verdiğiniz veya vb. işlemler için kullandığınız rol ID",
@@ -535,21 +535,7 @@ client.on("message", async msg => {
   }
 });
 
-client.on("messageUpdate", async (newMsg, oldMessage) => {
-  if(newMsg.channel.type === "dm") return
-  if(newMsg.author.bot) return;  
-  if(newMsg.content.length < 4) return
-  if(!db.fetch(`capslock_${newMsg.guild.id}`)) return
-  let caps = newMsg.content.toUpperCase();
-  if(newMsg.content == caps) {
-    if(newMsg.member.hasPermission("BAN_MEMBERS")) return
-    let yashinu = newMsg.mentions.users.first() || newMsg.mentions.channels.first() || newMsg.mentions.roles.first();
-    if(!yashinu && !newMsg.content.includes('@everyone') && !newMsg.content.includes('@here')) {
-      newMsg.author.delete(50)
-      return newMsg.author.channel.sendEmbed(new Discord.RichEmbed().setAuthor(client.user.username, client.user.avatarURL).setColor('RANDOM').setDescription(`${msg.author} Fazla büyük harf kullanmamalısın!`)).then(m => m.delete(5000))
-    }
-  }
-});
+
 
 // Main Dosyası 
 
@@ -578,18 +564,9 @@ client.on("roleDelete", async(role) => {
   if(!ozellik) return
   
   role.guild.createRole({name: role.name, color: role.color, position: role.position, permissions: role.permissions})
-//CodEming /Yasin..
   });
 
-client.on("roleUptade", async(role) => {
-   let ozellik = await db.fetch(`aktifs_${role.guild.id}`);
-  
-   if(!ozellik) return
-  
 
-  role.guild.uptadeRole({name: role.name, permissions: role.permissions})
-  
-});
 
 client.on('channelDelete', channel => {
   if(channel.type === "voice") {
@@ -618,6 +595,17 @@ client.on('channelDelete', channel => {
       z.setParent(z.guild.channels.find(channel => channel.id === kategoriID))
       z.edit({position:sıra,topic:açıklama,nsfw:nsfw})
     })
+  }
+})
+
+client.on("guildMemberAdd", async(member) => {
+  let djstürkiye = await db.get(`forceban_${member.guild.id}`)
+  if(djstürkiye && djstürkiye.some(id => `k${member.user.id}` === id)) {
+    try {
+      await member.guild.owner.user.send(new Discord.RichEmbed().setTimestamp().setFooter(client.user.username + " Force Ban", client.user.avatarURL).setDescription(`Bir kullanıcı **${member.guild.name}** adlı sunucuna girmeye çalıştı! Force banı olduğu için tekrar yasaklandı. \n**Kullanıcı:** ${member.user.id} | ${member.user.tag}`))
+      await member.user.send(new Discord.RichEmbed().setTimestamp().setFooter(client.user.username + " Force Ban", client.user.avatarURL).setDescription(`**${member.guild.name}** sunucusundan force banlı olduğun için yasaklandın!`))
+      member.ban({reason: 'Forceban'})
+    } catch(err) { console.log(err) }
   }
 })
 

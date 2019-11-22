@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json');
 exports.run = async(client, message, args) => {
   let yashinu = "TAG" //Suncuu tagınız
   await message.author.send(yashinu)
-  message.reply(`Sunucu tagımızı özelden gönderdim. Tagımızı **kullanıcı adının** herhangi bir yerine alarak bizden biri olabilirsin.`)
+  message.reply(`Sunucu Tagımız; **ム**`)
 };
 
 exports.conf = {
