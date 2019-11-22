@@ -480,9 +480,9 @@ client.ayar = {
   "SunucuID": "647086548403355694",
   "SunucuTAG": "ム",
   "EkipRolü": "647106239653740556",
-  "EkipMesajKanalı": "Ekibe girip/çıkanları loglayacak kanalın ID",
-  "TeyitsizRolü": "Sunucunuzda teyit sistemi var ise teyitsiz kullanıcıların rolünün ID",
-  "TehlikeliHesapRolü": "Tehlikeli hesaplara verdiğiniz veya vb. işlemler için kullandığınız rol ID",
+  "EkipMesajKanalı": "647310364484173824",
+  "TeyitsizRolü": "647106242812182529",
+  "TehlikeliHesapRolü": "647112115890421785",
 }
 
 client.on("userUpdate", async function(oldUser, newUser) {
