@@ -104,7 +104,7 @@ client.ayar = {
   "SahipRolüID": "647106232980865034",
   "TeyitYetkilisi": "647111890170019860",
   "TeyitsizRolü": "647106242812182529",
-  "TeyitKanal": "Sunucuya katılan kişilerin teyit edileceği kanalın ID",
+  "TeyitKanal": "647330247783481364",
   "ErkekÜye": "647106240861962280",
   "KızÜye": "647106241314684938",
   "SohbetKanalID": "647300952931434507"
