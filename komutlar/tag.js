@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = async(client, message, args) => {
-  let yashinu = "TAG" //Suncuu tagınız
+  let yashinu = "Yüce Tagımız **ム**  " //Suncuu tagınız
   await message.author.send(yashinu)
   message.reply(`Sunucu Tagımız; **ム**`)
 };
