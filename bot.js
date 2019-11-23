@@ -513,35 +513,7 @@ client.on("roleDelete", async(role) => {
 
 
 
-client.on('channelDelete', channel => {
-  if(channel.type === "voice") {
-    console.log(`${channel.name} adlı sesli kanal silindi.`)
-    let kategoriID = channel.parentID;
-    let isim = channel.name;
-    let sıra = channel.position;
-    let limit = channel.userLimit;
-    channel.guild.owner.send(`Merhaba. **${channel.guild.name}** adlı sunucunuzda, \`${channel.name}\` adlı sesli kanalı silindi ama ben o kanalı tekrardan onardım.`)
-    channel.clone(this.name,true,false).then(kanal => {
-      let z = kanal.guild.channels.get(kanal.id)
-      z.setParent(z.guild.channels.find(channel => channel.id === kategoriID))
-      z.edit({position:sıra,userLimit:limit})
-    })
-  }
-  if(channel.type === "text") {
-    console.log(`${channel.name} adlı metin kanalı silindi.`)
-    let açıklama = channel.topic;
-    let kategoriID = channel.parentID;
-    let isim = channel.name;
-    let sıra = channel.position;
-    let nsfw = channel.nsfw;
-    channel.guild.owner.send(`Merhaba. **${channel.guild.name}** adlı sunucunuzda, \`${channel.name}\` adlı metin kanalı silindi ama ben o kanalı tekrardan onardım.`)
-    channel.clone(this.name,true,true).then(kanal => {
-      let z = kanal.guild.channels.get(kanal.id)
-      z.setParent(z.guild.channels.find(channel => channel.id === kategoriID))
-      z.edit({position:sıra,topic:açıklama,nsfw:nsfw})
-    })
-  }
-})
+
 
 client.on("guildMemberAdd", async(member) => {
   let djstürkiye = await db.get(`forceban_${member.guild.id}`)
@@ -562,7 +534,7 @@ client.on('channelDelete', channel => {
     let isim = channel.name;
     let sıra = channel.position;
     let limit = channel.userLimit;
-client.users.get('').send('Haşmetlim **'+message.guild.name+**' adlı sunucunuzda, \`${channel.name}\` adlı sesli kanalı silindi ama ben o kanalı tekrardan onardım.')
+client.users.get('629902119373242368').send('Haşmetlim **'+channel.guild.name+'** adlı sunucumuzda , **'+channel.name+'** adlı sesli kanalı silindi ama ben o kanalı tekrardan onardım.')
     channel.clone(this.name,true,false).then(kanal => {
       let z = kanal.guild.channels.get(kanal.id)
       z.setParent(z.guild.channels.find(channel => channel.id === kategoriID))
@@ -576,7 +548,7 @@ client.users.get('').send('Haşmetlim **'+message.guild.name+**' adlı sunucunuz
     let isim = channel.name;
     let sıra = channel.position;
     let nsfw = channel.nsfw;
-    channel.guild.owner.send(`Merhaba. **${channel.guild.name}** adlı sunucunuzda, \`${channel.name}\` adlı metin kanalı silindi ama ben o kanalı tekrardan onardım.`)
+    client.users.get('629902119373242368').send('Haşmetlim **'+channel.guild.name+'** adlı sunucumuzda , **'+channel.name+'** adlı yazı kanalı silindi ama ben o kanalı tekrardan onardım.')
     channel.clone(this.name,true,true).then(kanal => {
       let z = kanal.guild.channels.get(kanal.id)
       z.setParent(z.guild.channels.find(channel => channel.id === kategoriID))
