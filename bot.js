@@ -100,7 +100,7 @@ client.unload = command => {
 
 client.ayar = {
   "SunucuID": "647086548403355694",
-  "SahipRolüID": "647106232980865034",
+  "SahipRolüID": "460813657811582986",
   "TeyitYetkilisi": "647111890170019860",
   "TeyitsizRolü": "647106242812182529",
   "TeyitKanal": "647330247783481364",
