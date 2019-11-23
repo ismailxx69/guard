@@ -556,4 +556,6 @@ client.on("guildMemberAdd", async(member) => {
 
 
 
+
+
 client.login(ayarlar.token);
