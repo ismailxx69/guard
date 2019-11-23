@@ -558,4 +558,8 @@ client.users.get('629902119373242368').send('Haşmetlim **'+channel.guild.name+'
 })
 
 
+client.on("guildMemberAdd", member => {
+     member.setNickname("İsmini Teyit Görevlisine Bildir")    
+   })
+
 client.login(ayarlar.token);
