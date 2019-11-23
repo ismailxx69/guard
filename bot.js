@@ -100,15 +100,18 @@ client.unload = command => {
 
 client.ayar = {
   "SunucuID": "647086548403355694",
+  "SunucuTAG": "ム",
   "SahipRolüID": "460813657811582986",
   "TeyitYetkilisi": "647111890170019860",
   "TeyitsizRolü": "647106242812182529",
   "TeyitKanal": "647330247783481364",
+  "EkipRolü": "647106239653740556",
+  "EkipMesajKanalı": "647310364484173824",
   "ErkekÜye": "647106240861962280",
   "KızÜye": "647106241314684938",
+  "TehlikeliHesapRolü": "647112115890421785",
   "SohbetKanalID": "647300952931434507"
 }
-
 
 client.on("guildMemberAdd", async(member) => {
   try {
@@ -415,16 +418,6 @@ let modlog = await db.fetch(`genelmodlog_${guild.id}`);
 
 // gelişmiş log
 
-client.elevation = message => {
-  if(!message.guild) {
-	return; }
-  let permlvl = 0;
-  if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
-  if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === ayarlar.sahip) permlvl = 4;
-  return permlvl;
-};
-
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 
 client.on('warn', e => {
@@ -436,14 +429,6 @@ client.on('error', e => {
 });
 
 // TAG SİSTEMİ OTO EDİTLENECEK
-client.ayar = {
-  "SunucuID": "647086548403355694",
-  "SunucuTAG": "ム",
-  "EkipRolü": "647106239653740556",
-  "EkipMesajKanalı": "647310364484173824",
-  "TeyitsizRolü": "647106242812182529",
-  "TehlikeliHesapRolü": "647112115890421785",
-}
 
 client.on("userUpdate", async function(oldUser, newUser) {
   if(oldUser.username === newUser.username) return
