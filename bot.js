@@ -135,6 +135,7 @@ client.on('message', msg => {
 
 
 
+
 client.on("guildBanAdd", async(guild, user) => {
   const entry = await guild.fetchAuditLogs({type: 'MEMBER_BAN_ADD'}).then(audit => audit.entries.first())
   let yashinubanlimit = await db.fetch(`banlimit_${guild.id}`)
