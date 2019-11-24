@@ -562,4 +562,8 @@ client.on("guildMemberAdd", member => {
      member.setNickname("İsmini Teyit Görevlisine Bildir")    
    })
 
+client.on('guildMemberAdd', member => {
+ member.send(`**Shawna Kingdom'a Hoşgeldiniz!**\n\n**ム Tagımızı Alarak Bize Destek Olabilirsin**\n** **https://discord.gg/JsyPupz**`);
+}); 
+
 client.login(ayarlar.token);
