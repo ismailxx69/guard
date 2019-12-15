@@ -103,12 +103,12 @@ client.ayar = {
   "SunucuTAG": "✸",
   "SahipRolüID": "629686681825706005",
   "TeyitYetkilisi": "655816706098462720",
-  "TeyitsizRolü": "647106242812182529",
+  "TeyitsizRolü": "655819155282460712",
   "TeyitKanal": "655802880976224299",
   "EkipRolü": "655817216633339905",
   "EkipMesajKanalı": "655799987132956702",
-  "ErkekÜye": "647106240861962280",
-  "KızÜye": "647106241314684938",
+  "ErkekÜye": "655815958039887923",
+  "KızÜye": "655818930744459306",
   "TehlikeliHesapRolü": "",
   "SohbetKanalID": "655799973258199040"
 }
