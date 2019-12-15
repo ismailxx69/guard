@@ -160,27 +160,6 @@ client.on("guildBanAdd", async(guild, user) => {
     }
 })
 // KAYIT KANALINDA REKLAM YAPILDIĞINDA MESAJ ATAR
-client.on("message", async message => {
-  var kayıt = await db.fetch(`${message.guild.id}.ayarlar.kayıt`);
-  if (!kayıt) return;
-
-  if (message.member.hasPermission("ADMINISTRATOR")) return;
-
-  if (/(https?:\/\/)?(www\.)?(discord\.(gg|li|me|io)|discordapp\.com\/invite)\/.+/.test(message.content)) {
-    client.fetchInvite(message.content).then(invite => {
-      var embed = new Discord.RichEmbed()
-        .setTitle("Davet Linki Gönderildi")
-        .addField("Sunucu Adı", invite.guild.name)
-        .addField("Üye Sayısı",invite.guild.members.filter(m => m.user.presence.status === "online").size +"/" +invite.guild.memberCount)
-        .addField("Kullanıcı", message.author.tag)
-        .addField("Kanal", message.channel)
-        .addField("Mesaj İçeriği", message.content)
-        .setColor(client.ayarlar.renk);
-
-      client.channels.get(kayıt).send(embed);
-    });
-  }
-});
 
 
 // GELİŞMİŞ LOG
@@ -441,7 +420,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).addRole(client.ayar.EkipRolü) // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
       client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`${newUser}, ekibe katıldı!`)
-      newUser.send(`**Ekibimize hoş geldin.**`)
+      newUser.send(`**Selam Kanka Ailemize Hoşgeldin!Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
     }
   }
   
@@ -449,8 +428,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
   if(!(newUser.username).includes(client.ayar.SunucuTAG) && client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`${newUser}, ekipten ayrıldı!`)
-      newUser.send(`**Sunucu tagımızı bıraktığını farkettik! Keşke bırakmasaydın...**`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`${newUser},Ekibimizden Ayrıldı :( !`)
+      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **✸** Görüşürüz <3 **`)
     }
   }
 })
@@ -485,13 +464,6 @@ client.on("message", async msg => {
 
 // Main Dosyası 
 
-client.on("message", async message => {
-    if (message.member.hasPermission('MANAGE_GUILD')) return;
-    let links = message.content.match(/(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/gi);
-    if (!links) return;
-    if (message.deletable) message.delete();
-    message.channel.send(`Hey ${message.author}, sunucuda link paylaşamazsın!`)
-})
 
 const { RichEmbed } = require("discord.js")
 client.on("message", async message => {
@@ -560,11 +532,11 @@ client.users.get('629902119373242368').send('Haşmetlim **'+channel.guild.name+'
 
 
 client.on("guildMemberAdd", member => {
-     member.setNickname("İsmini Teyit Görevlisine Bildir")    
+     member.setNickname("✸ İsmini Teyit Görevlisine Bildir")    
    })
 
 client.on('guildMemberAdd', member => {
- member.send(`**Shawna Kingdom'a Hoşgeldiniz!**\n\n**ム Tagımızı Alarak Bize Destek Olabilirsin**\n** **https://discord.gg/JsyPupz**`);
+ member.send(`**Zedestergon'a Hoşgeldiniz!**\n\n**✸ Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
 }); 
 
 client.login(ayarlar.token);
