@@ -99,9 +99,9 @@ client.unload = command => {
 
 
 client.ayar = {
-  "SunucuID": "647086548403355694",
-  "SunucuTAG": "ム",
-  "SahipRolüID": "460813657811582986",
+  "SunucuID": "655799389595369473",
+  "SunucuTAG": "✸",
+  "SahipRolüID": "629686681825706005",
   "TeyitYetkilisi": "647111890170019860",
   "TeyitsizRolü": "647106242812182529",
   "TeyitKanal": "647330247783481364",
@@ -428,7 +428,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
   if(!(newUser.username).includes(client.ayar.SunucuTAG) && client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`<a:zil:655810721791082510> Ailemizden ${newUser},Ayrıldı!Bu Bizi Çok Üzdü :( `)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`<a:zil:655810721791082510> **Ailemizden ${newUser},Ayrıldı!Bu Bizi Çok Üzdü :(** `)
       newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **✸** Görüşürüz <3 **`)
     }
   }
