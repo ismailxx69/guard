@@ -116,7 +116,7 @@ client.ayar = {
 client.on("guildMemberAdd", async(member) => {
   try {
     await(member.addRole(client.ayar.TeyitsizRolü))
-    await client.channels.get(client.ayar.TeyitKanal).send(`Sunucuya hoş geldin ${member}, seninle **${member.guild.memberCount}** kişiyiz! \n<@&${client.ayar.TeyitYetkilisi}> rolündeki yetkililer seninle ilgilenecektir.`)
+    await client.channels.get(client.ayar.TeyitKanal).send("<a:hyper:655810715503951893> Selam ${member}, '+guild.name+' seninle **${member.guild.memberCount}** kişiyiz! \n<@&${client.ayar.TeyitYetkilisi}> rolündeki yetkililer seninle ilgilenecektir.")
   } catch(err) { }
 })
 // EDİT AT MUSTAFA
