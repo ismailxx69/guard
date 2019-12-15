@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
   await(message.guild.member(user).addRole(client.ayar.ErkekÜye));
   
   await message.channel.send(new Discord.RichEmbed().setAuthor("Başarıyla Teyit Yapıldı!", message.guild.iconURL).setFooter(client.user.username, client.user.avatarURL).setTimestamp().setThumbnail(user.avatarURL).addField('Teyit Bilgileri', `**Teyit Edilen Kullanıcı:** ${user} \n**Verilen Rol:** ${message.guild.roles.get(client.ayar.ErkekÜye)} \n**Teyit Eden Yetkili:** ${message.author}`))
-  await client.channels.get(client.ayar.SohbetKanalID).send(`Beyleer Bayanlaar ${user} Aramıza Katıldı Hemen Selamlayın Ayıp Olmasın :blush:`)
+  
 };
 
 exports.conf = {
