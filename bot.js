@@ -102,15 +102,15 @@ client.ayar = {
   "SunucuID": "655799389595369473",
   "SunucuTAG": "✸",
   "SahipRolüID": "629686681825706005",
-  "TeyitYetkilisi": "647111890170019860",
+  "TeyitYetkilisi": "655816706098462720",
   "TeyitsizRolü": "647106242812182529",
-  "TeyitKanal": "647330247783481364",
-  "EkipRolü": "647106239653740556",
-  "EkipMesajKanalı": "647310364484173824",
+  "TeyitKanal": "655802880976224299",
+  "EkipRolü": "655817216633339905",
+  "EkipMesajKanalı": "655799987132956702",
   "ErkekÜye": "647106240861962280",
   "KızÜye": "647106241314684938",
-  "TehlikeliHesapRolü": "647112115890421785",
-  "SohbetKanalID": "647300952931434507"
+  "TehlikeliHesapRolü": "",
+  "SohbetKanalID": "655799973258199040"
 }
 
 client.on("guildMemberAdd", async(member) => {
