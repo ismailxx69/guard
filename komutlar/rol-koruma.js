@@ -29,7 +29,7 @@ db.set(`aktifs_${message.guild.id}`, message.guild.id)
   return 
 }
   
- message.channel.send('bir değer belirtmelisin. `!rol-koruma açık`,`!rol-koruma kapalı`') 
+ message.channel.send('bir değer belirtmelisin. `z!rol-koruma açık`,`z!rol-koruma kapalı`') 
       
   //CodEming / Yasin..
   
