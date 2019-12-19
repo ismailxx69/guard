@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = function(client, message) {
  
-  var role = message.guild.roles.find(role => role.name === "Normie"); // JS Rolünün Tam Isminin Yazin
+  var role = message.guild.roles.find(role => role.name === "Boy"); // JS Rolünün Tam Isminin Yazin
   var role2 = message.guild.roles.find(role => role.name === "Unregistered") // kanka burda hata verirse ) nin sağına ; koy
   if (message.member.roles.has(role.id)) return message.channel.send("**⛔ Zaten bu role sahipsin!**")
   message.member.addRole(role);
