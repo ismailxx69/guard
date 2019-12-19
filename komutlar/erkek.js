@@ -3,11 +3,11 @@ const Discord = require('discord.js');
 exports.run = function(client, message) {
  
   var role = message.guild.roles.find(role => role.name === "Normie"); // JS Rolünün Tam Isminin Yazin
-  var role2 = message.guild.roles.find(role => role.name === "🧻Members") // kanka burda hata verirse ) nin sağına ; koy
+  var role2 = message.guild.roles.find(role => role.name === "Unregistered") // kanka burda hata verirse ) nin sağına ; koy
   if (message.member.roles.has(role.id)) return message.channel.send("**⛔ Zaten bu role sahipsin!**")
   message.member.addRole(role);
   message.member.removeRole(role2);
-  message.channel.send(`**JavaScript rolün başarıyla verildi!**`);
+  message.channel.send(`**Erkek rolün başarıyla verildi!**`);
 };
 
 exports.conf = {
