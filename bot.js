@@ -95,6 +95,14 @@ client.unload = command => {
 };
 
 
+client.ayar = {
+  "SunucuID": "657549332853162004",
+  "SunucuTAG": "❁",
+  "SahipRolüID": "629686681825706005",
+  "EkipRolü": "657554113134985247",
+  "EkipMesajKanalı": "657565532316237834",
+
+}
 
 
 
@@ -111,7 +119,7 @@ client.on("guildMemberAdd", async(member) => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
 		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.author.sendMessage('Aleyküm selam,  hoş geldin ^^'); 
+			msg.author.sendMessage('Aleyküm selam,  hoş geldin '); 
 		} else {
 		msg.reply('Aleyküm selam, hoş geldin ^^');
 		}
@@ -416,7 +424,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
       client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`<a:zil:655810721791082510> **Ailemizden ${newUser},Ayrıldı!Bu Bizi Çok Üzdü :(** `)
-      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **✸** Görüşürüz <3 **`)
+      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **❁** Görüşürüz <3 **`)
     }
   }
 })
