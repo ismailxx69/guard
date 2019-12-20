@@ -53,7 +53,7 @@ exports.conf = {
 exports.help = {
   name: 'sil', 
   description: 'Belirtilen miktarda mesajı siler.', 
-  usage: 'temizle <miktar>',
+  usage: 'clear <miktar>',
   kategori: 'yetkili'
 };
 //Yashinu
