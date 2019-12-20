@@ -96,11 +96,11 @@ client.unload = command => {
 
 
 client.ayar = {
-  "SunucuID": "657549332853162004",
-  "SunucuTAG": "❁",
-  "SahipRolüID": "629686681825706005",
-  "EkipRolü": "657554113134985247",
-  "EkipMesajKanalı": "657565532316237834",
+  "SunucuID": "640513205961228298",
+  "SunucuTAG": "★",
+  "SahipRolüID": "462979212823887878",
+  "EkipRolü": "640536539331297290",
+  "EkipMesajKanalı": "657596905399910446",
 
 }
 
@@ -499,11 +499,11 @@ client.on("guildMemberAdd", async(member) => {
 
 
 client.on("guildMemberAdd", member => {
-     member.setNickname("❁ İsmini Teyit Görevlisine Bildir")    
+     member.setNickname("İsmini Teyit Görevlisine Bildir")    
    })
 
 client.on('guildMemberAdd', member => {
- member.send(`**Bendis'e Hoşgeldiniz!**\n\n**† Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
+ member.send(`**Bendis'e Hoşgeldiniz!**\n\n**★ Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
 }); 
 
 client.login(ayarlar.token);
@@ -516,9 +516,9 @@ client.login(ayarlar.token);
 
 client.on("guildMemberAdd", member => {
 
-if(member.guild.id !== "657549332853162004") return; //tırnak işareti arasına sunucu id
+if(member.guild.id !== "640513205961228298") return; //tırnak işareti arasına sunucu id
 let eskiNick = member.user.username;
-const id = "657554292605059072" //Kanal id
+const id = "640514336464437249" //Kanal id
 const channel  = member.guild.channels.get(id);
-channel.send(" Merhabalar, <@"+member.user.id+"> **Bendis**'e Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n Sunucuya erişim sağlayabilmek için;\n\n  `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n <@&657552613218451484> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+channel.send(" Merhabalar, <@"+member.user.id+"> **★ Phoenix %55**'e Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n Sunucuya erişim sağlayabilmek için;\n\n  `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n <@&640536536156209188> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });

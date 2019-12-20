@@ -8,8 +8,8 @@ if(!message.member.roles.has("657552685540835329")) return message.channel.send(
   if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
-  member.addRole('657553104488759298')
-  member.removeRole('657553238412886016')
+  member.addRole('640536543601098763')
+  member.removeRole('640554932163969036')
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .addField(`Kadın olarak kayıt edilmiştir. <:heavy_check_mark: > `, ` <@&657553104488759298> rolü başarıyla verilmiştir. <:heavy_check_mark: >  
