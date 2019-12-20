@@ -512,3 +512,18 @@ client.on('guildMemberAdd', member => {
 }); 
 
 client.login(ayarlar.token);
+
+
+
+
+
+
+
+client.on("guildMemberAdd", member => {
+
+if(member.guild.id !== "654709509675286538") return; //tırnak işareti arasına sunucu id
+let eskiNick = member.user.username;
+const id = "657235266385346581" //Kanal id
+const channel  = member.guild.channels.get(id);
+channel.send(" Merhabalar, <@"+member.user.id+"> **Aura**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n Sunucuya erişim sağlayabilmek için;\n\n  `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n:sa:  <@&654722889572155402> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+});
