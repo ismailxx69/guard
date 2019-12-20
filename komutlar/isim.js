@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json');
 const prefix = ayarlar.prefix
 
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has("654722889572155402")) return message.reply('Bu komutu kullanabilmek için \`Kayıt Sorumlusu\` rolüne sahip olmalısın.');
+ if (!message.member.roles.has("657552685540835329")) return message.reply('Bu komutu kullanabilmek için \`Bendis Bot Komut\` rolüne sahip olmalısın.');
   message.member.roles.has("605791138619588638")
   let isim = args.slice(1).join(' ');
   let tag = "✧"
