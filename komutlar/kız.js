@@ -1,32 +1,37 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
-var prefix = ayarlar.prefix;
-//Yashinu
 exports.run = async (client, message, args) => {
-  if(!message.member.roles.has(client.ayar.SahipRolüID) && !message.member.roles.has(client.ayar.TeyitYetkilisi)) return message.reply('Bu komutu kullanabilmek için teyit yetkilisi olmalısın!');
-  let user = message.mentions.users.first() || client.users.get(args[0]);
-  if(!user) return message.reply(`**Geçerli bir kişi belirtmelisin!**`).then(x => x.delete(5000));
-  await(message.guild.member(user).removeRole(client.ayar.TeyitsizRolü));
-  if(message.guild.member(user).roles.has(client.ayar.ErkekÜye)) {
-    await(message.guild.member(user).removeRole(client.ayar.ErkekÜye))
-  }
-  await(message.guild.member(user).addRole(client.ayar.KızÜye));
- 
-  await message.channel.send(new Discord.RichEmbed().setAuthor("Teyit Yapıldı!", message.guild.iconURL).setFooter(client.user.username, client.user.avatarURL).setTimestamp().setThumbnail(user.avatarURL).addField('Teyit Bilgileri', `**Teyit Edilen Kullanıcı:** ${user} \n**Verilen Rol:** ${message.guild.roles.get(client.ayar.KızÜye)} \n**Teyit Eden Yetkili:** ${message.author}`))
 
+if(!message.member.roles.has("652461032580579338")) return message.channel.send(`Bu komutu kullanabilmen için <@&652461032580579338> yetkiye sahip olman lazım.`);
+  let kullanıcı = message.mentions.users.first()
+  if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
+  let rol = message.mentions.roles.first()
+  let member = message.guild.member(kullanıcı)
+  member.addRole('655387222551298079')
+  member.removeRole('655722455238967306')
+  let embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .addField(`Kadın olarak kayıt edilmiştir. <:heavy_check_mark: > `, ` <@&655387222551298079> rolü başarıyla verilmiştir. <:heavy_check_mark: >  
+   Etiketlediğiniz kişiden başarıyla <@&655722455238967306> rolü başarıyla alınmıştır. <:heavy_check_mark: >`)
+  .setThumbnail(client.user.avatarURL)
+  .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
+  return message.channel.send(embed)
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ['k', 'woman', 'girl'],
+  guildOnly: true,
+  aliases: [],
+  kategori: "KULLANICI KOMUTLARI",
   permLevel: 0
-};
+}
 
 exports.help = {
-  name: 'kız',
-  description: 'Etiketlenen kullanıcıya kız permi verir.',
-  usage: 'kız @etiket/id',
-  kategori: 'yetkili'
-};
+  name: 'kadın',
+  description: "Sunucuya kaydolmaya ne dersin ?",
+  usage: 'kayıt isim yaş'
+}
+
+
+// Positive Sunar

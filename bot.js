@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+  const Discord = require('discord.js');
 const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
@@ -98,20 +98,7 @@ client.unload = command => {
 
 
 
-client.ayar = {
-  "SunucuID": "654709509675286538  ",
-  "SunucuTAG": "†",
-  "SahipRolüID": "629686681825706005",
-  "TeyitYetkilisi": "654712017759764482",
-  "TeyitsizRolü": "655819155282460712",
-  "TeyitKanal": "655802880976224299",
-  "EkipRolü": "655817216633339905",
-  "EkipMesajKanalı": "655799987132956702",
-  "ErkekÜye": "654715538815320064",
-  "KızÜye": "654715482032832512",
-  "TehlikeliHesapRolü": "",
-  "SohbetKanalID": "655799973258199040"
-}
+
 
 client.on("guildMemberAdd", async(member) => {
   try {

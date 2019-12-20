@@ -1,24 +1,37 @@
 const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
 
-exports.run = function(client, message) {
- 
-  var role = message.guild.roles.find(role => role.name === "Boy"); // JS Rolünün Tam Isminin Yazin
-  var role2 = message.guild.roles.find(role => role.name === "Unregistered") // kanka burda hata verirse ) nin sağına ; koy
-  if (message.member.roles.has(role.id)) return message.channel.send("**⛔ Zaten bu role sahipsin!**")
-  message.member.addRole(role);
-  message.member.removeRole(role2);
-  message.channel.send(`**Erkek rolün başarıyla verildi!**`);
+exports.run = async (client, message, args) => {
+
+if(!message.member.roles.has("652461032580579338")) return message.channel.send(`Bu komutu kullanabilmen için <@&652461032580579338> yetkiye sahip olman lazım.`);
+  let kullanıcı = message.mentions.users.first()
+  if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
+  let rol = message.mentions.roles.first()
+  let member = message.guild.member(kullanıcı)
+  member.addRole('652461038171717632')
+  member.removeRole('652461045096382466')
+  let embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .addField(`Erkek olarak kayıt edilmiştir. <:heavy_check_mark: > `, ` <@&652461038171717632> rolü başarıyla verilmiştir. <:heavy_check_mark: >  
+   Etiketlediğiniz kişiden başarıyla <@&652461045096382466> rolü başarıyla alınmıştır. <:heavy_check_mark: >`)
+  .setThumbnail(client.user.avatarURL)
+  .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
+  return message.channel.send(embed)
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ['discord.js','javascript'],
+  guildOnly: true,
+  aliases: [],
+  kategori: "KULLANICI KOMUTLARI",
   permLevel: 0
-};
+}
 
 exports.help = {
   name: 'erkek',
-  description: 'JavaScript kanallarına erişim sağlar.',
-  usage: 'erkek'
-};
+  description: "Sunucuya kaydolmaya ne dersin ?",
+  usage: 'kayıt isim yaş'
+}
+
+
+// Positive Sunar
