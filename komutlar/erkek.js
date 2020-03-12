@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
 
-if(!message.member.roles.has("687629969673027596")) return message.channel.send(`Bu komutu kullanabilmen için <@&687629969673027596> yetkiye sahip olman lazım.`);
+if(!message.member.roles.has("687629969673027596")) return message.reply(`Bu komutu kullanabilmen için <@&687629969673027596> yetkiye sahip olman lazım.`);
   let kullanıcı = message.mentions.users.first()
   if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
   let rol = message.mentions.roles.first()

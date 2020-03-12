@@ -1,29 +1,34 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const ayarlar = require('../ayarlar.json');
-const prefix = ayarlar.prefix
+const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has("657552685540835329")) return message.reply('Bu komutu kullanabilmek için \`Bendis Bot Komut\` rolüne sahip olmalısın.');
-  message.member.roles.has("605791138619588638")
-  let isim = args.slice(1).join(' ');
-  let tag = "✧"
-  let kullanici = message.mentions.users.first();
-  if(!kullanici) return message.reply(`:warning: Lütfen bir kullanıcı giriniz!`)
-  if(!isim) return message.reply(`:warning: Lütfen bir kullanıcı adı giriniz!`)
-  if(isim.length > 32) return message.reply(`:warning: Lütfen \`32\` karakteri geçmeyecek şekilde bir isim giriniz!`)
-  message.guild.members.get(kullanici.id).setNickname(`${tag} ${isim}`)
-  message.react("655425865710305320")
-}
-exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: ['nick'],
-    permLevel: 0
-}
+if  (!message.member.roles.has("687629969673027596")) return message.reply('Bu komutu kullanabilmek için <@&687629969673027596> rolüne sahip olmalısın.');
+  const emoji = client.emojis.find(emoji => emoji.name === "tik");
+  let member = message.mentions.members.first();
+  let isim = args[1];
+  let yaş = args[2];
+  let tag = "ヤ"
+  if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
+  if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
+  if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");
+  member.setNickname(`${tag} ${isim} • ${yaş}`);
+  const embed = new Discord.RichEmbed()
+    .addField(
+      `**İsim Başarıyla Değiştirildi **`,
+      `\n**İsmi Değiştirilen Kullanıcı:** ${member.user} \n **Yeni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
+    )
+    .setFooter(`Literary`)
+    .setThumbnail(client.user.avatarURL);
+  message.channel.send(embed);
+};
 
+exports.conf = {
+  enabled: true, 
+  guildOnly: true,
+  aliases: ["nick", "isim"],
+  permLevel: 0
+};
 exports.help = {
-    name: 'nick',
-    description: 'Belirttiğiniz kullanıcının kullanıcı adını değiştirir.',
-    usage: 'nick @kullanıcı <kullanıcı adı>'
-}
+  name: "nick",
+  description: "Birinin nickini değiştirir.",
+  usage: "nick"
+};
