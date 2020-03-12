@@ -8,11 +8,11 @@ if(!message.member.roles.has("687629969673027596")) return message.reply(`Bu kom
   if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
-  member.addRole('687630992873488485')
+  member.addRole('687744910450753570')
   member.removeRole('687628675042377755')
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .addField(`Erkek olarak kayıt edilmiştir. <a:ytik:687661631039340554> `, ` <@&687630992873488485> rolü başarıyla verilmiştir. <a:ytik:687661631039340554>
+  .addField(`Erkek olarak kayıt edilmiştir.`, ` <@&687744910450753570> rolü başarıyla verilmiştir. <a:ytik:687661631039340554>
    Etiketlediğiniz kişiden başarıyla <@&687628675042377755> rolü başarıyla alınmıştır. <a:ytik:687661631039340554>`)
   .setThumbnail(client.user.avatarURL)
   .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
