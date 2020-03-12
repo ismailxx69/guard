@@ -3,17 +3,17 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
 
-if(!message.member.roles.has("687629969673027596")) return message.reply(`Bu komutu kullanabilmen için <@&687629969673027596> yetkiye sahip olman lazım.`);
+if(!message.member.roles.has("687744767609667725")) return message.reply(`Bu komutu kullanabilmen için <@&687744767609667725> yetkiye sahip olman lazım.`);
   let kullanıcı = message.mentions.users.first()
   if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
   member.addRole('687744910450753570')
-  member.removeRole('687628675042377755')
+  member.removeRole('687744853647425553')
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .addField(`Erkek olarak kayıt edilmiştir.`, ` <@&687744910450753570> rolü başarıyla verilmiştir. <a:ytik:687661631039340554>
-   Etiketlediğiniz kişiden başarıyla <@&687628675042377755> rolü başarıyla alınmıştır. <a:ytik:687661631039340554>`)
+  .addField(`Erkek olarak kayıt edilmiştir.`, ` <@&687744910450753570> rolü başarıyla verilmiştir.
+   Etiketlediğiniz kişiden başarıyla <@&687744853647425553> rolü başarıyla alınmıştır.`)
   .setThumbnail(client.user.avatarURL)
   .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
   return message.channel.send(embed)
