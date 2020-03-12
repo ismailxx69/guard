@@ -512,7 +512,7 @@ if(member.guild.id !== "687628288780402716") return; //tırnak işareti arasına
 let eskiNick = member.user.username;
 const id = "687630230189244453" //Kanal id
 const channel  = member.guild.channels.get(id);
-channel.send("<a:kalp:687661512319434753> Merhabalar, <@"+member.user.id+"> **ヤ Hestia**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n Sunucuya erişim sağlayabilmek için;\n\n  `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n <@&640536536156209188> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+channel.send("<a:kalp:687661512319434753> Merhabalar, <@"+member.user.id+"> **ヤ Hestia**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n<a:ytik:687661631039340554> Sunucuya erişim sağlayabilmek için;\n\n<a:nk:687661865798860835> `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n<a:lod:687661221461491739> <@&687629969673027596> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
 
