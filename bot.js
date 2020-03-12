@@ -406,8 +406,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
     if(client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TeyitsizRolü) || client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TehlikeliHesapRolü)) return
     client.guilds.get(client.ayar.SunucuID).member(newUser).addRole(client.ayar.EkipRolü) // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
-      newUser.send(`**Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**<a:bildir:687661419151360010> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
+      newUser.send(`**<a:bildir:687661419151360010> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
     }
   }
   
@@ -415,8 +415,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
   if(!(newUser.username).includes(client.ayar.SunucuTAG) && client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `)
-      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **ヤ** Görüşürüz <3 **`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**<a:bildir:687661419151360010> Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `)
+      newUser.send(`**<a:bildir:687661419151360010> Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **ヤ** Görüşürüz <3 **`)
     }
   }
 })
