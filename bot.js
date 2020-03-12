@@ -529,3 +529,15 @@ client.on('message', msg => {
     msg.channel.send('ヤ');
   }
 });
+
+
+
+client.on("guildMemberAdd", member => {
+
+if(member.guild.id !== "687628288780402716") return; //tırnak işareti arasına sunucu id
+let eskiNick = member.user.username;
+const id = "687634288895721473" //Kanal id
+const channel  = member.guild.channels.get(id);
+channel.send("Sunucumuza <@"+member.user.id+"> Katıldı Onunla Beraber Beraber __"+member.guild.members.size+"__ Kişiyi Olduk.**");
+});
+ 
