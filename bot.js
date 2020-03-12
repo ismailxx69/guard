@@ -114,21 +114,13 @@ client.on("guildMemberAdd", async(member) => {
     await client.channels.get(client.ayar.TeyitKanal).send(`<a:hyper:655810715503951893> Selam ${member} **Zedestergon Krallığına** Hoşgeldin!Senin ile Birlikte**__${member.guild.memberCount}__** Kişiyiz! \n<@&${client.ayar.TeyitYetkilisi}> rolündeki yetkililer seninle ilgilenecektir.`)
   } catch(err) { }
 })
-// EDİT AT MUSTAFA
+// EDİT AT JOSTMAN
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
-		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.author.sendMessage('Aleyküm selam,  hoş geldin '); 
-		} else {
-		msg.reply('Aleyküm selam, hoş geldin ^^');
-		}
-	}
+    msg.reply('Aleyküm Selam Hoşgeldin.');
+  }
 });
-
-
-
-
 
 
 client.on("guildBanAdd", async(guild, user) => {
@@ -414,8 +406,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
     if(client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TeyitsizRolü) || client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TehlikeliHesapRolü)) return
     client.guilds.get(client.ayar.SunucuID).member(newUser).addRole(client.ayar.EkipRolü) // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`<a:zil:655810721791082510> **Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
-      newUser.send(`**Selam Kanka Ailemize Hoşgeldin!Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
+      newUser.send(`**Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
     }
   }
   
@@ -423,8 +415,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
   if(!(newUser.username).includes(client.ayar.SunucuTAG) && client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.EkipRolü)) {
     client.guilds.get(client.ayar.SunucuID).member(newUser).removeRole(client.ayar.EkipRolü) // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`<a:zil:655810721791082510> **Ailemizden ${newUser},Ayrıldı!Bu Bizi Çok Üzdü :(** `)
-      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **❁** Görüşürüz <3 **`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `)
+      newUser.send(`**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **ヤ** Görüşürüz <3 **`)
     }
   }
 })
@@ -499,11 +491,11 @@ client.on("guildMemberAdd", async(member) => {
 
 
 client.on("guildMemberAdd", member => {
-     member.setNickname("İsmini Teyit Görevlisine Bildir")    
+     member.setNickname("ヤ İsim • Yaş")    
    })
 
 client.on('guildMemberAdd', member => {
- member.send(`**Bendis'e Hoşgeldiniz!**\n\n**★ Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
+ member.send(`**Hestia'e Hoşgeldiniz!**\n\n**ヤ Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
 }); 
 
 client.login(ayarlar.token);
@@ -521,4 +513,19 @@ let eskiNick = member.user.username;
 const id = "640514336464437249" //Kanal id
 const channel  = member.guild.channels.get(id);
 channel.send("  Merhabalar, <@"+member.user.id+"> **★ Phoenix %55**'e Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n Sunucuya erişim sağlayabilmek için;\n\n  `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n <@&640536536156209188> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+});
+
+
+
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!tag') {
+    msg.channel.send('₮');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'tag') {
+    msg.channel.send('₮');
+  }
 });
