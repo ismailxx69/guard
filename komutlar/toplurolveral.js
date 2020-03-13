@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-  if(message.member.hasPermission('ADMINISTRATOR')) return message.reply('Bu komutu kullanabilmek için `Yönetici` iznine sahip olmalısın!')
+  if(message.author.id !== message.guild.owner.user.id) return message.reply('Bu komut sunucu sahibine özeldir!')
   if(!args[0] && args[0] !== "ver" && args[0] !== "al") return message.channel.send('Yapılacak işlemi belirtmelisin! \n**Doğru Kullanım:** `${prefix}toplu-rol ver @rol \n`${prefix}toplu-rol al @rol')
 
   let rol = message.mentions.roles.first() || message.guild.roles.get(args[1]) || message.guild.roles.find(rol => rol.name === args.slice(1).join(' '));

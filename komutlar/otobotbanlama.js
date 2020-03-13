@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
-  if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('Bu komutu kullanabilmek için `Yönetici` iznine sahip olmalısın!')
+  if(message.author.id !== message.guild.owner.user.id) return message.reply('Bu komut sunucu sahibine özeldir!')
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   
   if (!args[0] || args[0] !== "aç" && args[0] !== "ac" && args[0] !== "kapat") return message.channel.send(`\`aç\` veya \`kapat\` yazmalısın. | **${prefix}oto-botban aç/kapat**`)
