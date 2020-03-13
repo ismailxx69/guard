@@ -118,7 +118,7 @@ client.on("guildMemberAdd", async(member) => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
-    msg.reply('Aleyküm Selam Hoşgeldin. <a:kalp:687757820137046020>');
+    msg.reply('Aleyküm Selam Hoşgeldin. <a:kalp:688079879090208779>');
   }
 });
 
@@ -535,3 +535,7 @@ client.on('message', msg => {
     msg.channel.send('Başımı Alırsın');
   }
 });
+
+client.on('ready', ()=>{
+client.channels.get('688091506786959417').join()
+})
