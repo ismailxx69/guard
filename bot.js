@@ -531,7 +531,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('<a:ok:688079594821255201> Selam Arkadaşlar Tag Aldığınızda Ne Gibi Şeyler Kazanıyorsunuz Onu Söyliyeceğim \n\n<a:ok:688079594821255201> İlk Olarak <@&688099773114613800> Rolü Verilir. \n\n<a:ok:688079594821255201> Size Özel Kanal Olucaktır. \n\n<a:ok:688079594821255201> Her Hafya Salı Günleri Steam Çekilişleri Olucaktır. \n\nDaha Fazla Şeylerde Eklenecektir. <a:kalp:688079879090208779> Black Sizi Seviyor <a:kalp:688079879090208779> ');
+  if (msg.content.toLowerCase() === 'tagayrıcalıkları') {
+    msg.channel.send('<a:ok:688079594821255201> Selam Arkadaşlar Tag Aldığınızda Ne Gibi Şeyler Kazanıyorsunuz Onu Söyliyeceğim \n\n<a:ok:688079594821255201> İlk Olarak <@&688099773114613800> Rolü Verilir. \n\n<a:ok:688079594821255201> Size Özel Kanal Olucaktır. \n\n<a:ok:688079594821255201> Her Hafya Salı Günleri Steam Çekilişleri Olucaktır. \n\nDaha Fazla Şeylerde Eklenecektir. <a:kalp:688079879090208779> Black Sizi Seviyor <a:kalp:688079879090208779> @everyone');
   }
 });
