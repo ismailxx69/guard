@@ -12,8 +12,8 @@ if(!message.member.roles.has("687744767609667725")) return message.reply(`Bu kom
   member.removeRole('687744853647425553')
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .addField(`Kadın olarak kayıt edilmiştir.`, ` <@&687744968873345076> rolü başarıyla verilmiştir.
-   Etiketlediğiniz kişiden başarıyla <@&687744853647425553> rolü başarıyla alınmıştır.`)
+  .addField(`<a:kus:688039534738538501> Kadın olarak kayıt edilmiştir.`, `<a:kus:688039534738538501> Etiketlediğiniz Kişiden Başarıyla <@&687744968873345076> rolü verilmiştir.
+  <a:kus:688039534738538501> Etiketlediğiniz kişiden başarıyla <@&687744853647425553> rolü başarıyla alınmıştır.`)
   .setThumbnail(client.user.avatarURL)
   .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
   return message.channel.send(embed)

@@ -13,8 +13,8 @@ if  (!message.member.roles.has("687744767609667725")) return message.reply('Bu k
   member.setNickname(`${tag} ${isim} • ${yaş}`);
   const embed = new Discord.RichEmbed()
     .addField(
-      `**İsim Başarıyla Değiştirildi **`,
-      `\n**İsmi Değiştirilen Kullanıcı:** ${member.user} \n **Yeni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
+      `**<a:kus:688039534738538501> İsim Başarıyla Değiştirildi **`,
+      `\n**<a:kus:688039534738538501> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **Y<a:kus:688039534738538501>eni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
     )
     .setFooter(`Literary`)
     .setThumbnail(client.user.avatarURL);
