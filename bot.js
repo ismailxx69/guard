@@ -495,7 +495,7 @@ client.on("guildMemberAdd", member => {
    })
 
 client.on('guildMemberAdd', member => {
- member.send(`**Hestia'e Hoşgeldiniz!**\n\n**ヤ Tagımızı Alarak Bize Destek Olabilirsin**\n** `);
+ member.send(`**Black'e Hoşgeldiniz!**\n\**__ꏪ__ Tagımızı Alarak Bize Destek Olabilirsin** `);
 }); 
 
 client.login(ayarlar.token);
