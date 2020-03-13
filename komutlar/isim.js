@@ -14,7 +14,7 @@ if  (!message.member.roles.has("687744767609667725")) return message.reply('Bu k
   const embed = new Discord.RichEmbed()
     .addField(
       `**<a:kus:688039534738538501> İsim Başarıyla Değiştirildi **`,
-      `\n**<a:kus:688039534738538501> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **Y<a:kus:688039534738538501>eni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
+      `\n**<a:kus:688039534738538501> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:kus:688039534738538501> Yeni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
     )
     .setFooter(`Literary`)
     .setThumbnail(client.user.avatarURL);

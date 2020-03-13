@@ -118,7 +118,7 @@ client.on("guildMemberAdd", async(member) => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
-    msg.reply('Aleyküm Selam Hoşgeldin. <a:kalp:685547216265281596>');
+    msg.reply('Aleyküm Selam Hoşgeldin. <a:kalp:687757820137046020>');
   }
 });
 
@@ -512,7 +512,7 @@ if(member.guild.id !== "687742435090235458") return; //tırnak işareti arasına
 let eskiNick = member.user.username;
 const id = "687749742708392021" //Kanal id
 const channel  = member.guild.channels.get(id);
-channel.send("Merhabalar, <@"+member.user.id+"> **Aura**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\nSunucuya erişim sağlayabilmek için;\n\n`Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n<@&687744767609667725> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+channel.send("<a:kalp:687757820137046020> Merhabalar, <@"+member.user.id+"> **Aura**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n<a:ytik:687757713102471262> Sunucuya erişim sağlayabilmek için;\n\n<a:nk:687757773773209697> `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n<a:lod:687757667149938688> <@&687744767609667725> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
 
