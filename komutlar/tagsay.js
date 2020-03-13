@@ -12,10 +12,6 @@ exports.run = (client, message, args) => {
   const Discord = require('discord.js');
 
 
-        
-        message.channel.send("<a:elmas:684755435764711425> Sunucudaki üye sayısı", message.guild.memberCount)
-        message.channel.send("<a:elmas:684755435764711425> Çevrimiçi üye sayısı", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offl
-
 };
 
 exports.conf = {
