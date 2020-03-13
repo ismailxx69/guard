@@ -35,7 +35,7 @@ exports.run = async function(client, message, args) {
     message.channel.send(`${abc} adet mesaj silindi!`).then(msg => msg.delete(5000));
     })
   } else {
-    message.channel.send(`Lütfen 1-400 arası silinecek mesaj miktarı yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
+    message.channel.send(`Lütfen 1-400 arası silinecek mesaj miktarı yazın!  **Doğru Kullanım:** \`${prefix}sil 1-400\``);
   }
 
 };
