@@ -531,7 +531,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tagayrıcalıkları') {
-    msg.channel.send('<a:boost:688110718113153031> __Black Boost Ayrıcalıkları__ <a:boost:688110718113153031> \n\n<a:boost:688110718113153031> ');
+  if (msg.content.toLowerCase() === 'boost') {
+    msg.channel.send('<a:kus:688079319121133583> **__Black Kurallar__ <a:kus:688079319121133583> \n\n<a:ok:688079594821255201> Yetkililere Karşı Saygısızlık Yapılması Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Ses Kanallarına Çık Gir Yaparak İnsanları Trollemek Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Ses Veya Metin Kanallarında ');
   }
 });
