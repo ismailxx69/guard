@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
 if  (!message.member.roles.has("687744767609667725")) return message.reply('Bu komutu kullanabilmek için <@&687744767609667725> rolüne sahip olmalısın.');
-  const emoji = client.emojis.find(emoji => emoji.name === "tik");
+  const emoji = client.emojis.find(emoji => emoji.name === "mtik");
   let member = message.mentions.members.first();
   let isim = args[1];
   let yaş = args[2];
