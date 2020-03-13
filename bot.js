@@ -531,7 +531,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'boost') {
-    msg.channel.send('<a:kus:688079319121133583> **__Black Kurallar__ <a:kus:688079319121133583> \n\n<a:ok:688079594821255201> Yetkililere Karşı Saygısızlık Yapılması Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Ses Kanallarına Çık Gir Yaparak İnsanları Trollemek Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Ses Veya Metin Kanallarında Küfür Veya +18 İçeren Paylaşımlar Bulunmakta Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Ses Kanallarında Bass Açılması Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda Reklam Yapmak Yasaktır. \n\n<a:ok:688079594821255201> Sunucumuzda #ꏪ・foto-pp-chat Hariç Fotoraf Veya Gif Atılması Yasaktır. \n\n<a:ok:688079594821255201> Sunucu içerisindeki etkinlikleri trollemek kesinlikle yasaktır. \n\n<a:ok:688079594821255201> Sunucunun huzurunu veya bütünlüğünü bozucak davranışlarda bulunmak yasaktır. \n\n<a:ok:688079594821255201> Önceden problemi olduğunuz bir kişiye kişisel ban veya kick atmak yasaktır.** \n@everyone');
+  if (msg.content.toLowerCase() === 'yetki') {
+    msg.channel.send('Başımı Alırsın');
   }
 });
