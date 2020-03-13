@@ -97,7 +97,7 @@ client.unload = command => {
 
 client.ayar = {
   "SunucuID": "687742435090235458",
-  "SunucuTAG": "ꄶ",
+  "SunucuTAG": "ꏪ",
   "SahipRolüID": "687743188387233974",
   "EkipRolü": "687755516075573299",
   "EkipMesajKanalı": "687750976744194235",
@@ -491,7 +491,7 @@ client.on("guildMemberAdd", async(member) => {
 
 
 client.on("guildMemberAdd", member => {
-     member.setNickname("ꄶ İsim • Yaş")    
+     member.setNickname("ꏪ İsim | Yaş")    
    })
 
 client.on('guildMemberAdd', member => {
@@ -508,11 +508,11 @@ client.login(ayarlar.token);
 
 client.on("guildMemberAdd", member => {
 
-if(member.guild.id !== "687742435090235458") return; //tırnak işareti arasına sunucu id
+if(member.guild.id !== "688027711586697222") return; //tırnak işareti arasına sunucu id
 let eskiNick = member.user.username;
-const id = "687749742708392021" //Kanal id
+const id = "688074353916772476" //Kanal id
 const channel  = member.guild.channels.get(id);
-channel.send("<a:kalp:687757820137046020> Merhabalar, <@"+member.user.id+"> **Aura**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n<a:ytik:687757713102471262> Sunucuya erişim sağlayabilmek için;\n\n<a:nk:687757773773209697> `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n<a:lod:687757667149938688> <@&687744767609667725> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
+channel.send("Merhabalar, <@"+member.user.id+"> **Aura**'ya Hoş Geldin. **Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!**\n\n<a:ytik:687757713102471262> Sunucuya erişim sağlayabilmek için;\n\n<a:nk:687757773773209697> `Registry Area` Ses kanallarına girerek teyit vermeniz gerek.\n\n<a:lod:687757667149938688> <@&687744767609667725> **Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
 
@@ -520,24 +520,12 @@ channel.send("<a:kalp:687757820137046020> Merhabalar, <@"+member.user.id+"> **Au
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send('ꄶ');
+    msg.channel.send('ꏪ');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('ꄶ');
+    msg.channel.send('ꏪ');
   }
 });
-
-
-
-client.on("guildMemberAdd", member => {
-
-if(member.guild.id !== "687742435090235458") return; //tırnak işareti arasına sunucu id
-let eskiNick = member.user.username;
-const id = "687750976744194235" //Kanal id
-const channel  = member.guild.channels.get(id);
-channel.send("**_Sunucumuza <@"+member.user.id+"> Katıldı Onunla Beraber Beraber __"+member.guild.members.size+"__ Kişiyi Olduk._**");
-});
- 
