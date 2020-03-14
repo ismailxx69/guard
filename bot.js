@@ -532,7 +532,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'yetki') {
-    msg.channel.send('Başımı Alırsın');
+    msg.channel.send('<a:kus:688079319121133583> Black Açılıyor <a:kus:688079319121133583>');
   }
 });
 
