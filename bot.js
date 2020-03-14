@@ -517,24 +517,13 @@ channel.send("**<a:kalp:688079879090208779> Sunucuya Hoşgeldin, <@"+member.user
 
 
 
-
+ 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
     msg.channel.send('ꏪ');
   }
 });
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('ꏪ');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'yetki') {
-    msg.channel.send('<a:kus:688079319121133583> Black Açılıyor <a:kus:688079319121133583>');
-  }
-});
 
 client.on('ready', ()=>{
 client.channels.get('688091506786959417').join()
