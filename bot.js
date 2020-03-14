@@ -100,7 +100,7 @@ client.ayar = {
   "SunucuTAG": "ꏪ",
   "SahipRolüID": "687743188387233974",
   "EkipRolü": "687755516075573299",
-  "EkipMesajKanalı": "687750976744194235",
+  "EkipMesajKanalı": "688144899765436523",
 
 }
 
