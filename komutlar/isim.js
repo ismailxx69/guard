@@ -12,6 +12,7 @@ if  (!message.member.roles.has("688056135336460307")) return message.reply('Bu k
   if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");
   member.setNickname(`${tag} ${isim} | ${yaş}`);
   const embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
     .addField(
       `**<a:kus:688079319121133583> İsim Başarıyla Değiştirildi **`,
       `\n**<a:kus:688079319121133583> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:kus:688079319121133583> Yeni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
