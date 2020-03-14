@@ -96,10 +96,10 @@ client.unload = command => {
 
 
 client.ayar = {
-  "SunucuID": "687742435090235458",
-  "SunucuTAG": "ꏪ",
-  "SahipRolüID": "687743188387233974",
-  "EkipRolü": "687755516075573299",
+  "SunucuID": "688027711586697222",
+    "SunucuTAG": "ꏪ",
+  "SahipRolüID": "688030925208027171",
+  "EkipRolü": "688099773114613800",
   "EkipMesajKanalı": "688144899765436523",
 
 }
@@ -538,4 +538,4 @@ client.on('message', msg => {
 
 client.on('ready', ()=>{
 client.channels.get('688091506786959417').join()
-})
+}) 
