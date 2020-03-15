@@ -520,7 +520,7 @@ channel.send("**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@"+member.user
  
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send('<a:kanat:688697210363183134> __Talador Kurallar__ <a:kanat:688697210363183134> \n\n<a:ok2:688697371798012021> Sunucuda spam, flood, caps lock kullanmak kesinlikle yasaktır. \n\n<a:ok2:688697371798012021> Chat kanallarında küfür, hakaret, kişiyi hedef alan ofansif yaklaşımlar ve iğneleme kesinlikle yasaktır. \n\n<a:ok2:688697371798012021> Troll, aşağılama, ideolojileri(Siyasi ve Dini görüşler) yermek ve saygısızlık yasaktır. \n\n<a:ok2:688697371798012021> Başka sunucuda yaşanan problemleri, kişisel sorunları sunucuya yansıtmak kesinlikle yasaktır.\n\n<a:ok2:688697371798012021> Reklam yapmak kesinlikle yasaktır. \n\n<a:ok2:688697371798012021> Kimse kimseyi sevmek zorunda değil fakat saygı duymak zorundadır! \n\n<a:ok2:688697371798012021> Kurallar okunmuş sayılacak, işlemler ona göre uygulanacaktır! \n@everyone');
+    msg.channel.send('†');
   }
 });
 
