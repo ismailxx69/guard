@@ -96,11 +96,11 @@ client.unload = command => {
 
 
 client.ayar = {
-  "SunucuID": "688027711586697222",
-    "SunucuTAG": "ꏪ",
-  "SahipRolüID": "688030925208027171",
-  "EkipRolü": "688099773114613800",
-  "EkipMesajKanalı": "688144899765436523",
+  "SunucuID": "688523664190472200",
+  "SunucuTAG": "†",
+  "SahipRolüID": "688526928658825258",
+  "EkipRolü": "688710268129378344",
+  "EkipMesajKanalı": "688530845677781022",
 
 }
 
@@ -406,8 +406,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
     if(client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TeyitsizRolü) || client.guilds.get(client.ayar.SunucuID).member(newUser).roles.has(client.ayar.TehlikeliHesapRolü)) return
     client.guilds.get(client.ayar.SunucuID).member(newUser).addRole(client.ayar.EkipRolü) // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
     if(client.guilds.get(client.ayar.SunucuID).channels.has(client.ayar.EkipMesajKanalı)) {
-      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
-      newUser.send(`**Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
+      client.guilds.get(client.ayar.SunucuID).channels.get(client.ayar.EkipMesajKanalı).send(`**<a:kalp:688697175407984662> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`)
+      newUser.send(`**<a:kalp:688697175407984662> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`)
     }
   }
   
