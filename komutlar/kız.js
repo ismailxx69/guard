@@ -8,7 +8,7 @@ if(!message.member.roles.has("688056135336460307")) return message.reply(`Bu kom
   if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
-  member.addRole('687744968873345076')
+  member.addRole('688528910304280894')
   member.removeRole('687744853647425553')
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
