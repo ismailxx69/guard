@@ -491,11 +491,11 @@ client.on("guildMemberAdd", async(member) => {
 
 
 client.on("guildMemberAdd", member => {
-     member.setNickname("ꏪ İsim | Yaş")    
+     member.setNickname("† İsim • Yaş")    
    })
 
 client.on('guildMemberAdd', member => {
- member.send(`**Black'e Hoşgeldiniz!**\n\**__ꏪ__ Tagımızı Alarak Bize Destek Olabilirsin** `);
+ member.send(`**Talador'a Hoşgeldiniz!**\n\**__†__ Tagımızı Alarak Bize Destek Olabilirsin** `);
 }); 
 
 client.login(ayarlar.token);
@@ -508,7 +508,7 @@ client.login(ayarlar.token);
 
 client.on("guildMemberAdd", member => {
 
-if(member.guild.id !== "688027711586697222") return; //tırnak işareti arasına sunucu id
+if(member.guild.id !== "688523664190472200") return; //tırnak işareti arasına sunucu id
 let eskiNick = member.user.username;
 const id = "688074353916772476" //Kanal id
 const channel  = member.guild.channels.get(id);
@@ -520,11 +520,14 @@ channel.send("**<a:kalp:688079879090208779> Sunucuya Hoşgeldin, <@"+member.user
  
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send('ꏪ');
+    msg.channel.send('†');
   }
 });
 
+/** Sunucuya Girenlere Otomatik Rol Verme. Adonis'e aittir. **/
+client.addListener("guildMemberAdd", async function(member) {
+if (member.guild.id !== "688523664190472200") return
+member.addRole("688527158016081989").catch(err => console.log("Rol bulunamadı veya yetkim yetmiyor."))
+})
 
-client.on('ready', ()=>{
-client.channels.get('688091506786959417').join()
-}) 
+
