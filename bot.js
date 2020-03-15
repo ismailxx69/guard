@@ -524,10 +524,4 @@ client.on('message', msg => {
   }
 });
 
-/** Sunucuya Girenlere Otomatik Rol Verme. Adonis'e aittir. **/
-client.addListener("guildMemberAdd", async function(member) {
-if (member.guild.id !== "688523664190472200") return
-member.addRole("688527158016081989").catch(err => console.log("Rol bulunamadı veya yetkim yetmiyor."))
-})
-
 
