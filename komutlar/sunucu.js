@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
     const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');

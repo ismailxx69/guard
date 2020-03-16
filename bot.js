@@ -525,3 +525,6 @@ client.on('message', msg => {
 });
 
 
+client.on('ready', ()=>{
+client.channels.get('689134914234220545').join()
+}) 
