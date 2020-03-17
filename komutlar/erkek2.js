@@ -5,9 +5,15 @@ exports.run = async (client, message, args) => {
 
 if(!message.member.roles.has("688527280611262466")) return message.reply(`Bu komutu kullanabilmen için <@&688527280611262466> yetkiye sahip olman lazım.`);
   let kullanıcı = message.mentions.users.first()
-  if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
+  if (!isim) return message.channel.send("**Bir İsim Yazmalısın**");
+  if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");
+  if (!member) return message.channel.send('**Bir Üye Etiketlemelisin**')
+  let isim = args[1];
+  let yas = args[2];
+  let tag = "†"
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
+  member.setNickname(`${tag} ${isim} • ${yas}`)
   member.addRole('688528847364292608')
   member.removeRole('688527158016081989')
   let embed = new Discord.RichEmbed()
