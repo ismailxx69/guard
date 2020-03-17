@@ -5,9 +5,7 @@ exports.run = async (client, message, args) => {
 
 if(!message.member.roles.has("688527280611262466")) return message.reply(`Bu komutu kullanabilmen için <@&688527280611262466> yetkiye sahip olman lazım.`);
   let kullanıcı = message.mentions.users.first()
-  if (!isim) return message.channel.send("**Bir İsim Yazmalısın**");
-  if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");
-  if (!member) return message.channel.send('**Bir Üye Etiketlemelisin**')
+  if (!kullanıcı) return message.channel.send("**Bir Üye Etiketlemelisin\n Doğru Kullanım : .erkek @Kullanıcı İsim Yaş**")
   let isim = args[1];
   let yas = args[2];
   let tag = "†"
@@ -34,7 +32,7 @@ exports.conf = {
 }
 
 exports.help = {
-  name: 'erkek2',
+  name: 'erkek',
   description: "Sunucuya kaydolmaya ne dersin ?",
   usage: 'kayıt isim yaş'
 }
