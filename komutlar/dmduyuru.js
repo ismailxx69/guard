@@ -1,69 +1,20 @@
-const Discord = require('discord.js');
-const db = require('quick.db')
-exports.run = (client, message, args) => { 
-  
-
-  //CodEming /Yasin..
-  
-  if(message.author.id !== "629902119373242368") return message.channels.send('Bu komutu kullanmak için yeterli izne sahip değilsin.')
-  
-  let kontrol = args[0]
-  
-  if(!kontrol) return message.channel.send('Bir durum belirtmelisin \n Örnek: `duyuru embed // duyuru mesaj`')
-  let chan = message.channel;
-if(args[0] === 'embed') {
-  let embed = new Discord.RichEmbed()
-  .setTitle('Gönderilecek Metin')
-  .setDescription('Gönderilecek metini bulunduğunuz kanala gönderin mesajı `embed` biçiminde göndereceğim.!')
- message.channel.send(embed)
-  
-  message.channel.awaitMessages(x => {
-let embed = new Discord.RichEmbed()
-.setTitle('Duyuru!')
-.setDescription(x.content)
-.setColor('RANDOM')
-       client.users.forEach(u => {
-u.sendEmbed(embed)
-})
-
-
-return;
-    })
-}
- //CodEming /Yasin..
-          
-if(args[0] === 'mesaj') {
-   let embed = new Discord.RichEmbed()
-  .setTitle('Gönderilecek Metin')
-  .setDescription('Gönderilecek metini bulunduğunuz kanala gönderin mesajı `mesaj` biçiminde göndereceğim.!')
- message.channel.send(embed)
-  
-  message.channel.awaitMessages(x => {
-
-       client.users.forEach(u => {
-u.sendEmbed(x.content)
-})
-
-
-return;
-    }) 
-}
-
-  
-  
-  //CodEming /Yasin..
-  
-  
-  };
+const Discord = require("discord.js");
+exports.run = async (client, message, args) => {
+let tr = args.slice(0).join(" ")
+if(!tr) return message.channel.send("Gönderilecek şeyi yaz")
+  client.users.forEach(tr2 => {
+    tr2.send(tr)
+  })
+};
 exports.conf = {
-  enabled: true,  
-  guildOnly: false, 
-  aliases: [], 
-  permLevel: 0
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 4
 };
 
 exports.help = {
-  name: 'duyuru',
-  description: 'taslak', 
-  usage: 'duyuru'
+  name: "dm-duyuru",
+  description: "dm-duyuru",
+  usage: "dm-duyuru"
 };
