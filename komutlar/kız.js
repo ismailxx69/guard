@@ -1,37 +1,44 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
+const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
 
-if(!message.member.roles.has("688527280611262466")) return message.reply(`Bu komutu kullanabilmen için <@&688527280611262466> yetkiye sahip olman lazım.`);
-  let kullanıcı = message.mentions.users.first()
-  if (!kullanıcı) return message.channel.send('Hey sen birini kayıt etmen için birisini etiketlemelisin bunu gözden kaçırma!')
-  let rol = message.mentions.roles.first()
-  let member = message.guild.member(kullanıcı)
-  member.addRole('688528910304280894')
-  member.removeRole('688527158016081989')
-  let embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .addField(`<a:tik1:688697405708828706> Kız olarak kayıt edilmiştir.`, `<a:tik1:688697405708828706> Etijetlediğiniz Kişiden başarıyla <@&688528910304280894> rolü verilmiştir.
- <a:tik1:688697405708828706> Etiketlediğiniz kişiden başarıyla <@&688527158016081989> rolü başarıyla alınmıştır.`)
-  .setThumbnail(client.user.avatarURL)
-  .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
-  return message.channel.send(embed)
+  let hata = new Discord.RichEmbed()
+  .setColor(`#000001`)
+  .setDescription(`Bu komutu kullanabilmek için <@&689930799964880946> rolüne sahip olmalısın.`)
+  .setFooter(`${message.author.tag}`, message.author.avatarURL)
+    if (!message.member.roles.has('689930799964880946')) return message.channel.send(hata)(() => message.react('680049992538259468'));
+
+  let kişi = message.mentions.users.first()
+  if (!kişi) return message.react('')
+  let member = message.guild.member(kişi)
+
+  if(!member.roles.has(`689930799964880946`)) { //layıtkı
+    member.addRole(`689930802682790030`) //kayıtlı 
+    member.removeRole(`689930804301791276`) //kayıtsız
+    let kayıt = new Discord.RichEmbed()
+    .setColor(`#000001`)
+    .setDescription(`${kişi} adlı kullanıcı <@&689930802682790030> olarak kaydedildi.`)
+    .setFooter(`${message.author.tag}`, message.author.avatarURL)
+    return message.channel.send(kayıt)(() => message.react('680049992731459604'));
+  } else {
+    member.addRole(`689930804301791276`) // kayıtsız
+    member.removeRole(`689930802682790030`) //kayıtlı
+    let kayıt = new Discord.RichEmbed()
+    .setColor(`#000001`)
+    .setDescription(`${kişi} adlı kullanıcının <@&689930804301791276> kaydı geri alındı.`)
+    .setFooter(`${message.author.tag}`, message.author.avatarURL)
+    return message.channel.send(kayıt)(() => message.react('680049992731459604'));
+  }
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  kategori: "KULLANICI KOMUTLARI",
   permLevel: 0
-}
+};
 
 exports.help = {
   name: 'kız',
-  description: "Sunucuya kaydolmaya ne dersin ?",
-  usage: 'kayıt isim yaş'
-}
-
-
-// Positive Sunar
+};

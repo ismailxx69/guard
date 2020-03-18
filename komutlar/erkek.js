@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
     member.removeRole(`689930803215335514`) //kayıtlı
     let kayıt = new Discord.RichEmbed()
     .setColor(`#000001`)
-    .setDescription(`${kişi} adlı kullanıcının <@&689118099114295340> kaydı geri alındı.`)
+    .setDescription(`${kişi} adlı kullanıcının <@&689930804301791276> kaydı geri alındı.`)
     .setFooter(`${message.author.tag}`, message.author.avatarURL)
     return message.channel.send(kayıt)(() => message.react('680049992731459604'));
   }

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-if  (!message.member.roles.has("688527280611262466")) return message.reply('Bu komutu kullanabilmek için <@&688527280611262466> rolüne sahip olmalısın.');
+if  (!message.member.roles.has("689930799964880946")) return message.reply('Bu komutu kullanabilmek için <@&689930799964880946> rolüne sahip olmalısın.');
   const emoji = client.emojis.find(emoji => emoji.name === "mtik");
   let member = message.mentions.members.first();
   let isim = args[1];
@@ -12,7 +12,7 @@ if  (!message.member.roles.has("688527280611262466")) return message.reply('Bu k
   if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");
   member.setNickname(`${tag} ${isim} • ${yaş}`);
   const embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
+    .setColor('#000001')
     .addField(
       `**<a:tik1:688697405708828706> İsim Başarıyla Değiştirildi **`,
       `\n**<a:tik1:688697405708828706> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:tik1:688697405708828706> Yeni Kullanıcı Adı:** \`${tag} ${isim} | ${yaş}\``
