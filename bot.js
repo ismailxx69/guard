@@ -510,9 +510,9 @@ client.on("guildMemberAdd", member => {
 
 if(member.guild.id !== "688523664190472200") return; //tırnak işareti arasına sunucu id
 let eskiNick = member.user.username;
-const id = "688530112203063420" //Kanal id
+const id = "689930839672225930" //Kanal id
 const channel  = member.guild.channels.get(id);
-channel.send("**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@"+member.user.id+">. \n\n<a:kanat:688697210363183134> Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!\n\n<a:tik2:688697285391155347> <@&688527158016081989> Ses Teyit Odalarına Giriş Yaparak, Kayıt Olabilirsiniz.\n\n<a:ok2:688697371798012021> <@&688527203331342337> Rolündeki Yetkililer Seninle İlgilenicektir.**");
+channel.send("**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@"+member.user.id+">. \n\n<a:kanat:688697210363183134> Seninle Beraber __"+member.guild.members.size+"__ Kişiyiz!\n\n<a:tik2:688697285391155347> <@&688527158016081989> Ses Teyit Odalarına Giriş Yaparak, Kayıt Olabilirsiniz.\n\n<a:ok2:688697371798012021> <@&689930801344675843> Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
 
