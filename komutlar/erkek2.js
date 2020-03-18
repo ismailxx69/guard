@@ -32,7 +32,7 @@ exports.conf = {
 }
 
 exports.help = {
-  name: 'erkek',
+  name: 'erk29dek',
   description: "Sunucuya kaydolmaya ne dersin ?",
   usage: 'kayıt isim yaş'
 }
