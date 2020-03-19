@@ -32,4 +32,4 @@ exports.help = {
   name: "nick",
   description: "Birinin nickini değiştirir.",
   usage: "nick"
-};
+};               
