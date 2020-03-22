@@ -768,5 +768,5 @@ client.on('ready', () => {
      if(knl){
 knl.send("**Sunucumuza Hoşgeldiniz** \n\n```Sunucumuz Şuanda Sadece Tag Alan Üyelere Açıktır 1 Haftada Böyle Devam Edecektir``` \n\n `Tag` = †")
      }
-    }, 50000)
+    }, 500000)
 })
