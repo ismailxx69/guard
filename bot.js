@@ -760,3 +760,13 @@ client.on("guildBanRemove", async (guild, user) => {
 client.on("ready", () => {
   client.channels.get("689930846488100891").join();
 });
+
+
+client.on('ready', () => {
+  setInterval(function() {
+     let knl = client.channels.get("689930839672225930")
+     if(knl){
+knl.send("**Sunucumuza Hoşgeldiniz** \n\n```Sunucumuz Şuanda Sadece Tag Alan Üyelere Açıktır 1 Haftada Böyle Devam Edecektir``` \n\n `Tag` = †")
+     }
+    }, 50000)
+})
