@@ -810,3 +810,5 @@ client.on("message", async message => {
     message.reply(codefenixkodpaylasim2);
   }
 });
+
+
