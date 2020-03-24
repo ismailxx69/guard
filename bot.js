@@ -766,9 +766,9 @@ client.on('ready', () => {
   setInterval(function() {
      let knl = client.channels.get("689930839672225930")
      if(knl){
-knl.send("**Sunucumuza Hoşgeldiniz** \n\n```Sunucumuz Şuanda Sadece Tag Alan Üyelere Açıktır 1 Haftada Böyle Devam Edecektir``` \n\n `Tag` = †")
+knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kanallarına Girip Teyit Vermeniz Gerekir. <@&689930804301791276>")
      }
-    }, 500000)
+    }, 1000000)
 })
 
 client.on("message", async message => {
