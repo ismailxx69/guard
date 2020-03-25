@@ -766,7 +766,7 @@ client.on('ready', () => {
   setInterval(function() {
      let knl = client.channels.get("689930839672225930")
      if(knl){
-knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kanallarına Girip Teyit Vermeniz Gerekir. <@&689930804301791276>")
+knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kanallarına Girip Teyit Vermeniz Gerekir. <@&689930804301791276>**")
      }
     }, 1000000)
 })
