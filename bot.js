@@ -96,7 +96,7 @@ client.unload = command => {
 
 client.ayar = {
   SunucuID: "688523664190472200",
-  SunucuTAG: "†",
+  SunucuTAG: "ꏪ",
   SahipRolüID: "688526928658825258",
   EkipRolü: "689930801999118414",
   EkipMesajKanalı: "689930847985467544"
@@ -675,12 +675,12 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("† İsim • Yaş");
+  member.setNickname("ꏪ İsim • Yaş");
 });
 
 client.on("guildMemberAdd", member => {
   member.send(
-    `**Talador'a Hoşgeldiniz!**\n\**__†__ Tagımızı Alarak Bize Destek Olabilirsin** `
+    `**Volturi'ye Hoşgeldiniz!**\n\**__ꏪ__ Tagımızı Alarak Bize Destek Olabilirsin** `
   );
 });
 
@@ -696,7 +696,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "!tag") {
-    msg.channel.send("†");
+    msg.channel.send("");
   }
 });
 
