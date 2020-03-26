@@ -8,7 +8,6 @@ exports.run = async (client, message, args) => {
 
     const embed = new Discord.RichEmbed()
         .setColor("#000001")
-        .setImage("https://discordapp.com/channels/688523664190472200/689930850866954424/692868423377748048")
         .addField("_<a:tik1:688697405708828706> Sunucudaki üye sayısı_", message.guild.memberCount)
         .addField("_<a:tik1:688697405708828706> Çevrimiçi üye sayısı_", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
         .addField("_<a:tik1:688697405708828706> Seslideki üye sayısı_", count)
