@@ -691,13 +691,7 @@ client.on("guildMemberAdd", member => {
   let eskiNick = member.user.username;
   const id = "689930839672225930"; //Kanal id
   const channel = member.guild.channels.get(id);
-  channel.send(
-    "**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@" +
-      member.user.id +
-      ">. \n\n<a:kanat:688697210363183134> Seninle Beraber __" +
-      member.guild.members.size +
-      "__ Kişiyiz!\n\n<a:tik2:688697285391155347> <@&688527158016081989> Ses Teyit Odalarına Giriş Yaparak, Kayıt Olabilirsiniz.\n\n<a:ok2:688697371798012021> <@&689930801344675843> Rolündeki Yetkililer Seninle İlgilenicektir.**"
-  );
+  channel.send("**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@" +member.user.id +">. \n\n<a:kanat:688697210363183134> Seninle Beraber __" +member.guild.members.size +"__ Kişiyiz!\n\n<a:tik2:688697285391155347> <@&689930804301791276> Ses Teyit Odalarına Giriş Yaparak, Kayıt Olabilirsiniz.\n\n<a:ok2:688697371798012021> <@&689930801344675843> Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
 client.on("message", msg => {
@@ -764,7 +758,7 @@ client.on("ready", () => {
 
 client.on('ready', () => {
   setInterval(function() {
-     let knl = client.channels.get("689930839672225930")
+     let knl = client.channels.get("68993083967222593")
      if(knl){
 knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kanallarına Girip Teyit Vermeniz Gerekir. <@&689930804301791276>**")
      }
