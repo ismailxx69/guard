@@ -765,44 +765,30 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
     }, 1000000)
 })
 
-client.on("message", async message => {
-  const ms = require("parse-ms");
-
+client.on('message', async message => {
+  
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+  
+  let kullanıcı = message.mentions.users.first() || message.author
+  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
+  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
+  let sebep = afkkullanıcı
+ 
   if (message.author.bot) return;
-  if (!message.guild) return;
   if (message.content.includes(`${prefix}afk`)) return;
-
-  if (await db.fetch(`afk_${message.author.id}`)) {
-    let cfxtime = await db.fetch(`afk_süre_${message.author.id}`);
-    let cfxs = ms(Date.now() - cfxtime);
-    db.delete(`afk_${message.author.id}`);
-    db.delete(`afk_süre_${message.author.id}`);
-    const codefenixkodpaylasim = new Discord.RichEmbed()
-      .addField(
-        `\`${message.author.username}\`**AFK Modundan Çıktın!**`,
-        `**\`${cfxs.hours}\` **saat**  \`${cfxs.minutes}\` **dakika** \`${cfxs.seconds}\` **saniye** ,  AFK Modundaydın!**`)
-      .setColor("RANDOM")
-      .setFooter(`${client.user.username}`, client.user.avatarURL);
-     message.member.setNickname(`${message.author.username}`)
-    message.channel.send(codefenixkodpaylasim);
+  
+  if (message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
+      db.delete(`afk_${message.author.id}`)
+    }
+    if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``)
   }
 
-  var cfxu = message.mentions.users.first();
-  if (!cfxu) return;
-  var REASON = await db.fetch(`afk_${cfxu.id}`);
-
-  if (REASON) {
-    let cfxtime = await db.fetch(`afk_süre_${cfxu.id}`);
-    let cfxs = ms(Date.now() - cfxtime);
-    const codefenixkodpaylasim2 = new Discord.RichEmbed()
-      .addField(
-        `\`${cfxu.username}\` adlı kullanıcı \`${REASON}\` sebebiyle;`,
-        ` \`${cfxs.hours}\` **saat**  \`${cfxs.minutes}\` **dakika** \`${cfxs.seconds}\` **saniye Den Beri AFK**`
-      )
-      .setColor("RANDOM")
-      .setFooter(`${client.user.username}`, client.user.avatarURL);
-    message.reply(codefenixkodpaylasim2);
+  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
+      db.delete(`afk_${message.author.id}`)
+    }
   }
-});
-
-
+}); 

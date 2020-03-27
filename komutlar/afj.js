@@ -1,37 +1,28 @@
-const db = require("quick.db")
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const db = require('quick.db')
 
-exports.run = function(client, message, args) {
-
-  var cfxu = message.author;
-  var cfxsp = args.slice(0).join("  ");
-  const cfxreason = new Discord.RichEmbed()
-  .setDescription(`**AFK Moduna Geçmek İçin Bir Sebep Belirtmelisin!** \`${message.author.username}\``)
-  .setColor("#00ff88")
-  .setFooter(`${client.user.username}| AFK.`, client.user.avatarURL)
-  if(!cfxsp) return message.channel.send(cfxreason);
+exports.run = async (client, message, args) => {
   
-  db.set(`afk_${cfxu.id}`, cfxsp);
-  db.set(`afk_süre_${cfxu.id}`, Date.now());
-  const codefenixkodpaylasim = new Discord.RichEmbed()
-  .setDescription(`**Başarıyla AFK Moduna Girdin!** \`${cfxu.username}\``)
-  .setColor("#00ff88")
-  .setFooter(`${client.user.username} | AFK`, client.user.avatarURL)
-  message.member.setNickname(`[AFK] ${message.author.username}`)
-  return message.channel.send(codefenixkodpaylasim)
-  message.channel.send(codefenixkodpaylasim)
+  let user = message.author
+  let sebep = args.join(" ")
+ let member = message.mentions.members.first()
+  let isim = args.slice(1).join(" ")
+  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`)
   
-};  
+  db.set(`afk_${user.id}`, sebep)
+  message.channel.send(`Şu anda \`${sebep}\` sebebiyle AFK'sın.`)
+};
 
 exports.conf = {
-  enabled: true, 
-  guildOnly: true, 
+  enabled: true,
+  guildOnly: true,
   aliases: [],
-  permLevel: 0 
-};
+  permLevel: 0
+}
 
 exports.help = {
-  name: 'afk', 
-  description: 'Kendinizi Afk Moduna Giresiniz',
+  name: 'afk',
+  description: "AFK olmanızı sağlar.",
   usage: 'afk <sebep>'
-};
+}
+ 
