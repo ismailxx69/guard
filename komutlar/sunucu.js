@@ -8,10 +8,10 @@ exports.run = async (client, message, args) => {
 
     const embed = new Discord.RichEmbed()
         .setColor("#000001")
-        .addField("_<a:tik1:688697405708828706> Sunucudaki üye sayısı_", message.guild.memberCount)
-        .addField("_<a:tik1:688697405708828706> Çevrimiçi üye sayısı_", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
-        .addField("_<a:tik1:688697405708828706> Seslideki üye sayısı_", count)
-        .addField("_<a:tik1:688697405708828706> Tagdaki üye sayısı_", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tagınız yoksa bu satrı silin
+        .addField("_<a:siyah:692905410285404167> Sunucudaki üye sayısı_", message.guild.memberCount)
+        .addField("_<a:siyah:692905410285404167> Çevrimiçi üye sayısı_", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
+        .addField("_<a:siyah:692905410285404167> Seslideki üye sayısı_", count)
+        .addField("_<a:siyah:692905410285404167> Tagdaki üye sayısı_", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tagınız yoksa bu satrı silin
         .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
     message.channel.send(embed);
 
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 
 
 exports.conf = {
-    enabled: true,
+    enabl ed: true,
     guildOnly: false,
     aliases: ['sayı'],
     permLevel: 0

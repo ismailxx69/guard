@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
       tagdakiler = tagdakiler+1
     }
   })
-  message.channel.send("<a:kalp:688697175407984662> Tagımızda __` " + tagdakiler + " `__ Üye Var. <a:kalp:688697175407984662>")
+  message.channel.send("<a:siyah:692905410285404167> Tagımızda __` " + tagdakiler + " `__ Üye Var.")
   const Discord = require('discord.js');
 
 
