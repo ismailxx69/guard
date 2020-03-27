@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 
 
 exports.conf = {
-    enabl ed: true,
+    enabled: true,
     guildOnly: false,
     aliases: ['sayı'],
     permLevel: 0
