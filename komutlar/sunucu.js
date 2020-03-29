@@ -16,7 +16,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
         message.guild.roles.get(erkekRolü).members.size
       } \n<a:emoji_20:689080340123484161> Kız Üye: ${message.guild.roles.get(kızRolü).members.size} \n<a:emoji_20:689080340123484161> Ekip: ${
         message.guild.roles.get(ekipRolü).members.size
-      }   \n<a:emoji_20:689080340123484161> Aktif Erkek Üye: ${
+      }  \n<a:emoji_20:689080340123484161> Aktif Erkek Üye: ${
         message.guild.roles
           .get(erkekRolü)
           .members.filter(x => x.presence.status !== "offline").size
@@ -24,7 +24,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
         message.guild.roles
           .get(kızRolü)
           .members.filter(x => x.presence.status !== "offline").size
-      } \n<a:emoji_20:689080340123484161> Aktif Ekip: ${  
+      }  \n<a:emoji_20:689080340123484161> Aktif Ekip: ${  
         message.guild.roles
           .get(ekipRolü)
           .members.filter(x => x.presence.status !== "offline").size
