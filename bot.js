@@ -95,11 +95,11 @@ client.unload = command => {
 };
 
 client.ayar = {
-  SunucuID: "688523664190472200",
-  SunucuTAG: "ꏪ",
+  SunucuID: "SUNUCU İD",
+  SunucuTAG: "TAGJDJSJ",
   SahipRolüID: "688526928658825258",
-  EkipRolü: "689930801999118414",
-  EkipMesajKanalı: "689930847985467544"
+  EkipRolü: "HHAAHHA",
+  EkipMesajKanalı: "EHEHEHEHEHEHE"
 };
 
 client.on("guildMemberAdd", async member => {
@@ -761,3 +761,39 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
     }, 1000000)
 })
 
+
+
+client.on('message', message => {
+  let tag = "ꏪ"; 
+  let rol = "689930801999118414";
+  let channel = message.guild.channels.find('name', 'ꏪ-tag-info'); 
+  if (!rol) return;
+  if (!tag) return;
+  if (message.member.user.username.includes(tag)) {
+    if (message.member.roles.has(rol)) return;
+    message.member.addRole(rol).then(() => {
+message.member.send(`Tagımızı Aldığın için Rolün Verildi!`)
+      const tagalma = new Discord.RichEmbed()
+        .setColor("GREEN")
+.setTitle(`${tag} Yeni Ekip Üyesi ${tag}`)      
+.setDescription(`**${message.author} Tagımızı Aldığından Dolayı Başarıyla Rolü Verildi!**`)
+        .setTimestamp()
+.setFooter(`${message.guild.name}`)
+      channel.send(tagalma)
+    });
+  }
+  if (!message.member.user.username.includes(tag)) {
+    if (!message.member.roles.has(rol)) return;
+    message.member.removeRole(rol).then(() => {
+message.member.send(`Tagımızı Çıkardığın için Rolün Alındı`)
+      const tagsilme = new Discord.RichEmbed()
+        .setColor("RED")
+.setTitle(`${tag} Üye Ekipten Ayrıldı ${tag}`)
+        .setDescription(`**${message.author}  Tagımızı Çıkardığı için Başarıyla Rolü Alındı!**`)
+        .setTimestamp()
+.setFooter(`${message.guild.name}`)
+      channel.send(tagsilme)
+    });
+  }
+});
+  
