@@ -768,10 +768,10 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
   if(old.username !== nev.username) {
   if(!nev.username.includes("ꏪ") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
      client.guilds.get("688523664190472200").members.get(nev.id).removeRole("689930801999118414")
-     client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "Tagınız" tagını çıkardığı için (Rolunuzun Tam Adırolü alındı!**`)
+     client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "ꏪ" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
     } 
      if(nev.username.includes("ꏪ") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
-      client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "Tagınız" tagını aldığı için (Rolunuzun Tam Adı) Rolü verildi!**`) 
+      client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "ꏪ" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
       client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
   })
