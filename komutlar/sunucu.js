@@ -10,21 +10,21 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
     .setAuthor(message.guild.name, message.guild.iconURL)
     .setThumbnail(message.guild.iconURL)
     .setDescription(`
-      :ok: Sunucu Toplam Üye: ${message.guild.memberCount} \n:ok: Toplam Aktif Üye: ${
+      <a:emoji_20:689080340123484161> Sunucu Toplam Üye: ${message.guild.memberCount} \n<a:emoji_20:689080340123484161> Toplam Aktif Üye: ${
         message.guild.members.filter(b => b.presence.status !== "offline").size
-     }  \n:ok:  Erkek Üye:  ${
+     }  \n<a:emoji_20:689080340123484161> Erkek Üye:  ${
         message.guild.roles.get(erkekRolü).members.size
-      } \n:ok: Kız Üye: ${message.guild.roles.get(kızRolü).members.size} \n:ok:  Ekip: ${
+      } \n<a:emoji_20:689080340123484161> Kız Üye: ${message.guild.roles.get(kızRolü).members.size} \n<a:emoji_20:689080340123484161> Ekip: ${
         message.guild.roles.get(ekipRolü).members.size
-      }   \n:ok:  Aktif Erkek Üye: ${
+      }   \n<a:emoji_20:689080340123484161> Aktif Erkek Üye: ${
         message.guild.roles
           .get(erkekRolü)
           .members.filter(x => x.presence.status !== "offline").size
-      }  \n:okAktif Kız Üye: ${
+      }  \n<a:emoji_20:689080340123484161> Aktif Kız Üye: ${
         message.guild.roles
           .get(kızRolü)
           .members.filter(x => x.presence.status !== "offline").size
-      } \n:ok:  Aktif Ekip: ${  
+      } \n<a:emoji_20:689080340123484161> Aktif Ekip: ${  
         message.guild.roles
           .get(ekipRolü)
           .members.filter(x => x.presence.status !== "offline").size
