@@ -3,26 +3,25 @@ const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
   
-  let user = message.author
-  let sebep = args.join(" ")
+  let kullanıcı = message.author
+  let neden = args.join(" ")
  let member = message.mentions.members.first()
   let isim = args.slice(1).join(" ")
-  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`)
+  if (!neden) return message.channel.send(`AFK sebebini yazmalısın.`)
   
-  db.set(`afk_${user.id}`, sebep)
-  message.channel.send(`Şu anda \`${sebep}\` sebebiyle AFK'sın.`)
+  db.set(`afk_${kullanıcı.id}`, neden)
+  return message.channel.send(`${kullanıcı.tag} \`${neden}\` Sebebiyle AFK Oldu!`)
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: [],
+  guildOnly: false,
+  aliases: ["afk-ol"],
   permLevel: 0
 }
-
+//dcs ekibi
 exports.help = {
-  name: 'afk',
-  description: "AFK olmanızı sağlar.",
-  usage: 'afk <sebep>'
+  name: 'afkjsjsjsj',
+  description: "AFK Komudu",
+  usage: 'afk <neden>'
 }
- 
