@@ -695,8 +695,8 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("message", msg => {
-  if (msg.content.toLowerCase() === "!tag") {
-    msg.channel.send("ꏪ");
+  if (msg.content.toLowerCase() === "!tag") {    msg.react("")
+    msg.;hannel.send("ꏪ");
   }
 });
 
