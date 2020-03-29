@@ -694,11 +694,7 @@ client.on("guildMemberAdd", member => {
   channel.send("**<a:kalp:688697175407984662> Sunucuya Hoşgeldin, <@" +member.user.id +">. \n\n<a:kanat:688697210363183134> Seninle Beraber __" +member.guild.members.size +"__ Kişiyiz!\n\n<a:tik2:688697285391155347> <@&689930804301791276> Ses Teyit Odalarına Giriş Yaparak, Kayıt Olabilirsiniz.\n\n<a:ok2:688697371798012021> <@&689930801344675843> Rolündeki Yetkililer Seninle İlgilenicektir.**");
 });
 
-client.on("message", msg => {
-  if (msg.content.toLowerCase() === "!tag") {    msg.react("")
-    msg.;hannel.send("ꏪ");
-  }
-});
+
 
 var kanal = "690848136712814612"; // RESİMLERİN ATILACAĞI KANAL
 client.on("userUpdate", async (oldUser, newUser) => {
