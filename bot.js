@@ -797,4 +797,9 @@ users.setNickname(`[AFK] ${message.author.username}`)
   }
 });
 //dcs ekibi
-   
+
+client.on("message", msg => {
+  if (msg.content.toLowerCase() === "!tag") {
+    msg.channel.send("ꏪ");
+  }
+});
