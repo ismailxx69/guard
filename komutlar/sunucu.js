@@ -1,33 +1,49 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const moment = require("moment");
 
-exports.run = async (client, message, args) => {
-    let tag = "ꏪ" // tagınız
-    const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
-    let count = 0;
-    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
-
-    const embed = new Discord.RichEmbed()
-        .setColor("#000001")
-        .addField("_<a:siyah:692905410285404167> Sunucudaki üye sayısı_", message.guild.memberCount)
-        .addField("_<a:siyah:692905410285404167> Çevrimiçi üye sayısı_", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
-        .addField("_<a:siyah:692905410285404167> Seslideki üye sayısı_", count)
-        .addField("_<a:siyah:692905410285404167> Tagdaki üye sayısı_", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tagınız yoksa bu satrı silin
-        .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
-    message.channel.send(embed);
-
-}
-
-
+exports.run = async (client, message, args, prefix, ayar, emoji) => {
+  let erkekRolü = "680719057934090464";
+  let kızRolü = "680719196153184266";
+  let ekipRolü = "680725648880435215";
+  const embeddd = new Discord.RichEmbed()
+    .setColor("BLUE")
+    .setAuthor(message.guild.name, message.guild.iconURL)
+    .setThumbnail(message.guild.iconURL)
+    .setDescription(`
+      :ok: Sunucu Toplam Üye: ${message.guild.memberCount} \n:ok: Toplam Aktif Üye: ${
+        message.guild.members.filter(b => b.presence.status !== "offline").size
+     }  \n:ok:  Erkek Üye:  ${
+        message.guild.roles.get(erkekRolü).members.size
+      } \n:ok: Kız Üye: ${message.guild.roles.get(kızRolü).members.size} \n:ok:  Ekip: ${
+        message.guild.roles.get(ekipRolü).members.size
+      }   \n:ok:  Aktif Erkek Üye: ${
+        message.guild.roles
+          .get(erkekRolü)
+          .members.filter(x => x.presence.status !== "offline").size
+      }  \n:ok:    Aktif Kız Üye: ${
+        message.guild.roles
+          .get(kızRolü)
+          .members.filter(x => x.presence.status !== "offline").size
+      } \n:ok:  Aktif Ekip: ${  
+        message.guild.roles
+          .get(ekipRolü)
+          .members.filter(x => x.presence.status !== "offline").size
+      } \n:ok:  Ses Kanalında Bulunan: ${
+        message.guild.members.filter(a => a.voiceChannel).size
+      }
+    `);
+  message.channel.send(embeddd);
+};
 
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: ['sayı'],
-    permLevel: 0
+  enabled: true,
+  guildOnly: true,
+  aliases: ["s"],
+  permLevel: 0
 };
 
 exports.help = {
-    name: 'say',
-    description: 'Say',
-    usage: 'say'
+  name: "say",
+  description: "Sayım yapar.",
+  usage: "says",
 }; 
