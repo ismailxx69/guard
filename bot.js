@@ -763,37 +763,15 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
 
 
 
-client.on('message', message => {
-  let tag = "ꏪ"; 
-  let rol = "689930801999118414";
-  let channel = message.guild.channels.find('name', 'ꏪ-tag-info'); 
-  if (!rol) return;
-  if (!tag) return;
-  if (message.member.user.username.includes(tag)) {
-    if (message.member.roles.has(rol)) return;
-    message.member.addRole(rol).then(() => {
-message.member.send(`Tagımızı Aldığın için Rolün Verildi!`)
-      const tagalma = new Discord.RichEmbed()
-        .setColor("GREEN")
-.setTitle(`${tag} Yeni Ekip Üyesi ${tag}`)      
-.setDescription(`**${message.author} Tagımızı Aldığından Dolayı Başarıyla Rolü Verildi!**`)
-        .setTimestamp()
-.setFooter(`${message.guild.name}`)
-      channel.send(tagalma)
-    });
+
+  client.on("userUpdate", async(old, nev) => {
+  if(old.username !== nev.username) {
+  if(!nev.username.includes("ꏪ") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+     client.guilds.get("688523664190472200").members.get(nev.id).removeRole("689930801999118414")
+     client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "Tagınız" tagını çıkardığı için (Rolunuzun Tam Adırolü alındı!**`)
+    } 
+     if(nev.username.includes("ꏪ") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+      client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "Tagınız" tagını aldığı için (Rolunuzun Tam Adı) Rolü verildi!**`) 
+      client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
-  if (!message.member.user.username.includes(tag)) {
-    if (!message.member.roles.has(rol)) return;
-    message.member.removeRole(rol).then(() => {
-message.member.send(`Tagımızı Çıkardığın için Rolün Alındı`)
-      const tagsilme = new Discord.RichEmbed()
-        .setColor("RED")
-.setTitle(`${tag} Üye Ekipten Ayrıldı ${tag}`)
-        .setDescription(`**${message.author}  Tagımızı Çıkardığı için Başarıyla Rolü Alındı!**`)
-        .setTimestamp()
-.setFooter(`${message.guild.name}`)
-      channel.send(tagsilme)
-    });
-  }
-});
-  
+  })
