@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const moment = require("moment");
 
 exports.run = async (client, message, args, prefix, ayar, emoji) => {
-  let erkekRolü = "680719057934090464";
-  let kızRolü = "680719196153184266";
-  let ekipRolü = "680725648880435215";
+  let erkekRolü = "689930803215335514";
+  let kızRolü = "689930802682790030";
+  let ekipRolü = "689930801999118414";
   const embeddd = new Discord.RichEmbed()
     .setColor("BLUE")
     .setAuthor(message.guild.name, message.guild.iconURL)
@@ -20,7 +20,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
         message.guild.roles
           .get(erkekRolü)
           .members.filter(x => x.presence.status !== "offline").size
-      }  \n:ok:    Aktif Kız Üye: ${
+      }  \n:okAktif Kız Üye: ${
         message.guild.roles
           .get(kızRolü)
           .members.filter(x => x.presence.status !== "offline").size
@@ -28,7 +28,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
         message.guild.roles
           .get(ekipRolü)
           .members.filter(x => x.presence.status !== "offline").size
-      } \n:ok:  Ses Kanalında Bulunan: ${
+      } \n<a:emoji_20:689080340123484161> Ses Kanalında Bulunan: ${
         message.guild.members.filter(a => a.voiceChannel).size
       }
     `);
@@ -46,4 +46,4 @@ exports.help = {
   name: "say",
   description: "Sayım yapar.",
   usage: "says",
-}; 
+};  
