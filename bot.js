@@ -775,3 +775,58 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
       client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
   })
+client.on('guildMemberAdd', async member => {
+  let user = client.users.get(member.id);
+  const kurulus = new Date().getTime() - user.createdAt.getTime();
+  let halil = client.channels.get('691017131546116098')//kanal id
+  
+ const mapping = {
+  " ": "   ",
+ "0": "<a:zero:689080913547886600>",
+  "1": "<a:one:689080473434980372>",
+  "2": "<a:two:689080536945262613>",
+  "3": "<a:three:689080572823339034>",
+  "4": "<a:four:689080608667729960>",
+  "5": "<a:five:689080649927491618>",
+  "6": "<a:six:687018128370040981>",
+  "7": "<a:seven:687018185765159064>",
+  "8": "<a:eight:687018291092652032>",
+  "9": "<a:nine:687018343718322226>",
+};
+
+let afa = member.guild.memberCount
+
+let ab =  
+    `${afa}`
+      .split("")
+      .map(c => mapping[c] || c)
+      .join(" ")
+  
+  
+let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**YYYY** [Yılında] MMMM [Ayında] dddd [Gününde] (**DD/MM/YYYY**)')
+        .replace("Monday", `**Pazartesi**`)
+        .replace("Tuesday", `**Salı**`)
+        .replace("Wednesday", `**Çarşamba**`)
+        .replace("Thursday", `**Perşembe**`)
+        .replace("Friday", `**Cuma**`)
+        .replace("Saturday", `**Cumartesi**`)
+        .replace("Sunday", `**Pazar**`)
+        .replace("January", `**Ocak**`)
+        .replace("February", `**Şubat**`)
+        .replace("March", `**Mart**`)
+        .replace("April", `**Nisan**`)
+        .replace("May", `**Mayıs**`)
+        .replace("June", `**Haziran**`)
+        .replace("July", `**Temmuz**`)
+        .replace("August", `**Ağustos**`)
+        .replace("September", `**Eylül**`)
+        .replace("October", `**Ekim**`)
+        .replace("November", `**Kasım**`)
+        .replace("December", `**Aralık**`)
+  
+    var kontrol;
+    if (kurulus < 2629800000) kontrol = ' '
+    if (kurulus > 2629800000) kontrol = ` **<a:galp:693904599576477777> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:tk:685799214516928523> <@&691016299811307581> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:tek:693904601539149846> **<@&689176023140794411> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:kedi:693958240743981146> **Hesap Kuruluş Tarihi : ${a}**`
+
+  halil.send(`${kontrol}`)
+})
