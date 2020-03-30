@@ -5,7 +5,7 @@ const moment = require('moment');
 
 exports.run = async (client, message, params) => {  
   
-message.channel.send('Sunucumuzda __'+message.guild.memberCount+'__ Kişi Vardır')
+message.channel.send('<a:emoji_12:689079948274958339> Sunucumuzda __'+message.guild.memberCount+'__ Kişi Vardır')
 
 };
 
