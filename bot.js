@@ -771,7 +771,7 @@ knl.send("**Sunucumuza Kayıt Olmak İçin.\nSolda Gözüken `Registry Are` Kana
      client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "ꏪ" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
     } 
      if(nev.username.includes("ꏪ") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
-      client.channels.get('689930847985467544').send(`**<a:Emojı Tam Adı:Emojı Id> ${nev}, "ꏪ" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
+      client.channels.get('689930847985467544').send(`**<a:emoji_32:689081408567640125> ${nev}, "ꏪ" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
       client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
   })
