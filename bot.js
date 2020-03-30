@@ -816,3 +816,4 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
 
   halil.send(`${kontrol}`)
 })
+
