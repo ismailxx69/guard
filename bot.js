@@ -751,12 +751,12 @@ client.on("ready", () => {
 
   client.on("userUpdate", async(old, nev) => {
   if(old.username !== nev.username) {
-  if(!nev.username.includes("ꏪ") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+  if(!nev.username.includes("❃") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
      client.guilds.get("688523664190472200").members.get(nev.id).removeRole("689930801999118414")
-     client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "ꏪ" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
+     client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "❃" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
     } 
-     if(nev.username.includes("ꏪ") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
-      client.channels.get('689930847985467544').send(`**<a:emoji_32:689081408567640125> ${nev}, "ꏪ" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
+     if(nev.username.includes("❃") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+      client.channels.get('689930847985467544').send(`**<a:emoji_32:689081408567640125> ${nev}, "❃" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
       client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
   })
