@@ -6,7 +6,7 @@ if  (!message.member.roles.has("689930799964880946")) return message.reply('Bu k
   let member = message.mentions.members.first();
   let isim = args[1];
   let yaş = args[2];
-  let tag = "ꏪ"
+  let tag = "❃"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
   if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");

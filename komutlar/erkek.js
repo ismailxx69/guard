@@ -12,7 +12,7 @@ if(!message.member.roles.has("689930799964880946")) return message.channel.send(
   if (!yas) return message.channel.send('Yaş Yazmayı Unuttun Kanka <a:unlem:689081736088649768>')
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)      
-  member.setNickname(`ꏪ ${isim} • ${yas}`)
+  member.setNickname(`❃ ${isim} • ${yas}`)
   member.addRole('689930803215335514')
   member.removeRole('689930804301791276')
   let embed = new Discord.RichEmbed()
