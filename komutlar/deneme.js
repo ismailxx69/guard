@@ -20,7 +20,7 @@ let yeskili= '691250337771814952' //yetkili id
   const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
 let count = 0;
 for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size; 
-  let tag = "ꏪ" // tagınız
+  let tag = "❃" // tagınız
     const taglis = `${message.guild.members.filter(m => m.user.username.includes(tag)).size}`    
     let afa = client.guilds.get(sunucu).memberCount
     let kel = message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size
