@@ -696,11 +696,9 @@ client.on("guildMemberAdd", member => {
 client.login(ayarlar.token);
 
 
-
-
-
-
-
+client.on('ready', ()=>{
+client.channels.get('695047491703275630').join()
+})
 
 
 
