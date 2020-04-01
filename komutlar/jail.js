@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+ const Discord = require('discord.js');
 const db = require('quick.db')
 module.exports.run = async (bot, message, args, member, client, level) => {
   const okey = bot.emojis.find(emoji => emoji.name === "emojiismi");

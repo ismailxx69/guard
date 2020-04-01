@@ -122,7 +122,7 @@ client.on("message", msg => {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "!tag") {
-    msg.channel.send("❃");
+    msg.channel.send("**৳**");
   }
 });
 
@@ -684,12 +684,12 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("ꏪ İsim • Yaş");
+  member.setNickname("৳ İsim | Yaş");
 });
 
 client.on("guildMemberAdd", member => {
   member.send(
-    `**Volturi'ye Hoşgeldiniz!**\n\**__ꏪ__ Tagımızı Alarak Bize Destek Olabilirsin** `
+    `**Chilledia'ye Hoşgeldiniz!**\n\**__৳__ Tagımızı Alarak Bize Destek Olabilirsin** `
   );
 });
 
@@ -706,12 +706,12 @@ client.login(ayarlar.token);
 
   client.on("userUpdate", async(old, nev) => {
   if(old.username !== nev.username) {
-  if(!nev.username.includes("❃") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+  if(!nev.username.includes("৳") && client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
      client.guilds.get("688523664190472200").members.get(nev.id).removeRole("689930801999118414")
-     client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "❃" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
+     client.channels.get('689930847985467544').send(`**<a:hayr:693942294197567498> ${nev}, "৳" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
     } 
-     if(nev.username.includes("❃") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
-      client.channels.get('689930847985467544').send(`**<a:emoji_32:689081408567640125> ${nev}, "❃" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
+     if(nev.username.includes("৳") && !client.guilds.get("688523664190472200").members.get(nev.id).roles.has("689930801999118414")) {
+      client.channels.get('689930847985467544').send(`**<a:emoji_32:689081408567640125> ${nev}, "৳" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
       client.guilds.get("688523664190472200").members.get(nev.id).addRole("689930801999118414")}
   }
   })
@@ -766,8 +766,8 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
         .replace("December", `**Aralık**`)
   
     var kontrol;
-    if (kurulus < 262980000) kontrol = ' '
-    if (kurulus > 262980000) kontrol = ` **<a:kalp:688697175407984662> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:ok2:688697371798012021> <@&695025904350658620> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:siyah:692905410285404167> **<@&689930801344675843> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:emoji_11:689079909414600745> **Hesap Kuruluş Tarihi : ${a}**`
+    if (kurulus < 2629800000) kontrol = ' '
+    if (kurulus > 2629800000) kontrol = ` **<a:kalp:688697175407984662> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:ok2:688697371798012021> <@&695025904350658620> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:siyah:692905410285404167> **<@&689930801344675843> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:emoji_11:689079909414600745> **Hesap Kuruluş Tarihi : ${a}**`
 
   halil.send(`${kontrol}`)
 })

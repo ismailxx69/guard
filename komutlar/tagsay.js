@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
   var tagdakiler = 0;
-  let tag = "❃";
+  let tag = "৳";
   message.guild.members.forEach(member => {
     if(member.user.username.includes(tag)) {
       tagdakiler = tagdakiler+1
