@@ -8,12 +8,12 @@ exports.run = async (client, message, args) => {
   let djsturkiye = await db.fetch(`capslock_${message.guild.id}`)
   if (djsturkiye) {
     db.delete(`capslock_${message.guild.id}`)
-    message.channel.send(`Capslock engelleme sistemi kapatıldı!`)
+    message.channel.send(`<a:yeil:689082023050215469> Capslock engelleme sistemi kapatıldı!`)
   }
  
   if (!djsturkiye) {
     db.set(`capslock_${message.guild.id}`, 'acik')
-    message.channel.send(`Capslock engelleme sistemi aktifleştirildi! \nKapatmak için tekrar  \`${yashinu}capslock-engel\`  yazmalısın. (\`Üyeleri Yasakla\`  iznine sahip kişilerin büyük harfle yazılmış mesajlarını engellemez.)`)
+    message.channel.send(`<a:yeil:689082023050215469> Capslock engelleme sistemi aktifleştirildi! \nKapatmak için tekrar  \`${yashinu}capslock-engel\`  yazmalısın. (\`Üyeleri Yasakla\`  iznine sahip kişilerin büyük harfle yazılmış mesajlarını engellemez.)`)
   }
 };
 
@@ -25,7 +25,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'capslock-engel',
+  name: 'caps-engel',
   description: 'Fazla büyük harf kullanımını engeller.',
   usage: 'capslock-engel',
   kategori: 'sunucu'
