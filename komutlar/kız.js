@@ -1,34 +1,27 @@
 const Discord = require('discord.js');
-const db = require("quick.db")
-
-exports.run = async (client, message, args) => {
-
-if(!message.member.roles.has("689930799964880946")) return message.channel.send(`Bu komutu kullanabilmek için <@&689930799964880946> yetkisine sahip olmasınız. <a:unlem:689081736088649768>`);
-  let isim = args[1];
-  let yas = args[2];
-  let kullanıcı = message.mentions.users.first()
-  if (!kullanıcı) return message.channel.send('Kullanıcıyı etiketlemeyi unuttun kanka.  <a:unlem:689081736088649768>')
-  if (!isim) return message.channel.send('İsim Yazmayı Unuttun Kanka <a:unlem:689081736088649768>')
-  if (!yas) return message.channel.send('Yaş Yazmayı Unuttun Kanka <a:unlem:689081736088649768>')
-  let rol = message.mentions.roles.first()
-  let member = message.guild.member(kullanıcı)      
-  member.setNickname(`৳ ${isim} | ${yas}`)
-  member.addRole('695032377919143946')
-  member.removeRole('695025904350658620')
-  let embed = new Discord.RichEmbed()
-  message.react("689080340123484161")
-};
-
+const db = require('quick.db')
+module.exports.run = async (bot, message, args, member, client, level) => {
+  if(!message.member.roles.has("Kayıtçı Rol İd")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+  let user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if (!user) return message.reply("**Etiket Atmayı Unuttun!**");
+  user.addRole('Verecegi Rol İd') 
+  user.removeRole('Alacağı Rol İd') 
+const ky = new Discord.RichEmbed()
+        .setAuthor(message.author.tag, message.author.avatarURL)
+        .setDescription(`${user}, **kullanıcısına başarı ile kız rolü verildi**`)
+        .setColor('BLACK')
+        .setTimestamp()
+        message.channel.send(ky)
+  
+} 
 exports.conf = {
-  enabled: true,
-  guildOnly: true,
-  aliases: [],
-  kategori: "KULLANICI KOMUTLARI",
-  permLevel: 0
+    enabled: true,
+    guildOnly: false,
+    aliases: ["kız"],
+    permLevel: 0
 }
-
 exports.help = {
-  name: 'kız',
-  description: "Sunucuya kaydolmaya ne dersin ?",
-  usage: 'kayıt isim yaş'
+    name: 'kız', 
+    description: 'kayıt',
+    usage: 'kayıt' //Dcs Ekibi
 }
