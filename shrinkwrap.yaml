@@ -7,6 +7,7 @@ dependencies:
   generate-password: 1.4.2
   math-expression-evaluator: 1.2.17
   moment: 2.24.0
+  ms: 2.1.2
   parse-ms: 2.1.0
   quick.db: 7.0.0-b22
   request: 2.88.0
@@ -580,6 +581,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+  /ms/2.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
   /negotiator/0.6.1:
     dev: false
     engines:
@@ -900,6 +905,7 @@ specifiers:
   generate-password: ^1.4.2
   math-expression-evaluator: ^1.2.17
   moment: ^2.24.0
+  ms: ^2.1.2
   parse-ms: ^2.1.0
   quick.db: ^7.0.0-b22
   request: ^2.88.0
