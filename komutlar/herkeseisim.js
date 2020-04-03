@@ -22,7 +22,7 @@ message.channel.awaitMessages(a => a.author.id === message.author.id && a.conten
   message.channel.send("<a:onay:607322430704451625> Başarıyla herkezın adını sıfırladım." )
    
    message.guild.members.forEach(u => {
-u.setNickname("৳ İsim | Yaş")
+u.setNickname("")
 })
   })
      .catch(() => {
