@@ -21,7 +21,7 @@ let yeskili= '695788540340076625' //yetkili id
 let count = 0;
 for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size; 
   let tag = "✧" // tagınız
-    const taglis = `${message.guild.members.filter(m => m.user.username.includes(tag)).size}`    
+      const taglis = `${message.guild.members.filter(m => m.user.username.includes(tag)).size}`    
     let afa = client.guilds.get(sunucu).memberCount
     let kel = message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size
       let i = message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "online").size
@@ -86,4 +86,4 @@ exports.help = {
   usage: "online",
   desscription: "online sayısı"
 };
-//ROTASIZ DİKER <3
+//ROTASIZ DİKER <3 
