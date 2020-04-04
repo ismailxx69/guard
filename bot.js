@@ -713,9 +713,9 @@ client.on('guildMemberAdd', async member => {
   "4": "<a:four1:695803853290864680>",
   "5": "<a:five1:695803896001724427>",
   "6": "<a:six1:695803944475164744>",
-  "7": "<a:seven1:689080746459136012>",
-  "8": "<a:eight1:689080803874963530>",
-  "9": "<a:nine1:689080868157128719>",
+  "7": "<a:seven1:695803977878470687>",
+  "8": "<a:eight1:695804008660729947>",
+  "9": "<a:nine1:695804042491723809>",
 };
 
 let afa = member.guild.memberCount
@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 1) kontrol = ` **<a:kalp:688697175407984662> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:ok2:688697371798012021> <@&695025904350658620> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:siyah:692905410285404167> **<@&689930801344675843> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:emoji_11:689079909414600745> **Hesap Kuruluş Tarihi : ${a}**`
+    if (kurulus > 1) kontrol = ` **<a:kalp:688697175407984662> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:mor:696120357370986606> <@&695025904350658620> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:lod:696119809888354345> **<@&689930801344675843> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:dvlpr:696119046273237052> **Hesap Kuruluş Tarihi : ${a}**`
 
   halil.send(`${kontrol}`)
 })
