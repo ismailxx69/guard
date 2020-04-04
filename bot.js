@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 1) kontrol = ` **<a:kalp:688697175407984662> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:mor:696120357370986606> <@&695025904350658620> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:lod:696119809888354345> **<@&689930801344675843> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:dvlpr:696119046273237052> **Hesap Kuruluş Tarihi : ${a}**`
+    if (kurulus > 1) kontrol = ` **<a:as:695996725550383114> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:mor:696120357370986606> <@&695788913415028809> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:lod:696119809888354345> **<@&695788842455793736> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:dvlpr:696119046273237052> **Hesap Kuruluş Tarihi : ${a}**`
 
   halil.send(`${kontrol}`)
 })
