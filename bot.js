@@ -95,11 +95,11 @@ client.unload = command => {
 };
 
 client.ayar = {
-  SunucuID: "SUNUCU İD",
-  SunucuTAG: "TAGJDJSJ",
-  SahipRolüID: "688526928658825258",
-  EkipRolü: "HHAAHHA",
-  EkipMesajKanalı: "EHEHEHEHEHEHE"
+  SunucuID: "695786963705266349",
+  SunucuTAG: "✧",
+  SahipRolüID: "695788540340076625",
+  EkipRolü: "695796359588085870",
+  EkipMesajKanalı: "695995566739423292"
 };
 
 client.on("guildMemberAdd", async member => {
@@ -549,10 +549,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:kalp:688697175407984662> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`
+          `**<a:as:695996725550383114> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`
         );
       newUser.send(
-        `**<a:kalp:688697175407984662> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`
+        `**<a:as:695996725550383114> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`
       );
     }
   }
@@ -577,9 +577,9 @@ client.on("userUpdate", async function(oldUser, newUser) {
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `);
+        .send(`<a:as:695996725550383114>**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `);
       newUser.send(
-        `**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **ヤ** Görüşürüz <3 **`
+        `**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **✧** Görüşürüz <3 **`
       );
     }
   }
@@ -689,7 +689,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberAdd", member => {
   member.send(
-    `**Chilledia'ye Hoşgeldiniz!**\n\**__৳__ Tagımızı Alarak Bize Destek Olabilirsin** `
+    `**Aura'ya Hoşgeldiniz!**\n\**__✧__ Tagımızı Alarak Bize Destek Olabilirsin** `
   );
 });
 
@@ -697,19 +697,7 @@ client.login(ayarlar.token);
 
 
 
-
-
-  client.on("userUpdate", async(old, nev) => {
-  if(old.username !== nev.username) {
-  if(!nev.username.includes("✧") && client.guilds.get("695786963705266349").members.get(nev.id).roles.has("689930801999118414")) {
-     client.guilds.get("695786963705266349").members.get(nev.id).removeRole("695796359588085870")
-     client.channels.get('695995566739423292').send(`**<a:hayr:693942294197567498> ${nev}, "✧" tagını çıkardığı için <@&689930801999118414> Rolü alındı!**`)
-    } 
-     if(nev.username.includes("✧") && !client.guilds.get("695786963705266349").members.get(nev.id).roles.has("689930801999118414")) {
-      client.channels.get('695995566739423292').send(`**<a:emoji_32:689081408567640125> ${nev}, "✧" tagını aldığı için <@&689930801999118414> Rolü verildi!**`) 
-      client.guilds.get("695786963705266349").members.get(nev.id).addRole("695796359588085870")}
-  }
-  })
+ 
 ////////////////////////////////////////////////////////////////////
 client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
