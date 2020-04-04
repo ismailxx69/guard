@@ -702,14 +702,14 @@ client.login(ayarlar.token);
 client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
-  let halil = client.channels.get('695031619190521876')//kanal id
+  let halil = client.channels.get('695789293389611078')//kanal id
   
  const mapping = {
   " ": "   ",
- "0": "<a:zero:689080913547886600>",
-  "1": "<a:one:689080473434980372>",
-  "2": "<a:two:689080536945262613>",
-  "3": "<a:three:689080572823339034>",
+ "0": "<a:zero1:689080913547886600>",
+  "1": "<a:one1:689080473434980372>",
+  "2": "<a:two1:689080536945262613>",
+  "3": "<a:three1:689080572823339034>",
   "4": "<a:four:689080608667729960>",
   "5": "<a:five:689080649927491618>",
   "6": "<a:six:689080705258618940>",
