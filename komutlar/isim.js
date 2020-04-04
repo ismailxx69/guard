@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-if  (!message.member.roles.has("689930799964880946")) return message.reply('Bu komutu kullanabilmek için <@&689930799964880946> rolüne sahip olmalısın.');
+if  (!message.member.roles.has("695788842455793736")) return message.reply('Bu komutu kullanmaya yetkin yok');
   
   let member = message.mentions.members.first();
   let isim = args[1];
   let yaş = args[2];
-  let tag = "৳"
+  let tag = "✧"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
   if (!yaş) return message.channel.send("**Bir Yaş Yazmalısınız**");

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
 module.exports.run = async (bot, message, args, member, client, level) => {
-  if(!message.member.roles.has("689930799964880946")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+  if(!message.member.roles.has("695788842455793736")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
   let user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if (!user) return message.reply("**Etiket Atmayı Unuttun!**");
   user.addRole('695032267302633535') 

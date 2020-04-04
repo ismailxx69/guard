@@ -122,7 +122,7 @@ client.on("message", msg => {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "!tag") {
-    msg.channel.send("**৳**");
+    msg.channel.send("**✧**");
   }
 });
 
@@ -684,7 +684,7 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("৳ İsim | Yaş");
+  member.setNickname("✦ İsim | Yaş");
 });
 
 client.on("guildMemberAdd", member => {
@@ -696,9 +696,6 @@ client.on("guildMemberAdd", member => {
 client.login(ayarlar.token);
 
 
-client.on('ready', ()=>{
-client.channels.get('695047491703275630').join()
-})
 
 
 
