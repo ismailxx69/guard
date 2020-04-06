@@ -706,16 +706,20 @@ client.on('guildMemberAdd', async member => {
   
  const mapping = {
   " ": "   ",
- "0": "<a:zero1:695803657181986876>",
-  "1": "<a:one1:695803705278070804>",
-  "2": "<a:two1:695803758277427210>",
-  "3": "<a:three1:695803796416102420>",
-  "4": "<a:four1:695803853290864680>",
-  "5": "<a:five1:695803896001724427>",
-  "6": "<a:six1:695803944475164744>",
-  "7": "<a:seven1:695803977878470687>",
-  "8": "<a:eight1:695804008660729947>",
-  "9": "<a:nine1:695804042491723809>",
+ "0": "<a:zero:695241570428911630>",
+  "1": "<a:one:695241567803277322>",
+  "2": "<a:two:695241570626043998>",
+  "3": "<a:three:695241570626306068>",
+  "4": "<a:four:695241569846034433>",
+  "5": "<a:five:695241572077404201>",
+  "6": "<a:six:695241572551360572>",
+  "7": "<a:seven:695241572450697216>",
+  "8": "<a:eight:695241575415939132>",
+  "9": "<a:nine:695241576061861969>",
+  "!": "grey_exclamation",
+  "?": "grey_question",
+  "#": "hash",
+  "*": "asterisk"
 };
 
 let afa = member.guild.memberCount
@@ -750,8 +754,9 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 1) kontrol = ` **<a:as:695996725550383114> Hoşgeldin <@!${member.id}> Seninle birlikte ${ab} kişiyiz**\n\n\<a:mor:696120357370986606> <@&695788913415028809> **Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsiniz** \n\n <a:lod:696119809888354345> **<@&695788842455793736> Rolündekilernin Sizi Kayıt Etmesini İsteyebilirsiniz.** \n\n <a:dvlpr:696119046273237052> **Hesap Kuruluş Tarihi : ${a}**`
-
+    if (kurulus > 2629800000) kontrol = ` ** <a:siyah:694927370292822090> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz.**\n\n**<a:siyah:694927370292822090>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin.** \n\n** <a:siyah:694927370292822090> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. \n\n ** **<a:siyah:694927370292822090> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** \n\n **<a:siyah:694927370292822090> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
-})
 
+  
+})
+ ;
