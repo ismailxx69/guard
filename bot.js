@@ -153,7 +153,7 @@ client.on("guildBanAdd", async (guild, user) => {
             .roles.filter(a => a.hasPermission("BAN_MEMBERS"))
             .forEach(x => guild.member(entry.executor).removeRole(x.id));
           guild.owner.user.send(
-            `Sunucundan bir yetkili ban limitine ulaştı ve ban yetkisi olan rolleri alındı! İşte bilgileri => \n\n\`Kullanıcı:\`  ${
+            `**Sunucundan bir yetkili ban limitine ulaştı ve ban yetkisi olan rolleri alındı! İşte bilgileri** => \n\n\`Kullanıcı:\`  ${
               entry.executor
             } | ${
               entry.executor.id
