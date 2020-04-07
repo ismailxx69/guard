@@ -1,62 +1,79 @@
-const Discord = require("discord.js");
-const ms = require("ms");
-const djsturkiye = require('../ayarlar.json');
-
-exports.run = async (client, message, args) => {
-  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || djsturkiye.prefix;
-  let üye = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!üye) return message.channel.send(`Kime işlem yapılacağını belirtmelisin! \n**Doğru Kullanım:** \`${prefix}mute @Kullanıcı <isterseniz süre>\``);
-
-  let rol = message.guild.roles.find(abc => abc.name === "Susturulmuş");
-  if(!rol) {
-    if (!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.channel.send(`\`Hata:\`  Botun yetkisi yetersiz!  **(Botun,  \`Kanalları Yönet\` ve \`Rolleri Yönet\`  yetkisi açık olmalıdır!)** `);
-    try {
-      rol = await message.guild.createRole({
-        name: "Susturulmuş",
-        color: "#818386",
-        permissions:[]
-      })
-      message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(rol, {
-          SEND_MESSAGES: false,
-          ADD_REACTIONS: false,
-          SPEAK: false
-        });
-      });
-    } catch(e) { console.log(e) };
-  };
-
-  let süre = args.slice(1).join(' ').replace('gün'.toLowerCase(), 'd').replace('saat'.toLowerCase(), 'h').replace('dakika'.toLowerCase(), 'm').replace('saniye'.toLowerCase(), 's');
-
-  if(üye.roles.has(rol.id)) {
-    await(üye.removeRole(rol.id));
-    message.channel.send(`**\`${üye.displayName}\`  adlı üyenin susturulması kaldırıldı!**`)
-    return
-  }
+const Discord = require('discord.js');
+const db = require('quick.db')
+const ayarlar = require('../ayarlar.json');
+exports.run = (client, message, args) => { 
   
-  if(!süre) {
-    await(üye.addRole(rol.id));
-    message.channel.send(`**\`${üye.displayName}\`  adlı üye susturuldu! Tekrar aynı işlemi uygulayarak susturulmayı kaldırabilirsiniz.**`)
-  } else {
-    await(üye.addRole(rol.id));
-    message.channel.send(`**\`${üye.displayName}\`  adlı üye  \`${ms(ms(süre))}\`  süre boyunca susturuldu.**`);
-    setTimeout(function(){
-      üye.removeRole(rol.id);
-      message.channel.send(`**\`${üye.displayName}\`  adlı üyenin susturulma süresi dolduğu için susturulması kaldırıldı!**`);
-    }, ms(süre));
-  };
-};
+  
+  let member = message.guild.members.get(message.author.id)
 
+  
+  if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply('Bu komutu kullanmak için yeterli yetkiye sahip değilsin.')
+
+let user = message.mentions.users.first() || message.guild.members.get(args[0])
+
+if(!user) return message.reply('Lütfen bir kullanıcı belirt.')
+
+if(user.id === message.author.id) return message.reply('Kendini muteliyemezsin.')
+
+if(user.bot) return   
+
+ let süre = args[1] 
+  
+if(isNaN(süre)) return message.reply('Lütfen sayı birimi gir')  
+ 
+if(süre < 5) return message.reply('Lütfen 5 den büyük sayı birimi gir.')   
+  let neden = args.slice(2).join(" ") // anlam kaymasi oluyor calismaz 
+ if(!neden) return message.reply('Bir neden gir')
+  
+  
+  
+  let muterol = "696528639545835521" 
+  let log = "696528862577819718" 
+  
+  // avatarURL
+ // iconURL
+ 
+ 
+ 
+ let embed = new Discord.RichEmbed()
+ .setTitle('Mute Atıldı')
+ .setAuthor(message.author.avatarURL, message.author.username) 
+ .setDescription(`Bir kullanıcı **${süre}** dakika susturuldu.`)
+ .addField("Mutelenen Kullanıcı", `Kullanıcı: ${user.username} \n\n ID: ${user.id}`)
+ .addField("Yetkili", `Yetkili: ${message.author.username} \n\n ID: ${message.author.id}`)
+ .addField("Mute Bilgisi", `Süre: ${süre} dakika \n\n Neden: ${neden}`)
+ .setFooter(client.user.username, client.user.avatarURL)
+ .setColor("RED")
+ .setTimestamp()
+ client.channels.get(log).send(embed)
+ 
+
+ message.channel.send(`<@!${user.id}> Adlı kullanıcı **${süre}** dakika boyunca susturuldu.`) // eninde sonunda + kullanan yasine yakiyoruz.
+  
+ message.guild.members.get(user.id).addRole('696528639545835521') 
+ message.guild.members.get(user.id).removeRole('694593638889423000') 
+ 
+  
+  
+ let mutesüresi = süre*60000
+  
+  
+ db.set(`mutesüresi_${user.id}_${message.guild.id}`, mutesüresi)
+ 
+ 
+  user.send(`**${message.guild.name}** sunucusundan **${süre}** dakika boyunca **${neden}** sebebiyle susturuldun.Mute'ni açmak için  yetkililere yazabilirisn.`)
+ 
+
+  };
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ['sustur'],
+  enabled: true,  
+  guildOnly: false, 
+  aliases: [], 
   permLevel: 0
 };
 
 exports.help = {
   name: 'mute',
-  description: 'Belirtilen kullanıcıyı belirtilen süre kadar susturur/susturmasını açar.',
-  usage: 'mute @Kullanıcı [İsterseniz Süre]',
-  kategori: 'yetkili'
+  description: 'taslak', 
+  usage: 'sustur'
 };

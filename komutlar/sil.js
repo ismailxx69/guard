@@ -32,10 +32,10 @@ exports.run = async function(client, message, args) {
     message.channel.bulkDelete(100)
     message.channel.bulkDelete(100)
     message.channel.bulkDelete(abc-300).then(() => {
-    message.channel.reply(`${abc} adet mesaj silindi!`).then(msg => msg.delete(5000));
+    message.channel.reply(`${abc} **adet mesaj silindi!** <a:siyah:694927370292822090>`).then(msg => msg.delete(5000));
     })
   } else {
-    message.channel.send(`Lütfen 1-400 arası silinecek mesaj miktarı yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
+    message.channel.send(`**Lütfen 1-400 arası silinecek mesaj miktarı yazın!**  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
   }
 
 };
