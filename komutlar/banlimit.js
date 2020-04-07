@@ -9,9 +9,9 @@ exports.run = async(yashinu, message, args) => {
     message.reply('Ban limit özelliği başarıyla devre dışı bırakıldı!')
     return
   }
-  if(!args[0] || isNaN(args[0])) return message.channel.send(`Ban limit sayısını belirtmelisin! (Özelliği devre dışı bırakmak isterseniz **0** yazmalısınız!)`);
+  if(!args[0] || isNaN(args[0])) return message.channel.send(`**Ban limit sayısını belirtmelisin!** (**Özelliği devre dışı bırakmak isterseniz** **0** **yazmalısınız!**)`);
   await db.set(`banlimit_${message.guild.id}`, args[0])
-  message.reply(`Sunucunun ban limitini başarıyla **${args[0]}** olarak ayarladım!`);
+  message.reply(`**Sunucunun ban limitini başarıyla **${args[0]}** olarak ayarladım! <a:siyah:694927370292822090>**`);
 };
 
 exports.conf = {

@@ -549,10 +549,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:as:695996725550383114> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`
+          `**<a:mor:695305049114542102> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`
         );
       newUser.send(
-        `**<a:as:695996725550383114> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`
+        `**<a:mor:695305049114542102> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`
       );
     }
   }
@@ -579,7 +579,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(`<a:as:695996725550383114>**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `);
       newUser.send(
-        `**Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **✧** Görüşürüz <3 **`
+        `**<a:mor:695305049114542102> Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **√** Görüşürüz <3 **`
       );
     }
   }
