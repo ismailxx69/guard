@@ -762,5 +762,32 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   halil.send(`${kontrol}`)
 
   
+  client.on('message', message => {
+    if (message.content === prefix + "sunucubilgi") {
+        const embed = new Discord.RichEmbed()
+            .addField ("<a:mor:695305049114542102> Sunucu Adı", message.guild.name, true)
+        
+        
+            
+                               .addField ("<a:mor:695305049114542102> Sunucu ID <a:mor:695305049114542102>", message.guild.id, true)
+        
+        
+        
+                       .addField ("<a:mor:695305049114542102> Sunucu Sahibi <a:mor:695305049114542102>", message.guild.owner)
+        
+        
+        
+                           .addField ("<a:mor:695305049114542102> Toplam Üye Sayısı <a:mor:695305049114542102>", message.guild.memberCount)
+        
+        
+        
+              .addField ("<a:yangn:695305024179273738> Olusturma Tarihi <a:yangn:695305024179273738>", message.guild.createdAt)
+        
+        
+            .setColor(0x000001)
+        return message.channel.sendEmbed(embed)
+    }   
+});
+
 })
  ;
