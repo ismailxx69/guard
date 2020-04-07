@@ -8,7 +8,7 @@ exports.run = (client, message) => {
     .setTimestamp()
     .setColor('BLACK')
     .setTimestamp()
-    .addField('<a:mor:696120357370986606> **Yapımcım: **', '<a:dvlpr:696119046273237052> <@650689514842619914> \n<a:mor:696120357370986606> **Geliştiricim :** \n<a:dvlpr:696119046273237052> <@650689514842619914>') // YAPIMCI
+    .addField('<a:siyah:694927370292822090> **Yapımcım: **', '<a:siyah:694927370292822090> <@305943092056293376> \n <a:siyah:694927370292822090> **Geliştiricim :** \n <a:siyah:694927370292822090> <@305943092056293376>') // YAPIMCI
     message.channel.sendEmbed(ozelmesajkontrol) }
 };
 
