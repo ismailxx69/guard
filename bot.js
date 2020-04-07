@@ -95,11 +95,11 @@ client.unload = command => {
 };
 
 client.ayar = {
-  SunucuID: "695786963705266349",
-  SunucuTAG: "✧",
-  SahipRolüID: "695788540340076625",
-  EkipRolü: "695796359588085870",
-  EkipMesajKanalı: "695995566739423292"
+  SunucuID: "693604724221542472",
+  SunucuTAG: "√",
+  SahipRolüID: "693615832776835162",
+  EkipRolü: "693615827135496262",
+  EkipMesajKanalı: "696823598244954112"
 };
 
 client.on("guildMemberAdd", async member => {
@@ -116,7 +116,7 @@ client.on("guildMemberAdd", async member => {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "sa") {
-    msg.reply("Aleyküm Selam Hoşgeldin. <a:as:695996725550383114>");
+    msg.reply("<a:sar:695305057075462147> **Aleyküm Selam Hoşgeldin**. <a:sar:695305057075462147>");
   }
 });
 
@@ -549,10 +549,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:mor:695305049114542102> Ailemize ${newUser},katıldı!Herkesbi Ailemize Katılanı Selamlasın **!`
+          `**<a:mor:695305049114542102> Ailemize ${newUser},katıldı! Herkes bi Ailemize Katılanı Selamlasın <a:siyah:694927370292822090>**!`
         );
       newUser.send(
-        `**<a:mor:695305049114542102> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana**`
+        `**<a:mor:695305049114542102> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:siyah:694927370292822090>**`
       );
     }
   }
