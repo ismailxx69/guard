@@ -577,7 +577,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`<a:as:695996725550383114>**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü :(** `);
+        .send(`<a:mor:695305049114542102>**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü <a:mor:695305049114542102>** `);
       newUser.send(
         `**<a:mor:695305049114542102> Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **√** Görüşürüz <3 **`
       );
@@ -684,12 +684,16 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("✦ İsim | Yaş");
+  member.setNickname("√ • İsim  ");
 });
 
 client.on("guildMemberAdd", member => {
   member.send(
-    `**Aura'ya Hoşgeldiniz!**\n\**__✧__ Tagımızı Alarak Bize Destek Olabilirsin** `
+    `**<a:mor:695305049114542102> √alerian'a hoşgeldin.'** ${member} 
+**<a:mor:695305049114542102> Umarım keyifli vakit geçirirsin.** 
+**<a:mor:695305049114542102> Tagımızı alarak ailemize katılabilirsin.** 
+**<a:mor:695305049114542102> Tagımızı öğrenmek için herhangi bir metin kanalına v!tag yazarak ulaşabilirsin.** 
+**<a:mor:695305049114542102> İyi eğlenceler...**`
   );
 });
 
@@ -702,7 +706,7 @@ client.login(ayarlar.token);
 client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
-  let halil = client.channels.get('695789293389611078')//kanal id
+  let halil = client.channels.get('696823548081340456')//kanal id
   
  const mapping = {
   " ": "   ",

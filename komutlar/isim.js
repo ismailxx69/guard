@@ -8,12 +8,12 @@ if  (!message.member.roles.has("693660564173357116")) return message.reply('Bu k
   let tag = "√"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
-  member.setNickname(`${tag} | ${isim} |`);
+  member.setNickname(`${tag} • ${isim} `);
   const embed = new Discord.RichEmbed()
     .setColor('#000001')
     .addField(
       `**<a:siyah:694927370292822090> İsim Başarıyla Değiştirildi **`,
-      `\n**<a:siyah:694927370292822090> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:siyah:694927370292822090> Yeni Kullanıcı Adı:** \`${tag} ${isim} | \``
+      `\n**<a:siyah:694927370292822090> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:siyah:694927370292822090> Yeni Kullanıcı Adı:** \`${tag} • ${isim}  \``
     )
       .setImage("https://cdn.discordapp.com/attachments/693777915179040778/695255047197687858/giphy.gif")
     .setFooter(`Talador`)
