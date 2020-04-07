@@ -1,79 +1,65 @@
-const Discord = require('discord.js');
-const db = require('quick.db')
-const ayarlar = require('../ayarlar.json');
-exports.run = (client, message, args) => { 
-  
-  
-  let member = message.guild.members.get(message.author.id)
+const Discord = require("discord.js");
+const ms = require("ms");
+const client = new Discord.Client();
 
+exports.run = async (receivedMessage, msg, args) => {
+     if (!msg.member.hasPermissions("KICK_MEMBERS")) return msg.channel.send("Bir yetkili değilsin bu yüzden komutu kullanamazsın!")
+var mod = msg.author
+    let reason = args.join(" ").slice(25);
+let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
+  if (!user) return msg.reply('Bir kullanıcı etiketlemelisin.')
+  if (!reason) return msg.reply('Bir sebep belirtmelisin.')
+  let mute = msg.guild.roles.find(r => r.name === "Mute");
+          
+  let mutetime = args[1];
+if(!mute){
+      mute = await msg.guild.createRole({
+        name: "Mute",
+        color: "#000000",
+        permissions:[]
+      })
+      msg.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(mute, {
+          SEND_MESSAGES: false,
+          ADD_REACTIONS: false
+        });
+      });
   
-  if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply('Bu komutu kullanmak için yeterli yetkiye sahip değilsin.')
+    }
+  
+  
+  await(user.addRole(mute.id));
+  let mutezaman = args[1]
+.replace(`d`," Gün")
+.replace(`s`," Saniye")
+.replace(`h`," Saat")
+.replace(`m`," Dakika")
+.replace(`w`," Hafta")
+  
 
-let user = message.mentions.users.first() || message.guild.members.get(args[0])
+  const muteembed = new Discord.RichEmbed()
+         .setTitle('Mute')
+      .addField(`Yetkili` , ` ${mod} adlı moderatör susturma kullandı.**<@${user.id}>** adlı kullanıcı ${reason} sebebi ile ${mutezaman} susturuldu.`)
+    msg.channel.send(muteembed);
+  setTimeout(function(){
+    // msg.channel.send(`<@${user.id}> Muten açıldı.`)
+      const muteembed = new Discord.RichEmbed()
+      .setDescription(`<@${user.id}> süren doldu, artık konuşabilirsin!`)
+        msg.channel.send(muteembed)
+    user.removeRole(mute.id);
+  }, ms(mutetime));
 
-if(!user) return message.reply('Lütfen bir kullanıcı belirt.')
-
-if(user.id === message.author.id) return message.reply('Kendini muteliyemezsin.')
-
-if(user.bot) return   
-
- let süre = args[1] 
-  
-if(isNaN(süre)) return message.reply('Lütfen sayı birimi gir')  
- 
-if(süre < 5) return message.reply('Lütfen 5 den büyük sayı birimi gir.')   
-  let neden = args.slice(2).join(" ") // anlam kaymasi oluyor calismaz 
- if(!neden) return message.reply('Bir neden gir')
-  
-  
-  
-  let muterol = "696528639545835521" 
-  let log = "696528862577819718" 
-  
-  // avatarURL
- // iconURL
- 
- 
- 
- let embed = new Discord.RichEmbed()
- .setTitle('Mute Atıldı')
- .setAuthor(message.author.avatarURL, message.author.username) 
- .setDescription(`Bir kullanıcı **${süre}** dakika susturuldu.`)
- .addField("Mutelenen Kullanıcı", `Kullanıcı: ${user.username} \n\n ID: ${user.id}`)
- .addField("Yetkili", `Yetkili: ${message.author.username} \n\n ID: ${message.author.id}`)
- .addField("Mute Bilgisi", `Süre: ${süre} dakika \n\n Neden: ${neden}`)
- .setFooter(client.user.username, client.user.avatarURL)
- .setColor("RED")
- .setTimestamp()
- client.channels.get(log).send(embed)
- 
-
- message.channel.send(`<@!${user.id}> Adlı kullanıcı **${süre}** dakika boyunca susturuldu.`) // eninde sonunda + kullanan yasine yakiyoruz.
-  
- message.guild.members.get(user.id).addRole('696528639545835521') 
- message.guild.members.get(user.id).removeRole('694593638889423000') 
- 
-  
-  
- let mutesüresi = süre*60000
-  
-  
- db.set(`mutesüresi_${user.id}_${message.guild.id}`, mutesüresi)
- 
- 
-  user.send(`**${message.guild.name}** sunucusundan **${süre}** dakika boyunca **${neden}** sebebiyle susturuldun.Mute'ni açmak için  yetkililere yazabilirisn.`)
- 
-
-  };
+}
 exports.conf = {
-  enabled: true,  
-  guildOnly: false, 
-  aliases: [], 
-  permLevel: 0
+  enabled: true,
+  guildOnly: true,
+  aliases: ["mute",'smute'],
+  permLevel: 0,
+  kategori:'yetkili',
 };
 
 exports.help = {
-  name: 'mute',
-  description: 'taslak', 
-  usage: 'sustur'
+  name: "mute",
+  description: "Belirttiğiniz kullanıcıyı belirttiğiniz zamana göre susturur.",
+  usage: ""
 };
