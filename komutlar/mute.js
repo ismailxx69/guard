@@ -1,65 +1,64 @@
-const Discord = require("discord.js");
+  const Discord = require("discord.js");
 const ms = require("ms");
-const client = new Discord.Client();
-
-exports.run = async (receivedMessage, msg, args) => {
-     if (!msg.member.hasPermissions("KICK_MEMBERS")) return msg.channel.send("Bir yetkili değilsin bu yüzden komutu kullanamazsın!")
-var mod = msg.author
-    let reason = args.join(" ").slice(25);
-let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-  if (!user) return msg.reply('Bir kullanıcı etiketlemelisin.')
-  if (!reason) return msg.reply('Bir sebep belirtmelisin.')
-  let mute = msg.guild.roles.find(r => r.name === "Mute");
-          
-  let mutetime = args[1];
-if(!mute){
-      mute = await msg.guild.createRole({
+const ayarlar = require("../ayarlar.json");
+const prefix = ayarlar.prefix;
+var mutelirolu = "Mute";
+module.exports.run = async (bot, message, args) => {
+  let mutekisi = message.guild.member(
+    message.mentions.users.first() || message.guild.members.get(args[0])
+  );
+  if (!mutekisi)
+    return message.reply(
+      `:warning: **Lütfen bir kullanıcı etiketleyiniz!** \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``
+    );
+  if (!message.member.roles.has("693660569055658055"))   
+    return message.channel.send(`**Bu komutu kullanmak için <@&693660569055658055> Rolüne Sahip Olman Lazım**`);
+  let muterol = message.guild.roles.find(`name`, mutelirolu);
+  if (!muterol) {
+    try {
+      muterol = await message.guild.createRole({
         name: "Mute",
         color: "#000000",
-        permissions:[]
-      })
-      msg.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(mute, {
+        permissions: []
+      });
+      message.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(muterol, {  
           SEND_MESSAGES: false,
           ADD_REACTIONS: false
         });
       });
-  
+    } catch (e) {
+      console.log(e.stack);
     }
-  
-  
-  await(user.addRole(mute.id));
+  }
   let mutezaman = args[1]
-.replace(`d`," Gün")
-.replace(`s`," Saniye")
-.replace(`h`," Saat")
-.replace(`m`," Dakika")
-.replace(`w`," Hafta")
-  
-
-  const muteembed = new Discord.RichEmbed()
-         .setTitle('Mute')
-      .addField(`Yetkili` , ` ${mod} adlı moderatör susturma kullandı.**<@${user.id}>** adlı kullanıcı ${reason} sebebi ile ${mutezaman} susturuldu.`)
-    msg.channel.send(muteembed);
-  setTimeout(function(){
-    // msg.channel.send(`<@${user.id}> Muten açıldı.`)
-      const muteembed = new Discord.RichEmbed()
-      .setDescription(`<@${user.id}> süren doldu, artık konuşabilirsin!`)
-        msg.channel.send(muteembed)
-    user.removeRole(mute.id);
-  }, ms(mutetime));
-
-}
+    .replace(`sn`, `s`)
+    .replace(`dk`, `m`)
+    .replace(`sa`, `h`)
+    .replace(`g`, `d`);
+  if (!mutezaman)
+    return message.reply(
+      `:warning: **Lütfen bir zaman giriniz!** \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``
+    );
+  await mutekisi.addRole(muterol.id);
+  message.reply(
+    `<@${mutekisi.id}> **kullanıcısı ${args[1]} süresi boyunca mutelendi!**`
+  );
+  setTimeout(function() {
+    mutekisi.removeRole(muterol.id);
+    message.channel.send(
+      `<@${mutekisi.id}> **kullanıcısının mutelenme süresi sona erdi!**`
+    );
+  }, ms(mutezaman));
+};
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: ["mute",'smute'],
-  permLevel: 0,
-  kategori:'yetkili',
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
 };
-
 exports.help = {
   name: "mute",
-  description: "Belirttiğiniz kullanıcıyı belirttiğiniz zamana göre susturur.",
-  usage: ""
+  description: "Etiketlediğiniz kişiye belirttiğiniz süre kadar mute atar.",
+  usage: "mute <@kullanıcı> <1sn/1dk/1sa/1g>"
 };
