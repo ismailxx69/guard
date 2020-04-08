@@ -121,8 +121,8 @@ client.on("message", msg => {
 });
 
 client.on("message", msg => {
-  if (msg.content.toLowerCase() === "!tag") {
-    msg.channel.send("**✧**");
+  if (msg.content.toLowerCase() === "v!tag") {
+    msg.channel.send("**√**");
   }
 });
 
