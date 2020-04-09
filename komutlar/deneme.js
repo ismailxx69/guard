@@ -2,8 +2,8 @@
 const Discord = require("discord.js");
 var voiceChannels = voiceChannels
 exports.run = function(client, message, args) {
-let sunucu = '695786963705266349' //sunucu id
-let yeskili= '695042169689604206' //yetkili id
+let sunucu = '693604724221542472' //sunucu id
+let yeskili= '3693615832776835162' //yetkili id
   const mapping = {
   " ": "   ",
  "0": "<a:zero1:694717620372635668>",
@@ -20,7 +20,7 @@ let yeskili= '695042169689604206' //yetkili id
   const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
 let count = 0;
 for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size; 
-  let tag = "✦" // tagınız
+  let tag = "√" // tagınız
     const taglis = `${message.guild.members.filter(m => m.user.username.includes(tag)).size}`    
     let afa = client.guilds.get(sunucu).memberCount
     let kel = message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size
