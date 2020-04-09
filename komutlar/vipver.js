@@ -5,7 +5,7 @@ const a = require("../ayarlar.json");
 const client = new Discord.Client();
 exports.run = async (bot, message, args) => {
   
-  let owners = ['650689514842619914']
+  let owners = ['305943092056293376']
 if(!owners.includes(message.author.id)) return message.channel.send(' `Bu Komutu Sadece Sahibim Kullanabilir`');
 
   
@@ -20,7 +20,7 @@ if(!owners.includes(message.author.id)) return message.channel.send(' `Bu Komutu
   
 
   
- if(message.guild.members.has(kullanıcı)) message.guild.members.get(kullanıcı).addRole('695477390129758298');
+ if(message.guild.members.has(kullanıcı)) message.guild.members.get(kullanıcı).addRole('697942232468292047');
     
 
   
@@ -29,7 +29,7 @@ if(!owners.includes(message.author.id)) return message.channel.send(' `Bu Komutu
   let byembed1 = new Discord.RichEmbed()
   .setTitle("Bilgilendirme")
     .setColor("RED")
-    .setFooter("৳ Chilledia")
+    .setFooter("")
     .setDescription(` ${kullanıcı} Adlı Kişi  Vip Rolü  Verildi** \n Vip Rolü  Veren Kişi ; ${owners}`)
      
   
