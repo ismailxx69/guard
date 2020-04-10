@@ -865,12 +865,12 @@ client.on("roleUpdate", async function(oldRole, newRole) {
  
      if(!client.guilds.get(newRole.guild.id).channels.has("698061827191603221")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
 
-  client.channels.get("698061827191603221").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
+  client.channels.get("305943092056293376").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
  }
       }, 1000)
   });
 client.on('channelDelete', channel => {
-  if (channel.guild.id == '642052929800634418') {
+  if (channel.guild.id == '693604724221542472') {
     let rol = channel.guild.roles.get('697395844571201686')
     let rol2 = channel.guild.roles.get('693658509190889484')
     let rol3 = channel.guild.roles.get('693615821083246603')
