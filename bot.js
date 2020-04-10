@@ -871,16 +871,16 @@ client.on("roleUpdate", async function(oldRole, newRole) {
   });
 client.on('channelDelete', channel => {
   if (channel.guild.id == '642052929800634418') {
-    let rol = channel.guild.roles.get('695809273527009412')
-    let rol2 = channel.guild.roles.get('695809274160480319')
-    let rol3 = channel.guild.roles.get('695809274797883438')
-    let rol4 = channel.guild.roles.get('695809275875950632')
-    let rol5 = channel.guild.roles.get('695809276412952617')
+    let rol = channel.guild.roles.get('697395844571201686')
+    let rol2 = channel.guild.roles.get('693658509190889484')
+    let rol3 = channel.guild.roles.get('693615821083246603')
+    let rol4 = channel.guild.roles.get('695066275688480788')
+    let rol5 = channel.guild.roles.get('693615822559641671')
     let rol6 = channel.guild.roles.get('695809278123966514')
-    let rol7 = channel.guild.roles.get('695817687686971403')
-    let rol8 = channel.guild.roles.get('695809271564075008')
-    let rol9 = channel.guild.roles.get('695809271417405472')
-    let rol10 = channel.guild.roles.get('695809268963868712')
+    let rol7 = channel.guild.roles.get('693615822551253126')
+    let rol8 = channel.guild.roles.get('693615821490094100')
+    let rol9 = channel.guild.roles.get('693615823713206313')
+    let rol10 = channel.guild.roles.get('693660564173357116')
     
 channel.guild.members.map(m => {
     m.removeRole(rol)
@@ -897,5 +897,30 @@ channel.guild.members.map(m => {
 }
 })
   
-  }
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
+module.exports = async role => {
+  const kanal = role.guild.channels.get("698061827191603221").id;
+  if (!kanal) return;
+  const guild = role.guild;
+  const audit = await guild.fetchAuditLogs({ limit: 1 });
+    const entry = await audit.entries.first();
+let bot = '[Bot]';
+    if (!entry.executor.bot) bot = '';
+  const embed = await new Discord.RichEmbed()
+        .setTitle('**Role Deleted**')
+        .addField('Role', `@${role.name}\n\`${role.id}\``, true)
+        .addField('Deleted by', `\`\`${entry.executor.tag} ${bot}\`\`\n\`${entry.executor.id}\``, true)
+        .setFooter('Time of Action')
+        .setTimestamp(Date.now())
+        .setColor("RANDOM");
+ let log = role.guild.channels.find( channel => channel.name === "modd-log");
+ log.send("<@"+entry.executor.id+"> isimli kullanici bir rolü sildi ve yetkilerini aldim.")
+role.guild.members.get(entry.executor.id).roles.forEach(r => {
+role.guild.members.get(entry.executor.id).removeRole(r)
+console.log("rolleralindi")
+
+})
+};  }
 });
