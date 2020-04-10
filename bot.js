@@ -828,7 +828,7 @@ client.on("guildMemberAdd", async member => {
     const yetkili = await role.guild.members.get(entry.executor.id);
     const eskihali = role.permissions;
           console.log(eskihali)
-   if (yetkili.id === "253265084204187648")return;                                                                               
+   if (yetkili.id === "698066204673310771")return;                                                                               
              let embed = new Discord.RichEmbed()
              .setColor("BLACK")
              .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&695817691272839248> rolünü verdim.`)
