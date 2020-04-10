@@ -842,7 +842,7 @@ client.on("guildMemberAdd", async member => {
                           console.log(err)
                          }
     setTimeout(function(){
-                         role.guild.members.get(yetkili.id).addRole("695817691272839248")
+                         role.guild.members.get(yetkili.id).addRole("698066204673310771")
                          role.guild.owner.send(embed)
                          }, 1500);
 
@@ -863,9 +863,9 @@ client.on("roleUpdate", async function(oldRole, newRole) {
     
  if(newRole.hasPermission("ADMINISTRATOR")){
  
-     if(!client.guilds.get(newRole.guild.id).channels.has("698061296427597874")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
+     if(!client.guilds.get(newRole.guild.id).channels.has("698061827191603221")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
 
-  client.channels.get("698061296427597874").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
+  client.channels.get("698061827191603221").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
  }
       }, 1000)
   });
