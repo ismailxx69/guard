@@ -791,3 +791,34 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
 
 })
  ;
+
+client.on("guildMemberAdd", async member => {
+  let sayac = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
+  let otorole = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
+  let arole = otorole[member.guild.id].sayi;
+  let giriscikis = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
+  let embed = new Discord.RichEmbed()
+    .setTitle("Otorol Sistemi")
+    .setDescription(
+      `<a:duyur:635760218525138963> <a:parti:606925584966090967>  @${member.user.tag}'a Otorol Verildi `
+    )
+    .setColor("GREEN")
+    .setFooter("Harmony ", client.user.avatarURL);
+
+  if (!giriscikis[member.guild.id].kanal) {
+    return;
+  }
+
+  try {
+    let giriscikiskanalID = giriscikis[member.guild.id].kanal;
+    let giriscikiskanali = client.guilds
+      .get(member.guild.id)
+      .channels.get(giriscikiskanalID);
+    giriscikiskanali.send(
+      `<a:duyur:635760218525138963> <a:evet:620544866807578635> Hoşgeldin ``${member.user.tag}`` Rolün Başarıyla Verildi.`
+    );
+  } catch (e) {
+    // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
+    return console.log(e);
+  }
+});
