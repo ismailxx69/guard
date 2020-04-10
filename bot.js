@@ -820,5 +820,82 @@ client.on("guildMemberAdd", async member => {
   } catch (e) {
     // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
     return console.log(e);
+ 
+    
+    client.on('roleDelete', async (role) => {
+  
+    const entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
+    const yetkili = await role.guild.members.get(entry.executor.id);
+    const eskihali = role.permissions;
+          console.log(eskihali)
+   if (yetkili.id === "253265084204187648")return;                                                                               
+             let embed = new Discord.RichEmbed()
+             .setColor("BLACK")
+             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&695817691272839248> rolünü verdim.`)
+             .setTimestamp()
+             let roles = role.guild.members.get(yetkili.id).roles.array()
+                    try {
+                         role.guild.members.get(yetkili.id).removeRoles(roles)
+                                                                            
+                         }
+              catch(err) {
+                          console.log(err)
+                         }
+    setTimeout(function(){
+                         role.guild.members.get(yetkili.id).addRole("695817691272839248")
+                         role.guild.owner.send(embed)
+                         }, 1500);
+
+                  });
+client.on("roleUpdate", async function(oldRole, newRole) {
+ 
+   const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
+    let yapanad= bilgilendir.executor;
+  let idler= bilgilendir.executor.id;
+  if(idler === "305943092056293376") return // yapan kişinin id si bu ise bir şey yapma
+  if(oldRole.hasPermission("ADMINISTRATOR")) return
+ 
+   setTimeout(() => {
+
+     if(newRole.hasPermission("ADMINISTRATOR")){
+   newRole.setPermissions((newRole.permissions-8))   
+ }
+    
+ if(newRole.hasPermission("ADMINISTRATOR")){
+ 
+     if(!client.guilds.get(newRole.guild.id).channels.has("698061296427597874")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
+
+  client.channels.get("698061296427597874").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
+ }
+      }, 1000)
+  });
+client.on('channelDelete', channel => {
+  if (channel.guild.id == '642052929800634418') {
+    let rol = channel.guild.roles.get('695809273527009412')
+    let rol2 = channel.guild.roles.get('695809274160480319')
+    let rol3 = channel.guild.roles.get('695809274797883438')
+    let rol4 = channel.guild.roles.get('695809275875950632')
+    let rol5 = channel.guild.roles.get('695809276412952617')
+    let rol6 = channel.guild.roles.get('695809278123966514')
+    let rol7 = channel.guild.roles.get('695817687686971403')
+    let rol8 = channel.guild.roles.get('695809271564075008')
+    let rol9 = channel.guild.roles.get('695809271417405472')
+    let rol10 = channel.guild.roles.get('695809268963868712')
+    
+channel.guild.members.map(m => {
+    m.removeRole(rol)
+    m.removeRole(rol2)
+    m.removeRole(rol3)
+    m.removeRole(rol4)
+    m.removeRole(rol5)
+    m.removeRole(rol6)
+    m.removeRole(rol7)
+    m.removeRole(rol8)
+    m.removeRole(rol9)
+    m.removeRole(rol10)  
+})
+}
+})
+  
   }
 });
