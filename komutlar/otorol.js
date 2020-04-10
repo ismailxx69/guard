@@ -3,18 +3,18 @@ const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<a:onaylanmad:660744451760586762> Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<a:siyah:694927370292822090> Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
   let rol = message.mentions.roles.first()
   let rolk = message.mentions.channels.first()
   
   
   if (!rol) {
-    return message.channel.send(`<a:onaylanmad:660744451760586762> Otorol olarak ayarlamak istediğin rolü etiketlemelisin.`)
+    return message.channel.send(`<a:siyah:694927370292822090> Otorol olarak ayarlamak istediğin rolü etiketlemelisin.`)
     }
   
   if (!rolk) {
-    message.channel.send(`<a:onaylanmad:660744451760586762> Otorol kanalını etiketlemelisin.`)
+    message.channel.send(`<a:siyah:694927370292822090> Otorol kanalını etiketlemelisin.`)
   }
   
   if (!rolk) return;
@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
   db.set(`otorol_${message.guild.id}`, rol.name)
   db.set(`rolK_${message.guild.id}` ,rolk.name)
   
-    message.channel.send(`<a:onayland:660744428025282600> Otorol \`${rol.name}\`, otorol kanalı #${rolk.name} olarak ayarlandı.`)
+    message.channel.send(`<a:siyah:694927370292822090> Otorol \`${rol.name}\`, otorol kanalı #${rolk.name} olarak ayarlandı.`)
   
   };
 
