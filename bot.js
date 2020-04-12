@@ -760,7 +760,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
     if (kurulus < 2629800000) kontrol = ' '
     if (kurulus > 2629800000) kontrol = ` ** <a:siyah:694927370292822090> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz.**\n\n**<a:siyah:694927370292822090>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin.** \n\n** <a:siyah:694927370292822090> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. \n\n ** **<a:siyah:694927370292822090> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** \n\n **<a:siyah:694927370292822090> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
-
+      .setImage("https://cdn.discordapp.com/attachments/693777915179040778/695255047197687858/giphy.gif")
   
   client.on('message', message => {
     if (message.content === prefix + "sunucubilgi") {
