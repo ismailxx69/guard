@@ -923,4 +923,73 @@ console.log("rolleralindi")
 
 })
 };  }
+client.on('ready', ()=>{
+client.channels.get('696823598244954112').join()
+});
+client.on('message', message => {
+     if(!message.channel.guild) return;
+                if(message.content.startsWith('!say')) {
+
+
+    if (message.author.bot) return;
+    let i = 1;
+  var tagdakiler = 0;
+  let tag = "√";
+  message.guild.members.forEach(member => {
+    if(member.user.username.includes(tag)) {
+      tagdakiler = tagdakiler+1
+    }
+  })
+    const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');             
+      let count = 0;
+for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
+      const emoji = client.emojis.find(emoji => emoji.name === "tik");
+  const kawinembed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setAuthor('Bilgi', `${message.author.displayAvatarURL}`)
+        .addField(`Ses kanallarında;`, `**${count}** kişi bulunmaktadır. :heart:`)
+        .addField(`Sunucuda ise;`, `**${message.guild.memberCount}** kişi bulunmaktadır. :heart:`)
+        .addField(`Tag da ise;`, "**" + tagdakiler + "** kişi bulunmaktadır. :heart:")
+        .setThumbnail("https://media.giphy.com/media/WQCZOWThKC8mlgx31G/giphy.gif")
+        .setTimestamp()
+        .setImage(``)
+ 
+  message.channel.sendEmbed(kawinembed)
+  message.react(emoji)
+        
+}
+
+});
+client.on('message', async message => {
+ 
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+ 
+  let kullanıcı = message.mentions.users.first() || message.author
+  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
+  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
+  let sebep = afkkullanıcı
+ 
+  if (message.author.bot) return;
+  if (message.content.includes(`${prefix}afk`)) return;
+ 
+  if (message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`:x: **${message.author.tag}** adlı kullanıcı artık AFK degil...`)
+      db.delete(`afk_${message.author.id}`)
+    }
+    if (afkkullanıcı) return message.channel.send(`:x: **${kullanıcı.tag}** şu anda AFK.\n Sebep : **${sebep}**`)
+  }
+
+  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`:x: **${message.author.tag}** adlı kullanıcı artık AFK değil.`)
+      db.delete(`afk_${message.author.id}`)
+    }
+  }
+  
+});
+
+
+
+
 });
