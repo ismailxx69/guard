@@ -1,4 +1,5 @@
- const Discord = require('discord.js')
+
+onst Discord = require('discord.js')
 const fs = require('fs')
 
 exports.run = async (client, message, args) => {
