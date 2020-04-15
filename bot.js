@@ -758,7 +758,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` ** <a:siyah:694927370292822090> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz.**\n\n**<a:siyah:694927370292822090>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin.** \n\n** <a:siyah:694927370292822090> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. \n\n ** **<a:siyah:694927370292822090> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** \n\n **<a:siyah:694927370292822090> Tagımızı Alarak Destek Olabilirsin. **`  
+    if (kurulus > 2629800000) kontrol = ` ** <a:691639782891323402:695305034824417380> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. <a:691639782891323402:695305034824417380>**\n\n**<a:665563161226903552:694612133874499688>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin.** \n\n** <a:665563161226903552:694612133874499688> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. \n\n ** **<a:665563161226903552:694612133874499688> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** \n\n **<a:665563161226903552:694612133874499688> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
