@@ -1055,9 +1055,42 @@ client.login(ayarlar.token);
               console.log(err);
             }
           } 
+        
+          
+          
           }
       }
       if (!i) return;
     });
 
+  client.on('message', async message => {
+ 
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+ 
+  let kullanıcı = message.mentions.users.first() || message.author
+  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
+  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
+  let sebep = afkkullanıcı
+ 
+  if (message.author.bot) return;
+  if (message.content.includes(`${prefix}afk`)) return;
+ 
+  if (message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`:x: **${message.author.tag}** adlı kullanıcı artık AFK degil...`)
+      db.delete(`afk_${message.author.id}`)
+    }
+    if (afkkullanıcı) return message.channel.send(` **${kullanıcı.tag}** **şu anda AFK.**\n **Sebep** : **${sebep}** <a:siyah:694927370292822090>`)
+  }
+
+  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(`:x: **${message.author.tag}** adlı kullanıcı artık AFK değil.`)
+      db.delete(`afk_${message.author.id}`)
+    }
+  }
+  }
+
+            );
+  
 });
