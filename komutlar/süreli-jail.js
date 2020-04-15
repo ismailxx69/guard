@@ -3,14 +3,14 @@ const ms = require("ms");
 const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  if(!message.member.roles.has('699063906093498456')) return message.reply('**Bu komutu kullanabilmek için 🛇 | Jail yetkisine sahip olmasınız.**'); // ID yazan yere komutu kullanabilecek rolün ID
+  if(!message.member.roles.has('699805708421431298')) return message.reply('**Bu komutu kullanabilmek için 🛇 | Jail Hammer yetkisine sahip olmasınız.**'); // ID yazan yere komutu kullanabilecek rolün ID
   let yashinu = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!yashinu) return message.channel.send(`Bir Kullanıcıyı Etiketlemelisin Kanka.`).then(x => x.delete(10000))
   let member = message.mentions.members.first()
 
-  let rol = message.guild.roles.get("699439673638125598"); // Buraya Cezalı rolünün ID
-  let kayıtsızRolü = message.guild.roles.get("699254582106128504"); // Buraya cezalıdan çıkınca vereceği rolün ID
-  let logYashinu = "699438911247876136"; // loglanacağı kanalın ID
+  let rol = message.guild.roles.get("698066204673310771"); // Buraya Cezalı rolünün ID
+  let kayıtsızRolü = message.guild.roles.get("696861671225950310"); // Buraya cezalıdan çıkınca vereceği rolün ID
+  let logYashinu = "699811724253069403"; // loglanacağı kanalın ID
   let süre = args[1]
   if (!süre) return message.reply("Süre belirtmelisin.")
   let sebep = args.slice(2).join(' ')
