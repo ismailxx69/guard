@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     return message.reply(
       `:warning: **Lütfen bir kullanıcı etiketleyiniz!** \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``
     );
-  if (!message.member.roles.has("693660569055658055"))   
+  if (!message.member.roles.has("698887456275300422"))   
     return message.channel.send(`**Bu komutu kullanmak için <@&693660569055658055> Rolüne Sahip Olman Lazım**`);
   let muterol = message.guild.roles.find(`name`, mutelirolu);
   if (!muterol) {

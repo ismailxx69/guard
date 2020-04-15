@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 let rolid = "698066204673310771";  //cezalı rol id
 
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("698887456275300422"))
+  if (!message.member.roles.has("698887456275300422")) 
     return message.channel.send(
       `Bu komutu kullanabilmek için <@&698887456275300422> yetkisine sahip olmasınız!`
       
