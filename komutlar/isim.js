@@ -15,7 +15,6 @@ if  (!message.member.roles.has("693660564173357116")) return message.reply('Bu k
       `**<a:siyah:694927370292822090> İsim Başarıyla Değiştirildi **`,
       `\n**<a:siyah:694927370292822090> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:siyah:694927370292822090> Yeni Kullanıcı Adı:** \`${tag} • ${isim}  \``
     )
-      .setImage("https://cdn.discordapp.com/attachments/693777915179040778/695255047197687858/giphy.gif")
     .setFooter(`Talador`)
     .setThumbnail(client.user.avatarURL);
   message.channel.send(embed);
