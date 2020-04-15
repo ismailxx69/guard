@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
       `Bu komutu kullanabilmek için <@&698887456275300422> yetkisine sahip olmasınız!`
     );
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member) return message.channel.send("Hapishaneden Alınacak Üyeyi Etiketleyin!");
+    if(!member) return message.channel.send("**Hapishaneden Alınacak Üyeyi Etiketleyin!**");
     if(rolid.match(/(\d{17,19})/g)) {
         member.roles.forEach(role => member.removeRole(role));
         member.addRole(rolid);

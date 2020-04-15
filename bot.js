@@ -116,7 +116,7 @@ client.on("guildMemberAdd", async member => {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "sa") {
-    msg.reply("<a:sar:695305057075462147> **Aleyküm Selam Hoşgeldin**. <a:sar:695305057075462147>");
+    msg.reply("<a:686995533167984781:694612133874499688> **Aleyküm Selam Hoşgeldin**. <a:686995533167984781:694612133874499688>");
   }
 });
 
