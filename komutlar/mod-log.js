@@ -29,5 +29,5 @@ exports.conf = {
 exports.help = {
   name: "mod-log",
   description: "Moderasyon logu kanalını ayarlar.",
-  usage: "v!mod-log <ayarla #kanal> veya v!mod-log <sıfırla>"
+  usage: "a!mod-log <ayarla #kanal> veya a!mod-log <sıfırla>"
 };

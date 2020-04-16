@@ -676,7 +676,7 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("√ • İsim  ");
+  member.setNickname("ㄨ • İsminizi Belirtin Lütfen  ");
 });
 
 client.on("guildMemberAdd", member => {
