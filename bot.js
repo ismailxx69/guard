@@ -698,7 +698,7 @@ client.login(ayarlar.token);
 client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
-  let halil = client.channels.get('696823548081340456')//kanal id
+  let halil = client.channels.get('700144705278574624')//kanal id
   
  const mapping = {
   " ": "   ",
@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` ** <a:siyahkalp:700189738984013885> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. <a:691639782891323402:695305034824417380>**\n\n**<a:665563161226903552:694612133874499688>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. <a:onay:695305023177097349>** \n\n** <a:665563161226903552:694612133874499688> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. <a:onay:695305023177097349> \n\n ** **<a:665563161226903552:694612133874499688> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** <a:onay:695305023177097349> \n\n **<a:galp:694612186416545831> Tagımızı Alarak Destek Olabilirsin. <a:galp:694612186416545831>**`  
+    if (kurulus > 2629800000) kontrol = ` ** <a:siyahkalp:700189738984013885> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. **\n\n**<a:siyahkalp:700189738984013885>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n\n** <a:siyahkalp:700189738984013885> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n\n ** **<a:siyahkalp:700189738984013885> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n\n **<a:siyahkalp:700189738984013885> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
@@ -820,10 +820,10 @@ client.on("guildMemberAdd", async member => {
     const yetkili = await role.guild.members.get(entry.executor.id);
     const eskihali = role.permissions;
           console.log(eskihali)
-   if (yetkili.id === "698066204673310771")return;                                                                               
+   if (yetkili.id === "700144704607617038")return;                                                                               
              let embed = new Discord.RichEmbed()
              .setColor("BLACK")
-             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&695817691272839248> rolünü verdim.`)
+             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&700193067193597963> rolünü verdim.`)
              .setTimestamp()
              let roles = role.guild.members.get(yetkili.id).roles.array()
                     try {
@@ -834,7 +834,7 @@ client.on("guildMemberAdd", async member => {
                           console.log(err)
                          }
     setTimeout(function(){
-                         role.guild.members.get(yetkili.id).addRole("698066204673310771")
+                         role.guild.members.get(yetkili.id).addRole("700144704607617038")
                          role.guild.owner.send(embed)
                          }, 1500);
 
