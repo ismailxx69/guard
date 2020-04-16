@@ -8,7 +8,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   let tag = "ㄨ"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
-  member.setNickname(`${tag} • ${isim} `);
+  member.setNickname(`${tag}  ${isim} `);
   const embed = new Discord.RichEmbed()
     .setColor('#000001')
     .addField(

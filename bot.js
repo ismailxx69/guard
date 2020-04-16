@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` ** <a:siyahkalp:700189738984013885> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. **\n\n**<a:siyahkalp:700189738984013885>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n\n** <a:siyahkalp:700189738984013885> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n\n ** **<a:siyahkalp:700189738984013885> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n\n **<a:siyahkalp:700189738984013885> Tagımızı Alarak Destek Olabilirsin. **`  
+    if (kurulus > 2629800000) kontrol = ` ** <a:onay:700188249330810910> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. **\n\n**<a:siyahkalp:700189738984013885>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n\n** <a:siyahkalp:700189738984013885> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n\n ** **<a:siyahkalp:700189738984013885> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n\n **<a:siyahkalp:700189738984013885> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
@@ -792,7 +792,7 @@ client.on("guildMemberAdd", async member => {
   let embed = new Discord.RichEmbed()
     .setTitle("Otorol Sistemi")
     .setDescription(
-      `<a:duyur:635760218525138963> <a:parti:606925584966090967>  @${member.user.tag}'a Otorol Verildi `
+      `  @${member.user.tag}'a Otorol Verildi `
     )
     .setColor("GREEN")
     .setFooter("Harmony ", client.user.avatarURL);
@@ -807,7 +807,7 @@ client.on("guildMemberAdd", async member => {
       .get(member.guild.id)
       .channels.get(giriscikiskanalID);
     giriscikiskanali.send(
-      `<a:duyur:635760218525138963> <a:evet:620544866807578635> Hoşgeldin ``${member.user.tag}`` Rolün Başarıyla Verildi.`
+      ` Hoşgeldin ``${member.user.tag}`` Rolün Başarıyla Verildi.`
     );
   } catch (e) {
     // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
