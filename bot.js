@@ -680,14 +680,17 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("guildMemberAdd", member => {
+ const embed = new Discord.RichEmbed()
 
   member.send(
     `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
 **<a:sonsuzluk:700188245555937311> Çok eğleneceğinden hiç şüphem yok.** 
-**<a:sonsuzluk:700188245555937311> Sadece bizim tagımızı isminde tutarak yetkili olabilirsin.** 
-**<a:salla:700187938763309128> Unutma! Her ne olursa olsun seni seviyoruz. <a:kawai:700187908094689320>** 
+**<a:sonsuzluk:700188245555937311> Tagımızı alarak bize destek olabilirsin.** 
+**<a:salla:700187938763309128> Yetkili alımlarımız kısa süreliğine açık. <a:kawai:700187908094689320>** 
 **<a:adsads:700178941008412672> ㄨΛURORΛ Ekibi. <a:adsads:700178941008412672>**`
-  );
+     )
+    
+  ;
 });
 
 client.login(ayarlar.token);
