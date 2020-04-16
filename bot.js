@@ -710,7 +710,7 @@ client.on('guildMemberAdd', async member => {
 
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` **  Hoşgeldin <@!${member.id}> **\n**Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**  <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** ** Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n ** Tagımızı Alarak Destek Olabilirsin. **`  
+    if (kurulus > 2629800000) kontrol = ` **<a:sonsuzluk:700188245555937311>  Hoşgeldin <@!${member.id}> **\n**<a:sonsuzluk:700188245555937311> Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**<a:sonsuzluk:700188245555937311>   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **<a:sonsuzluk:700188245555937311> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **<a:sonsuzluk:700188245555937311> Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
