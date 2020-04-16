@@ -107,13 +107,14 @@ client.ayar = {
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "sa") {
-    msg.reply("<a:686995533167984781:694612133874499688> **Aleyküm Selam Hoşgeldin**. <a:686995533167984781:694612133874499688>");
+    msg.reply(" **Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>");
   }
 });
 
 client.on("message", msg => {
-  if (msg.content.toLowerCase() === "v!tag") {
-    msg.channel.send("**√**");
+  if (msg.content.toLowerCase() === "a!tag") {
+    msg.channel.send("**<a:kng:700179035367669781>           ㄨ           <a:kng:700179035367669781>**");
+  
   }
 });
 
@@ -540,7 +541,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:mor:695305049114542102> Ailemize ${newUser},katıldı! Herkes bi Ailemize Katılanı Selamlasın <a:siyah:694927370292822090>**!`
+          `**<a:alert:700178966379495509> Ailemize ${newUser},katıldı! Herkes hoş geldin yazdın. <a:alert:700178966379495509>**`
         );
       newUser.send(
         `**<a:mor:695305049114542102> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:siyah:694927370292822090>**`
