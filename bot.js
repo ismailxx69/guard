@@ -95,9 +95,9 @@ client.unload = command => {
 };
 
 client.ayar = {
-  SunucuID: "693604724221542472",
-  SunucuTAG: "√",
-  SahipRolüID: "693615832776835162",
+  SunucuID: "700144704506953829",
+  SunucuTAG: "ㄨ",
+  SahipRolüID: "305943092056293376",
   EkipRolü: "693615827135496262",
   EkipMesajKanalı: "696823598244954112"
 };
