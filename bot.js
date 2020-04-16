@@ -681,12 +681,15 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberAdd", member => {
  const embed = new Discord.RichEmbed()
-
+     .setAuthor('**Kolonya darbesi! DÖK DÖK DÖK!**')
+    .setColor('RANDOM')
+    .setTimestamp()
+		.setImage('https://cdn.discordapp.com/attachments/693604724221542475/695632606544396328/giphy.gif')
   member.send(
     `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
-**<a:sonsuzluk:700188245555937311> Çok eğleneceğinden hiç şüphem yok.** 
-**<a:sonsuzluk:700188245555937311> Tagımızı alarak bize destek olabilirsin.** 
-**<a:salla:700187938763309128> Yetkili alımlarımız kısa süreliğine açık. <a:kawai:700187908094689320>** 
+**<a:sonsuzluk:700188245555937311> ㄨ Çok eğleneceğinden hiç şüphem yok.** 
+**<a:sonsuzluk:700188245555937311> ㄨ Tagımızı alarak bize destek olabilirsin.** 
+**<a:sonsuzluk:700188245555937311> ㄨ Yetkili alımlarımız kısa süreliğine açık. ** 
 **<a:adsads:700178941008412672> ㄨΛURORΛ Ekibi. <a:adsads:700178941008412672>**`
      )
     
@@ -704,88 +707,21 @@ client.on('guildMemberAdd', async member => {
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   let halil = client.channels.get('700144705278574624')//kanal id
   
- const mapping = {
-  " ": "   ",
- "0": "<a:zero:695241570428911630>",
-  "1": "<a:one:695241567803277322>",
-  "2": "<a:two:695241570626043998>",
-  "3": "<a:three:695241570626306068>",
-  "4": "<a:four:695241569846034433>",
-  "5": "<a:five:695241572077404201>",
-  "6": "<a:six:695241572551360572>",
-  "7": "<a:seven:695241572450697216>",
-  "8": "<a:eight:695241575415939132>",
-  "9": "<a:nine:695241576061861969>",
-  "!": "grey_exclamation",
-  "?": "grey_question",
-  "#": "hash",
-  "*": "asterisk"
-};
 
-let afa = member.guild.memberCount
 
-let ab =  
-    `${afa}`
-      .split("")
-      .map(c => mapping[c] || c)
-      .join(" ")
-  
-  
-let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**YYYY** [Yılında] MMMM [Ayında] dddd [Gününde] (**DD/MM/YYYY**)')
-        .replace("Monday", `**Pazartesi**`)
-        .replace("Tuesday", `**Salı**`)
-        .replace("Wednesday", `**Çarşamba**`)
-        .replace("Thursday", `**Perşembe**`)
-        .replace("Friday", `**Cuma**`)
-        .replace("Saturday", `**Cumartesi**`)
-        .replace("Sunday", `**Pazar**`)
-        .replace("January", `**Ocak**`)
-        .replace("February", `**Şubat**`)
-        .replace("March", `**Mart**`)
-        .replace("April", `**Nisan**`)
-        .replace("May", `**Mayıs**`)
-        .replace("June", `**Haziran**`)
-        .replace("July", `**Temmuz**`)
-        .replace("August", `**Ağustos**`)
-        .replace("September", `**Eylül**`)
-        .replace("October", `**Ekim**`)
-        .replace("November", `**Kasım**`)
-        .replace("December", `**Aralık**`)
-  
+
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
     if (kurulus > 2629800000) kontrol = ` **  Hoşgeldin <@!${member.id}> **\n**Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**  <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** ** Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n ** Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
-  client.on('message', message => {
-    if (message.content === prefix + "sunucubilgi") {
-        const embed = new Discord.RichEmbed()
-            .addField ("<a:mor:695305049114542102> Sunucu Adı", message.guild.name, true)
-        
-        
-            
-                               .addField ("<a:mor:695305049114542102> Sunucu ID <a:mor:695305049114542102>", message.guild.id, true)
-        
-        
-        
-                       .addField ("<a:mor:695305049114542102> Sunucu Sahibi <a:mor:695305049114542102>", message.guild.owner)
-        
-        
-        
-                           .addField ("<a:mor:695305049114542102> Toplam Üye Sayısı <a:mor:695305049114542102>", message.guild.memberCount)
-        
-        
-        
-              .addField ("<a:yangn:695305024179273738> Olusturma Tarihi <a:yangn:695305024179273738>", message.guild.createdAt)
-        
-        
-            .setColor(0x000001)
-        return message.channel.sendEmbed(embed)
+ 
+   
     }   
-});
+);
 
-})
+
  ;
 
 client.on("guildMemberAdd", async member => {
