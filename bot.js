@@ -541,10 +541,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:alert:700178966379495509> Ailemize ${newUser},katıldı! Herkes hoş geldin yazdın. <a:alert:700178966379495509>**`
+          `**<a:kawai:700187908094689320> Ailemize ${newUser},katıldı! Hoş geldin dostum, umarım ayrılmazsın. <a:kawai:700187908094689320>**`
         );
       newUser.send(
-        `**<a:mor:695305049114542102> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:siyah:694927370292822090>**`
+        `**<a:sonsuzluk:700188245555937311> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:sonsuzluk:700188245555937311>**`
       );
     }
   }
