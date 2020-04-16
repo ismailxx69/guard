@@ -5,7 +5,7 @@ const moment = require('moment');
 
 exports.run = async (client, message, params) => {  
   
-message.channel.send('<a:kng:695305040096919554> **Sunucumuzda __'+message.guild.memberCount+'__ Kişi Vardır** <a:kng:695305040096919554>')
+message.channel.send(' **<a:onay:700188249330810910> Sunucumuzda  __'+message.guild.memberCount+'__ Kişi Vardır** ')
 
 };
 

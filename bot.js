@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` ** <a:onay:700188249330810910> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. **\n\n**<a:siyahkalp:700189738984013885>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n\n** <a:siyahkalp:700189738984013885> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n\n ** **<a:siyahkalp:700189738984013885> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n\n **<a:siyahkalp:700189738984013885> Tagımızı Alarak Destek Olabilirsin. **`  
+    if (kurulus > 2629800000) kontrol = ` **  Hoşgeldin <@!${member.id}> **\n**Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**  <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** ** Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n ** Tagımızı Alarak Destek Olabilirsin. **`  
   halil.send(`${kontrol}`)
 
   
