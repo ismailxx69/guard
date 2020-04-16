@@ -681,10 +681,8 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberAdd", member => {
  const embed = new Discord.RichEmbed()
-     .setAuthor('**Kolonya darbesi! DÖK DÖK DÖK!**')
-    .setColor('RANDOM')
-    .setTimestamp()
-		.setImage('https://cdn.discordapp.com/attachments/693604724221542475/695632606544396328/giphy.gif')
+
+
   member.send(
     `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
 **<a:sonsuzluk:700188245555937311> ㄨ Çok eğleneceğinden hiç şüphem yok.** 
