@@ -680,6 +680,7 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("guildMemberAdd", member => {
+
   member.send(
     `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
 **<a:sonsuzluk:700188245555937311> Çok eğleneceğinden hiç şüphem yok.** 
