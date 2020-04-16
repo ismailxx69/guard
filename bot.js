@@ -98,20 +98,11 @@ client.ayar = {
   SunucuID: "700144704506953829",
   SunucuTAG: "ㄨ",
   SahipRolüID: "305943092056293376",
-  EkipRolü: "693615827135496262",
-  EkipMesajKanalı: "696823598244954112"
+  EkipRolü: "700144704569999516",
+  EkipMesajKanalı: "700144705710719023"
 };
 
-client.on("guildMemberAdd", async member => {
-  try {
-    await member.addRole(client.ayar.TeyitsizRolü);
-    await client.channels
-      .get(client.ayar.TeyitKanal)
-      .send(
-        `<a:hyper:655810715503951893> Selam ${member} **Zedestergon Krallığına** Hoşgeldin!Senin ile Birlikte**__${member.guild.memberCount}__** Kişiyiz! \n<@&${client.ayar.TeyitYetkilisi}> rolündeki yetkililer seninle ilgilenecektir.`
-      );
-  } catch (err) {}
-});
+
 // EDİT AT JOSTMAN
 
 client.on("message", msg => {
