@@ -569,9 +569,9 @@ client.on("userUpdate", async function(oldUser, newUser) {
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`<a:mor:695305049114542102>**Ailemizden ${newUser},Ayrıldı. Bu Bizi Çok Üzdü <a:mor:695305049114542102>** `);
+        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. <a:morkalp:692458395747221546>** `);
       newUser.send(
-        `**<a:mor:695305049114542102> Kanka Ailemizden Ayrıldın bizi Çok Üzdün :( Ama İstersen Gene Gelebilirsin **√** Görüşürüz <3 **`
+        `**<a:emoji_5:700155339257151569> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin **ㄨ** Görüşürüz <a:emoji_5:700155339257151569> **`
       );
     }
   }
@@ -681,11 +681,11 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberAdd", member => {
   member.send(
-    `**<a:mor:695305049114542102> √alerian'a hoşgeldin.'** ${member} 
-**<a:mor:695305049114542102> Umarım keyifli vakit geçirirsin.** 
-**<a:mor:695305049114542102> Tagımızı alarak ailemize katılabilirsin.** 
-**<a:mor:695305049114542102> Tagımızı öğrenmek için herhangi bir metin kanalına v!tag yazarak ulaşabilirsin.** 
-**<a:mor:695305049114542102> İyi eğlenceler...**`
+    `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
+**<a:sonsuzluk:700188245555937311> Çok eğleneceğinden hiç şüphem yok.** 
+**<a:sonsuzluk:700188245555937311> Sadece bizim tagımızı isminde tutarak yetkili olabilirsin.** 
+**<a:salla:700187938763309128> Unutma! Her ne olursa olsun seni seviyoruz. <a:kawai:700187908094689320>** 
+**<a:adsads:700178941008412672> ㄨΛURORΛ Ekibi. <a:adsads:700178941008412672>**`
   );
 });
 
@@ -750,7 +750,7 @@ let a = moment.utc(member.guild.members.get(user.id).user.createdAt).format('**Y
   
     var kontrol;
     if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` ** <a:691639782891323402:695305034824417380> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. <a:691639782891323402:695305034824417380>**\n\n**<a:665563161226903552:694612133874499688>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. <a:onay:695305023177097349>** \n\n** <a:665563161226903552:694612133874499688> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. <a:onay:695305023177097349> \n\n ** **<a:665563161226903552:694612133874499688> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** <a:onay:695305023177097349> \n\n **<a:galp:694612186416545831> Tagımızı Alarak Destek Olabilirsin. <a:galp:694612186416545831>**`  
+    if (kurulus > 2629800000) kontrol = ` ** <a:siyahkalp:700189738984013885> Hoşgeldin <@!${member.id}> Seninle birlikte** **${ab}** **kişiyiz. <a:691639782891323402:695305034824417380>**\n\n**<a:665563161226903552:694612133874499688>  Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. <a:onay:695305023177097349>** \n\n** <a:665563161226903552:694612133874499688> <@&693660564173357116>   Rolündekilerini Etiketleyip Kayıt Olabilirsin. <a:onay:695305023177097349> \n\n ** **<a:665563161226903552:694612133874499688> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.** <a:onay:695305023177097349> \n\n **<a:galp:694612186416545831> Tagımızı Alarak Destek Olabilirsin. <a:galp:694612186416545831>**`  
   halil.send(`${kontrol}`)
 
   
