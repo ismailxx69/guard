@@ -700,44 +700,18 @@ client.login(ayarlar.token);
 
  
 ////////////////////////////////////////////////////////////////////
-client.on('guildMemberAdd', member => { 
- let aylartoplam = {
-        "01": "Ocak",
-        "02": "Şubat",
-        "03": "Mart",
-        "04": "Nisan",
-        "05": "Mayıs",
-        "06": "Haziran",
-        "07": "Temmuz",
-        "08": "Ağustos",
-        "09": "Eylül",
-        "10": "Ekim",
-        "11": "Kasım",
-        "12": "Aralık"
-  }
- let aylar = aylartoplam 
-  let yetkilirol = "700144704578125920"
-let user = client.users.get(member.id);
-require("moment-duration-format");
+client.on('guildMemberAdd', async member => {
+  let user = client.users.get(member.id);
+  const kurulus = new Date().getTime() - user.createdAt.getTime();
+  let halil = client.channels.get('700144705278574624')//kanal id
+    const embed = new Discord.RichEmbed()
+ .setDescription(`**:sonsuzluk:  Hoşgeldin <@!${member.id}> **\n**:sonsuzluk: Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**:sonsuzluk:   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **:sonsuzluk: Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **:sonsuzluk: Tagımızı Alarak Destek Olabilirsin. **` )
 
-    const kurulus = new Date().getTime() - user.createdAt.getTime();
-    const gün = moment.duration(kurulus).format("D")
-    var kontrol;
-    if (gün < 7) kontrol = 'Güvenilir Değil!'//Bu Kısımları İstediğiniz Gibi Değişebilirsiniz
-    if (gün > 7) kontrol = 'Güvenilir Gözüküyor!' // Bu Kısımları İstediğiniz Gibi Değişebilirsiniz
-  let kanal = "700648241691361290"  ////Mesajın Gönderilicek Kanal id
-  const baran = new baran('https://im3.ezgif.com/tmp/ezgif-3-ee1e001bc457.gif'); ///// Buraya Fotoğraf Linki Koyabilirsiniz 
-        member.guild.channels.get(kanal).send(baran)
-  if(!kanal) return
-  //`${moment(user.createdAt).format('DD')} ${aylar[moment(user.createdAt).format('MM')]} ${moment(user.createdAt).format('YYYY HH:mm:ss')}`)
- member.guild.channels.get(kanal).send(`**Hoşgeldin ${member} seninle ${member.guild.memberCount || "DiscordAPI Hatası."} kişiyiz!\n Kaydının yapılması için sesli odaya gelip ses vermen gerekli.\n Hesap Kuruluş Zamanı: ${moment(user.createdAt).format('DD')} ${aylar[moment(user.createdAt).format('MM')]} ${moment(user.createdAt).format('YYYY HH:mm:ss')} \n Bu Kullanıcı: ${kontrol}\n <&${yetkilirol}> Rolündeki yetkililer seninle ilgilenecektir.`)
-})
-
-
+}
          
          
          
-         
+         )
   
  
    
