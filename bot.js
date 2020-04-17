@@ -700,24 +700,25 @@ client.login(ayarlar.token);
 
  
 ////////////////////////////////////////////////////////////////////
-client.on('guildMemberAdd', async member => {
+client.on("guildMemberAdd", member => {  
+  const kanal = "700648241691361290";
   let user = client.users.get(member.id);
-  const kurulus = new Date().getTime() - user.createdAt.getTime();
-  let halil = client.channels.get('700144705278574624')//kanal id
-  
-
-
-
+  require("moment-duration-format");
+    const kurulus = new Date().getTime() - user.createdAt.getTime();  
     var kontrol;
-    if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` **<a:sonsuzluk:700188245555937311>  Hoşgeldin <@!${member.id}> **\n**<a:sonsuzluk:700188245555937311> Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**<a:sonsuzluk:700188245555937311>   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **<a:sonsuzluk:700188245555937311> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **<a:sonsuzluk:700188245555937311> Tagımızı Alarak Destek Olabilirsin. **`  
-  halil.send(`${kontrol}`)
-
+if (kurulus < 1296000000) kontrol = ':658020036228939788: **__Bu Hesap Güvenilir Değil__** :668652575536447517:'
+if (kurulus > 1296000000) kontrol = ':658274694260064267: **__Bu Hesap Güvenilir Gözüküyor__** :683819783233601565:'
+  moment.locale("tr");
+  let buse = client.channels.get(kanal);
+buse.send(":662295457191690241: **Hoşgeldin! " + member + " Seninle __\`" + member.guild.memberCount + "\`__ Kişiyiz :683819783233601565: \n\n :662302632957968404: Sunucuya Kayıt Olmak ◊ Voice Confirmed Odalarından Birine Geçebilirsiniz :683819783233601565: \n\n :662296251148009506: <@&695203670803087452> Rolündeki yetkililer sizinle ilgilenicektir :683819783233601565: \n\n :662294997533589517: Hesabın Oluşturulma Tarihi:** " + moment(member.user.createdAt).format("YYYY **__DD MMMM dddd (hh:mm:ss)__**") +  " :683819783233601565: \n\n"  + kontrol + " \n\n",  new Discord.Attachment("https://media.giphy.com/media/XDvkVqYoMDR8q0ClAl/giphy.gif"
+    )
+  );
+});
   
  
    
-    }   
-);
+       
+
 
 
  ;
