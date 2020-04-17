@@ -10,7 +10,7 @@ exports.run = (client, message, params) => {
     return message.author.sendEmbed(ozelmesajuyari); }
     if (message.channel.type !== '..') {
       const sunucubilgi = new Discord.RichEmbed()
-    .setAuthor('**Yoldan geldin, temizlenme vakti!**')
+    .setAuthor('**Yoldan geldin, temizlenme vakti! dsfwewehffwe**')
     .setColor('RANDOM')
     .setTimestamp()
 		.setImage(`https://cdn.discordapp.com/attachments/700144705710719023/700614142465146940/giphy.gif`)
