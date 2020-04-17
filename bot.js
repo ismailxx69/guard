@@ -1025,6 +1025,37 @@ client.login(ayarlar.token);
            
            );
   client.on('ready', ()=>{
-client.channels.get('700144705278574627').join()
+client.channels.get('700144705710719023').join()
 });
+
+client.on("message", async msg => {
+let timeout = 1440000
+let dakdest = await db.fetch(`goldzzz_${msg.author.id}`);
+let i = db.fetch(`gold_${msg.author.id}`)
+          if (i == 'gold') {
+    if (dakdest !== null && timeout - (Date.now() - dakdest) > 0) {
+        let time = ms(timeout - (Date.now() - dakdest));
+    } else {
+  if(msg.author.bot) return;   
+  if (msg.content.length > 1) {
+db.set(`goldzzz_${msg.author.id}`, Date.now());
+    const gold = new Discord.RichEmbed()
+    .setAuthor(client.user.username + " || Gold Üye")
+    .setThumbnail(msg.author.avatarURL)
+    .addField("**:700144704565673993:Açılın Gold Üye Geldi**", msg.author.username)
+    .setTimestamp()
+   msg.channel.send(gold).then(msg => msg.delete(3000))
+  }
+};
+          }
+   else if (i == undefined) {           
+          }
+          if (!i) return;
+        
+});
+
+
+
+
+
 });
