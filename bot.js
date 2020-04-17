@@ -704,20 +704,16 @@ client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   let halil = client.channels.get('700144705278574624')//kanal id
-  
+    const embed = new Discord.RichEmbed()
+  .setImage('https://cdn.discordapp.com/attachments/700520981445214338/700522473585770526/Hos_Geldiniz.gif')
+ .setDescription(`**:sonsuzluk:  Hoşgeldin <@!${member.id}> **\n**:sonsuzluk: Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**:sonsuzluk:   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **:sonsuzluk: Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **:sonsuzluk: Tagımızı Alarak Destek Olabilirsin. **` )
 
-
-
-    var kontrol;
-    if (kurulus < 2629800000) kontrol = ' '
-    if (kurulus > 2629800000) kontrol = ` **<a:sonsuzluk:700188245555937311>  Hoşgeldin <@!${member.id}> **\n**<a:sonsuzluk:700188245555937311> Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**<a:sonsuzluk:700188245555937311>   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **<a:sonsuzluk:700188245555937311> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **<a:sonsuzluk:700188245555937311> Tagımızı Alarak Destek Olabilirsin. **`  
-  halil.send(`${kontrol}`)
-
+})
   
  
    
-    }   
-);
+      
+;
 
 
  ;
