@@ -705,7 +705,6 @@ client.on('guildMemberAdd', async member => {
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   let halil = client.channels.get('700144705278574624')//kanal id
     const embed = new Discord.RichEmbed()
-  .setImage('https://cdn.discordapp.com/attachments/700520981445214338/700522473585770526/Hos_Geldiniz.gif')
  .setDescription(`**:sonsuzluk:  Hoşgeldin <@!${member.id}> **\n**:sonsuzluk: Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**:sonsuzluk:   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **:sonsuzluk: Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **:sonsuzluk: Tagımızı Alarak Destek Olabilirsin. **` )
 
 })
