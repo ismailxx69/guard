@@ -21,7 +21,7 @@ exports.run = (client, message, params) => {
     .setColor('RED')
     .setTimestamp()
   .setTitle('✅  `' +  message.author.username + '`  İşlem Başarılı Kullanıcı Sunucudan Yasaklandı!' )
-  .setImage(`https://i.kym-cdn.com/photos/images/original/001/118/146/5ec.gif`)
+  .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
   return message.channel.sendEmbed(embed)
 };
 }      
