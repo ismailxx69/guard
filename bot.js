@@ -569,9 +569,9 @@ client.on("userUpdate", async function(oldUser, newUser) {
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. ** `);
+        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. <a:morkalp:692458395747221546>** `);
       newUser.send(
-        `** Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin **ㄨ** Görüşürüz  **`
+        `**<a:emoji_5:700155339257151569> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin **ㄨ** Görüşürüz <a:emoji_5:700155339257151569> **`
       );
     }
   }
@@ -704,19 +704,20 @@ client.on('guildMemberAdd', async member => {
   let user = client.users.get(member.id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   let halil = client.channels.get('700144705278574624')//kanal id
-    const embed = new Discord.RichEmbed()
- .setDescription(`**:sonsuzluk:  Hoşgeldin <@!${member.id}> **\n**:sonsuzluk: Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**:sonsuzluk:   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **:sonsuzluk: Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **:sonsuzluk: Tagımızı Alarak Destek Olabilirsin. **` )
+  
 
-}
-         
-         
-         
-         )
+
+
+    var kontrol;
+    if (kurulus < 2629800000) kontrol = ' '
+    if (kurulus > 2629800000) kontrol = ` **<a:sonsuzluk:700188245555937311>  Hoşgeldin <@!${member.id}> **\n**<a:sonsuzluk:700188245555937311> Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**<a:sonsuzluk:700188245555937311>   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **<a:sonsuzluk:700188245555937311> Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **<a:sonsuzluk:700188245555937311> Tagımızı Alarak Destek Olabilirsin. **`  
+  halil.send(`${kontrol}`)
+
   
  
    
-      
-;
+    }   
+);
 
 
  ;
