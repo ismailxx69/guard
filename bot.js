@@ -700,20 +700,7 @@ client.login(ayarlar.token);
 
  
 ////////////////////////////////////////////////////////////////////
-client.on("guildMemberAdd", member => {  
-  const kanal = "700648241691361290";
-  let user = client.users.get(member.id);
-  require("moment-duration-format");
-    const kurulus = new Date().getTime() - user.createdAt.getTime();  
-    var kontrol;
-if (kurulus < 1296000000) kontrol = ':658020036228939788: **__Bu Hesap Güvenilir Değil__** :668652575536447517:'
-if (kurulus > 1296000000) kontrol = ':658274694260064267: **__Bu Hesap Güvenilir Gözüküyor__** :683819783233601565:'
-  moment.locale("tr");
-  let buse = client.channels.get(kanal);
-buse.send(":662295457191690241: **Hoşgeldin! " + member + " Seninle __\`" + member.guild.memberCount + "\`__ Kişiyiz :683819783233601565: \n\n :662302632957968404: Sunucuya Kayıt Olmak ◊ Voice Confirmed Odalarından Birine Geçebilirsiniz :683819783233601565: \n\n :662296251148009506: <@&695203670803087452> Rolündeki yetkililer sizinle ilgilenicektir :683819783233601565: \n\n :662294997533589517: Hesabın Oluşturulma Tarihi:** " + moment(member.user.createdAt).format("YYYY **__DD MMMM dddd (hh:mm:ss)__**") +  " :683819783233601565: \n\n"  + kontrol + " \n\n",  new Discord.Attachment("https://media.giphy.com/media/XDvkVqYoMDR8q0ClAl/giphy.gif"
-    )
-  );
-});
+
   
  
    
