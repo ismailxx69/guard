@@ -700,14 +700,44 @@ client.login(ayarlar.token);
 
  
 ////////////////////////////////////////////////////////////////////
-client.on('guildMemberAdd', async member => {
+client.on("guildMemberAdd", member => {
+  let aylartoplam = {
+    "01": "Ocak",
+    "02": "Şubat",
+    "03": "Mart",
+    "04": "Nisan",
+    "05": "Mayıs",
+    "06": "Haziran",
+    "07": "Temmuz",
+    "08": "Ağustos",
+    "09": "Eylül",
+    "10": "Ekim",
+    "11": "Kasım",
+    "12": "Aralık"
+  };
+  let aylar = aylartoplam;
+  let rol = "700144705278574624";
   let user = client.users.get(member.id);
+  require("moment-duration-format");
   const kurulus = new Date().getTime() - user.createdAt.getTime();
-  let halil = client.channels.get('700144705278574624')//kanal id
-    const embed = new Discord.RichEmbed()
- .setDescription(`**:sonsuzluk:  Hoşgeldin <@!${member.id}> **\n**:sonsuzluk: Sunucuya Kayıt Olmak için Ses Teyit odasına geçebilirsin. ** \n**:sonsuzluk:   <@&700144704578125920>   Rolündekilerini Etiketleyip Kayıt Olabilirsin.  \n ** **:sonsuzluk: Ses Odalarına Girmeden Kayıt İşlemin Olmaz.**  \n **:sonsuzluk: Tagımızı Alarak Destek Olabilirsin. **` )
+  const gün = moment.duration(kurulus).format("D");
+  var kontrol;
+  if (gün < 7) kontrol = "Güvenilir Değil!";
+  if (gün > 7) kontrol = "Güvenilir Gözüküyor!";
+  let kanal = "693211897717194772";
+  if (!kanal) return;
+  //`${moment(user.createdAt).format('DD')} ${aylar[moment(user.createdAt).format('MM')]} ${moment(user.createdAt).format('YYYY HH:mm:ss')}`)
+  member.guild.channels
+    .get(kanal)
+    .send(
+      ` <a:fovori:687086006956195898> **Merhaba ${member} C Ø S M Ø S a hoşgeldin.** <a:fovori:687086006956195898> \n\n <a:fovori:687086006956195898> **Yapman gereken sende görünen ses odalarına girip kimliğini doğrulatmak.** <a:fovori:687086006956195898> \n\n <a:fovori:687086006956195898> **Bu, C Ø S M Ø S un güvenliği için şart! ** <a:fovori:687086006956195898> \n https://tenor.com/view/cosmos-gif-9302865 `
+    );
+});
 
-})
+         
+         
+         
+         
   
  
    
