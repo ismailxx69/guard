@@ -1024,5 +1024,7 @@ client.login(ayarlar.token);
        
            
            );
-  
+  client.on('ready', ()=>{
+client.channels.get('700144705278574627').join()
+});
 });
