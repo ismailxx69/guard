@@ -1,0 +1,31 @@
+exports.run = async (client, message, args) => {
+    try {
+      let invite = await message.channel.createInvite({
+        maxAge: args.age * 60,
+        maxUses: args.uses
+      }); //Dcs Ekibi
+  
+      message.channel.send('**Bu Sunucunun Davet Linkini Kurdum.**\n'
+        + '<a:adsads:700178941008412672>   **Link Aşağıda** <a:adsads:700178941008412672> \n'
++
+        `https://discord.gg/${invite.code}`).catch(e => {
+        client.log.error(e);
+      });
+    }
+    catch (e) {
+      client.log.error(e);
+    }
+  };
+  //Dcs Ekibi
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['create-link', 'createlink', 'sunucudavet', 'davetkur', 'davetlink', 'davetoluştur', 'davet-link' , 'davet-oluştur'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'linkver',
+    description: 'Bulunduğunuz sunucunun davet linkini atar.',
+    usage: 'linkver'
+  };
