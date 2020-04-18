@@ -569,7 +569,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. <a:morkalp:692458395747221546>** `);
+        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. ** `);
       newUser.send(
         `**<a:emoji_5:700155339257151569> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin **ㄨ** Görüşürüz <a:emoji_5:700155339257151569> **`
       );
