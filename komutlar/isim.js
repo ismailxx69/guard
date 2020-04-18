@@ -11,7 +11,6 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   member.setNickname(`${tag}  ${isim} `);
   const embed = new Discord.RichEmbed()
     .setColor('#000001')
- .setImage(`https://www.bobiler.org/monte/preview/116199/bobiler.gif`)
   .addField(
       `**<a:onay:700188249330810910> İsim Başarıyla Değiştirildi **`,
       `\n**<a:onay:700188249330810910> İsmi Değiştirilen Kullanıcı:** ${member.user} \n **<a:onay:700188249330810910> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
