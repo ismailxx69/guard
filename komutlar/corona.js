@@ -10,10 +10,10 @@ exports.run = (client, message, params) => {
     return message.author.sendEmbed(ozelmesajuyari); }
     if (message.channel.type !== '..') {
       const sunucubilgi = new Discord.RichEmbed()
-    .setAuthor('**Kolonya darbesi! DÖK DÖK DÖK!**')
+    .setAuthor('İyice temizlen seni virüslü.!')
     .setColor('RANDOM')
     .setTimestamp()
-		.setImage(`https://cdn.discordapp.com/attachments/693604724221542475/695632606544396328/giphy.gif`)
+		.setImage(`https://cdn.discordapp.com/attachments/700226408940830781/700910328300437545/giphy.gif`)
     return message.channel.sendEmbed(sunucubilgi);
     }
 };
