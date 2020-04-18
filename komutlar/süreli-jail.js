@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
         const embed  = new Discord.RichEmbed()
     .setImage("https://cdn.discordapp.com/attachments/550531815249805312/678679430314459207/index.jpg")
     .setAuthor('Jail Operasyonu')
-    .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&698066204673310771> Rolü Verildi**`)
+    .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&700324216532369521> Rolü Verildi**`)
     .setFooter(`Komutu Kullanan (${message.author.username})`)
     .setColor("RED")
     message.react('696861671225950310')
