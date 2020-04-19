@@ -684,11 +684,11 @@ client.on("guildMemberAdd", member => {
 
 
   member.send(
-    `**<a:sonsuzluk:700188245555937311> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
-**<a:sonsuzluk:700188245555937311> ㄨ Çok eğleneceğinden hiç şüphem yok.** 
-**<a:sonsuzluk:700188245555937311> ㄨ Tagımızı alarak bize destek olabilirsin.** 
-**<a:sonsuzluk:700188245555937311> ㄨ Yetkili alımlarımız kısa süreliğine açık. ** 
-**<a:adsads:700178941008412672> ㄨΛURORΛ Ekibi. <a:adsads:700178941008412672>**`
+    `**<a:hipnoz:698620012050645032> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
+**<a:hipnoz:698620012050645032> ㄨ Çok eğleneceğinden hiç şüphem yok.** 
+**<a:hipnoz:698620012050645032> ㄨ Tagımızı alarak ayrıcalıklardan faydalanabilirsin..** 
+**<a:hipnoz:698620012050645032> ㄨ Yetkili alımlarımız kısa süreliğine açık. ** 
+**<a:hipnoz:698620012050645032> ㄨΛURORΛ Ekibi. **`
      )
     
   ;
