@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args, member, client, level) => {
   user.removeRole('700144704506953832') 
 const ky = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .setDescription(`${user}, **<a:onay:700188249330810910> kullanıcısına <@&700144704565673991> rolü verildi** `)
+        .setDescription(`${user}, **<a:krmzn:700970912039829544> kullanıcısına <@&700144704565673991> rolü verildi** `)
         .setColor('RED')
         .setTimestamp()
         message.channel.send(ky)

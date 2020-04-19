@@ -12,8 +12,8 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   const embed = new Discord.RichEmbed()
     .setColor('#000001')
   .addField(
-      `**<a:onay:700188249330810910> İsim Başarıyla Değiştirildi **`,
-      `\n**<a:onay:700188249330810910> İsmi Değiştirilen Kullanıcı:** ${member.user} \n  **<a:onay:700188249330810910> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
+      `**<a:krmzn:700970912039829544> İsim Başarıyla Değiştirildi **`,
+      `\n**<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı:** ${member.user} \n  **<a:krmzn:700970912039829544> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
     )
   
   
