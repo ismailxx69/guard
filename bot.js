@@ -679,20 +679,7 @@ client.on("guildMemberAdd", member => {
   member.setNickname("ㄨ • İsminizi Belirtin Lütfen  ");
 });
 
-client.on("guildMemberAdd", member => {
- const embed = new Discord.RichEmbed()
 
-
-  member.send(
-    `**<a:tac:701437682051711006> ㄨΛURORΛ'a hoşgeldin.'** ${member} 
-**<a:hipnoz:698620012050645032> ㄨ Çok eğleneceğinden hiç şüphem yok.** 
-**<a:hipnoz:698620012050645032> ㄨ Tagımızı alarak ayrıcalıklardan faydalanabilirsin..** 
-**<a:hipnoz:698620012050645032> ㄨ Yetkili alımlarımız kısa süreliğine açık. ** 
-**<a:hipnoz:698620012050645032> ㄨΛURORΛ Ekibi. **`
-     )
-    
-  ;
-});
 
 client.login(ayarlar.token);
 
