@@ -20,7 +20,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   
   
     .setFooter(`ㄨΛURORΛ`)
-    .setThumbnail(client.user.avatarURL);
+ 
   message.channel.send(embed);
 };
 
