@@ -1,23 +1,31 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
-const db = require('quick.db');
-const moment = require('moment');
 
-exports.run = async (client, message, params) => {  
-  
-message.channel.send(' **<a:onay:700188249330810910> Sunucumuzda  __'+message.guild.memberCount+'__ Kişi Vardır** ')
+exports.run = async (client, message, args) => {
+    let tag = "ㄨ" 
+    const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
+    let count = 0;
+    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
 
-};
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField("<a:hipnoz:700970886815285319> Sunucudaki üye sayısı", message.guild.memberCount)
+        .addField("<a:hipnoz:700970886815285319> Çevrimiçi üye sayısı", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
+        .addField("<a:hipnoz:700970886815285319> Seslideki üye sayısı", count)
+        .addField("<a:hipnoz:700970886815285319> Tagdaki üye sayısı", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tag kullanmıyorsanız burayı silin.
+        .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
+    message.channel.send(embed);
+
+}
 
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["say","kaç-kişi"],
-  permLevel: 0
+    enabled: true,
+    guildOnly: false,
+    aliases: ['sayı'],
+    permLevel: 0
 };
 
 exports.help = {
-  name: 'say',
-  description: 'Sunucunun bilgilerini gönderir.',
-  usage: 'kaç-kişiyiz'
-}; 
+    name: 'say',
+    description: 'Say',
+    usage: 'say'
+};
