@@ -15,7 +15,7 @@ exports.run = async (bot, message, args) => {
 
     if (rMember.roles.has(aRole.id)) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu kullanıcı zaten bu rolde.').setColor(10038562));
     await (rMember.addRole(aRole.id))
-    message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`${rMember} **isimli üyeye \`${role.name}\` isimli yetki başarıyla verildi!** <a:siyah:694927370292822090> `).setColor('RANDOM'));
+    message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`<a:tac:701437682051711006> ${rMember} **isimli üyeye \`${role.name}\` isimli yetki başarıyla verildi!** <a:tac:701437682051711006> `).setColor('RANDOM'));
 
 };
 
