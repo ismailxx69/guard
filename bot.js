@@ -1029,7 +1029,66 @@ db.set(`goldzzz_${msg.author.id}`, Date.now());
         
 });
 
+const invites = {}; //Dcs Ekibi
+const wait = require("util").promisify(setTimeout);
+client.on("ready", async () => {
+  wait(1000);
+  client.guilds.forEach(g => {
+    g.fetchInvites()
+      .catch(error => {
+        return;
+      })
+      .then(guildInvites => {
+        invites[g.id] = guildInvites;
+      });
+  }); //Dcs Ekibi
+});
 
+client.on("guildMemberAdd", async member => {
+
+  let aylartoplam = {
+    "01": "Ocak",
+    "02": "Şubat",
+    "03": "Mart",
+    "04": "Nisan",
+    "05": "Mayıs",
+    "06": "Haziran", //Dcs Ekibi
+    "07": "Temmuz",
+    "08": "Ağustos",
+    "09": "Eylül",
+    "10": "Ekim",
+    "11": "Kasım",
+    "12": "Aralık"
+  };
+  let aylar = aylartoplam;
+  //Dcs Ekibi
+  let user = client.users.get(member.id);
+  require("moment-duration-format");
+  const kurulus = new Date().getTime() - user.createdAt.getTime();
+  const gün = moment.duration(kurulus).format("D");
+  var kontrol;
+  if (gün < 7) kontrol = "<a:alert:700178966379495509> `**Bu Hesap Güvenilir Değil**` <a:alert:700178966379495509>";
+  if (gün > 7) kontrol = "<a:onay:700188249330810910> `**Bu Hesap Güvenilir Görünüyor**` <a:onay:700188249330810910>";
+  const kuruluş = `${moment(user.createdAt).format("DD")} ${aylar[moment(user.createdAt).format("MM")]} ${moment(user.createdAt).format("YYYY HH:mm:ss")}`
+
+  let davetChannel = "700648241691361290"
+  member.guild.fetchInvites().then(guildInvites => { //Dcs Ekibi
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    let log = member.guild.channels.get(davetChannel)
+      let dcs = new Discord.RichEmbed()
+        .setColor("BLACk")
+        .setTimestamp()
+        .setFooter(member.guild.name)
+       .setImage("https://media0.giphy.com/media/i2RScPdIezgbe/giphy.gif?cid=ecf05e473821973b24a6a535a6f499b68d5695728f3ec8f7&rid=giphy.gif")
+        .setDescription(
+          `**<a:tac:701437682051711006> Sunucuya Hoşgeldin ${member} \n <a:nicee:701437430217048074> Seninle Beraber \`${member.guild.memberCount}\` Kişiyiz! \n <a:nicee:701437430217048074> Kayıt Olmak İçin ㄨ V.Confirmed Odalarına Geçip Teyit Verebilirsin. \n <a:nicee:701437430217048074> Hesap Kuruluş Zamanı: \`${kuruluş}\` \n <a:nicee:701437430217048074> Bu Kullanıcı: ${kontrol} \n <a:nicee:701437430217048074> Davet Eden Kişi: <@${inviter.id}>\n <a:nicee:701437430217048074> Davet Sayısı: \`${invite.uses}\`**`)
+    log.send(dcs) //Dcs Ekibi
+  });
+});
+   
 
 
 
