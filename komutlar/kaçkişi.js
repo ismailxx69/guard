@@ -13,6 +13,8 @@ exports.run = async (client, message, args) => {
         .addField("<a:hipnoz:700970886815285319> Seslideki üye sayısı", count)
         .addField("<a:hipnoz:700970886815285319> Tagdaki üye sayısı", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tag kullanmıyorsanız burayı silin.
         .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
+              .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
+    .setImage(`https://cdn.discordapp.com/attachments/700900136150368336/702207868966928494/giphy.gif`)
     message.channel.send(embed);
 
 }
