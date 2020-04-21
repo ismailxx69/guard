@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args, member, client, level) => {
   user.removeRole('700144704506953832') 
 const ky = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .setDescription(`<a:krmzn:700970912039829544> ${user}, **  kullanıcısının kayıt işlemi başarı ile yapıldı.**  `)
+        .setDescription(`<a:onay:700188249330810910> **Kayıt işlemi sonucu** \n\n <a:krmzn:700970912039829544> ${user}, **  kullanıcısının ismi başarıyla değiştirildi. **  \n  `)
          .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
         .setColor('BLACK')
         .setTimestamp()
