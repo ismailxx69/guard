@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args, member, client, level) => {
 const ky = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setDescription(`${user}, **<a:krmzn:700970912039829544> kullanıcısına <@&700144704565673991> rolü verildi** `)
+       .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
         .setColor('RED')
         .setTimestamp()
         message.channel.send(ky)

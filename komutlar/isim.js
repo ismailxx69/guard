@@ -15,6 +15,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
       `**<a:krmzn:700970912039829544> İsim Başarıyla Değiştirildi **`,
       `\n**<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı:** ${member.user} \n  **<a:krmzn:700970912039829544> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
     )
+         .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
   
   
   
