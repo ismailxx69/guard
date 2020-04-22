@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, prefix) => {
 
     let gayembed = new Discord.RichEmbed()
         .setColor("#f442d4")
-       .setDescription(`<a:krmzn:700970912039829544> Terapi Uzmanları <a:krmzn:700970912039829544> \n\n <a:krmzn:700970912039829544> İsra \n\n <a:krmzn:700970912039829544> Selin \n\n <a:krmzn:700970912039829544> Muhammed `)
+       .setDescription(`** <a:kelebek:700970912576569374> ㄨΛURORΛ Etkinlik Takvimi** <a:kelebek:700970912576569374> \n\n <a:emoji_3:700155280297689168> 2 Günde 1 normal Doğruluk mu? Cesaret mi? oyunu! \n\n <a:emoji_3:700155280297689168> 4 Günde 1 Vampir Köylü oyunu! \n\n <a:emoji_3:700155280297689168> Her gün 23:00 dan sonra (isteğe bağlı) film keyfi! \n\n <a:emoji_3:700155280297689168> Her gün (isteğe bağlı) karaoke yarışması!`)
     return message.channel.send(gayembed);
 };
 exports.conf = {
@@ -17,7 +17,7 @@ exports.conf = {
 };
   
 exports.help = {
-  name: 'Terapistler',
+  name: 'etkinlik',
   description: 'Acaba Kaç CM',
-  usage: 'Terapistler'
+  usage: 'etkinlik'
 };

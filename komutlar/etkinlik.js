@@ -20,7 +20,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'etkinlik',
+  name: 'yapımcım',
   description: 'Yapimcimi Gosterir.',
-  usage: 'etkinlik'
+  usage: 'yapimcim'
 };
