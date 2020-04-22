@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, prefix) => {
 
     let gayembed = new Discord.RichEmbed()
         .setColor("#f442d4")
-       .setDescription(`<@${message.author.id}> Adlı Kullanıcının Malafatı **${cm}** Santimetre!`)
+       .setDescription(`<a:krmzn:700970912039829544> Terapi Uzmanları <a:krmzn:700970912039829544> \n\n <a:krmzn:700970912039829544> İsra \n\n <a:krmzn:700970912039829544> Selin \n\n <a:krmzn:700970912039829544> Muhammed `)
     return message.channel.send(gayembed);
 };
 exports.conf = {
@@ -17,7 +17,7 @@ exports.conf = {
 };
   
 exports.help = {
-  name: 'kaçcm',
+  name: 'Terapistler',
   description: 'Acaba Kaç CM',
-  usage: 'kaçcm'
+  usage: 'Terapistler'
 };
