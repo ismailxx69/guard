@@ -16,7 +16,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
       `\n**<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı:** ${member.user} \n  **<a:krmzn:700970912039829544> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
     )     
           .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
-      .setImage(`https://cdn.discordapp.com/attachments/700900136150368336/702207868966928494/giphy.gif`)
+      .setImage(`https://cdn.discordapp.com/attachments/684103541098283046/702799959057236008/ezgif.com-video-to-gif_4.gif`)
   
   
   
