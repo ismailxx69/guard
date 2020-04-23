@@ -20,7 +20,7 @@ if(!owners.includes(message.author.id)) return message.channel.send(' `Bu Komutu
   
 
   
- if(message.guild.members.has(kullanıcı)) message.guild.members.get(kullanıcı).addRole('697942232468292047');
+ if(message.guild.members.has(kullanıcı)) message.guild.members.get(kullanıcı).addRole('700144704565673993');
     
 
   
