@@ -111,6 +111,16 @@ client.on("message", msg => {
   }
 });
 
+
+;
+
+
+client.on('ready', ()=>{
+client.channels.get('701644934456803419').join()
+})
+
+
+
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "a!tag") {
     msg.channel.send("**<a:kng:700179035367669781>           ㄨ           <a:kng:700179035367669781>**");
