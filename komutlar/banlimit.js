@@ -11,7 +11,7 @@ exports.run = async(yashinu, message, args) => {
   }
   if(!args[0] || isNaN(args[0])) return message.channel.send(`**Ban limit sayısını belirtmelisin!** (**Özelliği devre dışı bırakmak isterseniz** **0** **yazmalısınız!**)`);
   await db.set(`banlimit_${message.guild.id}`, args[0])
-  message.reply(`**Sunucunun ban limitini başarıyla **${args[0]}** olarak ayarladım! <a:siyah:694927370292822090>**`);
+  message.reply(`**Sunucunun ban limitini başarıyla **${args[0]}** olarak ayarladım! <a:onay:700188249330810910>**`);
 };
 
 exports.conf = {
