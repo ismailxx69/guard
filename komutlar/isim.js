@@ -13,10 +13,10 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
     .setColor('#000001')
   .addField(
       `**<a:krmzn:700970912039829544> İsim Başarıyla Değiştirildi **`,
-      `\n**<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı:** ${member.user} \n  **<a:krmzn:700970912039829544> Yeni Kullanıcı Adı:** \`${tag}  ${isim}  \``
+      `\n<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı: ${member.user} \n  <a:krmzn:700970912039829544> Yeni Kullanıcı Adı: \`${tag}  ${isim}  \``
     )     
-          .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
-      .setImage(`https://cdn.discordapp.com/attachments/684103541098283046/702799959057236008/ezgif.com-video-to-gif_4.gif`)
+          .setThumbnail("https://cdn.discordapp.com/attachments/684103541098283046/702794401436532786/ezgif.com-video-to-gif_3.gif")
+    
   
   
   
