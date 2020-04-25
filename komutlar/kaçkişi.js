@@ -8,13 +8,13 @@ exports.run = async (client, message, args) => {
 
     const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .addField("<a:hipnoz:700970886815285319> Sunucudaki üye sayısı", message.guild.memberCount)
-        .addField("<a:hipnoz:700970886815285319> Çevrimiçi üye sayısı", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
-        .addField("<a:hipnoz:700970886815285319> Seslideki üye sayısı", count)
-        .addField("<a:hipnoz:700970886815285319> Tagdaki üye sayısı", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tag kullanmıyorsanız burayı silin.
+        .addField("<a:maviyildiz:701437430670032906> **Sunucudaki üye sayısı**", message.guild.memberCount)
+        .addField("<a:maviyildiz:701437430670032906> **Çevrimiçi üye sayısı**", message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size)
+        .addField("<a:maviyildiz:701437430670032906> **Seslideki üye sayısı**", count)
+        .addField("<a:maviyildiz:701437430670032906> **Tagdaki üye sayısı**", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tag kullanmıyorsanız burayı silin.
         .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
-              .setThumbnail("https://media.giphy.com/media/JQvFzbikYei9fETSL2/giphy.gif")
-    .setImage(`https://cdn.discordapp.com/attachments/700900136150368336/702207868966928494/giphy.gif`)
+              .setThumbnail("https://cdn.discordapp.com/attachments/684103541098283046/702794401436532786/ezgif.com-video-to-gif_3.gif")
+
     message.channel.send(embed);
 
 }
