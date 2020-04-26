@@ -14,6 +14,6 @@ module.exports = client => {
     game: {
         name: 'ㄨ V.Confirmed Kanallarını',         type: 'WATCHING' // Değerler: // PLAYING: // WATCHING // LISTENING
     },
-    status: 'dnd' // Değerler // online // dnd // idle 
+    status: 'idle' // Değerler // online // dnd // idle 
 })
 }; 
