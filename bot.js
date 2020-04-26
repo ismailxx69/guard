@@ -1044,7 +1044,7 @@ db.set(`goldzzz_${msg.author.id}`, Date.now());
         
 });
 
-const invites = {}; //Dcs Ekibi
+const invites = {};
 const wait = require("util").promisify(setTimeout);
 client.on("ready", async () => {
   wait(1000);
@@ -1056,7 +1056,7 @@ client.on("ready", async () => {
       .then(guildInvites => {
         invites[g.id] = guildInvites;
       });
-  }); //Dcs Ekibi
+  }); 
 });
 
 
