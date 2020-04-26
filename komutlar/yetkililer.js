@@ -1,20 +1,21 @@
 const Discord = require('discord.js');
+const embed = new Discord.RichEmbed()
 
 exports.run = async (client, message) => {
  message.delete()
   var str = ''
 for(var i = 0; i < message.guild.members.size; i++) {
    if(message.guild.members.array()[i].hasPermission("ADMINISTRATOR") && message.guild.members.array()[i].presence.status === "dnd" && !message.guild.members.array()[i].user.bot) {
-      str += `:pushpin: ${message.guild.members.array()[i].user.tag}\n`
+      str += `<a:onay:700188249330810910> ${message.guild.members.array()[i].user.tag}\n`
     }
     else if(message.guild.members.array()[i].hasPermission("ADMINISTRATOR") && message.guild.members.array()[i].presence.status === "online" && !message.guild.members.array()[i].user.bot){
-      str += `:pushpin: ${message.guild.members.array()[i].user.tag}\n`
+      str += `<a:onay:700188249330810910> ${message.guild.members.array()[i].user.tag}\n`
     }
     else if(message.guild.members.array()[i].hasPermission("ADMINISTRATOR") && message.guild.members.array()[i].presence.status === "idle" && !message.guild.members.array()[i].user.bot){
-      str += `:pushpin: ${message.guild.members.array()[i].user.tag}\n`
+      str += `<a:onay:700188249330810910> ${message.guild.members.array()[i].user.tag}\n`
     }
       else if (message.guild.members.array()[i].hasPermission("ADMINISTRATOR") && message.guild.members.array()[i].presence.status === "offline" && !message.guild.members.array()[i].user.bot){
-      str += `:pushpin: ${message.guild.members.array()[i].user.tag}\n`
+      str += `<a:onay:700188249330810910> ${message.guild.members.array()[i].user.tag}\n`
     }
 }
 
@@ -37,7 +38,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'yetkililer',
+  name: 'yöneticiler',
   category: 'sunucu',
   description: 'Bulunduğunuz sunucudaki yetkilileri çevrimiçi, çevrımdışı/görünmez, rahatsız etmeyin ve boşta modlarında olup olmadıklarını göstererek listeler. (Yönetici yetkisine sahip kullanıcıları yetkili olarak sayar.)',
   usage: 'yetkililer'
