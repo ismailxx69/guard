@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-let rolid = "698066204673310771";  //cezalı rol id
+let rolid = "700324216532369521";  //cezalı rol id
 
 exports.run = async (client, message, args) => {
   if (!message.member.roles.has("700144704607617038")) 
@@ -16,12 +16,12 @@ exports.run = async (client, message, args) => {
     }
     else member.roles.forEach(role => member.removeRole(role));
         const embed  = new Discord.RichEmbed()
-    .setImage("https://cdn.discordapp.com/attachments/550531815249805312/678679430314459207/index.jpg")
+    .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
     .setAuthor('Jail Operasyonu')
     .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&700324216532369521> Rolü Verildi**`)
     .setFooter(`Komutu Kullanan (${message.author.username})`)
     .setColor("RED")
-    message.react('696861671225950310')
+    message.react('703943338532798504')
     return message.channel.sendEmbed(embed);
 }
 exports.conf = {
