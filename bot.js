@@ -105,16 +105,23 @@ client.ayar = {
 
 // EDİT AT JOSTMAN
 
-client.on("message", msg => {
-  if (msg.content.toLowerCase() === "sa") {
-    msg.reply(" **Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>");
-  }
-});
 
 
 ;
 
+client.on('message', async message => {
+  
+const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$)/gi);
+if (otocevap1.test(message.content) == true) {
+message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
+} 
 
+   
+    const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
+    if (otocevap3.test(message.content) == true) {
+    message.channel.send('<a:kng:700179035367669781>           ㄨ           <a:kng:700179035367669781>')
+    }
+});
 
 
 
