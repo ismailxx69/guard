@@ -99,11 +99,8 @@ client.ayar = {
   SunucuTAG: "ㄨ",
   SahipRolüID: "305943092056293376",
   EkipRolü: "700144704569999516",
-  EkipMesajKanalı: "700144705710719023"
+  EkipMesajKanalı: "703382591121915997"
 };
-
-
-// EDİT AT JOSTMAN
 
 
 
