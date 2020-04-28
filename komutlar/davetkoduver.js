@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
   };
   
   exports.help = {
-    name: 'linkver',
+    name: 'link',
     description: 'Bulunduğunuz sunucunun davet linkini atar.',
-    usage: 'linkver'
+    usage: 'link'
   };
