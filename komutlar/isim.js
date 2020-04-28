@@ -5,7 +5,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   
   let member = message.mentions.members.first();
   let isim = args[1];
-  let tag = "ㄨ"
+  let tag = "そ"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
   member.setNickname(`${tag}  ${isim} `);
@@ -15,7 +15,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
       `**<a:krmzn:700970912039829544> İsim Başarıyla Değiştirildi **`,
       `\n<a:krmzn:700970912039829544> İsmi Değiştirilen Kullanıcı: ${member.user} \n  <a:krmzn:700970912039829544> Yeni Kullanıcı Adı: \`${tag}  ${isim}  \``
     )     
-          .setThumbnail("https://cdn.discordapp.com/attachments/684103541098283046/702794401436532786/ezgif.com-video-to-gif_3.gif")
+          .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
     
   
   

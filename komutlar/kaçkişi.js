@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 
 exports.run = async (client, message, args) => {
-    let tag = "ㄨ" 
+    let tag = "そ" 
     const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
     let count = 0;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
         .addField("<a:maviyildiz:701437430670032906> **Seslideki üye sayısı**", count)
         .addField("<a:maviyildiz:701437430670032906> **Tagdaki üye sayısı**", message.guild.members.filter(m => m.user.username.includes(tag)).size) // tag kullanmıyorsanız burayı silin.
         .setFooter(`${message.author.tag} tarafından istendi`, message.author.avatarURL)
-              .setThumbnail("https://cdn.discordapp.com/attachments/684103541098283046/702794401436532786/ezgif.com-video-to-gif_3.gif")
+              .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
 
     message.channel.send(embed);
 
