@@ -27,4 +27,5 @@ exports.help = {
     name: 'erkek', 
     description: 'kayıt',
     usage: 'kayıt' 
-}
+}   
+///Edit by AidenZ

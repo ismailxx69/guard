@@ -20,7 +20,7 @@ if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu k
   
   
   
-    .setFooter(`ㄨΛURORΛ`)
+    .setFooter(`そ INFECTION`)
  
   message.channel.send(embed);
 };
@@ -34,5 +34,5 @@ exports.conf = {
 exports.help = {
   name: "nick",
   description: "Birinin nickini değiştirir.",
-  usage: "nick"
+  usage: "nick" //Edit by AidenZ
 };               

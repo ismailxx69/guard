@@ -25,5 +25,5 @@ exports.conf = {
 exports.help = {
     name: 'kız', 
     description: 'kayıt',
-    usage: 'kayıt' //Dcs Ekibi
+    usage: 'kayıt' //Edit by AidenZ
 }
