@@ -18,7 +18,7 @@ const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
 };
 
-// UPTİME DOCTORA EKLE
+
 
 app.listen(process.env.PORT);
 app.get("/", (request, response) => {
