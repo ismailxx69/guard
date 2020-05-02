@@ -7,8 +7,8 @@ exports.run = async (client, message, args) => {
     message.react('706096419572023307')
     let reason = args.slice(1).join(' ');
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-  if(member.hasPermission("ADMINISTRATOR")) return message.reply("Yöneticileri jaile atamazsın!").then(msg => msg.delete(9000))  
-  if(message.author.id === member.user.id) return message.reply("Kendini jaile atamazsın.!").then(msg => msg.delete(9000))   
+  if(member.hasPermission("ADMINISTRATOR")) return message.reply("Yöneticileri teyite atamazsın!").then(msg => msg.delete(9000))  
+  if(message.author.id === member.user.id) return message.reply("Kendini teyite atamazsın.!").then(msg => msg.delete(9000))   
  if(!member) return message.channel.send("**Lütfen kullanıcıyı etiketleyiniz veya idsini yazınız.**");
     if (reason.length < 1) return message.channel.send("Lütfen sebep belirtin.")
     if(rolid.match(/(\d{17,19})/g)) {
@@ -24,9 +24,9 @@ const embed = new Discord.RichEmbed()
 .setColor("#005b94")
 .setTimestamp()
 .addField('**Yetkili :**',`<@${message.author.id}> | ID: ${message.author.id} `) 
-.addField(' **Teyite Atılan Kullanıcı :**' , `<@${kişi.id}> | ID: ${kişi.id}`)
-.addField(' **Verilen Rol :**', `**${rolid.match(/(\d{17,19})/g) ? ` ${message.guild.roles.get(rolid)} rolü verildi.**` : 'alındı.**'}`)
-.addField(' **Atılma Sebebi :**', "```" + reason + "```")
+.addField('**Teyite Atılan Kullanıcı :**' , `<@${kişi.id}> | ID: ${kişi.id}`)
+.addField('**Verilen Rol :**', `**${rolid.match(/(\d{17,19})/g) ? ` ${message.guild.roles.get(rolid)} rolü verildi.**` : 'alındı.**'}`)
+.addField('**Atılma Sebebi :**', "```" + reason + "```")
 .setImage('RESİM LİNK EKLE')
 client.channels.get("7706103285664448542").send(embed) //logun atılacağı yer 
 
