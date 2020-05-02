@@ -1,31 +1,59 @@
 const Discord = require('discord.js');
-const db = require('quick.db')
-module.exports.run = async (bot, message, args, member, client, level) => {
-  if(!message.member.roles.has("700144704578125920")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
-  let user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if (!user) return message.reply("**Etiket Atmayı Unuttun!**");
-  user.addRole('701400791797334097') 
-  user.addRole('700144704565673990') 
-  user.removeRole('700144704506953832') 
-const ky = new Discord.RichEmbed()
-        .setAuthor(message.author.tag, message.author.avatarURL)
-        .setDescription(`<a:onay:700188249330810910> **Kayıt Başarılı** \n\n <a:krmzn:700970912039829544> ${user},   kullanıcısının rolü başarıyla değiştirildi.  \n <a:krmzn:700970912039829544> Dilersen **そ** tagımızı alabilirsin. \n <a:kelebek:700970912576569374> Aramıza hoş geldin.  `)
-         .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
 
-        .setColor('BLACK')
-        .setTimestamp()
-        message.channel.send(ky)
+exports.run = async (client, message, args) => {
+
+let kayityetkili = '700144704578125920' //KAYIT YETKİLİSİ ID
+let verbusem = '700144704565673990' //VERİLECEK ROL ID
+let albuse = '700144704506953832' //ALINACAK ROL ID
+
+let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
+
+
+//TİK İSMİNDE BİR EMOJİNİZ OLMASI LAZIM (Hareketli Olsa Daha Güzel Gözükür)
+
+  if(!message.member.roles.has(kayityetkili)) 
+  if(!message.member.hasPermission("ADMINISTRATOR"))
+  return message.channel.send(`Bu komutu kullanabilmek için \`Kayıt\` yetkisine sahip olmasınız.`);
+  let member = message.mentions.members.first()
+  let isim = args.slice(1).join(" ")
+  if (!member) return message.channel.send('Bir Üye Etiketlemelisin💖')
+  if (!isim) return message.channel.send('Bir İsim Yazmalısın 💖')
+
+  setTimeout(function(){
+  member.setNickname(`${isimön}${isim}`)
+  },2000)
+  setTimeout(function(){
   
-} 
+  member.addRole(verbusem)
+  },3000)
+  setTimeout(function(){
+  member.removeRole(albuse)
+
+  },4000)
+  
+ const emoji = client.emojis.find(emoji => emoji.name === "tik");
+ let embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setDescription(`✅ Kayıt işlemi Başarılı ✅
+
+**Kayıt edilen kullanıcı :** ${isimön} ${isim}
+
+**Kayıt işleminde alınan rol :** <@&${albuse}>, 
+`)
+  .setFooter(`Komutu kullanan yetkili : ${message.author.username}`) 
+  .setImage("https://37.media.tumblr.com/f1d867e7b7771f57ccf325a13630ce29/tumblr_n3zeepZMFm1ttv14wo1_r1_250.gif")
+message.channel.send(embed)
+message.react(emoji)
+};
+
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: ["erkek"],
-    permLevel: 0
+  enabled: true,
+  guildOnly: true,
+  aliases: ['oyuncu','o'],
+  permLevel: 0
 }
 exports.help = {
-    name: 'erkek', 
-    description: 'kayıt',
-    usage: 'kayıt' 
-}   
-///Edit by AidenZ
+  name: 'erkek',
+  description: "Erkek kullanıcıları kayıt etme komutu.",
+  usage: '!erkek <yeni nick>'
+}
