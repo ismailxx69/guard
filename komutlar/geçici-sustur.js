@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
   let umutb = message.guild.roles.find(r => r.name === "DCS | Muted");
 
   if (!umutb) {
-    try { //Dcs Ekibi
+    try { 
       umutb = await message.guild.createRole({
         name: "DCS | Muted",
         color: "#4c6876",
