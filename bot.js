@@ -572,8 +572,8 @@ client.on("userUpdate", async function(oldUser, newUser) {
     client.guilds
       .get(client.ayar.SunucuID)
       .member(newUser)
-      .removeRole(client.ayar.EkipRolü); // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
-    if (
+      .removeRole(client.ayar.EkipRolü,); // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
+if (
       client.guilds
         .get(client.ayar.SunucuID)
         .channels.has(client.ayar.EkipMesajKanalı)
