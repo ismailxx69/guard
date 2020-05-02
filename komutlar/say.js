@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 
 const embed = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL) 
-    .setThumbnail(client.user.avatarURL)
+    .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
     .setDescription(`<a:ttik:706096419572023307> **Sunucudaki üye sayısı :** __${message.guild.memberCount}__
 <a:ttik:706096419572023307> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
 <a:ttik:706096419572023307> **Seslideki üye sayısı :** __${count}__
