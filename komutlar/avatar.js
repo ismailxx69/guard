@@ -1,29 +1,34 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
-exports.run = (client, msg, args) => {
-   let member = msg.mentions.members.first()
-   if(!member)return msg.channel.send({embed: {
- color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: ('Kimin Avatarına Bakmak İstiyon!')
-}});
-   const Discord = require('discord.js')
-        const kullanicibilgimk = new Discord.RichEmbed()
-        .setTitle(member.user.tag+" kullanıcısının profil fotoğrafı!")
-        .setImage(member.user.avatarURL)
-        .setFooter("MeeTR - Avatar Sistemi")
-        return msg.channel.send(kullanicibilgimk);
+exports.run = (client, message, args) => {
+if(message.channel.id != "703383195776712754") return message.reply("Lütfen <#703383195776712754> kısmına yazınız.")    
+    let user;
+    
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
     }
-	
-	
+    
+    const avatar = new Discord.RichEmbed()
+        .setColor("#005b94")
+        .setAuthor("» Buyrun Efendimiz, ")
+        .setImage(user.avatarURL)
+.setFooter(`${message.author.tag} tarafından istendi`,message.author.avatarURL);    
+message.channel.send(avatar)
+    
+};
+
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0,
- };
- 
- exports.help = {
- name: 'avatar',
- description: 'Avatarınızı veya etiketlediğiniz kişinin avatarını atar.',
- usage: '/avatar [@Kişi]'
- }
+  enabled: true, 
+  guildOnly: false, 
+  aliases: ["pp"],
+  permLevel: `Yetki gerekmiyor.` 
+};
+
+exports.help = {
+  name: 'avatar',
+  category: 'kullanıcı',
+  description: 'Belirtilen Kişinin veya Komutu Yazan Kişinin Avatarını Atar.',
+  usage: '!avatar <@kişi-etiket> veya +avatar'
+};
