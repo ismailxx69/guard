@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
   for (const [id, voiceChannel] of voiceChannels)
     count += voiceChannel.members.size;
 
-  
+
 const embed = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL) 
     .setThumbnail(client.user.avatarURL)
@@ -16,6 +16,7 @@ const embed = new Discord.RichEmbed()
 <a:ttik:706096419572023307> **Seslideki üye sayısı :** __${count}__
 <a:ttik:706096419572023307> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
 <a:ttik:706096419572023307> **Erkek üye sayısı :** __${message.guild.roles.get("700144704565673990").members.size}__
+<a:ttik:706096419572023307> **Kayıtsız üye sayısı :** __${message.guild.roles.get("700144704506953832").members.size}__
 <a:ttik:706096419572023307> **Kız üye sayısı :** __${message.guild.roles.get("700144704565673991").members.size}__
 <a:ttik:706096419572023307> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
 `)
