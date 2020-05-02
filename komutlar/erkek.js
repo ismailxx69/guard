@@ -3,10 +3,11 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
 
 let kayityetkili = '700144704578125920' //KAYIT YETKİLİSİ ID
+
 let verbusem = '700144704565673990' //VERİLECEK ROL ID
 let albuse = '700144704506953832' //ALINACAK ROL ID
 
-let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
+let isimön = 'そ   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
 
 
 //TİK İSMİNDE BİR EMOJİNİZ OLMASI LAZIM (Hareketli Olsa Daha Güzel Gözükür)
@@ -23,7 +24,7 @@ let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
   member.setNickname(`${isimön}${isim}`)
   },2000)
   setTimeout(function(){
-  
+ 
   member.addRole(verbusem)
   },3000)
   setTimeout(function(){
@@ -34,11 +35,13 @@ let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  const emoji = client.emojis.find(emoji => emoji.name === "tik");
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setDescription(`✅ Kayıt işlemi Başarılı ✅
+  .setDescription(`<a:ttik:706096419572023307> Kayıt işlemi Başarılı 
 
-**Kayıt edilen kullanıcı :** ${isimön} ${isim}
+**Kayıt edilen kullanıcı :** ${isimön}${isim}
 
-**Kayıt işleminde alınan rol :** <@&${albuse}>, 
+**Kayıt işleminde verilen rol :** , <@&${verbusem}>
+
+**Kayıt işleminde alınan rol :** <@&${albuse}>
 `)
   .setFooter(`Komutu kullanan yetkili : ${message.author.username}`) 
   .setImage("https://37.media.tumblr.com/f1d867e7b7771f57ccf325a13630ce29/tumblr_n3zeepZMFm1ttv14wo1_r1_250.gif")
