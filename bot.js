@@ -102,6 +102,15 @@ client.ayar = {
   EkipMesajKanalı: "703382591121915997"
 };
 
+client.on("guildMemberAdd", member => {
+
+if(member.user.username.includes("ァ")){
+member.addRole("700324216532369521")
+member.removeRole("700144704506953832")
+member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Küfür yemek için cezalıya atıldınız.__**")
+}
+}) 
+
 
 
 ;
