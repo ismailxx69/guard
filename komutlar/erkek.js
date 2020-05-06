@@ -36,11 +36,11 @@ let isimön = 'そ   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
     .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
-  .setDescription(`<:tag:707458120523448382> Kayıt işlemi Başarılı 
-<:tag:707458120523448382> **Kayıt edilen kullanıcı :** ${isimön}${isim}
+  .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:tag:707458120523448382>
+<:tag:707458120523448382> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
 <:tag:707458120523448382> **Kayıt işleminde verilen rol :** , <@&${verbusem}>
 <:tag:707458120523448382> **Kayıt işleminde alınan rol :** <@&${albuse}>
-<:tag:707458120523448382> **Komutu kullanan yetkili** : ${message.author.username}
+<:tag:707458120523448382> **Komutu kullanan yetkili** : **${message.author.username}**
 `)
   .setFooter(`そ INFECTION`) 
  
