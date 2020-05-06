@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-if  (!message.member.roles.has("700144704578125920")) return message.reply('Bu komutu kullanmaya yetkin yok');
+if  (!message.member.roles.has("KAYIT YETKİLİSİ ID")) return message.reply('Bu komutu kullanmaya yetkin yok');
   
   let member = message.mentions.members.first();
   let isim = args[1];
-  let tag = "そ"
+  let tag = "TAG"
   if (!member) return message.channel.send("**Bir Üye Etiketlemelisiniz**");
   if (!isim) return message.channel.send("**Bir İsim Yazmalısınız**");
   member.setNickname(`${tag}  ${isim} `);
