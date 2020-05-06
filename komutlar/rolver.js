@@ -1,10 +1,12 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
+
 var prefix = ayarlar.prefix;
 
 exports.run = async (bot, message, args) => {
-    if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanmak için **Rolleri Yönet** yetkisine sahip olmalısın.').setColor(10038562));
+  if  (!message.member.roles.has("700144704607617038")) return message.reply('Bu komutu kullanmaya yetkin yok');
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanmak için **Yönetici** yetkisine sahip olmalısın.').setColor(10038562));
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if (!rMember) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`Lütfen bir kullanıcı ismi gir.\nÖrnek: ` + ayarlar.prefix + `rolver **@İsim @Yetki**`).setColor(10038562).setAuthor(`${message.author.username} tarafından istendi.`, message.author.avatarURL).setTimestamp());
     let role = message.mentions.roles.first()
