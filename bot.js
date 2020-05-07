@@ -133,7 +133,7 @@ client.on("message" , async message => {
    if(message.content.includes(kisi3)){
      const embed = new Discord.RichEmbed()
       .setColor("#0080FF")
-      .setAuthor("Pax" , client.user.avatarURL)
+      .setAuthor("#INFECTION" , client.user.avatarURL)
       .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
       .setTimestamp()
       .setFooter(`${message.author.username} Tarafından İstendi`)
@@ -143,7 +143,7 @@ client.on("message" , async message => {
   if(message.author.id === kisi){
     const embed = new Discord.RichEmbed()
       .setColor("#0080FF")
-      .setAuthor("Pax" , client.user.avatarURL)
+      .setAuthor("#INFECTION" , client.user.avatarURL)
       .setDescription(`Afk'lıktan Çıktınız`)
       .setTimestamp()
       .setFooter(`${message.author.username} Tarafından İstendi`)
