@@ -106,33 +106,56 @@ client.ayar = {
 
 
 
-client.on('message', async message => {
+client.on("message" , async message => {
+  const msg = message;
+  if(message.content.startsWith(ayarlar.prefix+"afk")) return; 
+  /*db.set(`afkSebep_${message.author.id}_${message.guild.id}`, "Sebep Girilmemiş")
+  db.set(`afkKisi_${message.author.id}_${message.guild.id}`, message.author.id)              Bunlar Afk Komutndaki İsimler /// tmm bakalım
+  db.set(`afkAd_${message.author.id}_${message.guild.id}`, message.author.username)*/
   
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+  /*      const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("Pax" , "https://cdn.discordapp.com/avatars/605781334438445057/495a33da25bc54f9c9dd1f5883da7409.png?size=2048")
+      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+       */
   
-  let kullanıcı = message.mentions.users.first() || message.author
-  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
-  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
-  let sebep = afkkullanıcı
- 
-  if (message.author.bot) return;
-  if (message.content.includes(`${prefix}afk`)) return;
+  let afk = message.mentions.users.first()
   
-  if (message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
-      db.delete(`afk_${message.author.id}`)
-    }
-    if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. Sebep : \`${sebep}\``)
+  const kisi = db.fetch(`afkid_${message.author.id}_${message.guild.id}`)
+  
+  const isim = db.fetch(`afkAd_${message.author.id}_${message.guild.id}`)
+ if(afk){
+   const sebep = db.fetch(`afkSebep_${afk.id}_${message.guild.id}`)
+   const kisi3 = db.fetch(`afkid_${afk.id}_${message.guild.id}`)
+   if(message.content.includes(kisi3)){
+     const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("Pax" , client.user.avatarURL)
+      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+   }
+ }
+  if(message.author.id === kisi){
+    const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("Pax" , client.user.avatarURL)
+      .setDescription(`Afk'lıktan Çıktınız`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+   db.delete(`afkSebep_${message.author.id}_${message.guild.id}`)
+   db.delete(`afkid_${message.author.id}_${message.guild.id}`)
+   db.delete(`afkAd_${message.author.id}_${message.guild.id}`)
+    message.member.setNickname(isim)
+    
   }
-
-  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
-      db.delete(`afk_${message.author.id}`)
-    }
-  }
-}); 
+  
+})
 
 client.on("guildMemberAdd", member => {
 
