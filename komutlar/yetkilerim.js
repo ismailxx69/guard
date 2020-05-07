@@ -5,6 +5,7 @@ exports.run = (client, msg, args) => {
 
 
 let x;
+  
     let x2;
     let x3;
     let x4;
