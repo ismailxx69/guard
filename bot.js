@@ -241,6 +241,23 @@ client.on("guildBanAdd", async (guild, user) => {
 
 // GELİŞMİŞ LOG
 
+
+client.on("message", message => {
+    if (message.channel.type === "dm") {
+        if (message.author.bot) return;
+        const dmlog = new Discord.RichEmbed()
+         .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
+         .setColor('RANDOM')
+         .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
+         .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
+         .addField(`Gönderilen Mesaj`, message.content)
+         .setThumbnail(message.author.avatarURL) 
+    client.channels.get("707981065687531581").send(dmlog);
+    }
+});
+
+
+
 client.on("messageDelete", async message => {
   let modlog = await db.fetch(`genelmodlog_${message.guild.id}`);
   const entry = await message.guild
