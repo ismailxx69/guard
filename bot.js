@@ -195,7 +195,11 @@ client.on("message", msg => {
 });
 
 
-
+client.on('ready', ()=>{
+let kanal = client.channels.get('703404831917735986')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
+if(!kanal) return;
+  kanal.join();
+}) 
 
 client.on("guildBanAdd", async (guild, user) => {
   const entry = await guild
