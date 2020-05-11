@@ -1,20 +1,24 @@
-const Discord = require("discord.js");
-exports.run = async (client, message, args) => {
-let tr = args.slice(0).join(" ")
-if(!tr) return message.channel.send("Gönderilecek şeyi yaz")
-  client.users.forEach(tr2 => {
-    tr2.send(tr)
-  })
+const Discord = require('discord.js');
+
+
+exports.run = (client, message, args) => {
+  let mesaj = args.slice(0).join(' ');
+if (mesaj.length < 1) return message.channel.send(':warning: Özel DM den göndermek İstediğiniz Mesajı Yazınız.');
+  message.delete();
+      client.users.forEach(u => {
+u.send(mesaj)
+})
 };
+
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: [],
-  permLevel: 5
+  guild0nly: true,
+  aliases: ['duyuru'],
+  permLevel: 2
 };
 
 exports.help = {
-  name: "duyuru",
-  description: "dm-duyuru",
-  usage: "dm-duyuru"
+  name: 'duyuru',
+  description: 'İstediğiniz şeyi bota duyurtur. Sadece Bot Kurucuları Yapar.',
+  usage: 'duyuru'
 };
