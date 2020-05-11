@@ -6,8 +6,7 @@ exports.run = async (client, message, args) => {
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
     
-  if(!message.member.roles.has("700144704607617038")) return message.channel.send(`Bu komutu kullanabilmek için \Güzel yetkiye sahip olmalısınız.`);
-  
+ if(!message.member.roles.has("704647763656179773")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
   if (!client.lockit) client.lockit = [];
   let time = args.join(' ');
   let validUnlocks = ['release', 'unlock'];
