@@ -180,7 +180,7 @@ message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
    
     const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
     if (otocevap3.test(message.content) == true) {
-    message.channel.send('<a:kng:700179035367669781>           そ           <a:kng:700179035367669781>')
+    message.channel.send('<a:kng:700179035367669781>           +⁶           <a:kng:700179035367669781>')
     }
 });
 
@@ -189,7 +189,7 @@ message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "a!tag") {
-    msg.channel.send("**<a:kng:700179035367669781>           そ           <a:kng:700179035367669781>**");
+    msg.channel.send("**<a:kng:700179035367669781>           +⁶           <a:kng:700179035367669781>**");
   
   }
 });
