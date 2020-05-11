@@ -7,7 +7,7 @@ let kayityetkili = '709425681443848313' //KAYIT YETKİLİSİ ID
 let verbusem = '709426047808045077' //VERİLECEK ROL ID
 let albuse = '700144704506953832' //ALINACAK ROL ID
 
-let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
+let isimön = '+⁶ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
 
 
 //TİK İSMİNDE BİR EMOJİNİZ OLMASI LAZIM (Hareketli Olsa Daha Güzel Gözükür)
