@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = (client, message, params) => {
    if(!message.member.roles.has("704647739438268556")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
-    if (!message.guild) {
+    if (!message.guild) { 
     const ozelmesajuyari = new Discord.RichEmbed()
     .setColor('RED')
     .setTimestamp()
