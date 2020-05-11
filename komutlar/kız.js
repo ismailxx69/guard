@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
-let kayityetkili = '700144704578125920' //KAYIT YETKİLİSİ ID
+let kayityetkili = '709425681443848313' //KAYIT YETKİLİSİ ID
 
-let verbusem = '700144704565673991' //VERİLECEK ROL ID
+let verbusem = '709426047808045077' //VERİLECEK ROL ID
 let albuse = '700144704506953832' //ALINACAK ROL ID
 
 let isimön = 'そ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN

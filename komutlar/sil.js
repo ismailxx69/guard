@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async function(client, message, args) {
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-   if(!message.member.roles.has("704647763656179773")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+   if(!message.member.roles.has("709425681443848313")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
   let abc = args.slice(0).join('')
   if(isNaN(abc)) return message.channel.send(`Lütfen silinecek mesaj miktarını yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
   if(!abc) return message.channel.send(`Lütfen silinecek mesaj miktarını yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
