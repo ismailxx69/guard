@@ -98,7 +98,7 @@ client.unload = command => {
 
 client.ayar = {
   SunucuID: "700144704506953829",
-  SunucuTAG: "+⁶",
+  SunucuTAG: "⍒",
   SahipRolüID: "305943092056293376",
   EkipRolü: "709439479135600702",
   EkipMesajKanalı: "703382591121915997"
@@ -180,7 +180,7 @@ message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
    
     const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
     if (otocevap3.test(message.content) == true) {
-    message.channel.send('<a:kng:700179035367669781>           +⁶           <a:kng:700179035367669781>')
+    message.channel.send('<a:kng:700179035367669781>           ⍒           <a:kng:700179035367669781>')
     }
 });
 
@@ -189,7 +189,7 @@ message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
 
 client.on("message", msg => {
   if (msg.content.toLowerCase() === "a!tag") {
-    msg.channel.send("**<a:kng:700179035367669781>           +⁶           <a:kng:700179035367669781>**");
+    msg.channel.send("**<a:kng:700179035367669781>           ⍒           <a:kng:700179035367669781>**");
   
   }
 });
