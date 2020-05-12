@@ -35,7 +35,8 @@ let isimön = '+⁶ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  const emoji = client.emojis.find(emoji => emoji.name === "tik");
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-    .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
+ .setImage("https://media.giphy.com/media/Y2z1n6rHCltU4bVZkC/giphy.gif")
+ 
   .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:tag:707458120523448382>
 <:tag:707458120523448382> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
 <:tag:707458120523448382> **Kayıt işleminde verilen rol :** , <@&${verbusem}>
