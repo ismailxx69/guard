@@ -1,23 +1,52 @@
-const Discord = require("discord.js"); //Pyro tarafından kodlanıldı çalınması taktirinde muck
-exports.run = (client, message, args) => { //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    if (!message.member.hasPermissions("MOVE_MEMBERS")) return message.channel.send(":no_entry: Bu komutu kullana bilmek için `Üyeleri taşı` yetkisine sahip olmanız gerek")
-    let kanal = args[1];
-    let kullanici = message.mentions.members.first() //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    if (!kanal) return message.channel.send("Kanal belirtmedin")
-    if (!kullanici) return message.channel.send("Kullanıcıyı belirtmedin") //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    kullanici.setVoiceChannel(`${kanal}`)
-        .then(() =>
-            message.channel.send(`${kullanici} <#${kanal}> adlı kanala taşındı`))
-        .catch(console.error);
-}
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ['üyeyitaşı'],
-    permLevel: 0
+const Discord = require("discord.js");
+
+exports.run = async (client, message, args) => {
+
+  if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`Bu komutu kullanmaya yetkin yok!`);
+
+  if (!message.member.voiceChannel) {
+    return message.channel.send("Ses kanalında olman lazım!");
+  }
+
+  let kullanıcı = message.mentions.members.first();
+  if (!kullanıcı) return message.channel.send("**Kullanıcıyı etiketlemelisin.**");
+
+  let rol = message.mentions.roles.first();
+  let member = message.guild.member(kullanıcı);
+
+  if (!member.voiceChannel) return message.channel.send("Etiketlenen kullanıcı bir ses kanalında değil").then(m => m.delete(5000));
+
+  const voiceChannel = message.member.voiceChannel.id;
+  if (!voiceChannel) return;
+
+  member.setVoiceChannel(voiceChannel);
+
+  const voiceChannel1 = message.member.voiceChannel.name;
+  let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(
+      message.author +
+        " **Tarafından** " +
+        kullanıcı +
+        " **Kullanıcısı** `" +
+        voiceChannel1 +
+        "`** Sesli Kanalına Çekildi.**"
+    )
+    .setFooter(
+      `${message.author.tag}`,
+      `${message.author.displayAvatarURL}`
+    )
+    .setTimestamp();
+  message.channel.send(embed).then(m => m.delete(5000));
 };
-exports.help = { //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    name: 'taşı',
-    description: 'İstediğiniz kişiniyi bir sesli kanaldan diğerine taşır.', //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    usage: 'taşı [kullanıcı] [kanal id]'
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: ["çek"],
+  permLevel: 0
+};
+exports.help = {
+  name: "çek",
+  description: "çek",
+  usage: "çek"
 };
