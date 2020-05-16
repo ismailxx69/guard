@@ -2,12 +2,12 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
-let kayityetkili = '709425681443848313' //KAYIT YETKİLİSİ ID
+let kayityetkili = '711213560646205481' //KAYIT YETKİLİSİ ID
 
-let verbusem = '709426047547867176' //VERİLECEK ROL ID
-let albuse = '700144704506953832' //ALINACAK ROL ID
+let verbusem = '711213570158886993' //VERİLECEK ROL ID
+let albuse = '711213606213255200' //ALINACAK ROL ID
 
-let isimön = '+⁶ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
+let isimön = '海  ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
 
 
 //TİK İSMİNDE BİR EMOJİNİZ OLMASI LAZIM (Hareketli Olsa Daha Güzel Gözükür)
