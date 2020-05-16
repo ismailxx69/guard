@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async function(client, message, args) {
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-   if(!message.member.roles.has("709425681443848313")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+   if(!message.member.roles.has("711213548738576425")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
   let abc = args.slice(0).join('')
   if(isNaN(abc)) return message.channel.send(`Lütfen silinecek mesaj miktarını yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
   if(!abc) return message.channel.send(`Lütfen silinecek mesaj miktarını yazın!  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);
@@ -32,7 +32,7 @@ exports.run = async function(client, message, args) {
     message.channel.bulkDelete(100)
     message.channel.bulkDelete(100)
     message.channel.bulkDelete(abc-300).then(() => {
-    message.channel.reply(`${abc} **adet mesaj silindi!** <a:siyah:694927370292822090>`).then(msg => msg.delete(5000));
+    message.channel.reply(`${abc} **adet mesaj silindi!** <a:siyah:711280680889483345>`).then(msg => msg.delete(5000));
     })
   } else {
     message.channel.send(`**Lütfen 1-400 arası silinecek mesaj miktarı yazın!**  **Doğru Kullanım:** \`${prefix}temizle 1-400\``);

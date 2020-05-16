@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-let rolid = "700144704506953832"; // BURAYA KULLANICININ TÜM ROLLERİ ALINDIKTAN SONRA VERİLECEK ROLÜN İDSİNİ YAZIN YAZMAZSANIZ TÜM ROLLERİ ALIR SADECE. 
+let rolid = "711213606213255200"; // BURAYA KULLANICININ TÜM ROLLERİ ALINDIKTAN SONRA VERİLECEK ROLÜN İDSİNİ YAZIN YAZMAZSANIZ TÜM ROLLERİ ALIR SADECE. 
 
 exports.run = async (client, message, args) => {
- if(!message.member.roles.has("700144704578125920")) return message.channel.send(`Yeterli yetki bulunmamakta.`)
+ if(!message.member.roles.has("711213548738576425")) return message.channel.send(`Yeterli yetki bulunmamakta.`)
   let kişi = message.mentions.users.first();
     message.react('706096419572023307')
     let reason = args.slice(1).join(' ');
@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
 
 const embed = new Discord.RichEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL) 
-.setTitle('そ INFECTION | Teyite Atılma')
+.setTitle('| Teyite Atılma')
 .setThumbnail(member.user.avatarURL)    
 .setColor("#005b94")
 .setTimestamp()
@@ -28,7 +28,7 @@ const embed = new Discord.RichEmbed()
 .addField('**Verilen Rol :**', `**${rolid.match(/(\d{17,19})/g) ? ` ${message.guild.roles.get(rolid)} rolü verildi.**` : 'alındı.**'}`)
 .addField('**Atılma Sebebi :**', "```" + reason + "```")
 .setImage('RESİM LİNK EKLE')
-client.channels.get("7706103285664448542").send(embed) //logun atılacağı yer 
+client.channels.get("711278182514425876").send(embed) //logun atılacağı yer 
 
   
 

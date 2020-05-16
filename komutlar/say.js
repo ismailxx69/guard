@@ -10,20 +10,20 @@ exports.run = async (client, message, args) => {
 
 const embed = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL) 
-    .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
-    .setDescription(`<a:ttik:706096419572023307> **Sunucudaki üye sayısı :** __${message.guild.memberCount}__
-<a:ttik:706096419572023307> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
-<a:ttik:706096419572023307> **Seslideki üye sayısı :** __${count}__
-<a:ttik:706096419572023307> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
-<a:ttik:706096419572023307> **Erkek üye sayısı :** __${message.guild.roles.get("709426047547867176").members.size}__
-<a:ttik:706096419572023307> **Kayıtsız üye sayısı :** __${message.guild.roles.get("700144704506953832").members.size}__
-<a:ttik:706096419572023307> **Kız üye sayısı :** __${message.guild.roles.get("709426047808045077").members.size}__
-<a:ttik:706096419572023307> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
+    .setThumbnail("https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif~c200")
+    .setDescription(`<a:cccc:711280679396311040> **Sunucudaki üye sayısı :** __${message.guild.memberCount}__
+<a:cccc:711280679396311040> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
+<a:cccc:711280679396311040> **Seslideki üye sayısı :** __${count}__
+<a:cccc:711280679396311040> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
+<a:cccc:711280679396311040> **Erkek üye sayısı :** __${message.guild.roles.get("709426047547867176").members.size}__
+<a:cccc:711280679396311040> **Kayıtsız üye sayısı :** __${message.guild.roles.get("700144704506953832").members.size}__
+<a:cccc:711280679396311040> **Kız üye sayısı :** __${message.guild.roles.get("709426047808045077").members.size}__
+<a:cccc:711280679396311040> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
 `)
     .setColor("#005b94")
-    .setFooter(`Matematiğim iyidir <3`,message.author.avatarURL);
+    .setFooter(`Kim Bilir Kimler Var Şimdi Kalbinde `,message.author.avatarURL);
     message.channel.send(embed);
-message.react('706096419572023307')
+message.react('711280679396311040')
 };
 
 

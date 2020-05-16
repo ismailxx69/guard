@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 
 let kayityetkili = '711213560646205481' //KAYIT YETKİLİSİ ID
 
-let verbusem = '709426047808045077' //VERİLECEK ROL ID
+let verbusem = '711213570951479356' //VERİLECEK ROL ID
 let albuse = '711213606213255200' //ALINACAK ROL ID
 
 let isimön = '海   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
@@ -35,12 +35,12 @@ let isimön = '海   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  const emoji = client.emojis.find(emoji => emoji.name === "tik");
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
- .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
-  .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:sag:711280703849103421>
-<:tag:707458120523448382> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
-<:tag:707458120523448382> **Kayıt işleminde verilen rol :**  <@&${verbusem}>
-<:tag:707458120523448382> **Kayıt işleminde alınan rol :** <@&${albuse}>
-<:tag:707458120523448382> **Komutu kullanan yetkili** : **${message.author.username}**
+ .setThumbnail("https://media.giphy.com/media/d0NnEG1WnnXqg/source.gif")
+  .setDescription(`<:soll:711280709943165069>**Kayıt işlemi Başarılı** <:sag:711280703849103421>
+<:sag:711280703849103421> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
+<:sag:711280703849103421> **Kayıt işleminde verilen rol :**  <@&${verbusem}>
+<:sag:711280703849103421> **Kayıt işleminde alınan rol :** <@&${albuse}>
+<:sag:711280703849103421> **Komutu kullanan yetkili** : **${message.author.username}**
 `)
   .setFooter(`そ INFECTION`) 
 

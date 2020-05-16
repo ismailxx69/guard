@@ -5,7 +5,7 @@ const a = require("../ayarlar.json");
 const client = new Discord.Client();
 exports.run = async (bot, message, args) => {
   
-  let owners = ['305943092056293376']
+  let owners = ['253265084204187648']
 if(!owners.includes(message.author.id)) return message.channel.send(' `Bu Komutu Sadece Sahibim Kullanabilir`');
 
   

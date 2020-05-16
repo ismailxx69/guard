@@ -5,7 +5,7 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 exports.run = async (bot, message, args) => {
-  if  (!message.member.roles.has("700144704607617038")) return message.reply('Bu komutu kullanmaya yetkin yok');
+  if  (!message.member.roles.has("711213541868175420")) return message.reply('Bu komutu kullanmaya yetkin yok');
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanmak için **Yönetici** yetkisine sahip olmalısın.').setColor(10038562));
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if (!rMember) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`Lütfen bir kullanıcı ismi gir.\nÖrnek: ` + ayarlar.prefix + `rolver **@İsim @Yetki**`).setColor(10038562).setAuthor(`${message.author.username} tarafından istendi.`, message.author.avatarURL).setTimestamp());
@@ -17,7 +17,7 @@ exports.run = async (bot, message, args) => {
 
     if (rMember.roles.has(aRole.id)) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu kullanıcı zaten bu rolde.').setColor(10038562));
     await (rMember.addRole(aRole.id))
-    message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`<a:tac:701437682051711006> ${rMember} **isimli üyeye \`${role.name}\` isimli yetki başarıyla verildi!** <a:tac:701437682051711006> `).setColor('RANDOM'));
+    message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`<a:siyah:711280680889483345> ${rMember} **isimli üyeye \`${role.name}\` isimli yetki başarıyla verildi!** <a:siyah:711280680889483345> `).setColor('RANDOM'));
 
 };
 
