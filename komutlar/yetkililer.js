@@ -23,7 +23,7 @@ for(var i = 0; i < message.guild.members.size; i++) {
   .setColor("RANDOM")
   .setAuthor(`${message.guild.name} - Sunucu Yöneticileri`)
   .setDescription(str.replace(message.guild.owner.user.tag, `**${message.guild.owner.user.tag} - [Sunucu Sahibi]**`))
-  .setThumbnail("https://cdn.discordapp.com/attachments/684103541098283046/702794401436532786/ezgif.com-video-to-gif_3.gif")
+  .setThumbnail("https://media.giphy.com/media/jTnGaiuxvvDNK/source.gif")
   .setFooter("NOT: Bu komut sunucudaki \"Yönetici\" iznine sahip kullanıcıları listeler.")
 message.channel.send(embed)
   

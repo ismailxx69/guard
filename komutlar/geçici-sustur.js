@@ -4,7 +4,7 @@ const ms = require("ms");
 module.exports.run = async (bot, message, args) => {
   // 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün
 
-     if(!message.member.roles.has("709425681443848313")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+     if(!message.member.roles.has("711213560646205481")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
     
 
   let ownerkod = message.guild.member(

@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
         const embed = new Discord.RichEmbed()
         .setTitle(`» Hey ${message.author.username} !`)
         .setAuthor("» Time To Kill Relax | Destek Sistemi")
-        .setDescription("**Buradaki destek ekibimiz sizinle ilgilenecektir.\nDestek talebini iptal etmek için [!kapat](https://discord.gg/QMbtu9p) yazabilirsin!**")
+        .setDescription("**Buradaki destek ekibimiz sizinle ilgilenecektir.\nDestek talebini iptal etmek için [!kapat](https://discord.gg/eq8cqhq) yazabilirsin!**")
         .setFooter('Time To Kill Relax | Destek Sistemi', client.user.avatarURL)
         .setTimestamp()
         ch.send(embed).catch()

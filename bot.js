@@ -97,11 +97,11 @@ client.unload = command => {
 };
 
 client.ayar = {
-  SunucuID: "700144704506953829",
-  SunucuTAG: "⍒",
-  SahipRolüID: "305943092056293376",
-  EkipRolü: "709439479135600702",
-  EkipMesajKanalı: "703382591121915997"
+  SunucuID: "711208855974969387",
+  SunucuTAG: "海",
+  SahipRolüID: "711213541868175420",
+  EkipRolü: "711213568229376083",
+  EkipMesajKanalı: "711245375029248082"
 };
 
 
@@ -160,8 +160,8 @@ client.on("message" , async message => {
 client.on("guildMemberAdd", member => {
 
 if(member.user.username.includes("ァ")){
-member.addRole("700324216532369521")
-member.removeRole("700144704506953832")
+member.addRole("711213605650956289")
+member.removeRole("711213606213255200")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Küfür yemek için cezalıya atıldınız.__**")
 }
 }) 
@@ -174,13 +174,13 @@ client.on('message', async message => {
   
 const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$)/gi);
 if (otocevap1.test(message.content) == true) {
-message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
+message.reply('**Aleyküm Selam Hoşgeldin**. <a:siyah:711280680889483345>');
 } 
 
    
     const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
     if (otocevap3.test(message.content) == true) {
-    message.channel.send('<a:kng:700179035367669781>           ⍒           <a:kng:700179035367669781>')
+    message.channel.send('<a:soll:711280709943165069>           海           <a:sag:711280703849103421>')
     }
 });
 
@@ -188,15 +188,15 @@ message.reply('**Aleyküm Selam Hoşgeldin**. <a:ruby:700178986399039579>');
 
 
 client.on("message", msg => {
-  if (msg.content.toLowerCase() === "a!tag") {
-    msg.channel.send("**<a:kng:700179035367669781>           ⍒           <a:kng:700179035367669781>**");
+  if (msg.content.toLowerCase() === "b!tag") {
+    msg.channel.send("**<a:soll:711280709943165069>           海           <a:sag:711280703849103421>**");
   
   }
 });
 
 
 client.on('ready', ()=>{
-let kanal = client.channels.get('703404831917735986')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
+let kanal = client.channels.get('711250113938587700')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
 if(!kanal) return;
   kanal.join();
 }) 
@@ -256,7 +256,7 @@ client.on("message", message => {
          .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
          .addField(`Gönderilen Mesaj`, message.content)
          .setThumbnail(message.author.avatarURL) 
-    client.channels.get("707981065687531581").send(dmlog);
+    client.channels.get("711245375029248082").send(dmlog);
     }
 });
 
@@ -638,10 +638,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         .get(client.ayar.SunucuID)
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(
-          `**<a:kawai:700187908094689320> Ailemize ${newUser},katıldı! Hoş geldin dostum, umarım ayrılmazsın. <a:kawai:700187908094689320>**`
+          `**<a:akl:711282099927253122> Ailemize ${newUser},katıldı! Hoş geldin dostum, umarım ayrılmazsın. <a:akl:711282099927253122>**`
         );
       newUser.send(
-        `**<a:sonsuzluk:700188245555937311> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:sonsuzluk:700188245555937311>**`
+        `**<a:akl:711282099927253122> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:akl:711282099927253122>**`
       );
     }
   }
@@ -668,7 +668,7 @@ if (
         .channels.get(client.ayar.EkipMesajKanalı)
         .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. ** `);
       newUser.send(
-        `**<a:emoji_5:700155339257151569> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin **ㄨ** Görüşürüz <a:emoji_5:700155339257151569> **`
+        `**<a:nein:711280756953186364> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin  Görüşürüz <a:nein:711280756953186364> **`
       );
     }
   }

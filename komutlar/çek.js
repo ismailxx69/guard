@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
 
-  if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`Bu komutu kullanmaya yetkin yok!`);
+  if (!message.member.hasPermission("711213560486690886")) return message.channel.send(`Bu komutu kullanmaya yetkin yok!`);
 
   if (!message.member.voiceChannel) {
     return message.channel.send("Ses kanalında olman lazım!");
