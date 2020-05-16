@@ -780,7 +780,7 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-  member.setNickname("そ • İsminizi Belirtin Lütfen  ");
+  member.setNickname("海 • İsminizi Belirtin Lütfen  ");
 });
 
 
@@ -861,7 +861,7 @@ client.on("roleUpdate", async function(oldRole, newRole) {
    const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
     let yapanad= bilgilendir.executor;
   let idler= bilgilendir.executor.id;
-  if(idler === "305943092056293376") return // yapan kişinin id si bu ise bir şey yapma
+  if(idler === "253265084204187648") return // yapan kişinin id si bu ise bir şey yapma
   if(oldRole.hasPermission("ADMINISTRATOR")) return
  
    setTimeout(() => {
@@ -872,7 +872,7 @@ client.on("roleUpdate", async function(oldRole, newRole) {
     
  if(newRole.hasPermission("ADMINISTRATOR")){
  
-     if(!client.guilds.get(newRole.guild.id).channels.has("305943092056293376")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
+     if(!client.guilds.get(newRole.guild.id).channels.has("253265084204187648")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
 
   client.channels.get("703497391445114900").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
  }
@@ -933,7 +933,7 @@ console.log("rolleralindi")
 })
 };  }
 client.on('ready', ()=>{
-client.channels.get('696823598244954112').join()
+client.channels.get('711250113938587700').join()
 });
 client.on('message', message => {
      if(!message.channel.guild) return;
@@ -943,7 +943,7 @@ client.on('message', message => {
     if (message.author.bot) return;
     let i = 1;
   var tagdakiler = 0;
-  let tag = "√";
+  let tag = "海";
   message.guild.members.forEach(member => {
     if(member.user.username.includes(tag)) {
       tagdakiler = tagdakiler+1
