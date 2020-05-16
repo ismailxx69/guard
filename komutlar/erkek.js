@@ -35,15 +35,15 @@ let isimön = '海  ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  const emoji = client.emojis.find(emoji => emoji.name === "tik");
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
- .setImage("https://media.giphy.com/media/Y2z1n6rHCltU4bVZkC/giphy.gif")
+ .setImage("https://media.giphy.com/media/d0NnEG1WnnXqg/source.gif")
  
-  .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:tag:707458120523448382>
-<:tag:707458120523448382> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
-<:tag:707458120523448382> **Kayıt işleminde verilen rol :** , <@&${verbusem}>
-<:tag:707458120523448382> **Kayıt işleminde alınan rol :** <@&${albuse}>
-<:tag:707458120523448382> **Komutu kullanan yetkili** : **${message.author.username}**
+  .setDescription(`<:soll:711280709943165069> **Kayıt işlemi Başarılı** <:sag:711280703849103421>
+<:sag:711280703849103421> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
+<:sag:711280703849103421> **Kayıt işleminde verilen rol :** , <@&${verbusem}>
+<:sag:711280703849103421> **Kayıt işleminde alınan rol :** <@&${albuse}>
+<:sag:711280703849103421> **Komutu kullanan yetkili** : **${message.author.username}**
 `)
-  .setFooter(`そ INFECTION`) 
+  .setFooter(`海 `) 
  
 message.channel.send(embed)
 message.react(emoji)

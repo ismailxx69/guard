@@ -2,12 +2,12 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
-let kayityetkili = '709425681443848313' //KAYIT YETKİLİSİ ID
+let kayityetkili = '711213560646205481' //KAYIT YETKİLİSİ ID
 
 let verbusem = '709426047808045077' //VERİLECEK ROL ID
-let albuse = '700144704506953832' //ALINACAK ROL ID
+let albuse = '711213606213255200' //ALINACAK ROL ID
 
-let isimön = '+⁶ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
+let isimön = '海   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
 
 
 //TİK İSMİNDE BİR EMOJİNİZ OLMASI LAZIM (Hareketli Olsa Daha Güzel Gözükür)
@@ -36,7 +36,7 @@ let isimön = '+⁶ ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
  .setThumbnail("https://cdn.discordapp.com/attachments/703382591121915997/704647902869454898/ezgif-6-2d1f8f7722b7.gif")
-  .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:tag:707458120523448382>
+  .setDescription(`<:tag:707458120523448382> **Kayıt işlemi Başarılı** <:sag:711280703849103421>
 <:tag:707458120523448382> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
 <:tag:707458120523448382> **Kayıt işleminde verilen rol :**  <@&${verbusem}>
 <:tag:707458120523448382> **Kayıt işleminde alınan rol :** <@&${albuse}>
