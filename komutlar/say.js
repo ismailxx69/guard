@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let tag = "+⁶"; // tagınız
+  let tag = "海"; // tagınız
   const voiceChannels = message.guild.channels.filter(c => c.type === "voice");
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
@@ -15,9 +15,9 @@ const embed = new Discord.RichEmbed()
 <a:cccc:711280679396311040> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
 <a:cccc:711280679396311040> **Seslideki üye sayısı :** __${count}__
 <a:cccc:711280679396311040> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
-<a:cccc:711280679396311040> **Erkek üye sayısı :** __${message.guild.roles.get("709426047547867176").members.size}__
-<a:cccc:711280679396311040> **Kayıtsız üye sayısı :** __${message.guild.roles.get("700144704506953832").members.size}__
-<a:cccc:711280679396311040> **Kız üye sayısı :** __${message.guild.roles.get("709426047808045077").members.size}__
+<a:cccc:711280679396311040> **Erkek üye sayısı :** __${message.guild.roles.get("711213570158886993").members.size}__
+<a:cccc:711280679396311040> **Kayıtsız üye sayısı :** __${message.guild.roles.get("711213606213255200").members.size}__
+<a:cccc:711280679396311040> **Kız üye sayısı :** __${message.guild.roles.get("711213570951479356").members.size}__
 <a:cccc:711280679396311040> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
 `)
     .setColor("#005b94")
