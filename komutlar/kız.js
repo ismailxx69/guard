@@ -36,11 +36,11 @@ let isimön = '海   ' //DEĞİŞTİRİLECEK İSMİN ÖNÜNE GELEN
  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
  .setThumbnail("https://media.giphy.com/media/d0NnEG1WnnXqg/source.gif")
-  .setDescription(`<:soll:711280709943165069>**Kayıt işlemi Başarılı** <:sag:711280703849103421>
-<:sag:711280703849103421> **Kayıt edilen kullanıcı :** **${isimön}${isim}**
-<:sag:711280703849103421> **Kayıt işleminde verilen rol :**  <@&${verbusem}>
-<:sag:711280703849103421> **Kayıt işleminde alınan rol :** <@&${albuse}>
-<:sag:711280703849103421> **Komutu kullanan yetkili** : **${message.author.username}**
+  .setDescription(`:ballot_box_with_check:**Kayıt işlemi Başarılı** :ballot_box_with_check:
+:ballot_box_with_check: **Kayıt edilen kullanıcı :** **${isimön}${isim}**
+:ballot_box_with_check: **Kayıt işleminde verilen rol :**  <@&${verbusem}>
+:ballot_box_with_check: **Kayıt işleminde alınan rol :** <@&${albuse}>
+:ballot_box_with_check: **Komutu kullanan yetkili** : **${message.author.username}**
 `)
   .setFooter(`そ INFECTION`) 
 
