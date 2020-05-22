@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = (client, message, params) => {
-   if(!message.member.roles.has("700144704578125920")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+   if(!message.member.roles.has("711213548738576425")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
 	if (!message.guild) {
     const ozelmesajuyari = new Discord.RichEmbed()
     .setColor(0xFF0000)

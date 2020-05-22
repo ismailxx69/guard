@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
     const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
     let count = 0;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
-  if  (!message.member.roles.has("700144704607617038")) return message.reply('Bu komutu kullanmaya yetkin yok');
+  if  (!message.member.roles.has("711213548738576425")) return message.reply('Bu komutu kullanmaya yetkin yok');
   
 
     const embed = new Discord.RichEmbed()
