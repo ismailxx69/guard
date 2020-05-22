@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 let rolid = "711213606213255200"; // BURAYA KULLANICININ TÜM ROLLERİ ALINDIKTAN SONRA VERİLECEK ROLÜN İDSİNİ YAZIN YAZMAZSANIZ TÜM ROLLERİ ALIR SADECE. 
 
 exports.run = async (client, message, args) => {
- if(!message.member.roles.has("711213548738576425")) return message.channel.send(`Yeterli yetki bulunmamakta.`)
+ if(!message.member.roles.has("711213560486690886")) return message.channel.send(`Yeterli yetki bulunmamakta.`)
   let kişi = message.mentions.users.first();
     message.react('706096419572023307')
     let reason = args.slice(1).join(' ');
