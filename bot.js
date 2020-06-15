@@ -766,9 +766,6 @@ client.on("guildMemberAdd", async member => {
   }
 });
 
-client.on("guildMemberAdd", member => {
-  member.setNickname("海 • İsminizi Belirtin Lütfen  ");
-});
 
 
 
