@@ -1,6 +1,6 @@
 const Discord = require("discord.js"); //Pyro tarafından kodlanıldı çalınması taktirinde muck
 exports.run = (client, message, args) => { //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    if (!message.member.hasPermissions("711213560486690886")) return message.channel.send(":no_entry: Bu komutu kullana bilmek için `Move` yetkisine sahip olmanız gerek")
+    if (!message.member.hasPermissions("685555226325024829")) return message.channel.send(":no_entry: Bu komutu kullana bilmek için `Move` yetkisine sahip olmanız gerek")
     let kanal = args[1];
     let kullanici = message.mentions.members.first() //Pyro tarafından kodlanıldı çalınması taktirinde muck
     if (!kanal) return message.channel.send("Kanal belirtmedin")

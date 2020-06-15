@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
   var bot = "634153978883604481";
-  if (!message.member.hasPermission("MANAGE_ROLES"))
+  if (!message.member.hasPermission("685555226325024829"))
     return message.channel.send(
       "❌ **Bu Komutu Kullanabilmek İçin `Rolleri Yönet` Yetkisine Sahip Olmalısın!**"
     );

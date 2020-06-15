@@ -160,8 +160,8 @@ client.on("message" , async message => {
 client.on("guildMemberAdd", member => {
 
 if(member.user.username.includes("ァ")){
-member.addRole("711213605650956289")
-member.removeRole("711213606213255200")
+member.addRole("721865407404965941")
+member.removeRole("685555233384038522")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Küfür yemek için cezalıya atıldınız.__**")
 }
 }) 
@@ -170,19 +170,6 @@ member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Küfür yemek iç
 
 ;
 
-client.on('message', async message => {
-  
-const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$)/gi);
-if (otocevap1.test(message.content) == true) {
-message.reply('**Aleyküm Selam Hoşgeldin**. <a:siyah:711280680889483345>');
-} 
-
-   
-    const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
-    if (otocevap3.test(message.content) == true) {
-    message.channel.send('<a:soll:711280709943165069>           海           <a:sag:711280703849103421>')
-    }
-});
 
 
 
@@ -196,7 +183,7 @@ client.on("message", msg => {
 
 
 client.on('ready', ()=>{
-let kanal = client.channels.get('711250113938587700')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
+let kanal = client.channels.get('685555350434218137')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
 if(!kanal) return;
   kanal.join();
 }) 
@@ -256,7 +243,7 @@ client.on("message", message => {
          .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
          .addField(`Gönderilen Mesaj`, message.content)
          .setThumbnail(message.author.avatarURL) 
-    client.channels.get("711245375029248082").send(dmlog);
+    client.channels.get("685555424858210307").send(dmlog);
     }
 });
 

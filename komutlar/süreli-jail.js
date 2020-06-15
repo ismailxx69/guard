@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 
-let rolid = "711213604954701935";  //cezalı rol id
+let rolid = "721865407404965941";  //cezalı rol id
 
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("711213549309132881"))  
+  if (!message.member.roles.has("685555226325024829"))  
     return message.channel.send(
-      `Bu komutu kullanabilmek için <@&711213549309132881> yetkisine sahip olmasınız!`
+      `Bu komutu kullanabilmek için <@&685555226325024829> yetkisine sahip olmasınız!`
       
     );
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
         const embed  = new Discord.RichEmbed()
     .setImage(`https://media.giphy.com/media/12HZukMBlutpoQ/source.gif`)
     .setAuthor('Jail Operasyonu')
-    .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&711213604954701935> Rolü Verildi**`)
+    .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&721865407404965941> Rolü Verildi**`)
     .setFooter(`Komutu Kullanan (${message.author.username})`)
     .setColor("RED")
     message.react('703943338532798504')

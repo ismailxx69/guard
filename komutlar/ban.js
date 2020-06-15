@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = (client, message, params) => {
-   if(!message.member.roles.has("711213548138659840")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+   if(!message.member.roles.has("685555226325024829")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
     if (!message.guild) { 
     const ozelmesajuyari = new Discord.RichEmbed()
     .setColor('RED')
@@ -20,7 +20,7 @@ exports.run = (client, message, params) => {
     .setColor('RED')
     .setTimestamp()
   .setTitle('✅  `' +  message.author.username + '`  İşlem Başarılı Kullanıcı Sunucudan Yasaklandı!' )
-  .setImage(`https://media.giphy.com/media/U71eMhPzj5XYcWyTDx/source.gif`)
+  .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
   return message.channel.sendEmbed(embed)
 };
 }      
