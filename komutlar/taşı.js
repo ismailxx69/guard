@@ -1,10 +1,10 @@
-const Discord = require("discord.js"); //Pyro tarafından kodlanıldı çalınması taktirinde muck
-exports.run = (client, message, args) => { //Pyro tarafından kodlanıldı çalınması taktirinde muck
-    if (!message.member.hasPermissions("729271914232545331")) return message.channel.send(":no_entry: Bu komutu kullana bilmek için `Move` yetkisine sahip olmanız gerek")
+const Discord = require("discord.js");
+exports.run = (client, message, args) => {
+    if (!message.member.hasPermissions("MOVE_MEMBERS")) return message.channel.send(":no_entry: Bu komutu kullana bilmek için `Üyeleri taşı` yetkisine sahip olmanız gerek")
     let kanal = args[1];
-    let kullanici = message.mentions.members.first() //Pyro tarafından kodlanıldı çalınması taktirinde muck
+    let kullanici = message.mentions.members.first()
     if (!kanal) return message.channel.send("Kanal belirtmedin")
-    if (!kullanici) return message.channel.send("Kullanıcıyı belirtmedin") //Pyro tarafından kodlanıldı çalınması taktirinde muck
+    if (!kullanici) return message.channel.send("Kullanıcıyı belirtmedin")
     kullanici.setVoiceChannel(`${kanal}`)
         .then(() =>
             message.channel.send(`${kullanici} <#${kanal}> adlı kanala taşındı`))
@@ -16,8 +16,8 @@ exports.conf = {
     aliases: ['üyeyitaşı'],
     permLevel: 0
 };
-exports.help = { //Pyro tarafından kodlanıldı çalınması taktirinde muck
+exports.help = {
     name: 'taşı',
-    description: 'İstediğiniz kişiniyi bir sesli kanaldan diğerine taşır.', //Pyro tarafından kodlanıldı çalınması taktirinde muck
+    description: 'İstediğiniz kişiniyi bir sesli kanaldan diğerine taşır.',
     usage: 'taşı [kullanıcı] [kanal id]'
 };
