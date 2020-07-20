@@ -96,97 +96,13 @@ client.unload = command => {
   });
 };
 
-client.ayar = {
-  SunucuID: "711208855974969387",
-  SunucuTAG: "海",
-  SahipRolüID: "711213541868175420",
-  EkipRolü: "711213568229376083",
-  EkipMesajKanalı: "711245375029248082"
-};
-
-
-
-client.on("message" , async message => {
-  const msg = message;
-  if(message.content.startsWith(ayarlar.prefix+"afk")) return; 
-  /*db.set(`afkSebep_${message.author.id}_${message.guild.id}`, "Sebep Girilmemiş")
-  db.set(`afkKisi_${message.author.id}_${message.guild.id}`, message.author.id)              Bunlar Afk Komutndaki İsimler /// tmm bakalım
-  db.set(`afkAd_${message.author.id}_${message.guild.id}`, message.author.username)*/
-  
-  /*      const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("Pax" , "https://cdn.discordapp.com/avatars/605781334438445057/495a33da25bc54f9c9dd1f5883da7409.png?size=2048")
-      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-       */
-  
-  let afk = message.mentions.users.first()
-  
-  const kisi = db.fetch(`afkid_${message.author.id}_${message.guild.id}`)
-  
-  const isim = db.fetch(`afkAd_${message.author.id}_${message.guild.id}`)
- if(afk){
-   const sebep = db.fetch(`afkSebep_${afk.id}_${message.guild.id}`)
-   const kisi3 = db.fetch(`afkid_${afk.id}_${message.guild.id}`)
-   if(message.content.includes(kisi3)){
-     const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("x" , client.user.avatarURL)
-      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-   }
- }
-  if(message.author.id === kisi){
-    const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("#x" , client.user.avatarURL)
-      .setDescription(`Afk'lıktan Çıktınız`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-   db.delete(`afkSebep_${message.author.id}_${message.guild.id}`)
-   db.delete(`afkid_${message.author.id}_${message.guild.id}`)
-   db.delete(`afkAd_${message.author.id}_${message.guild.id}`)
-    message.member.setNickname(isim)
-    
-  }
-  
-})
-
-client.on("guildMemberAdd", member => {
-
-if(member.user.username.includes("ァ")){
-member.addRole("721865407404965941")
-member.removeRole("685555233384038522")
-member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Küfür yemek için cezalıya atıldınız.__**")
-}
-}) 
-
-
-
-;
-
-
-
-
-
-client.on("message", msg => {
-  if (msg.content.toLowerCase() === "b!tag") {
-    msg.channel.send("**<a:soll:711280709943165069>           海           <a:sag:711280703849103421>**");
-  
-  }
-});
-
-
 client.on('ready', ()=>{
-let kanal = client.channels.get('685555350434218137')//INFECTION SUNUCUSUNA AİTTİR Developer by AidenZ (Cem Reis)
+let kanal = client.channels.get('729268355126657055')
 if(!kanal) return;
   kanal.join();
-}) 
+})
+
+
 
 client.on("guildBanAdd", async (guild, user) => {
   const entry = await guild
@@ -233,20 +149,11 @@ client.on("guildBanAdd", async (guild, user) => {
 // GELİŞMİŞ LOG
 
 
-client.on("message", message => {
-    if (message.channel.type === "dm") {
-        if (message.author.bot) return;
-        const dmlog = new Discord.RichEmbed()
-         .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
-         .setColor('RANDOM')
-         .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
-         .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
-         .addField(`Gönderilen Mesaj`, message.content)
-         .setThumbnail(message.author.avatarURL) 
-    client.channels.get("685555424858210307").send(dmlog);
-    }
-});
-
+client.on('ready', ()=>{
+let kanal = client.channels.get('729268355126657055')
+if(!kanal) return;
+  kanal.join();
+})
 
 
 client.on("messageDelete", async message => {
@@ -589,77 +496,6 @@ client.on("error", e => {
 
 // TAG SİSTEMİ OTO EDİTLENECEK
 
-client.on("userUpdate", async function(oldUser, newUser) {
-  if (oldUser.username === newUser.username) return;
-  if (!client.guilds.get(client.ayar.SunucuID).members.has(newUser.id)) return;
-
-  // Rol vermesi
-  if (
-    newUser.username.includes(client.ayar.SunucuTAG) &&
-    !client.guilds
-      .get(client.ayar.SunucuID)
-      .member(newUser)
-      .roles.has(client.ayar.EkipRolü)
-  ) {
-    if (
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .member(newUser)
-        .roles.has(client.ayar.TeyitsizRolü) ||
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .member(newUser)
-        .roles.has(client.ayar.TehlikeliHesapRolü)
-    )
-      return;
-    client.guilds
-      .get(client.ayar.SunucuID)
-      .member(newUser)
-      .addRole(client.ayar.EkipRolü); // KİŞİ TAGI ALINCA BELİRLENEN ROLÜ VERECEK
-    if (
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .channels.has(client.ayar.EkipMesajKanalı)
-    ) {
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .channels.get(client.ayar.EkipMesajKanalı)
-        .send(
-          `**<a:akl:711282099927253122> Ailemize ${newUser},katıldı! Hoş geldin dostum, umarım ayrılmazsın. <a:akl:711282099927253122>**`
-        );
-      newUser.send(
-        `**<a:akl:711282099927253122> Selam Kanka Ailemize Hoşgeldin. Şuandan itibaren invite yapmaya başlarsan yetkili olabilirsin ee ne duruyorsun başlasana <a:akl:711282099927253122>**`
-      );
-    }
-  }
-
-  // Rol Alması
-  if (
-    !newUser.username.includes(client.ayar.SunucuTAG) &&
-    client.guilds
-      .get(client.ayar.SunucuID)
-      .member(newUser)
-      .roles.has(client.ayar.EkipRolü)
-  ) {
-    client.guilds
-      .get(client.ayar.SunucuID)
-      .member(newUser)
-      .removeRole(client.ayar.EkipRolü,); // KİŞİ TAGI BIRAKINCA BELİRLENEN ROLÜ ALACAK
-if (
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .channels.has(client.ayar.EkipMesajKanalı)
-    ) {
-      client.guilds
-        .get(client.ayar.SunucuID)
-        .channels.get(client.ayar.EkipMesajKanalı)
-        .send(`**Ailemizden ${newUser},Ayrıldı. Olsun, yine de seni seviyoruz. ** `);
-      newUser.send(
-        `**<a:nein:711280756953186364> Kanka Ailemizden Ayrıldın bizi Çok Üzdün  Ama İstersen Gene Gelebilirsin  Görüşürüz <a:nein:711280756953186364> **`
-      );
-    }
-  }
-});
 
 client.on("guildMemberAdd", async member => {
   let otobotban = await db.fetch(`otobotban_${member.guild.id}`);
@@ -711,20 +547,6 @@ client.on("message", async msg => {
 
 // Main Dosyası
 
-const { RichEmbed } = require("discord.js");
-client.on("message", async message => {
-  if (!message.guild) return;
-  if (message.member.hasPermission("MANAGE_GUILD")) return;
-  if (message.mentions.users.size >= 3) {
-    if (message.deletable) message.delete();
-    message.channel.send(
-      `Hey ${message.author}, sürekli birilerini etiketlemek kötüdür. ${message.author} bir daha devam etme. ${message.author} ${message.author} ${message.author}`
-    );
-    message.author.send(
-      `Hey ${message.author}, sürekli birilerini etiketlemek kötüdür. ${message.author} bir daha devam etme. ${message.author} ${message.author} ${message.author}`
-    );
-  }
-});
 
 client.on("roleDelete", async role => {
   let ozellik = await db.fetch(`aktifs_${role.guild.id}`);
@@ -916,43 +738,8 @@ console.log("rolleralindi")
 
 })
 };  }
-client.on('ready', ()=>{
-client.channels.get('711250113938587700').join()
-});
-client.on('message', message => {
-     if(!message.channel.guild) return;
-                if(message.content.startsWith('!say')) {
 
 
-    if (message.author.bot) return;
-    let i = 1;
-  var tagdakiler = 0;
-  let tag = "海";
-  message.guild.members.forEach(member => {
-    if(member.user.username.includes(tag)) {
-      tagdakiler = tagdakiler+1
-    }
-  })
-    const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');             
-      let count = 0;
-for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
-      const emoji = client.emojis.find(emoji => emoji.name === "tik");
-  const kawinembed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setAuthor('Bilgi', `${message.author.displayAvatarURL}`)
-        .addField(`Ses kanallarında;`, `**${count}** kişi bulunmaktadır. :heart:`)
-        .addField(`Sunucuda ise;`, `**${message.guild.memberCount}** kişi bulunmaktadır. :heart:`)
-        .addField(`Tag da ise;`, "**" + tagdakiler + "** kişi bulunmaktadır. :heart:")
-        .setThumbnail("https://media.giphy.com/media/WQCZOWThKC8mlgx31G/giphy.gif")
-        .setTimestamp()
-        .setImage(``)
- 
-  message.channel.sendEmbed(kawinembed)
-  message.react(emoji)
-        
-}
-
-});
 client.on('message', async message => {
  
   let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
@@ -1087,51 +874,10 @@ client.login(ayarlar.token);
        
            
            );
-  client.on('ready', ()=>{
-client.channels.get('700144705710719023').join()
-});
+ 
 
-client.on("message", async msg => {
-let timeout = 1440000
-let dakdest = await db.fetch(`goldzzz_${msg.author.id}`);
-let i = db.fetch(`gold_${msg.author.id}`)
-          if (i == 'gold') {
-    if (dakdest !== null && timeout - (Date.now() - dakdest) > 0) {
-        let time = ms(timeout - (Date.now() - dakdest));
-    } else {
-  if(msg.author.bot) return;   
-  if (msg.content.length > 1) {
-db.set(`goldzzz_${msg.author.id}`, Date.now());
-    const gold = new Discord.RichEmbed()
-    .setAuthor(client.user.username + " || Gold Üye")
-    .setThumbnail(msg.author.avatarURL)
-    .addField("**:700144704565673993:Açılın Gold Üye Geldi**", msg.author.username)
-    .setTimestamp()
-   msg.channel.send(gold).then(msg => msg.delete(3000))
-  }
-};
-          }
-   else if (i == undefined) {           
-          }
-          if (!i) return;
-        
-});
 
-const invites = {};
-const wait = require("util").promisify(setTimeout);
-client.on("ready", async () => {
-  wait(1000);
-  client.guilds.forEach(g => {
-    g.fetchInvites()
-      .catch(error => {
-        return;
-      })
-      .then(guildInvites => {
-        invites[g.id] = guildInvites;
-      });
-  }); 
-});
-
+ 
 
 
 
