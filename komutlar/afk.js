@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
   
   const embed = new Discord.RichEmbed()
       .setColor("#0080FF")
-      .setAuthor("Pax" , client.user.avatarURL)
+      .setAuthor("lluvia" , client.user.avatarURL)
       .setDescription(`Başarıyla Afk Oldunuz \n Sebep: ${a}`)
       .setTimestamp()
       .setFooter(`${message.author.username} Tarafından İstendi`)
@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
      const a = await db.fetch(`afkSebep_${message.author.id}_${message.guild.id}`)
      const embed = new Discord.RichEmbed()
       .setColor("#0080FF")
-      .setAuthor("#INFECTION" , client.user.avatarURL)
+      .setAuthor("lluvia" , client.user.avatarURL)
       .setDescription(`Başarıyla Afk Oldunuz \n Sebep: ${a}`)
       .setTimestamp()
       .setFooter(`${message.author.username} Tarafından İstendi`)
