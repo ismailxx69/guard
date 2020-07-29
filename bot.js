@@ -155,6 +155,40 @@ if(!kanal) return;
   kanal.join();
 })
 
+  
+  
+  
+  
+  
+  client.on('channelDelete', channel => {
+  let kategoriID = channel.parentID;
+  channel.clone(this.name, true, true).then(z => {
+      let ganal = z.guild.channels.find(name => name.name === z.name)
+      ganal.setParent(ganal.guild.channels.find(channel => channel.id === kategoriID))
+     ganal.send(`**Bu kanal silindi ve kanal koruma sistemi sayesinde başarıyla tekrardan açıldı! **\n**Kanalın adı, kanalın konusu, kanalın kategorisi, kanalın izinleri başarıyla ayarlandı. **`);
+                           
+  });
+});
+
+client.on('message', async message => {
+  
+const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$|^Selam$|^selam$|^Selamun aleyküm$|^Selamun Aleyküm$|^Sea$|^Selamke$|^Selams)/gi);
+if (otocevap1.test(message.content) == true) {
+message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.**. ');
+} 
+  
+   
+   
+    const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
+    if (otocevap3.test(message.content) == true) {
+    message.channel.send('**⎒**')
+      
+      
+      
+    }
+});
+
+
 
 client.on("messageDelete", async message => {
   let modlog = await db.fetch(`genelmodlog_${message.guild.id}`);

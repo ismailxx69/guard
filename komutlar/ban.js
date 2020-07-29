@@ -1,39 +1,46 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
+const client = new Discord.Client();
 
-exports.run = (client, message, params) => {
-   if(!message.member.roles.has("685555226325024829")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
-    if (!message.guild) { 
-    const ozelmesajuyari = new Discord.RichEmbed()
-    .setColor('RED')
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .addField('**❌ Bu Komutu Özel Mesajlarda Kullanılamaz!**')
-    return message.author.sendEmbed(ozelmesajuyari); }
-    if (message.channel.type !== 'dm') {
- let guild = message.guild
+exports.run = (client, message, args) => {
+  if (!message.guild) {
+  const ozelmesajuyari = new Discord.RichEmbed()
+  .setColor(0xFF0000)
+  .setTimestamp()
+  .setAuthor(message.author.username, message.author.avatarURL)
+  .addField(':warning: Uyarı :warning:', '`ban` adlı komutu özel mesajlarda kullanamazsın.')
+  return message.author.sendEmbed(ozelmesajuyari); }
+  let guild = message.guild
+  let reason = args.slice(1).join('...');
   let user = message.mentions.users.first();
-  if (message.mentions.users.size < 1) return message.reply('**⚠ Kimi Yasaklamak İstediğini Yazmalısın!**').catch(console.error);
+  let modlog = guild.channels.find('name', '⎑-ban-info');
+  if (!modlog) return message.reply('`⎑-ban-info` kanalını bulamıyorum.');
+  if (reason.length < 1) return message.reply('Ban sebebini yazmalısın.');
+  if (message.mentions.users.size < 1) return message.reply('Kimi banlayacağını yazmalısın.').catch(console.error);
+if(!message.member.roles.has("729271897254133790")) return message.reply(`Bu komutu kullanabilmen için  yetkiye <@&729271897254133790> sahip olman lazım.`);
+  if (!message.guild.member(user).bannable) return message.reply('Yetkilileri banlayamam.'); 
+  message.guild.ban(user, 2);
 
-      message.guild.ban(user)
   const embed = new Discord.RichEmbed()
-    .setColor('RED')
-    .setTimestamp()
-  .setTitle('✅  `' +  message.author.username + '`  İşlem Başarılı Kullanıcı Sunucudan Yasaklandı!' )
   .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
-  return message.channel.sendEmbed(embed)
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Eylem:', 'Ban')
+    .addField('Kullanıcı:', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Yetkili:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Sebep', reason);
+  
+  return guild.channels.get(modlog.id).sendEmbed(embed);
 };
-}      
+
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ["yasakla"],
-  permLevel: 0
+  guildOnly: true,
+  aliases: [],
+  permLevel: 2
 };
 
 exports.help = {
   name: 'ban',
-  description: 'Seçilen kişiyi banlar',
-  usage: ' ban'
+  description: 'İstediğiniz kişiyi banlar.',
+  usage: 'ban [kullanıcı] [sebep]'
 };
- 

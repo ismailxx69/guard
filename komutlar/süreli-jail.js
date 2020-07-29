@@ -1,38 +1,100 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const db = require('quick.db')
+const ms = require("ms");
+const ayarlar = require('../ayarlar.json');
+const prefix = ayarlar.prefix;
 
-let rolid = "721865407404965941";  //cezalı rol id
+module.exports.run = async (client, message, args) => {
+  
 
-exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("685555226325024829"))  
-    return message.channel.send(
-      `Bu komutu kullanabilmek için <@&685555226325024829> yetkisine sahip olmasınız!`
-      
-    );
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member) return message.channel.send("**Hapishaneden Alınacak Üyeyi Etiketleyin!**");
-    if(rolid.match(/(\d{17,19})/g)) {
-        member.roles.forEach(role => member.removeRole(role));
-        member.addRole(rolid);
-    }
-    else member.roles.forEach(role => member.removeRole(role));
-        const embed  = new Discord.RichEmbed()
-    .setImage(`https://media.giphy.com/media/12HZukMBlutpoQ/source.gif`)
-    .setAuthor('Jail Operasyonu')
-    .setDescription(` **Kullanıcının Tüm Rolleri Alındı Ve <@&721865407404965941> Rolü Verildi**`)
-    .setFooter(`Komutu Kullanan (${message.author.username})`)
-    .setColor("RED")
-    message.react('703943338532798504')
-    return message.channel.sendEmbed(embed);
+if(!message.member.roles.has('729271897887604746')) {
+const embed = new Discord.RichEmbed()
+.setColor('RED')
+.setDescription('Birine jail atmak için <@&729271897887604746> rolüne sahip olmalısın!')
+return message.channel.send(embed)
+}
+let kişi = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+if(!kişi) {
+const embed = new Discord.RichEmbed()
+.setColor('RED')
+.setDescription('Jail atacağın kullanıcıyı etiketle yada id sini belirt!')
+return message.channel.send(embed)
+}
+if(kişi.roles.has('729271897887604746')) {
+const embed = new Discord.RichEmbed()
+.setColor('RED')
+.setDescription(`Meslektaşını niye hapis'e atmaya çalışıyorsun?`)
+return message.channel.send(embed)
+}  
+let zaman = args[1]
+if(!args[1]) {
+const embed = new Discord.RichEmbed()
+.setColor('RED')
+.setDescription(`<@${kişi.id}> adlı kullanıcı ne kadar süre hapiste olucak?`)
+return message.channel.send(embed)
+}
+let sebep = args.join(' ').slice(args[1].length+args[0].length + 1)
+if(!sebep) sebep = 'Sebep belirtilmemiş.'
+  
+const hapis = new Discord.RichEmbed()
+.setColor('RED')
+.setDescription(`Bir Kullanıcı Cezalıya Atıldı!`)
+.setThumbnail(kişi.user.avatarURL)
+.addField(`Kullanıcı`, kişi,)
+.addField(`Yetkili`, `<@${message.author.id}>`,)
+.addField(`Sebebi`, sebep,)
+.addField(`Süresi`, zaman.replace(/s/, ' Saniye').replace(/m/, ' Dakika').replace(/h/, ' Saat').replace(/d/, ' Gün'),)
+.setTimestamp()
+
+const dm = new Discord.RichEmbed()
+.setColor('BLUE')
+.setDescription(`**${message.guild.name}** Adlı Sunucuda Cezalıya Atıldın!`)
+.addField(`Cezalıya Atan Yetkili`,`<@${message.author.id}>`)
+.addField(`Sebebi`, sebep,)
+.addField(`Süresi`, zaman.replace(/s/, ' Saniye').replace(/m/, ' Dakika').replace(/h/, ' Saat').replace(/d/, ' Gün'),)
+
+const tahliye = new Discord.RichEmbed()
+.setColor('GREEN')
+.setDescription(`Bir Kullanıcı Tahliye Oldu!`)
+.setThumbnail(kişi.user.avatarURL)
+.addField(`**Kullanıcı:**`, kişi,)
+.addField(`Yetkili`, `<@${message.author.id}>`,)
+.addField(`Sebebi`, sebep,)
+.addField(`Süresi`, zaman.replace(/s/, ' Saniye').replace(/m/, ' Dakika').replace(/h/, ' Saat').replace(/d/, ' Gün'),)
+.setTimestamp()
+
+const embed2 = new Discord.RichEmbed()
+.setColor('GREEN')
+.setDescription(`${kişi} adlı kullanıcı \`${zaman}\`lığına hapise yollandı!`)
+  
+kişi.addRole('733750864183033867');
+kişi.roles.forEach(r => {
+kişi.removeRole(r.id)
+db.set(`${message.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )
+})  
+client.channels.get('730963661707018371').send(hapis)
+kişi.send(dm) 
+message.channel.send(embed2)
+setTimeout(async () =>{
+kişi.removeRole('733750864183033867')
+client.channels.get('730963661707018371').send(tahliye)
+}, ms(zaman));
+setTimeout(async () =>{
+message.guild.roles.forEach(async r => {
+const i = await db.fetch(`${message.guild.id}.jail.${kişi.id}.roles.${r.id}` )
+if(i != r.id)  return ;
+if(i){kişi.addRole(i)}
+})
+}, ms(zaman));
 }
 exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ["jail"],
-    permLevel: 0
-};
-
+enabled: true,
+guildOnly: false,
+aliases: ['hapset'],
+permLevel: 0
+};  
 exports.help = {
-    name: "jail",
-    description: 'Birini jaillersiniz.',
-    usage: 'jail <kullanıcı>'
+name: 'jail',
+description: 'Bir kullanıcıyı hapise atmaya yarar.',
+usage: 'jail'
 };
