@@ -132,6 +132,34 @@ client.on("message", async msg => {
           if (!i) return;
           });  
 
+client.on("userUpdate", async (eski, yeni) => {
+  var sunucu = client.guilds.get('729262126400536596'); // Buraya Sunucu ID
+  var uye = sunucu.members.get(yeni.id);
+  var normalTag = "⎑"; // Buraya Normal Tag (Yoksa boş bırakın)
+  var ekipTag = "⎒"; // Sunucunun Tagı
+  var ekipRolü = "729281246240178176"; // Tagın Rol IDsi
+  var logKanali = "733581807857041448"; // Loglanacağı Kanalın ID
+
+  if (!sunucu.members.has(yeni.id) || yeni.bot || eski.username === yeni.username) return;
+  
+  if ((yeni.username).includes(ekipTag) && !uye.roles.has(ekipRolü)) {
+    try {
+      await uye.addRole(ekipRolü);
+      await uye.setNickname((uye.displayName).replace(normalTag, ekipTag));
+      await uye.send(`Tagımızı aldığın için teşekkürler! Aramıza hoş geldin.`);
+      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı alarak aramıza katıldı!`);
+    } catch (err) { console.error(err) };
+  };
+  
+  if (!(yeni.username).includes(ekipTag) && uye.roles.has(ekipRolü)) {
+    try {
+      await uye.removeRoles(uye.roles.filter(rol => rol.position >= sunucu.roles.get(ekipRolü).position));
+      await uye.setNickname((uye.displayName).replace(ekipTag, normalTag));
+      await uye.send(`Tagımızı bıraktığın için ekip rolü ve yetkili rollerin alındı! Tagımızı tekrar alıp aramıza katılmak istersen;\nTagımız: **${ekipTag}**`);
+      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı bırakarak aramızdan ayrıldı!`);
+    } catch(err) { console.error(err) };
+  };
+});
 
 
 client.on('guildMemberAdd', async member => {
