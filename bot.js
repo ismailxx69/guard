@@ -11,7 +11,7 @@ const ms = require("parse-ms");
 const express = require("express");
 const http = require("http");
 const app = express();
-const Hserver = new Discord.WebhookClient("738328036843192340", "6cG4w3B3IS7WX1nbFqQ7o36wtuOvw86RJmSxbIE7wXiHOFPEIliLbUy7oHGYdq5gUGXm")
+
 require("./util/eventLoader")(client);
 
 var prefix = ayarlar.prefix;
@@ -102,6 +102,94 @@ if(!kanal) return;
   kanal.join();
 })
 
+client.on("message", async msg => {
+    if(msg.author.bot) return;
+    if(msg.channel.type === "dm") return;
+        
+    let i = await db.fetch(`reklamFiltre_${msg.guild.id}`)  
+          if (i == 'acik') {
+              const reklam = ["discord.app", "discord.gg", "şeftaliiii","discordapp","discordgg","dis cord gg","discord gg","discordgg",];
+              if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
+                try {
+                  if (!msg.member.hasPermission("MANAGE_WEBHOOKS")) {
+                    msg.delete();                    
+                    let embed = new Discord.RichEmbed()
+                    .setColor(0xffa300)
+                    .setFooter(' lluvia Reklam Sistemi', client.user.avatarURL)
+                    .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
+                    .setDescription(" lluvia, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
+                    .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
+                    .addField('Engellenen mesaj', msg.content, true)
+                    .setTimestamp()                   
+                    msg.guild.owner.user.send(embed)                       
+                    return msg.channel.send(`${msg.author}, Reklam Yapmak Yasak Dostum! Senin Mesajını Özelden Kurucumuza Gönderdim.`).then(msg => msg.delete(25000));
+                  }              
+                } catch(err) {
+                  console.log(err);
+                }
+              }
+          }
+          if (!i) return;
+          });  
+
+
+
+client.on('guildMemberAdd', async member => {
+let rol = "729299296771637308" // unregister rol id
+let kanal = "729267305191833610" // Kanal rol id
+let moment = require("moment")
+
+    let userinfo= {};
+    userinfo.dctarih = moment.utc(member.guild.members.get(member.id).user.createdAt).format('DD/MM/YYYY')
+    .replace("Monday", `**Pazartesi**`)
+    .replace("Tuesday", `**Salı**`)
+    .replace("Wednesday", `**Çarşamba**`)
+    .replace("Thursday", `**Perşembe**`)
+    .replace("Friday", `**Cuma**`)
+    .replace("Saturday", `**Cumartesi**`)
+    .replace("Sunday", `**Pazar**`)
+    .replace("January", `**Ocak**`)
+    .replace("February", `**Şubat**`)
+    .replace("March", `**Mart**`)
+    .replace("April", `**Nisan**`)
+    .replace("May", `**Mayıs**`)
+    .replace("June", `**Haziran**`)
+    .replace("July", `**Temmuz**`)
+    .replace("August", `**Ağustos**`)
+    .replace("September", `**Eylül**`)
+    .replace("October", `**Ekim**`)
+    .replace("November", `**Kasım**`)
+    .replace("December", `**Aralık**`)
+    userinfo.dctarihkatilma = moment.utc(member.guild.members.get(member.id).joinedAt).format('DD/MM/YYYY')
+    .replace("Monday", `**Pazartesi**`)
+    .replace("Tuesday", `**Salı**`)
+    .replace("Wednesday", `**Çarşamba**`)
+    .replace("Thursday", `**Perşembe**`)
+    .replace("Friday", `**Cuma**`)
+    .replace("Saturday", `**Cumartesi**`)
+    .replace("Sunday", `**Pazar**`)
+    .replace("January", `**Ocak**`)
+    .replace("February", `**Şubat**`)
+    .replace("March", `**Mart**`)
+    .replace("April", `**Nisan**`)
+    .replace("May", `**Mayıs**`)
+    .replace("June", `**Haziran**`)
+    .replace("July", `**Temmuz**`)
+    .replace("August", `**Ağustos**`)
+    .replace("September", `**Eylül**`)
+    .replace("October", `**Ekim**`)
+    .replace("November", `**Kasım**`)
+    .replace("December", `**Aralık**`)
+
+let i = new Discord.RichEmbed()
+    .setTitle(" <a:tac:729283063472980018> **Welcome to lluvia** <a:tac:729283063472980018>  ")
+    .setDescription(" <a:sonduklp:733816919257251881> **Hoş Geldin, "+member+"   \n\n <a:sonduklp1:733816960961347714>  **Seninle Birlikte **"+member.guild.memberCount+"** **Kişi Olduk.** \n\n <a:sonduklp2:733816990061428787>  **Kayıt Olmak İçin <@&729271901200842763> Etiketlemeyi Unutma.**")
+    .setThumbnail("https://cdn.discordapp.com/attachments/731226545435443224/733533963813126254/ezgif-3-642eae571def.gif")
+.setImage("https://cdn.discordapp.com/attachments/732397543790739577/733532655198535810/ezgif-3-b6f5c5ed5e30.gif")
+.addField(" <a:yyldz:729361540469227550>  **Hesap** __**Oluşturma**__ **Tarihi:**", userinfo.dctarih, true)
+.addField(" <a:unlem:733417369447170190> **Sunucu Katılım Tarihi:**", userinfo.dctarihkatilma, true)
+member.guild.channels.get(kanal).send(i)
+})
 
 
 client.on("guildBanAdd", async (guild, user) => {
