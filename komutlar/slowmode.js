@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = async(client, message, args) => {
 if (message.channel.type !== "text") return;
-  if  (!message.member.roles.has("685555226325024829")) return message.reply('Bu komutu kullanmaya yetkin yok');
+  if  (!message.member.roles.has("736104471045734454")) return message.reply('Bu komutu kullanmaya yetkin yok');
 const limit = args[0] ? args[0] : 0;
   if(!limit) {
               var embed = new Discord.RichEmbed()

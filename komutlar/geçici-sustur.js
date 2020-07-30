@@ -1,68 +1,61 @@
 const Discord = require("discord.js");
 const ms = require("ms");
-//Dcs Ekibi
+const ayarlar = require('../ayarlar.json');
+const prefix = ayarlar.prefix;
+
+
+var mutelirolu = "Muted" //MUTELENDİGİ ZAMAN VERİLECEK ROLU  BURAYA YAZINIZ...
+
 module.exports.run = async (bot, message, args) => {
-  // 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün
 
-     if(!message.member.roles.has("711213560646205481")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
-    
-
-  let ownerkod = message.guild.member(
-    message.mentions.users.first() || message.guild.members.get(args[0])
-  );
-  if (!ownerkod)
-    return message.channel.send(
-      "✅ **Doğru Kullanım:** `a!geçici-sustur <@kullanıcı> <süre>`"
-    );
-  if (ownerkod.hasPermission("MANAGE_GUILD"))
-    return message.channel.send("⚠ | Yetkilileri Susturamam!");
-  let umutb = message.guild.roles.find(r => r.name === "DCS | Muted");
-
-  if (!umutb) {
-    try { 
-      umutb = await message.guild.createRole({
-        name: "DCS | Muted",
-        color: "#4c6876",
-        permissions: []
-      });
+  let mutekisi = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!mutekisi) return message.reply(`:warning: Lütfen bir kullanıcı etiketleyiniz! \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``)
+ if(!message.member.roles.has("729271898269024267")) return message.reply(`Bu komutu kullanabilmen için  yetkiye <@&729271898269024267> sahip olman lazım.`);
+  if(mutekisi.hasPermission("ADMINISTRATOR")) return message.reply(`:warning: Yetkili bir kişiyi muteleyemem! \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``)
+  let muterol = message.guild.roles.find(`name`, mutelirolu);
+  if(!muterol){
+    try{
+      muterol = await message.guild.createRole({
+        name: mutelirolu,
+        color: "#818386",
+        permissions:[]
+      })
       message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(umutb, {
+        await channel.overwritePermissions(muterol, {
           SEND_MESSAGES: false,
           ADD_REACTIONS: false
         });
       });
-    } catch (e) {
+    }catch(e){
       console.log(e.stack);
     }
   }
+  let mutezaman = args[1]
+  .replace(`sn`, `s`)
+  .replace(`dk`, `m`)
+  .replace(`sa`, `h`)
+  .replace(`g`, `d`)
 
-  let byumut = args[1];
-  if (!byumut)
-    return message.channel.send(
-      "✅ **Doğru Kullanım:** `a!geçici-mute <@kullanıcı> <sure>`"
-    );
+  if(!mutezaman) return message.reply(`:warning: Lütfen bir zaman giriniz! \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``)
 
-  await ownerkod.addRole(umutb.id);
-  message.channel.send(
-    `✅ <@${ownerkod.id}> Susturuldu! | **Süre: ${ms(ms(byumut))}**`
-  );
+  await(mutekisi.addRole(muterol.id));
+  message.reply(`<@${mutekisi.id}> kullanıcısı ${args[1]} süresi boyunca mutelendi!`);
 
-  setTimeout(function() {
-    ownerkod.removeRole(umutb.id);
-    message.channel.send(`✅ <@${ownerkod.id}> **Muten Sona Erdi!** `);
-  }, ms(byumut));
-};
-//DCS Ekibi
+  setTimeout(function(){
+    mutekisi.removeRole(muterol.id);
+    message.channel.send(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`);
+  }, ms(mutezaman));
+}
+
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["geçici-sustur", "gsustur", "mute", "sustur"],
-  permLevel: 0
-};
-
-exports.help = {
-  name: "geçici-sustur",
-  description: "Sureli Susturur.",
-  usage: "geçici-sustur [Kullanıcı] [Süre]"
-};
-   ///// Edit by AidenZ
+    enabled: true,
+    guildOnly: false,
+    aliases: [],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: "mute",
+    description: "Etiketlediğiniz kişiye belirttiğiniz süre kadar mute atar.",
+    usage: "mute <@kullanıcı> <1sn/1dk/1sa/1g>"
+  };
