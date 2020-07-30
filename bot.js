@@ -11,7 +11,7 @@ const ms = require("parse-ms");
 const express = require("express");
 const http = require("http");
 const app = express();
-
+const Hserver = new Discord.WebhookClient("738328036843192340", "6cG4w3B3IS7WX1nbFqQ7o36wtuOvw86RJmSxbIE7wXiHOFPEIliLbUy7oHGYdq5gUGXm")
 require("./util/eventLoader")(client);
 
 var prefix = ayarlar.prefix;
