@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
       }); //Dcs Ekibi
   
       message.channel.send('**Bu Sunucunun Davet Linkini Kurdum.**\n'
-        + '<a:zillo:711280741765611531>   **Link Aşağıda**  \n'
+        + '   **Link Aşağıda**  \n'
 +
         `https://discord.gg/${invite.code}`).catch(e => {
         client.log.error(e);
