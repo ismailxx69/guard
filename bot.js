@@ -97,7 +97,7 @@ client.unload = command => {
 };
 
 client.on('ready', ()=>{
-let kanal = client.channels.get('729268355126657055')
+let kanal = client.channels.get('729270854893961216')
 if(!kanal) return;
   kanal.join();
 })
