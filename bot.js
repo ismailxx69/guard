@@ -97,7 +97,7 @@ client.unload = command => {
 };
 
 client.on('ready', ()=>{
-let kanal = client.channels.get('729270854893961216')
+let kanal = client.channels.get('729270832706224168')
 if(!kanal) return;
   kanal.join();
 })
@@ -264,12 +264,6 @@ client.on("guildBanAdd", async (guild, user) => {
 
 // GELİŞMİŞ LOG
 
-
-client.on('ready', ()=>{
-let kanal = client.channels.get('729268355126657055')
-if(!kanal) return;
-  kanal.join();
-})
 
   
   
