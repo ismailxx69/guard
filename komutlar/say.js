@@ -11,14 +11,14 @@ exports.run = async (client, message, args) => {
 const embed = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL) 
     .setThumbnail("https://cdn.discordapp.com/attachments/731226545435443224/736052011677777960/giphy.gif")
-    .setDescription(`<a:kalp5:729360718708604939> **Sunucudaki üye sayısı :** __${message.guild.memberCount}__
-  <a:kalp4:729360690577539170> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
-  <a:kalp3:729360663687856258> **Seslideki üye sayısı :** __${count}__
-  <a:kalp2:729360637938892841> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
-  <a:kalp1:729360596906279045> **Erkek üye sayısı :** __${message.guild.roles.get("729296897424228402").members.size}__
-  <a:kalp5:729360718708604939> **Kayıtsız üye sayısı :** __${message.guild.roles.get("729299296771637308").members.size}__
-  <a:kalp4:729360690577539170> **Kız üye sayısı :** __${message.guild.roles.get("729296895570345985").members.size}__
-  <a:kalp3:729360663687856258> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
+    .setDescription(`<a:yyldz:729361540469227550> **Sunucudaki üye sayısı :** __${message.guild.memberCount}__
+  <a:yyldz:729361540469227550> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
+  <a:yyldz:729361540469227550> **Seslideki üye sayısı :** __${count}__
+  <a:yyldz:729361540469227550> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
+  <a:yyldz:729361540469227550> **Erkek üye sayısı :** __${message.guild.roles.get("729296897424228402").members.size}__
+  <a:yyldz:729361540469227550> **Kayıtsız üye sayısı :** __${message.guild.roles.get("729299296771637308").members.size}__
+  <a:yyldz:729361540469227550> **Kız üye sayısı :** __${message.guild.roles.get("729296895570345985").members.size}__
+  <a:yyldz:729361540469227550> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***
 `)
     .setColor("#005b94")
     .setFooter(`Aha bak bak ne yazmış gel gel!`,message.author.avatarURL);
