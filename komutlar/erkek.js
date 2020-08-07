@@ -1,70 +1,44 @@
 const Discord = require('discord.js');
-const db = require('quick.db');
-
-exports.run = async(client, message, args, ops) => {
-    message.delete()
-    if (!message.member.roles.find("name", "✍️ | Registration")) {
-        return message.channel.send(' **Bu Komutu Kullanmak için** \*`Kayıt Sorumlusu*\` **Rolüne Sahip Olman Lazım** ')
-            .then(m => m.delete(5000));
-    }  
-    let toverify = message.guild.member(message.mentions.users.first());
-    let verifyrole = message.guild.roles.find(`name`, "Richard ♔");
-    let verifyrolee = message.guild.roles.find(`name`, "⎑ Unregister");
-    if(toverify.roles.find(`name`, "Richard ♔")) return message.channel.send('Teyit Başarısız, Kullanıcı Zaten Kayıtlı.')
-    if(toverify.roles.find(`name`, "Helena ♛")) return message.channel.send('Teyit Başarısız, Kullanıcı Zaten Kayıtlı.')
-    if (!verifyrole) return message.reply("Rol Bulunamadı Lütfen 'Richard ♔' Adıyla Rol Oluşturunuz.");
-    if (!verifyrolee) return message.reply("Rol Bulunamadı Lütfen '⎑ Unregister' Adıyla Rol Oluşturunuz.");
-    if (!toverify) return message.reply("Bir kullanıcıdan bahsetmelisin.");
-    await (toverify.addRole(verifyrole.id),toverify.removeRole(verifyrolee.id));
-    let vUser = message.guild.member(message.mentions.users.first());
-    let teyitsayisi = await db.fetch(`teyit.${message.guild.id}.${message.author.id}`);
-    let verifembed = new Discord.RichEmbed()
-        .setTitle("Teyit Çıktısı")
-        .setColor('#a5f23a')
-        .addField("Teyit Eden Kişi", `${message.author.username}`, true)
-        .addField("Kanal", message.channel, true)
-        .addField("Teyit Olan Kişi", `${vUser}`, true)
-        .addField("Teyit Cinsiyeti", "<@&729296897424228402>", true)
-        .addField("Teyit Sayısı", `${teyitsayisi || 0}`, true)
-        .addField("Saudade Mudita", "Gururla Sunar...!", true)
-        .setTimestamp();
-    let veriflog = message.guild.channels.find(`name`, "kayıt-olan-kişiler");
-    if (!veriflog) return message.channel.send("Doğrulama Kullanıcı Log Kanalı bulunamadı. Lütfen 'kayıt-olan-kişiler' Adlı Kanal Oluşturunuz.`");
-    veriflog.send(verifembed);
-  
-    let teyit = await db.add(`teyit.${message.guild.id}.${message.author.id}`, 1);
-    let teyiterkek = await db.add(`teyite.${message.guild.id}.${message.author.id}`, 1);
-  
-  
-  let teyitt = await db.fetch(`teyit.${message.guild.id}.${message.author.id}`);  
-  
-    message.channel.send(`<@${message.author.id}> Başarıyla Teyit Ettin. Teyit Edilen Kişi ${vUser}. Teyit Sayınız: ${teyitt ? teyitt : 'Hiç Teyit Etmemiş.'}`);
-  
-
-    const embed = new Discord.RichEmbed()
-     .setColor("#0080FF")
-    .setAuthor(client.user.username,client.user.displayAvatarURL)
-    .setDescription(`${vUser}, Aramıza Hoşgeldin :)
-        
-    Seninle Beraber **${message.guild.memberCount}** kişiyiz.
-    Cinsiyet: <@&729296897424228402>
-
-    Şu Kanallara Göz Atmayı Unutma <#729268561175904256> **-** <#729268775203110983>`,true)
+const db = require("quick.db")
+exports.run = async (client, message, args) => {
+ if (!message.member.roles.has('729271901200842763') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
+  let kullanıcı = message.mentions.users.first()
+  if (!kullanıcı) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bir üye etiketlemelisin!').setColor("Black"));
+  let user = message.mentions.users.first();
+  let rol = message.mentions.roles.first()
+  let member = message.guild.member(kullanıcı)
+   let isim = args[1];
+      if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
+   let yas = args[2];
+      if(!yas) return message.channel.send("Lütfen bir yaş girin!")
+  if(message.channel.id !== '729267305191833610') return message.channel.send('Bu Kanalda Komut Sadece <#729267305191833610> Kanalınan Kullanabilirsin.')
+await member.setNickname(`⎑ ${isim} | ${yas}`);
+  member.addRole("729296897424228402"); //erkek rol id
+  member.removeRole("729299296771637308"); //kayıtsız rol id
+  message.react('712860084425981983') //Emojiid
+     const kanal = message.guild.channels.find(c => c.id == "731226545435443224") //LOGİD
+    const embed1 = new Discord.RichEmbed() 
+    .addField(` <a:pnad:729395856683434068> ⎑ lluvia Kingdom`,  `**Hoş geldin  ${member.user}  , <@&729296897424228402> Rolüyle Artık Sende Ailemize Katıldın! Seninle Birlikte \`${member.guild.memberCount}\` Üyeye Ulaştık.** <a:kirmiziguzel:734716553362407455>   `)
+    .setColor("RED")
+    .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
-    .setFooter(`KURALLARA UYMAYI UNUTMAYINIZ.!`)
-    
-    let onay = message.guild.channels.find(`name`, "⎒-sohbet");
-    onay.send(embed).then(m => m.delete(60000));
-  
+  let embed = new Discord.RichEmbed() 
+  .setColor("PİNK")
+  .addField(` <a:unlem:733417369447170190> ⎑ lluvia Kayıt işlemi başarılı <a:unlem:733417369447170190> `,  ` ${member.user} **adlı üyeye** <@&729296897424228402>  **rollerini verip ismini**  \` ⎑ ${isim} | ${yas}\` **olarak ayarladım!** <a:kirmiziguzel:734716553362407455> `)                                                                             
+  .setFooter(message.author.tag ,message.author.avatarURL)
+  .setTimestamp()
+  .setImage(`https://cdn.discordapp.com/attachments/729267305191833610/734813098829152346/giphy.gif`)
+  return message.channel.send(embed).then(kanal.send(embed1))
 }
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ['erkek', 'Erkek', 'ERKEK', 'ᴇʀᴋᴇᴋ', 'bay', 'Bay', 'BAY'],
-};
-
+  guildOnly: true,
+  aliases: ["erkek" , "e"],
+  kategori: "Yetkili Komutları",
+  permLevel: 0
+}
 exports.help = {
-  name: 'teyit-erkek',
-  description: 'Kullanıcı İçin Lianslı Rolünü Verir.',
-  usage: 'bay'
-};
+  name: 'erkek',
+  description: "Sunucuya kaydolmaya ne dersin ?",
+  usage: 'Erkek isim yaş'
+} 
