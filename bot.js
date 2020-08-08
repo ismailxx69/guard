@@ -98,7 +98,6 @@ client.unload = command => {
 
 
 
-//////////////////////GELİŞMİŞ TAG SİSTEM BAŞI///////////////////////////
 
 client.on("userUpdate", async (eski, yeni) => {
   var sunucu = client.guilds.get('741633554764660826'); // Buraya Sunucu ID
@@ -129,10 +128,6 @@ client.on("userUpdate", async (eski, yeni) => {
   };
 });
 
-//////////////////////GELİŞMİŞ TAG SİSTEM SONU///////////////////////////
-
-//////////////////////ÇOKLU OTO CEVAP BAŞI///////////////////////////
-
 client.on('message', async message => {
   
 const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$|^Selam$|^selam$|^Selamun aleyküm$|^Selamun Aleyküm$|^Sea$|^Selamke$|^Selams)/gi);
@@ -151,11 +146,16 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
     }
 });
 
-//////////////////////ÇOKLU OTO CEVAP SONU///////////////////////////
+
+
+
+
+
 
   
   
-  //////////////////////KANAL KORUMA BAŞI///////////////////////////
+  
+  
   
   client.on('channelDelete', channel => {
   let kategoriID = channel.parentID;
@@ -168,20 +168,235 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 });
 
 
-//////////////////////KANAL KORUMA SONU///////////////////////////
-    
 
-//////////////////////ROL KORUMA BAŞI///////////////////////////
+
+
+
+
+client.on("guildBanAdd", async (guild, user) => {
+  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
+  const entry = await guild
+    .fetchAuditLogs({ type: "MEMBER_BAN_ADD" })
+    .then(audit => audit.entries.first());
+  let embed = new Discord.RichEmbed()
+    .setAuthor(entry.executor.username, entry.executor.avatarURL)
+    .addField("**Eylem**", "Yasaklama")
+    .addField("**Kullanıcıyı yasaklayan yetkili**", `<@${entry.executor.id}>`)
+    .addField("**Yasaklanan kullanıcı**", `**${user.tag}** - ${user.id}`)
+    .addField("**Yasaklanma sebebi**", `${entry.reason}`)
+    .setTimestamp()
+    .setColor("RANDOM")
+    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
+    .setThumbnail(guild.iconURL);
+  client.channels.get(modlog).sendEmbed(embed);
+});
+
+client.on("guildBanRemove", async (guild, user) => {
+  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
+  const entry = await guild
+    .fetchAuditLogs({ type: "MEMBER_BAN_REMOVE" })
+    .then(audit => audit.entries.first());
+  let embed = new Discord.RichEmbed()
+    .setAuthor(entry.executor.username, entry.executor.avatarURL)
+    .addField("**Eylem**", "Yasak kaldırma")
+    .addField("**Yasağı kaldıran yetkili**", `<@${entry.executor.id}>`)
+    .addField("**Yasağı kaldırılan kullanıcı**", `**${user.tag}** - ${user.id}`)
+    .setTimestamp()
+    .setColor("RANDOM")
+    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
+    .setThumbnail(guild.iconURL);
+  client.channels.get(modlog).sendEmbed(embed);
+});
+
+// gelişmiş log
+
+var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
+
+client.on("warn", e => {
+  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
+});
+
+client.on("error", e => {
+  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
+});
+
+// TAG SİSTEMİ OTO EDİTLENECEK
+
+
+client.on("guildMemberAdd", async member => {
+  let otobotban = await db.fetch(`otobotban_${member.guild.id}`);
+  if (otobotban) {
+    if (member.user.bot) {
+      member.guild.ban(member.user, {
+        reason: "Otomatik-BotBanlama Koruması "
+      });
+    }
+  }
+});
+
+
+client.on("message" , async message => {
+  const msg = message;
+  if(message.content.startsWith(ayarlar.prefix+"afk")) return; 
+  /*db.set(`afkSebep_${message.author.id}_${message.guild.id}`, "Sebep Girilmemiş")
+  db.set(`afkKisi_${message.author.id}_${message.guild.id}`, message.author.id)              Bunlar Afk Komutndaki İsimler /// tmm bakalım
+  db.set(`afkAd_${message.author.id}_${message.guild.id}`, message.author.username)*/
+  
+  /*      const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("WoxeBot" , "https://cdn.discordapp.com/avatars/605781334438445057/495a33da25bc54f9c9dd1f5883da7409.png?size=2048")
+      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+       */
+  
+  let afk = message.mentions.users.first()
+  
+  const kisi = db.fetch(`afkid_${message.author.id}_${message.guild.id}`)
+  
+  const isim = db.fetch(`afkAd_${message.author.id}_${message.guild.id}`)
+ if(afk){
+   const sebep = db.fetch(`afkSebep_${afk.id}_${message.guild.id}`)
+   const kisi3 = db.fetch(`afkid_${afk.id}_${message.guild.id}`)
+   if(message.content.includes(kisi3)){
+     const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("lluvia" , "Krallığı")
+      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+   }
+ }
+  if(message.author.id === kisi){
+    const embed = new Discord.RichEmbed()
+      .setColor("#0080FF")
+      .setAuthor("lluvia" , "Krallığı")
+      .setDescription(`Afk'lıktan Çıktınız`)
+      .setTimestamp()
+      .setFooter(`${message.author.username} Tarafından İstendi`)
+       message.channel.send(embed)
+   db.delete(`afkSebep_${message.author.id}_${message.guild.id}`)
+   db.delete(`afkid_${message.author.id}_${message.guild.id}`)
+   db.delete(`afkAd_${message.author.id}_${message.guild.id}`)
+    message.member.setNickname(isim)
+    
+  }
+  
+})
+
+
+
+
+
+
+
+client.on("message", async msg => {
+  if (msg.channel.type === "dm") return;
+  if (msg.author.bot) return;
+  if (msg.content.length < 4) return;
+  if (!db.fetch(`capslock_${msg.guild.id}`)) return;
+  let caps = msg.content.toUpperCase();
+  if (msg.content == caps) {
+    if (msg.member.hasPermission("BAN_MEMBERS")) return;
+    let yashinu =
+      msg.mentions.users.first() ||
+      msg.mentions.channels.first() ||
+      msg.mentions.roles.first();
+    if (
+      !yashinu &&
+      !msg.content.includes("@everyone") &&
+      !msg.content.includes("@here")
+    ) {
+      msg.delete(50);
+      return msg.channel
+        .sendEmbed(
+          new Discord.RichEmbed()
+            .setAuthor(client.user.username, client.user.avatarURL)
+            .setColor("RANDOM")
+            .setDescription(`${msg.author} Fazla büyük harf kullanmamalısın!`)
+        )
+        .then(m => m.delete(5000));
+    }
+  }
+});
+
+// Main Dosyası
+
+
+client.on("roleDelete", async role => {
+  let ozellik = await db.fetch(`aktifs_${role.guild.id}`);
+
+  if (!ozellik) return;
+
+  role.guild.createRole({
+    name: role.name,
+    color: role.color,
+    position: role.position,
+    permissions: role.permissions
+  });
+});
+
+client.on("guildMemberAdd", async member => {
+  let djstürkiye = await db.get(`forceban_${member.guild.id}`);
+  if (djstürkiye && djstürkiye.some(id => `k${member.user.id}` === id)) {
+    try {
+      await member.guild.owner.user.send(
+        new Discord.RichEmbed()
+          .setTimestamp()
+          .setFooter(client.user.username + " Force Ban", client.user.avatarURL)
+          .setDescription(
+            `Bir kullanıcı **${member.guild.name}** adlı sunucuna girmeye çalıştı! Force banı olduğu için tekrar yasaklandı. \n**Kullanıcı:** ${member.user.id} | ${member.user.tag}`
+          )
+      );
+      await member.user.send(
+        new Discord.RichEmbed()
+          .setTimestamp()
+          .setFooter(client.user.username + " Force Ban", client.user.avatarURL)
+          .setDescription(
+            `**${member.guild.name}** sunucusundan force banlı olduğun için yasaklandın!`
+          )
+      );
+      member.ban({ reason: "Forceban" });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});
+
+
+
+
+client.login(ayarlar.token);
+
+
+
+ 
+////////////////////////////////////////////////////////////////////
+
+  
+ 
+   
+       
+
+
+
+ ;
+
+
+ 
+    
     client.on('roleDelete', async (role) => {
   
     const entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
     const yetkili = await role.guild.members.get(entry.executor.id);
     const eskihali = role.permissions;
           console.log(eskihali)
-   if (yetkili.id === "741641797352161341")return;                                                                               
+   if (yetkili.id === "700144704607617038")return;                                                                               
              let embed = new Discord.RichEmbed()
              .setColor("BLACK")
-             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&741641795867246612> rolünü verdim.`)
+             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&700193067193597963> rolünü verdim.`)
              .setTimestamp()
              let roles = role.guild.members.get(yetkili.id).roles.array()
                     try {
@@ -192,18 +407,11 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
                           console.log(err)
                          }
     setTimeout(function(){
-                         role.guild.members.get(yetkili.id).addRole("741641795867246612")
+                         role.guild.members.get(yetkili.id).addRole("700144704607617038")
                          role.guild.owner.send(embed)
                          }, 1500);
 
                   });
-
-//////////////////////ROK KORUMA SONU///////////////////////////
-
-
-//////////////////////ROL YÖNETİCİ KORUMA BAŞI///////////////////////////
-
-
 client.on("roleUpdate", async function(oldRole, newRole) {
  
    const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
@@ -227,5 +435,5 @@ client.on("roleUpdate", async function(oldRole, newRole) {
       }, 1000)
   });
 
-//////////////////////ROL YÖNETİCİ KORUMA SONU///////////////////////////
+
 
