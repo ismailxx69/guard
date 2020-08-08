@@ -12,7 +12,7 @@ module.exports = client => {
   console.log(` T: ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` users!`);
   client.user.setPresence({
     game: {
-        name: 'lluvia benim her şeyim!',         type: 'WATCHING' // Değerler: // PLAYING: // WATCHING // LISTENING
+        name: 'Selinay benim her şeyim!',         type: 'WATCHING' // Değerler: // PLAYING: // WATCHING // LISTENING
     },
     status: 'online' // Değerler // online // dnd // idle 
 })
