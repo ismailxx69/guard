@@ -8,6 +8,7 @@ exports.run = async (client, message, args) => {
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
    let isim = args[1];
+  
       if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
@@ -22,7 +23,9 @@ await member.setNickname(`⎑ ${isim} | ${yas}`);
     .setColor("RED")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
-  let embed = new Discord.RichEmbed() 
+ 
+    let embed = new Discord.RichEmbed() 
+  
   .setColor("PİNK")
   .addField(` <a:unlem:733417369447170190> ⎑ lluvia Kayıt işlemi başarılı <a:unlem:733417369447170190> `,  ` ${member.user} **adlı üyeye** <@&729296895570345985>  **rollerini verip ismini**  \` ⎑ ${isim} | ${yas}\` **olarak ayarladım!** <a:kirmiziguzel:734716553362407455> `)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
