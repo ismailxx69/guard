@@ -235,56 +235,6 @@ client.on("guildMemberAdd", async member => {
 });
 
 
-client.on("message" , async message => {
-  const msg = message;
-  if(message.content.startsWith(ayarlar.prefix+"afk")) return; 
-  /*db.set(`afkSebep_${message.author.id}_${message.guild.id}`, "Sebep Girilmemiş")
-  db.set(`afkKisi_${message.author.id}_${message.guild.id}`, message.author.id)              Bunlar Afk Komutndaki İsimler /// tmm bakalım
-  db.set(`afkAd_${message.author.id}_${message.guild.id}`, message.author.username)*/
-  
-  /*      const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("WoxeBot" , "https://cdn.discordapp.com/avatars/605781334438445057/495a33da25bc54f9c9dd1f5883da7409.png?size=2048")
-      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-       */
-  
-  let afk = message.mentions.users.first()
-  
-  const kisi = db.fetch(`afkid_${message.author.id}_${message.guild.id}`)
-  
-  const isim = db.fetch(`afkAd_${message.author.id}_${message.guild.id}`)
- if(afk){
-   const sebep = db.fetch(`afkSebep_${afk.id}_${message.guild.id}`)
-   const kisi3 = db.fetch(`afkid_${afk.id}_${message.guild.id}`)
-   if(message.content.includes(kisi3)){
-     const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("lluvia" , "Krallığı")
-      .setDescription(`Etiketlediğiniz Kişi Afk \n Sebep : ${sebep}`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-   }
- }
-  if(message.author.id === kisi){
-    const embed = new Discord.RichEmbed()
-      .setColor("#0080FF")
-      .setAuthor("lluvia" , "Krallığı")
-      .setDescription(`Afk'lıktan Çıktınız`)
-      .setTimestamp()
-      .setFooter(`${message.author.username} Tarafından İstendi`)
-       message.channel.send(embed)
-   db.delete(`afkSebep_${message.author.id}_${message.guild.id}`)
-   db.delete(`afkid_${message.author.id}_${message.guild.id}`)
-   db.delete(`afkAd_${message.author.id}_${message.guild.id}`)
-    message.member.setNickname(isim)
-    
-  }
-  
-})
 
 
 
@@ -292,78 +242,7 @@ client.on("message" , async message => {
 
 
 
-client.on("message", async msg => {
-  if (msg.channel.type === "dm") return;
-  if (msg.author.bot) return;
-  if (msg.content.length < 4) return;
-  if (!db.fetch(`capslock_${msg.guild.id}`)) return;
-  let caps = msg.content.toUpperCase();
-  if (msg.content == caps) {
-    if (msg.member.hasPermission("BAN_MEMBERS")) return;
-    let yashinu =
-      msg.mentions.users.first() ||
-      msg.mentions.channels.first() ||
-      msg.mentions.roles.first();
-    if (
-      !yashinu &&
-      !msg.content.includes("@everyone") &&
-      !msg.content.includes("@here")
-    ) {
-      msg.delete(50);
-      return msg.channel
-        .sendEmbed(
-          new Discord.RichEmbed()
-            .setAuthor(client.user.username, client.user.avatarURL)
-            .setColor("RANDOM")
-            .setDescription(`${msg.author} Fazla büyük harf kullanmamalısın!`)
-        )
-        .then(m => m.delete(5000));
-    }
-  }
-});
 
-// Main Dosyası
-
-
-client.on("roleDelete", async role => {
-  let ozellik = await db.fetch(`aktifs_${role.guild.id}`);
-
-  if (!ozellik) return;
-
-  role.guild.createRole({
-    name: role.name,
-    color: role.color,
-    position: role.position,
-    permissions: role.permissions
-  });
-});
-
-client.on("guildMemberAdd", async member => {
-  let djstürkiye = await db.get(`forceban_${member.guild.id}`);
-  if (djstürkiye && djstürkiye.some(id => `k${member.user.id}` === id)) {
-    try {
-      await member.guild.owner.user.send(
-        new Discord.RichEmbed()
-          .setTimestamp()
-          .setFooter(client.user.username + " Force Ban", client.user.avatarURL)
-          .setDescription(
-            `Bir kullanıcı **${member.guild.name}** adlı sunucuna girmeye çalıştı! Force banı olduğu için tekrar yasaklandı. \n**Kullanıcı:** ${member.user.id} | ${member.user.tag}`
-          )
-      );
-      await member.user.send(
-        new Discord.RichEmbed()
-          .setTimestamp()
-          .setFooter(client.user.username + " Force Ban", client.user.avatarURL)
-          .setDescription(
-            `**${member.guild.name}** sunucusundan force banlı olduğun için yasaklandın!`
-          )
-      );
-      member.ban({ reason: "Forceban" });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-});
 
 
 
