@@ -96,11 +96,7 @@ client.unload = command => {
   });
 };
 
-client.on('ready', ()=>{
-let kanal = client.channels.get('729268355126657055')
-if(!kanal) return;
-  kanal.join();
-})
+
 
 client.on("message", async msg => {
     if(msg.author.bot) return;
