@@ -96,6 +96,35 @@ client.unload = command => {
   });
 };
 
+client.on("message", async msg => {
+    if(msg.author.bot) return;
+    if(msg.channel.type === "dm") return;
+        
+    let i = await db.fetch(`reklamFiltre_${msg.guild.id}`)  
+          if (i == 'acik') {
+              const reklam = ["discord.app", "discord.gg", "discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az",];
+              if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
+                try {
+                  if (!msg.member.hasPermission("MANAGE_GUILD")) {
+                    msg.delete();                    
+                    let embed = new Discord.RichEmbed()
+                    .setColor(0xffa300)
+                    .setFooter('Reklam engellendi.', client.user.avatarURL)
+                    .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
+                    .setDescription(" Kobs Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
+                    .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
+                    .addField('Engellenen mesaj', msg.content, true)
+                    .setTimestamp()                   
+                    msg.guild.owner.user.send(embed)                       
+                    return msg.channel.send(`${msg.author}, **Reklam Yapmak Yasak Bunu Bilmiyormusun!**`).then(msg => msg.delete(25000));
+                  }              
+                } catch(err) {
+                  console.log(err);
+                }
+              }
+          }
+          if (!i) return;
+          });
 
 
 
@@ -169,7 +198,26 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 
 
 
+var uyarilar = {};
 
+client.on("message", async message => {
+  if (!message.guild || !message.member || message.author.bot || !message.content || message.member.hasPermission("ADMINISTRATOR")) return;
+  let mesajIcerik = message.content.replace(/[^a-zA-ZığüşöçĞÜŞİÖÇ]+/g, "");
+  if (mesajIcerik === mesajIcerik.toUpperCase()) {
+    uyarilar[message.author.id] = uyarilar[message.author.id] ? Number(uyarilar[message.author.id])+1 : 1;
+    message.delete(200);
+    message.channel.send(new Discord.RichEmbed().setDescription(`${message.author} büyük harf kullanmamlısın! (${uyarilar[message.author.id]})`));
+    if (uyarilar[message.author.id] >= 5) {
+      message.member.addRole('741641795867246612');
+      message.author.send(`${message.guild.name} sunucusunda fazla büyük harf kullandığın için susturuldun!`);
+      uyarilar[message.author.id] = 0;
+      setTimeout(() => {
+        message.member.removeRole('741641795867246612');
+        message.author.send(`Susturulman bitti artık konuşabilirsin!`);
+      }, 5*60*1000);
+    };
+  };
+});
 
 
 
