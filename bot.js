@@ -98,6 +98,7 @@ client.unload = command => {
 
 
 
+//////////////////////GELİŞMİŞ TAG SİSTEM BAŞI///////////////////////////
 
 client.on("userUpdate", async (eski, yeni) => {
   var sunucu = client.guilds.get('741633554764660826'); // Buraya Sunucu ID
@@ -128,6 +129,10 @@ client.on("userUpdate", async (eski, yeni) => {
   };
 });
 
+//////////////////////GELİŞMİŞ TAG SİSTEM SONU///////////////////////////
+
+//////////////////////ÇOKLU OTO CEVAP BAŞI///////////////////////////
+
 client.on('message', async message => {
   
 const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$|^Selam$|^selam$|^Selamun aleyküm$|^Selamun Aleyküm$|^Sea$|^Selamke$|^Selams)/gi);
@@ -146,16 +151,11 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
     }
 });
 
-
-
-
-
-
+//////////////////////ÇOKLU OTO CEVAP SONU///////////////////////////
 
   
   
-  
-  
+  //////////////////////KANAL KORUMA BAŞI///////////////////////////
   
   client.on('channelDelete', channel => {
   let kategoriID = channel.parentID;
@@ -168,104 +168,10 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 });
 
 
-
-
-
-
-
-client.on("guildBanAdd", async (guild, user) => {
-  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
-  const entry = await guild
-    .fetchAuditLogs({ type: "MEMBER_BAN_ADD" })
-    .then(audit => audit.entries.first());
-  let embed = new Discord.RichEmbed()
-    .setAuthor(entry.executor.username, entry.executor.avatarURL)
-    .addField("**Eylem**", "Yasaklama")
-    .addField("**Kullanıcıyı yasaklayan yetkili**", `<@${entry.executor.id}>`)
-    .addField("**Yasaklanan kullanıcı**", `**${user.tag}** - ${user.id}`)
-    .addField("**Yasaklanma sebebi**", `${entry.reason}`)
-    .setTimestamp()
-    .setColor("RANDOM")
-    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
-    .setThumbnail(guild.iconURL);
-  client.channels.get(modlog).sendEmbed(embed);
-});
-
-client.on("guildBanRemove", async (guild, user) => {
-  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
-  const entry = await guild
-    .fetchAuditLogs({ type: "MEMBER_BAN_REMOVE" })
-    .then(audit => audit.entries.first());
-  let embed = new Discord.RichEmbed()
-    .setAuthor(entry.executor.username, entry.executor.avatarURL)
-    .addField("**Eylem**", "Yasak kaldırma")
-    .addField("**Yasağı kaldıran yetkili**", `<@${entry.executor.id}>`)
-    .addField("**Yasağı kaldırılan kullanıcı**", `**${user.tag}** - ${user.id}`)
-    .setTimestamp()
-    .setColor("RANDOM")
-    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
-    .setThumbnail(guild.iconURL);
-  client.channels.get(modlog).sendEmbed(embed);
-});
-
-// gelişmiş log
-
-var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-
-client.on("warn", e => {
-  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
-});
-
-client.on("error", e => {
-  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
-});
-
-// TAG SİSTEMİ OTO EDİTLENECEK
-
-
-client.on("guildMemberAdd", async member => {
-  let otobotban = await db.fetch(`otobotban_${member.guild.id}`);
-  if (otobotban) {
-    if (member.user.bot) {
-      member.guild.ban(member.user, {
-        reason: "Otomatik-BotBanlama Koruması "
-      });
-    }
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.login(ayarlar.token);
-
-
-
- 
-////////////////////////////////////////////////////////////////////
-
-  
- 
-   
-       
-
-
-
- ;
-
-
- 
+//////////////////////KANAL KORUMA SONU///////////////////////////
     
+
+//////////////////////ROL KORUMA BAŞI///////////////////////////
     client.on('roleDelete', async (role) => {
   
     const entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
@@ -291,6 +197,13 @@ client.login(ayarlar.token);
                          }, 1500);
 
                   });
+
+//////////////////////ROK KORUMA SONU///////////////////////////
+
+
+//////////////////////ROL YÖNETİCİ KORUMA BAŞI///////////////////////////
+
+
 client.on("roleUpdate", async function(oldRole, newRole) {
  
    const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
@@ -314,5 +227,5 @@ client.on("roleUpdate", async function(oldRole, newRole) {
       }, 1000)
   });
 
-
+//////////////////////ROL YÖNETİCİ KORUMA SONU///////////////////////////
 
