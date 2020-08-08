@@ -96,6 +96,18 @@ client.unload = command => {
   });
 };
 
+const { RichEmbed } = require("discord.js")
+client.on("message", async message => {
+    if(!message.guild) return
+    if (message.member.hasPermission('MANAGE_GUILD')) return;
+    if (message.mentions.users.size >= 3) {
+      if (message.deletable) message.delete();
+      message.channel.send(`Hey ${message.author}, sürekli birilerini etiketlemek kötüdür. ${message.author} bir daha devam etme. ${message.author} ${message.author} ${message.author}`)
+        message.author.send(`Hey ${message.author}, sürekli birilerini etiketlemek kötüdür. ${message.author} bir daha devam etme. ${message.author} ${message.author} ${message.author}`)
+      }
+})
+
+
 client.on("message", async msg => {
     if(msg.author.bot) return;
     if(msg.channel.type === "dm") return;
@@ -303,6 +315,7 @@ client.login(ayarlar.token);
 
  ;
 
+ 
 
  
     
@@ -332,3 +345,30 @@ client.on("roleUpdate", async function(oldRole, newRole) {
 
 
 
+//////////////////HOŞ GELDİN MESAJI//////////////////////////
+
+client.on('guildMemberAdd', async (member) => {
+
+  let kayıt = client.guilds.get(`741633554764660826`).channels.get(`741646195222511660`)
+  let user = client.users.get(member.id)
+  let memberinfo = {}
+  require("moment-duration-format");
+  const kurulus = new Date().getTime() - user.createdAt.getTime();
+  const gün = moment.duration(kurulus).format("D");
+  var kontrol;
+  if (gün < 7) kontrol = "Güvenilir Değil!  ";
+  if (gün > 7) kontrol = "Güvenilir Gözüküyor!   ";
+  
+  
+
+  memberinfo.discord = moment.utc(member.guild.members.get(member.id).user.createdAt).format(`DD/MM/YYYY`)
+  memberinfo.sunucu = moment.utc(member.guild.members.get(member.id).joinedAt).format(`DD/MM/YYYY`)
+
+   let güvenli = new Discord.RichEmbed()
+  .setColor(`#000001`)
+.setTitle(` <a:bellatrix5:741652269224689725> ***___Bir Yıldız'a ayak bastın!___*** <a:bellatrix5:741652269224689725>  `)
+  .setDescription(`  **  Hoşgeldin, ${member.user} \n\n  ${member.guild.memberCount} Kişi Arasında Sende Varsın. \n\n  ᵇᵉˡˡᵃᵗʳᶤˣ Tagını Alarak İçeriye Girebilirsin.   \n\n  **Bu Hesap:** **${kontrol}** `)
+  .addField(`  Hesap Oluşturma Tarihi:`, memberinfo.discord, true )
+  .setImage("")
+  kayıt.send(güvenli)
+});
