@@ -126,36 +126,57 @@ client.on("message", async msg => {
           if (!i) return;
           });
 
+client.on("guildBanAdd", async (guild, user) => {
+  if (!db.has(`banlimit_${guild.id}`)) return;
+  let logs = await guild.fetchAuditLogs({type: 'MEMBER_BAN_ADD'});
+  if (logs.entries.first().executor.bot) return;
+  const kisi = logs.entries.first().executor
+  const member = guild.members.get(kisi.id)
+  if (member.hasPermission('ADMINISTRATOR')) return;
+  let banlimit = db.fetch(`banlimit_${guild.id}`)
+  if (isNaN(banlimit)) return;
+  banlimit = banlimit + 1
+  if (!db.has(`bansayi_${member.id}_${guild.id}`)) {
+    if (banlimit == 1) {
+      var array = member.roles.filter(role => role.name !== "@everyone").array()
+      for (const role of array) {
+        member.removeRole(role.id)
+      }
+    }else{
+      db.set(`bansayi_${member.id}_${guild.id}`, 1)
+    }
+  }else{
+    const bansayisi = db.fetch(`bansayi_${member.id}_${guild.id}`) + 1
+    if (bansayisi >= banlimit) {
+      db.delete(`bansayi_${member.id}_${guild.id}`)
+      var array = member.roles.filter(role => role.name !== "@everyone").array()
+      for (const role of array) {
+        member.removeRole(role.id)
+      }
+    }else{
+      db.add(`bansayi_${member.id}_${guild.id}`, 1)
+    }
+  }
+})
 
+client.on("message", async msg => {
+  let küfür = await db.fetch(`küfür_${msg.guild.id}`)
+    if (küfür == "açık") {
+        const küfür2 = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "am", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "ak", "amq", "annesiz",];
+        if (küfür2.some(word => msg.content.includes(word))) {
+          msg.delete();
+            if (!msg.member.hasPermission("ADMINISTRATOR")) {
+                  msg.delete();
+            }
+               var embed = new Discord.RichEmbed()
+               .setColor("BLUE")
+               .setDescription("**Burda Argolu Kelimeler Kullanamazsın**")
+               
+               msg.channel.send(embed).then(msg => msg.delete(3000));
+            }
+          }
+      }) 
 
-client.on("userUpdate", async (eski, yeni) => {
-  var sunucu = client.guilds.get('741633554764660826'); // Buraya Sunucu ID
-  var uye = sunucu.members.get(yeni.id);
-  var normalTag = "⋆"; // Buraya Normal Tag (Yoksa boş bırakın)
-  var ekipTag = "☆"; // Sunucunun Tagı
-  var ekipRolü = "741651661679886346"; // Tagın Rol IDsi
-  var logKanali = "741661572929290312"; // Loglanacağı Kanalın ID
-
-  if (!sunucu.members.has(yeni.id) || yeni.bot || eski.username === yeni.username) return;
-  
-  if ((yeni.username).includes(ekipTag) && !uye.roles.has(ekipRolü)) {
-    try {
-      await uye.addRole(ekipRolü);
-      await uye.setNickname((uye.displayName).replace(normalTag, ekipTag));
-      await uye.send(`Tagımızı aldığın için teşekkürler! Aramıza hoş geldin.`);
-      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı alarak aramıza katıldı!`);
-    } catch (err) { console.error(err) };
-  };
-  
-  if (!(yeni.username).includes(ekipTag) && uye.roles.has(ekipRolü)) {
-    try {
-      await uye.removeRoles(uye.roles.filter(rol => rol.position >= sunucu.roles.get(ekipRolü).position));
-      await uye.setNickname((uye.displayName).replace(ekipTag, normalTag));
-      await uye.send(`Tagımızı bıraktığın için ekip rolü ve yetkili rollerin alındı! Tagımızı tekrar alıp aramıza katılmak istersen;\nTagımız: **${ekipTag}**`);
-      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı bırakarak aramızdan ayrıldı!`);
-    } catch(err) { console.error(err) };
-  };
-});
 
 client.on('message', async message => {
   
@@ -174,8 +195,6 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
       
     }
 });
-
-
 
 
 
@@ -221,52 +240,6 @@ client.on("message", async message => {
 
 
 
-client.on("guildBanAdd", async (guild, user) => {
-  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
-  const entry = await guild
-    .fetchAuditLogs({ type: "MEMBER_BAN_ADD" })
-    .then(audit => audit.entries.first());
-  let embed = new Discord.RichEmbed()
-    .setAuthor(entry.executor.username, entry.executor.avatarURL)
-    .addField("**Eylem**", "Yasaklama")
-    .addField("**Kullanıcıyı yasaklayan yetkili**", `<@${entry.executor.id}>`)
-    .addField("**Yasaklanan kullanıcı**", `**${user.tag}** - ${user.id}`)
-    .addField("**Yasaklanma sebebi**", `${entry.reason}`)
-    .setTimestamp()
-    .setColor("RANDOM")
-    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
-    .setThumbnail(guild.iconURL);
-  client.channels.get(modlog).sendEmbed(embed);
-});
-
-client.on("guildBanRemove", async (guild, user) => {
-  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
-  const entry = await guild
-    .fetchAuditLogs({ type: "MEMBER_BAN_REMOVE" })
-    .then(audit => audit.entries.first());
-  let embed = new Discord.RichEmbed()
-    .setAuthor(entry.executor.username, entry.executor.avatarURL)
-    .addField("**Eylem**", "Yasak kaldırma")
-    .addField("**Yasağı kaldıran yetkili**", `<@${entry.executor.id}>`)
-    .addField("**Yasağı kaldırılan kullanıcı**", `**${user.tag}** - ${user.id}`)
-    .setTimestamp()
-    .setColor("RANDOM")
-    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
-    .setThumbnail(guild.iconURL);
-  client.channels.get(modlog).sendEmbed(embed);
-});
-
-// gelişmiş log
-
-var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-
-client.on("warn", e => {
-  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
-});
-
-client.on("error", e => {
-  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
-});
 
 // TAG SİSTEMİ OTO EDİTLENECEK
 
