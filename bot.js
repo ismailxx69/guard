@@ -111,7 +111,7 @@ client.on("message", async msg => {
                     .setColor(0xffa300)
                     .setFooter('Reklam engellendi.', client.user.avatarURL)
                     .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
-                    .setDescription(" Kobs Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
+                    .setDescription(" SYLVESTER Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
                     .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
                     .addField('Engellenen mesaj', msg.content, true)
                     .setTimestamp()                   
@@ -285,7 +285,26 @@ client.on("guildMemberAdd", async member => {
 
 
 
+client.on('guildMemberAdd', (member) => {
+    const guild = member.guild;
 
+
+ let sChannel = member.guild.channels.find(c => c.name === 'bot-koruma')
+
+    if(member.user.bot !==true){
+
+    } 
+    else {
+
+    sChannel.send(`**SYLVESTER Guard bot koruma sistemi **
+Sunucuya Bir Bot Eklendi Ve Güvenlik Nedeniyle Banlandı
+Banlanan Bot: **${member.user.tag}**
+@everyone`)
+    .then(() => console.log(`yasaklandı ${member.displayName}`))
+    .catch(console.error);
+       member.ban(member) 
+  }  
+  });
 
 
 
@@ -314,31 +333,7 @@ client.login(ayarlar.token);
 
  
     
-    client.on('roleDelete', async (role) => {
   
-    const entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
-    const yetkili = await role.guild.members.get(entry.executor.id);
-    const eskihali = role.permissions;
-          console.log(eskihali)
-   if (yetkili.id === "741641797352161341")return;                                                                               
-             let embed = new Discord.RichEmbed()
-             .setColor("BLACK")
-             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&741641795867246612> rolünü verdim.`)
-             .setTimestamp()
-             let roles = role.guild.members.get(yetkili.id).roles.array()
-                    try {
-                         role.guild.members.get(yetkili.id).removeRoles(roles)
-                                                                            
-                         }
-              catch(err) {
-                          console.log(err)
-                         }
-    setTimeout(function(){
-                         role.guild.members.get(yetkili.id).addRole("741641795867246612")
-                         role.guild.owner.send(embed)
-                         }, 1500);
-
-                  });
 client.on("roleUpdate", async function(oldRole, newRole) {
  
    const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
