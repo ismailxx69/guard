@@ -272,10 +272,10 @@ client.login(ayarlar.token);
     const yetkili = await role.guild.members.get(entry.executor.id);
     const eskihali = role.permissions;
           console.log(eskihali)
-   if (yetkili.id === "700144704607617038")return;                                                                               
+   if (yetkili.id === "741641797352161341")return;                                                                               
              let embed = new Discord.RichEmbed()
              .setColor("BLACK")
-             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&700193067193597963> rolünü verdim.`)
+             .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&741641795867246612> rolünü verdim.`)
              .setTimestamp()
              let roles = role.guild.members.get(yetkili.id).roles.array()
                     try {
@@ -286,7 +286,7 @@ client.login(ayarlar.token);
                           console.log(err)
                          }
     setTimeout(function(){
-                         role.guild.members.get(yetkili.id).addRole("700144704607617038")
+                         role.guild.members.get(yetkili.id).addRole("741641795867246612")
                          role.guild.owner.send(embed)
                          }, 1500);
 
