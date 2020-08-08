@@ -347,28 +347,16 @@ client.on("roleUpdate", async function(oldRole, newRole) {
 
 //////////////////HOŞ GELDİN MESAJI//////////////////////////
 
-client.on('guildMemberAdd', async (member) => {
 
-  let kayıt = client.guilds.get(`741633554764660826`).channels.get(`741646195222511660`)
-  let user = client.users.get(member.id)
-  let memberinfo = {}
-  require("moment-duration-format");
-  const kurulus = new Date().getTime() - user.createdAt.getTime();
-  const gün = moment.duration(kurulus).format("D");
-  var kontrol;
-  if (gün < 7) kontrol = "Güvenilir Değil!  ";
-  if (gün > 7) kontrol = "Güvenilir Gözüküyor!   ";
-  
-  
 
-  memberinfo.discord = moment.utc(member.guild.members.get(member.id).user.createdAt).format(`DD/MM/YYYY`)
-  memberinfo.sunucu = moment.utc(member.guild.members.get(member.id).joinedAt).format(`DD/MM/YYYY`)
-
-   let güvenli = new Discord.RichEmbed()
-  .setColor(`#000001`)
-.setTitle(` <a:bellatrix5:741652269224689725> ***___Bir Yıldız'a ayak bastın!___*** <a:bellatrix5:741652269224689725>  `)
-  .setDescription(`  **  Hoşgeldin, ${member.user} \n\n  ${member.guild.memberCount} Kişi Arasında Sende Varsın. \n\n  ᵇᵉˡˡᵃᵗʳᶤˣ Tagını Alarak İçeriye Girebilirsin.   \n\n  **Bu Hesap:** **${kontrol}** `)
-  .addField(`  Hesap Oluşturma Tarihi:`, memberinfo.discord, true )
-  .setImage("")
-  kayıt.send(güvenli)
+client.on(`guildMemberAdd`, async member => {
+var maze = new Discord.RichEmbed()
+.setColor("GREEN")
+.setTitle("<a:bellatrix5:741652269224689725> ***___Bir Yıldız'a ayak bastın!___*** <a:bellatrix5:741652269224689725>")
+.setThumbnail(member.user.avatarURL)
+.setImage("https://cdn.discordapp.com/attachments/741633554764660829/741795393116831825/giphy.gif")
+.setDescription("  Hoşgeldin, "+ member +" \n\n   "+ member.guild.memberCount+" Kişi Arasında Sende Varsın. \n\n **ᵇᵉˡˡᵃᵗʳᶤˣ** Tagını Alarak İçeriye Girebilirsin.   ")
+.addField(`:id: Üye ID:`, `${member.id}`, true)
+.addField(`:octagonal_sign: Üye Adı`, `${member}`, true)
+client.channels.get("741646195222511660").send(maze) 
 });
