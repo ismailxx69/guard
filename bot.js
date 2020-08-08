@@ -146,6 +146,15 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
     }
 });
 
+
+
+
+
+
+
+  
+  
+  
   
   
   client.on('channelDelete', channel => {
@@ -164,6 +173,98 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 
 
 
+client.on("guildBanAdd", async (guild, user) => {
+  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
+  const entry = await guild
+    .fetchAuditLogs({ type: "MEMBER_BAN_ADD" })
+    .then(audit => audit.entries.first());
+  let embed = new Discord.RichEmbed()
+    .setAuthor(entry.executor.username, entry.executor.avatarURL)
+    .addField("**Eylem**", "Yasaklama")
+    .addField("**Kullanıcıyı yasaklayan yetkili**", `<@${entry.executor.id}>`)
+    .addField("**Yasaklanan kullanıcı**", `**${user.tag}** - ${user.id}`)
+    .addField("**Yasaklanma sebebi**", `${entry.reason}`)
+    .setTimestamp()
+    .setColor("RANDOM")
+    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
+    .setThumbnail(guild.iconURL);
+  client.channels.get(modlog).sendEmbed(embed);
+});
+
+client.on("guildBanRemove", async (guild, user) => {
+  let modlog = await db.fetch(`genelmodlog_${guild.id}`);
+  const entry = await guild
+    .fetchAuditLogs({ type: "MEMBER_BAN_REMOVE" })
+    .then(audit => audit.entries.first());
+  let embed = new Discord.RichEmbed()
+    .setAuthor(entry.executor.username, entry.executor.avatarURL)
+    .addField("**Eylem**", "Yasak kaldırma")
+    .addField("**Yasağı kaldıran yetkili**", `<@${entry.executor.id}>`)
+    .addField("**Yasağı kaldırılan kullanıcı**", `**${user.tag}** - ${user.id}`)
+    .setTimestamp()
+    .setColor("RANDOM")
+    .setFooter(`Sunucu: ${guild.name} - ${guild.id}`, guild.iconURL)
+    .setThumbnail(guild.iconURL);
+  client.channels.get(modlog).sendEmbed(embed);
+});
+
+// gelişmiş log
+
+var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
+
+client.on("warn", e => {
+  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
+});
+
+client.on("error", e => {
+  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
+});
+
+// TAG SİSTEMİ OTO EDİTLENECEK
+
+
+client.on("guildMemberAdd", async member => {
+  let otobotban = await db.fetch(`otobotban_${member.guild.id}`);
+  if (otobotban) {
+    if (member.user.bot) {
+      member.guild.ban(member.user, {
+        reason: "Otomatik-BotBanlama Koruması "
+      });
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client.login(ayarlar.token);
+
+
+
+ 
+////////////////////////////////////////////////////////////////////
+
+  
+ 
+   
+       
+
+
+
+ ;
+
+
+ 
     
     client.on('roleDelete', async (role) => {
   
@@ -171,7 +272,7 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
     const yetkili = await role.guild.members.get(entry.executor.id);
     const eskihali = role.permissions;
           console.log(eskihali)
-   if (yetkili.id === "741641797352161341")return;                                                                               
+   if (yetkili.id === "700144704607617038")return;                                                                               
              let embed = new Discord.RichEmbed()
              .setColor("BLACK")
              .setDescription(`<@${yetkili.id}> isimli kişi ${role.id} ID'li rolü sildi ve sahip olduğu tüm rolleri alarak, kendisine <@&700193067193597963> rolünü verdim.`)
