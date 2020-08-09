@@ -96,7 +96,7 @@ client.unload = command => {
     }
   });
 };
-
+//////////////////KİŞİ ETİKET SPAM ENGEL BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 const { RichEmbed } = require("discord.js")
 client.on("message", async message => {
     if(!message.guild) return
@@ -107,8 +107,11 @@ client.on("message", async message => {
         message.author.send(`Hey ${message.author}, sürekli birilerini etiketlemek kötüdür. ${message.author} bir daha devam etme. ${message.author} ${message.author} ${message.author}`)
       }
 })
+//////////////////KİŞİ ETİKET SPAM ENGEL SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
+
+//////////////////REKLAM ENGEL BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on("message", async msg => {
     if(msg.author.bot) return;
     if(msg.channel.type === "dm") return;
@@ -129,7 +132,7 @@ client.on("message", async msg => {
                     .addField('Engellenen mesaj', msg.content, true)
                     .setTimestamp()                   
                     msg.guild.owner.user.send(embed)                       
-                    return msg.channel.send(`${msg.author}, **Reklam Yapmak Yasak Bunu Bilmiyormusun!**`).then(msg => msg.delete(25000));
+                    return msg.channel.send(`${msg.author}, **Reklam Yapmak Yasak Bunu Bilmiyor musun!**`).then(msg => msg.delete(25000));
                   }              
                 } catch(err) {
                   console.log(err);
@@ -138,7 +141,9 @@ client.on("message", async msg => {
           }
           if (!i) return;
           });
+//////////////////REKLAM ENGEL SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
+//////////////////BAN LİMİT BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on("guildBanAdd", async (guild, user) => {
   if (!db.has(`banlimit_${guild.id}`)) return;
   let logs = await guild.fetchAuditLogs({type: 'MEMBER_BAN_ADD'});
@@ -171,7 +176,9 @@ client.on("guildBanAdd", async (guild, user) => {
     }
   }
 })
+//////////////////BAN LİMİT SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
+//////////////////KÜFÜR ENGEL BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on("message", async msg => {
   let küfür = await db.fetch(`küfür_${msg.guild.id}`)
     if (küfür == "açık") {
@@ -189,8 +196,9 @@ client.on("message", async msg => {
             }
           }
       }) 
+//////////////////KÜFÜR ENGEL SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
-
+//////////////////OTOMATİK CEVAP BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on('message', async message => {
   
 const otocevap1 = new RegExp(/(^sa$|^sea$|^selamın aleyküm$|^slm$|^Selam$|^selam$|^Selamun aleyküm$|^Selamun Aleyküm$|^Sea$|^Selamke$|^Selams)/gi);
@@ -208,15 +216,15 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
       
     }
 });
+//////////////////OTOMATİK CEVAP SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
-
-
+//////////////////OTO TAG ROL BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on('userUpdate', async user => {
   let sunucuid = "741633554764660826"; //Buraya sunucunuzun IDsini yazın
   let tag = "ᵇᵉˡˡᵃᵗʳᶤˣ"; //Buraya tagınızı yazın
   let rol = "741651661679886346"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
-  let channel = client.guilds.get(sunucuid).channels.find(x => x.name == 'tagrol-log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
+  let channel = client.guilds.get(sunucuid).channels.find(x => x.name == 'log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
   if (!tag) return;
   if (!rol) return;
   if (!channel) return;
@@ -242,12 +250,12 @@ client.on('userUpdate', async user => {
     }
   }
 });
-
+//////////////////OTO TAG ROL SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
   
   
   
   
-  
+ //////////////////KANAL KORUMA BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107 
   client.on('channelDelete', channel => {
   let kategoriID = channel.parentID;
   channel.clone(this.name, true, true).then(z => {
@@ -257,23 +265,12 @@ client.on('userUpdate', async user => {
                            
   });
 });
-
-
-
 var uyarilar = {};
+//////////////////KANAL KORUMA SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
 
-
-
-
-// TAG SİSTEMİ OTO EDİTLENECEK
-
-
-
-
-
-
+//////////////////SUNUCU BOT KORUMA BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 client.on('guildMemberAdd', (member) => {
     const guild = member.guild;
@@ -362,6 +359,35 @@ client.channels.get('741661572929290312').send(new Discord.RichEmbed().setAuthor
 })
 //////////////////ULTRA GELİŞMİŞ ROL KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
+//////////////////SAĞ TIK BAN KORUMA BAŞI///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
+
+client.on('guildMemberRemove', async (member) => {// SYLVESTER 35½
+const data = require('quick.db')
+
+const da = await data.fetch(`sağ.tık.kick.${member.guild.id}`)
+if(!da) return;
+const kanal_id = await data.fetch(`sağ.tık.kick.kanal.${member.guild.id}`)
+let kanal = client.channels.get(kanal_id)
+
+let logs = await member.guild.fetchAuditLogs({type: 'MEMBER_KICK'});
+if(logs.entries.first().executor.bot) return;
+let kişi = member.guild.members.get(logs.entries.first().executor.id)
+kişi.roles.forEach(r => {
+kişi.removeRole(r.id) })
+
+const emb = new Discord.RichEmbed()
+.setAuthor(kişi.user.username, kişi.user.avatarURL)
+.setFooter(`${client.user.username}`)
+.setTimestamp()
+
+kanal.send(emb.setDescription(`${kişi.user.tag} isimli kişi birisini atmaya çalıştı, attı ama ben yetkilerini aldım.`))
+member.guild.owner.send(emb.setDescription(`${kişi.user.tag} isimli kişi birisini atmaya çalıştı, attı ama ben yetkilerini aldım.`))
+console.log('!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107')
+})
+//////////////////SAĞ TIK BAN KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
+
+
+
 
 //////////////////HOŞ GELDİN MESAJI BAŞI//////////////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
@@ -380,3 +406,23 @@ client.channels.get("741646195222511660").send(maze)
 });
 
 //////////////////HOŞ GELDİN MESAJI SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
+
+//////////////////BOT DM GÖRME BAŞI///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
+client.on("message", msg => {
+  var dm = client.channels.get("741644910083440660"); //mesajın geleceği kanal idsi//
+  if (msg.channel.type === "dm") {
+    if (msg.author.id === client.user.id) return;
+    const botdm = new Discord.RichEmbed()
+      .setTitle(`${client.user.username} Dm`)
+      .setTimestamp()
+      .setColor("BLUE")
+      .setThumbnail(`${msg.author.avatarURL}`)
+      .addField(":boy: Gönderen ", msg.author.tag)
+      .addField(":id:  Gönderen ID :", msg.author.id)
+      .addField(":globe_with_meridians: Gönderilen Mesaj", msg.content);
+
+    dm.send(botdm);
+  }
+  if (msg.channel.bot) return;
+});
+//////////////////BOT DM GÖRME SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
