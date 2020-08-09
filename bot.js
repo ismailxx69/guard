@@ -396,7 +396,6 @@ client.on(`guildMemberAdd`, async member => {
 var maze = new Discord.RichEmbed()
 .setColor("GREEN")
 .setTitle("<a:bellatrix5:741652269224689725> ***___Bir Yıldız'a ayak bastın!___*** <a:bellatrix5:741652269224689725>")
-.setThumbnail(member.user.avatarURL)
 .setImage("https://cdn.discordapp.com/attachments/741646195222511660/742144636277227640/ezgif-4-d5367af3082d.gif")
 .setDescription("  Hoşgeldin, "+ member +" \n\n   "+ member.guild.memberCount+" Kişi Arasında Sende Varsın. \n\n **ᵇᵉˡˡᵃᵗʳᶤˣ** Tagını Alarak İçeriye Girebilirsin.   ")
 .addField(`:id: Üye ID:`, `${member.id}`, true)
