@@ -210,7 +210,7 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
    
     const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
     if (otocevap3.test(message.content) == true) {
-    message.channel.send('**✶   ᵇᵉˡˡᵃᵗʳᶤˣ **')
+    message.channel.send('**✶**')
       
       
       
