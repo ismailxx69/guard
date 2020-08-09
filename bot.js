@@ -210,7 +210,7 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
    
     const otocevap3 = new RegExp(/(^!tag$|^tag$)/gi);
     if (otocevap3.test(message.content) == true) {
-    message.channel.send('**✩   ᵇᵉˡˡᵃᵗʳᶤˣ **')
+    message.channel.send('**✶   ᵇᵉˡˡᵃᵗʳᶤˣ **')
       
       
       
@@ -224,7 +224,7 @@ client.on("userUpdate", async (eski, yeni) => {
   var sunucu = client.guilds.get('741633554764660826'); // Buraya Sunucu ID
   var uye = sunucu.members.get(yeni.id);
   var normalTag = "⋆"; // Buraya Normal Tag (Yoksa boş bırakın)
-  var ekipTag = "✩"; // Sunucunun Tagı
+  var ekipTag = "✶"; // Sunucunun Tagı
   var ekipRolü = "741651661679886346"; // Tagın Rol IDsi
   var logKanali = "741661572929290312"; // Loglanacağı Kanalın ID
 
