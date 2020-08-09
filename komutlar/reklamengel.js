@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js');//SYLVESTER 35½
 const db = require('quick.db');
 
 exports.run = async(client, message, args) => {
@@ -8,7 +8,7 @@ exports.run = async(client, message, args) => {
     if (args[0] == 'aç') {
     db.set(`reklamFiltre_${message.guild.id}`, 'acik')
     let i = await db.fetch(`reklamFiltre_${message.guild.id}`)
-  message.channel.send(`Reklam Filtresi başarıyla ayarlandı.`)    
+  message.channel.send(`Reklam Filtresi başarıyla ayarlandı. Reklam yapılmasına asla izin vermem.`)    
      
   } 
 
@@ -36,4 +36,4 @@ exports.help = {
  name: 'reklam-engell',
  description: 'reklamm',
  usage: 'reklam-kanal'
-};
+};//SYLVESTER 35½

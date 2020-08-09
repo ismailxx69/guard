@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js');//SYLVESTER 35½
 const db = require("quick.db")
 exports.run = async (client, message, args) => {
  if (!message.member.roles.has('741641797352161341') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
@@ -46,4 +46,4 @@ exports.help = {
   name: 'kız',
   description: "Sunucuya kaydolmaya ne dersin ?",
   usage: 'Erkek isim yaş'
-} 
+} //SYLVESTER 35½

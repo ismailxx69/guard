@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js");//SYLVESTER 35½
 
 exports.run = async (client, message, args) => {
   let tag = "✩"; // tagınız
@@ -22,12 +22,12 @@ const embed = new Discord.RichEmbed()
 `)
     .setColor("#005b94")
     .setFooter(`Aha bak bak ne yazmış gel gel!`,message.author.avatarURL);
-    message.channel.send(embed);
+    message.channel.send(embed);//SYLVESTER 35½
 message.react('')
 };
 
 
-//<a:mtik:682607222219472944> **Kayıtsız üye sayısı :** __${message.guild.roles.get("661273538329837638").members.size}__
+
 exports.conf = {
   enabled: true,
   guildOnly: false,
@@ -41,5 +41,4 @@ exports.help = {
   usage: "say"
 };
 
-//<a:ttik:683256762886914053>
-//<a:mortik:683258853017649257>
+//SYLVESTER 35½

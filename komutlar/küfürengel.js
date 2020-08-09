@@ -11,13 +11,13 @@ if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("*
   }
   if(args[0] === "aç") {
     
-    message.channel.send("**Küfür engel başarıyla açıldı :hammer: **")
+    message.channel.send("**Küfürsüz bir sohbet daha eğlenceli olur. :hammer: **")
     
     db.set(`küfür_${message.guild.id}`, "açık")
   }
     if(args[0] ===   "kapat") {
       
-      message.channel.send("**Küfür engel başarıyla kapatıldı :hammer: **")
+      message.channel.send("**Küfür sistemi devredışı! Umarım sonu kötü olmaz. :hammer: **")
       
       db.set(`küfür_${message.guild.id}`, "kapalı")
       
@@ -34,4 +34,4 @@ exports.help = {
   name: "küfür-engel",
   description: "Küfür engel açar yada kapatır.",
   usage: "küfür-engel"
-}
+}//SYLVESTER 35½
