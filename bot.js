@@ -212,6 +212,36 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 
 
 
+client.on('userUpdate', async user => {
+  let sunucuid = "741633554764660826"; //Buraya sunucunuzun IDsini yazın
+  let tag = "ᵇᵉˡˡᵃᵗʳᶤˣ"; //Buraya tagınızı yazın
+  let rol = "741651661679886346"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
+  let channel = client.guilds.get(sunucuid).channels.find(x => x.name == 'tagrol-log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
+  if (!tag) return;
+  if (!rol) return;
+  if (!channel) return;
+  let member = client.guilds.get(sunucuid).members.get(user.id);
+  if (!member) return;
+  if (!member.roles.has(rol)) {
+    if (member.user.username.includes(tag)) {
+      member.addRole(rol)
+      const tagalma = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`<@${user.id}> adlı kişi, ${tag} tagını aldığından dolayı <@&${rol}> rolünü kazandı.`)
+      .setTimestamp()
+      channel.send(tagalma)
+    }
+  }else{
+    if (!member.user.username.includes(tag)) {
+      member.removeRole(rol)
+      const tagsilme = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`<@${user.id}> adlı kişi, ${tag} tagını sildiğinden dolayı <@&${rol}> rolünü kaybetti.`)
+      .setTimestamp()
+      channel.send(tagsilme)
+    }
+  }
+});
 
   
   
@@ -265,62 +295,75 @@ Banlanan Bot: **${member.user.tag}**
        member.ban(member) 
   }  
   });
-
-
-
-
-
-
-
-
+//////////////////SUNUCU BOT KORUMA SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 client.login(ayarlar.token);
-
-
-
- 
-////////////////////////////////////////////////////////////////////
-
-  
- 
-   
-       
-
-
-
  ;
-
- 
-
- 
-    
+   //////////////////ULTRA GELİŞMİŞ ROL KORUMA BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
   
-client.on("roleUpdate", async function(oldRole, newRole) {
- 
-   const bilgilendir = await newRole.guild.fetchAuditLogs({type: "ROLE_UPLATE"}).then(hatırla => hatırla.entries.first())
-    let yapanad= bilgilendir.executor;
-  let idler= bilgilendir.executor.id;
-  if(idler === "305943092056293376") return // yapan kişinin id si bu ise bir şey yapma
-  if(oldRole.hasPermission("ADMINISTRATOR")) return
- 
-   setTimeout(() => {
+client.on('guildMemberUpdate', async (oldMember, newMember) => {
+let guild = oldMember.guild || newMember.guild;
+  
+    let chimp = await guild.fetchAuditLogs({type: 'MEMBER_ROLES_UPDATE'});
+  
+    if(chimp) {
+      
+let asd = []
 
-     if(newRole.hasPermission("ADMINISTRATOR")){
-   newRole.setPermissions((newRole.permissions-8))   
- }
+oldMember.roles.forEach(c => {
+if(!newMember.roles.has(c.id)) {
+require('quick.db').delete(`${guild.id}.${c.id}.${oldMember.id}`)
+}
+})
+newMember.roles.forEach(c => {
+if(!oldMember.roles.has(c.id)) {
+require('quick.db').set(`${guild.id}.${c.id}.${newMember.id}`, 'eklendi')
+}
+  
+})
     
- if(newRole.hasPermission("ADMINISTRATOR")){
- 
-     if(!client.guilds.get(newRole.guild.id).channels.has("305943092056293376")) return newRole.guild.owner.send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi** Alındı. \Rol: **${newRole.name}**`)//bu id ye sahip kanal yoksa sunucu sahibine yaz
+    }
+})
 
-  client.channels.get("741661572929290312").send(`Rol Koruma Nedeniyle ${yapanad} Kullanıcısı Bir Role Yönetici Verdiği İçin Rolün **Yöneticisi Alındı**. \Rol: **${newRole.name}**`)// belirtilen id ye sahip kanala yaz
- }
-      }, 1000)
-  });
+client.on('roleDelete', async role => {
+let guild = role.guild;
+  
+  let e = await guild.fetchAuditLogs({type: 'ROLE_DELETE'});
+  let member = guild.members.get(e.entries.first().executor.id);
+  //if(member.hasPermission("ADMINISTRATOR")) return;
+        
+  let mention = role.mentionable;
+  let hoist = role.hoist;
+  let color = role.hexColor;
+  let name = role.name;
+  let perms = role.permissions;
+  let position = role.position;
+  role.guild.createRole({
+    name: name,
+    color: color,
+    hoist: hoist,
+    position: position,
+    permissions: perms,
+    mentionable: mention
+  }).then(async rol => {
+    
+  guild.members.forEach(async u => {
+  const dat = await require('quick.db').fetch(`${guild.id}.${role.id}.${u.id}`)
+  if(dat) {
+
+  guild.members.get(u.id).addRole(rol.id)
+  }
+    
+  })
+client.channels.get('741661572929290312').send(new Discord.RichEmbed().setAuthor(guild.name, guild.iconURL).setTitle(`Bir rol silindi!`)
+.setDescription(`${rol.name} isimli rol ${member} tarafından silindi ve bende tekrardan rolü oluşturdum, önceden role sahip olan tüm kişilere rolü geri verdim.`))
+  })
+  
+})
+//////////////////ULTRA GELİŞMİŞ ROL KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
-
-//////////////////HOŞ GELDİN MESAJI//////////////////////////
+//////////////////HOŞ GELDİN MESAJI BAŞI//////////////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
 
@@ -335,3 +378,5 @@ var maze = new Discord.RichEmbed()
 .addField(`:octagonal_sign: Üye Adı`, `${member}`, true)
 client.channels.get("741646195222511660").send(maze) 
 });
+
+//////////////////HOŞ GELDİN MESAJI SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
