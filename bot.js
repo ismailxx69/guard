@@ -256,16 +256,7 @@ client.on("message", async message => {
 // TAG SİSTEMİ OTO EDİTLENECEK
 
 
-client.on("guildMemberAdd", async member => {
-  let otobotban = await db.fetch(`otobotban_${member.guild.id}`);
-  if (otobotban) {
-    if (member.user.bot) {
-      member.guild.ban(member.user, {
-        reason: "Otomatik-BotBanlama Koruması "
-      });
-    }
-  }
-});
+
 
 
 
