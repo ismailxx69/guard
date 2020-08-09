@@ -220,36 +220,35 @@ message.reply('  **Aleyküm selam hoş geldin, umarım keyifli bir sohbet olur.*
 
 
 //////////////////OTO TAG ROL BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
-client.on('userUpdate', async user => {
-  let sunucuid = "741633554764660826"; //Buraya sunucunuzun IDsini yazın
-  let tag = "ᵇᵉˡˡᵃᵗʳᶤˣ"; //Buraya tagınızı yazın
-  let rol = "741651661679886346"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
-  let channel = client.guilds.get(sunucuid).channels.find(x => x.name == 'log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
-  if (!tag) return;
-  if (!rol) return;
-  if (!channel) return;
-  let member = client.guilds.get(sunucuid).members.get(user.id);
-  if (!member) return;
-  if (!member.roles.has(rol)) {
-    if (member.user.username.includes(tag)) {
-      member.addRole(rol)
-      const tagalma = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(`<@${user.id}> adlı kişi, ${tag} tagını aldığından dolayı <@&${rol}> rolünü kazandı.`)
-      .setTimestamp()
-      channel.send(tagalma)
-    }
-  }else{
-    if (!member.user.username.includes(tag)) {
-      member.removeRole(rol)
-      const tagsilme = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(`<@${user.id}> adlı kişi, ${tag} tagını sildiğinden dolayı <@&${rol}> rolünü kaybetti.`)
-      .setTimestamp()
-      channel.send(tagsilme)
-    }
-  }
+client.on("userUpdate", async (eski, yeni) => {
+  var sunucu = client.guilds.get('741633554764660826'); // Buraya Sunucu ID
+  var uye = sunucu.members.get(yeni.id);
+  var normalTag = "⋆"; // Buraya Normal Tag (Yoksa boş bırakın)
+  var ekipTag = "✩"; // Sunucunun Tagı
+  var ekipRolü = "741651661679886346"; // Tagın Rol IDsi
+  var logKanali = "741661572929290312"; // Loglanacağı Kanalın ID
+
+  if (!sunucu.members.has(yeni.id) || yeni.bot || eski.username === yeni.username) return;
+  
+  if ((yeni.username).includes(ekipTag) && !uye.roles.has(ekipRolü)) {
+    try {
+      await uye.addRole(ekipRolü);
+      await uye.setNickname((uye.displayName).replace(normalTag, ekipTag));
+      await uye.send(`Tagımızı aldığın için teşekkürler! Aramıza hoş geldin.`);
+      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı alarak aramıza katıldı!`);
+    } catch (err) { console.error(err) };
+  };
+  
+  if (!(yeni.username).includes(ekipTag) && uye.roles.has(ekipRolü)) {
+    try {
+      await uye.removeRoles(uye.roles.filter(rol => rol.position >= sunucu.roles.get(ekipRolü).position));
+      await uye.setNickname((uye.displayName).replace(ekipTag, normalTag));
+      await uye.send(`Tagımızı bıraktığın için ekip rolü ve yetkili rollerin alındı! Tagımızı tekrar alıp aramıza katılmak istersen;\nTagımız: **${ekipTag}**`);
+      await client.channels.get(logKanali).send(`${yeni} adlı üye tagımızı bırakarak aramızdan ayrıldı!`);
+    } catch(err) { console.error(err) };
+  };
 });
+
 //////////////////OTO TAG ROL SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
   
   
