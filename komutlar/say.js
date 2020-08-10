@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
   count += voiceChannel.members.size;
-  if(!message.member.roles.has("741641797352161341")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
+  if(!message.member.roles.has("742045569161363510")) return message.channel.send(`**Kusura Bakma Dostum Buna Yetkin Yok.** `);
 
 const embed = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL) 
