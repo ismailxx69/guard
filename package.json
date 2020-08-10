@@ -21,7 +21,8 @@
     "parse-ms": "^2.1.0",
     "quick.db": "^7.0.0-b22",
     "request": "^2.88.0",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "google-tts-api": "^0.0.4"
   },
   "engines": {
     "node": "8.x"

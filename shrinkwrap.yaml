@@ -5,6 +5,7 @@ dependencies:
   discord.js: 11.5.1
   express: 4.16.4
   generate-password: 1.4.2
+  google-tts-api: 0.0.4
   math-expression-evaluator: 1.2.17
   moment: 2.24.0
   ms: 2.1.2
@@ -246,6 +247,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /encoding/0.1.13:
+    dependencies:
+      iconv-lite: 0.6.2
+    dev: false
+    resolution:
+      integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -379,6 +386,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
+  /google-tts-api/0.0.4:
+    dependencies:
+      isomorphic-fetch: 2.2.1
+    dev: false
+    resolution:
+      integrity: sha512-1fyRK4AxvtRrETxL59SwXgbY7cX3xhgOCbCaYu8BNlRZcjca0YeajA+50G7Jz3d6wpSxhxatz/lzMuomzWoNeQ==
   /har-schema/2.0.0:
     dev: false
     engines:
@@ -430,6 +443,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-neyTUVFtahjf0mB3dZT77u+8O0QB89jFdnBkd5P1JgYPbPaia3gXXOVL2fq8VyU2gMMD7SaN7QukTB/pmXYvDA==
+  /iconv-lite/0.6.2:
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==
   /inherits/2.0.3:
     dev: false
     resolution:
@@ -445,10 +466,23 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-6qM9bd16zo9/b+DJygRA5wZzix4=
+  /is-stream/1.1.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
   /is-typedarray/1.0.0:
     dev: false
     resolution:
       integrity: sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
+  /isomorphic-fetch/2.2.1:
+    dependencies:
+      node-fetch: 1.7.3
+      whatwg-fetch: 3.4.0
+    dev: false
+    resolution:
+      integrity: sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
   /isstream/0.1.2:
     dev: false
     resolution:
@@ -591,6 +625,13 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
+  /node-fetch/1.7.3:
+    dependencies:
+      encoding: 0.1.13
+      is-stream: 1.1.0
+    dev: false
+    resolution:
+      integrity: sha512-NhZ4CsKx7cYm2vSrBAr2PvFOe6sWDf0UYLRqA6svUYg7+/TSfVAu49jYC4BvQ4Sms9SZgdqGBgroqfDhJdTyKQ==
   /oauth-sign/0.9.0:
     dev: false
     resolution:
@@ -883,6 +924,10 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
+  /whatwg-fetch/3.4.0:
+    dev: false
+    resolution:
+      integrity: sha512-rsum2ulz2iuZH08mJkT0Yi6JnKhwdw4oeyMjokgxd+mmqYSd9cPpOQf01TIWgjxG/U4+QR+AwKq6lSbXVxkyoQ==
   /ws/6.2.1:
     dependencies:
       async-limiter: 1.0.0
@@ -903,6 +948,7 @@ specifiers:
   discord.js: ^11.5.1
   express: ^4.16.4
   generate-password: ^1.4.2
+  google-tts-api: ^0.0.4
   math-expression-evaluator: ^1.2.17
   moment: ^2.24.0
   ms: ^2.1.2
