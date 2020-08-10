@@ -15,7 +15,7 @@ const embed = new Discord.RichEmbed()
  <a:bellatrix13:741652361579069452> **Çevrimiçi üye sayısı :** __${message.guild.members.filter(m => !m.user.bot && m.user.presence.status !== "offline").size}__
  <a:bellatrix13:741652361579069452> **Seslideki üye sayısı :** __${count}__
  <a:bellatrix13:741652361579069452> **Tagdaki üye sayısı :** __${message.guild.members.filter(m => m.user.username.includes(tag)).size}__
- <a:bellatrix13:741652361579069452> **Erkek üye sayısı :** __${message.guild.roles.get("741641798073450496").members.size}__
+ <a:bellatrix13:741652361579069452> **Erkek üye sayısı :** __${message.guild.roles.get("742341058704441384").members.size}__
  <a:bellatrix13:741652361579069452> **Kayıtsız üye sayısı :** __${message.guild.roles.get("741641795867246612").members.size}__
  <a:bellatrix13:741652361579069452> **Kız üye sayısı :** __${message.guild.roles.get("741645637086609481").members.size}__
  <a:bellatrix13:741652361579069452> **Aktif üye sayısı :** __${message.guild.members.filter(m => m.presence.status !== "offline").size}__ ***(Anlık)***

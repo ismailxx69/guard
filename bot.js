@@ -23,6 +23,22 @@ const log = message => {
 
 
 
+
+const path = require('path');
+
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Pinglendi.");
+  response.sendStatus(200);
+});
+
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me`);
+  http.get(`https://clean-emphasized-bedbug.glitch.me/`); // bu satırı çoğaltarak farklı projelerinizi de hostlayabilirsiniz.
+  console.log(`${client.user.username}`);
+}, 10000);
+// 7/24 Akitflik Bitiş
+
 app.listen(process.env.PORT);
 app.get("/", (request, response) => {
   response.sendStatus(200);

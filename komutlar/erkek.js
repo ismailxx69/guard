@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
   if(message.channel.id !== '741646195222511660') return message.channel.send('Bu Komutu Sadece <#741646195222511660> Kanalında Kullanabilirsin.')
 await member.setNickname(`⋆ ${isim} | ${yas}`);
-  member.addRole("741641798073450496"); //erkek rol id,
+  member.addRole("742341058704441384"); //erkek rol id,
   db.add(`yetkili.${message.author.id}.erkek`, 1);
   member.addRole("741655869854318663");
   member.addRole("741641798874693652"); 
@@ -21,13 +21,13 @@ await member.setNickname(`⋆ ${isim} | ${yas}`);
   message.react('712860084425981983') //Emojiid
      const kanal = message.guild.channels.find(c => c.id == "741633554764660829") //LOGİD
     const embed1 = new Discord.RichEmbed() 
-    .addField(`  ✩ Yıldız Savaşları`,  `**Hoş geldin  ${member.user}  , <@&741641798073450496> Rolüyle Artık Sende Ailemize Katıldın! Seninle Birlikte \`${member.guild.memberCount}\` Üyeye Ulaştık.**   `)
+    .addField(`  ✩ Yıldız Savaşları`,  `**Hoş geldin  ${member.user}  , <@&742341058704441384> Rolüyle Artık Sende Ailemize Katıldın! Seninle Birlikte \`${member.guild.memberCount}\` Üyeye Ulaştık.**   `)
     .setColor("RED")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("PİNK")
-  .addField(`  ✩ Bellatrix İşlem Başarılı  `,  ` ${member.user} **adlı üyeye** <@&741641798073450496>  **rollerini verip ismini**  \` ⋆ ${isim} | ${yas}\` **olarak ayarladım!**  `)                                                                             
+  .addField(`  ✩ Bellatrix İşlem Başarılı  `,  ` ${member.user} **adlı üyeye** <@&742341058704441384>  **rollerini verip ismini**  \` ⋆ ${isim} | ${yas}\` **olarak ayarladım!**  `)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   .setImage(``)
