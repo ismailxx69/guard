@@ -364,19 +364,7 @@ client.channels.get('741661572929290312').send(new Discord.RichEmbed().setAuthor
   
 })
 
-client.on("guildMemberUpdate", async (eskiUye, yeniUye) => {
-  if (eskiUye.roles.size != yeniUye.roles.size) {
-    if ((!eskiUye.hasPermission("ADMINISTRATOR") && yeniUye.hasPermission("ADMINISTRATOR")) || (!eskiUye.hasPermission("MANAGE_GUILD") && yeniUye.hasPermission("MANAGE_GUILD")) || (!eskiUye.hasPermission("BAN_MEMBERS") && yeniUye.hasPermission("BAN_MEMBERS"))) {
-      const entry = await yeniUye.guild.fetchAuditLogs({type: 'MEMBER_ROLES_UPDATE'}).then(audit => audit.entries.first());
-      let yetkili = entry.executor; // User
-      let cezaliRolu = "741641795867246612";
-      let logKanali = "742326250344939592";
-      yeniUye.guild.member(yetkili).setRoles([cezaliRolu]);
-      yeniUye.setRoles(eskiUye.roles.array());
-      client.channels.get(logKanali).send(`Sunucudaki ${yetkili} yetkilisi bir üyeye rol verdiği için cezalıya atıldı!`);
-    };
-  };
-});
+
 
 //////////////////ULTRA GELİŞMİŞ ROL KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
