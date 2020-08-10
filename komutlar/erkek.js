@@ -16,6 +16,7 @@ await member.setNickname(`⋆ ${isim} | ${yas}`);
   member.addRole("741641798073450496"); //erkek rol id,
   member.addRole("741655869854318663");
   member.addRole("741641798874693652");
+  db.add(`yetkili.${message.author.id}.erkek`, 1); 
   member.removeRole("741641795867246612"); //kayıtsız rol id
   message.react('712860084425981983') //Emojiid
      const kanal = message.guild.channels.find(c => c.id == "741633554764660829") //LOGİD
