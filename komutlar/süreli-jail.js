@@ -7,10 +7,10 @@ const prefix = ayarlar.prefix;
 module.exports.run = async (client, message, args) => {
   
 
-if(!message.member.roles.has('729271897887604746')) {
+if(!message.member.roles.has('742045573460525156')) {
 const embed = new Discord.RichEmbed()
 .setColor('RED')
-.setDescription('Birine jail atmak için <@&729271897887604746> rolüne sahip olmalısın!')
+.setDescription('Birine jail atmak için <@&742045573460525156> rolüne sahip olmalısın!')
 return message.channel.send(embed)
 }
 let kişi = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -20,7 +20,7 @@ const embed = new Discord.RichEmbed()
 .setDescription('Jail atacağın kullanıcıyı etiketle yada id sini belirt!')
 return message.channel.send(embed)
 }
-if(kişi.roles.has('729271897887604746')) {
+if(kişi.roles.has('742045573460525156')) {
 const embed = new Discord.RichEmbed()
 .setColor('RED')
 .setDescription(`Meslektaşını niye hapis'e atmaya çalışıyorsun?`)
@@ -67,17 +67,18 @@ const embed2 = new Discord.RichEmbed()
 .setColor('GREEN')
 .setDescription(`${kişi} adlı kullanıcı \`${zaman}\`lığına hapise yollandı!`)
   
-kişi.addRole('733750864183033867');
+kişi.addRole('742217399037591603');
+  db.add(`yetkili.${message.author.id}.jail`, 1);
 kişi.roles.forEach(r => {
 kişi.removeRole(r.id)
 db.set(`${message.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )
 })  
-client.channels.get('730963661707018371').send(hapis)
+client.channels.get('741661572929290312').send(hapis)
 kişi.send(dm) 
 message.channel.send(embed2)
 setTimeout(async () =>{
-kişi.removeRole('733750864183033867')
-client.channels.get('730963661707018371').send(tahliye)
+kişi.removeRole('742217399037591603')
+client.channels.get('741661572929290312').send(tahliye)
 }, ms(zaman));
 setTimeout(async () =>{
 message.guild.roles.forEach(async r => {

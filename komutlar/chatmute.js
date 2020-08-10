@@ -37,12 +37,12 @@ exports.run = async (client, message, args) => {
   
   if(!süre) {
     await(üye.addRole(rol.id));
-    db.add(`yetkili.${message.author.id}.ban`, 1);
+    db.add(`yetkili.${message.author.id}.mute`, 1);
     message.channel.send(`**\`${üye.displayName}\`  adlı üye susturuldu! Tekrar aynı işlemi uygulayarak susturulmayı kaldırabilirsiniz.**`)
   } else {
     await(üye.addRole(rol.id));
     message.channel.send(`**\`${üye.displayName}\`  adlı üye  \`${ms(ms(süre))}\`  süre boyunca susturuldu.**`);
-    db.add(`yetkili.${message.author.id}.ban`, 1);
+    db.add(`yetkili.${message.author.id}.mute`, 1);
     setTimeout(function(){
       üye.removeRole(rol.id);
       message.channel.send(`**\`${üye.displayName}\`  adlı üyenin susturulma süresi dolduğu için susturulması kaldırıldı!**`);

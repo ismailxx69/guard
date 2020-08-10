@@ -8,11 +8,12 @@ exports.run = function(client, message, args) {
   let kizKayitBilgi = db.get(`yetkili.${uye.id}.kiz`)
  let ban  = db.get(`yetkili.${uye.id}.ban`)
  let mute  = db.get(`yetkili.${uye.id}.mute`)
+ let jail  = db.get(`yetkili.${uye.id}.jail`)
   const batros = new Discord.RichEmbed()
   .setTitle("Yetkili İstatistik")
   .setColor("RANDOM")
   .setThumbnail(message.guild.iconURL)
-  .setDescription(`<a:bellatrix13:741652361579069452>  ${bilgi} **Erkek üyeyi kayıt etmiş. **\n\n <a:bellatrix13:741652361579069452>  ${kizKayitBilgi} **Kadın üyeyi kayıt etmiş.** \n\n <a:bellatrix13:741652361579069452>  ${ban} **Kişiyi banlamış.** \n\n <a:bellatrix13:741652361579069452> ${mute} **Kişiye sustur atmış.** `)
+  .setDescription(`<a:bellatrix13:741652361579069452>  ${bilgi} **Erkek üyeyi kayıt etmiş. **\n\n <a:bellatrix13:741652361579069452>  ${kizKayitBilgi} **Kadın üyeyi kayıt etmiş.** \n\n <a:bellatrix13:741652361579069452>  ${ban} **Kişiyi banlamış.** \n\n <a:bellatrix13:741652361579069452> ${mute} **Kişiye chat sustur atmış.** \n\n <a:bellatrix13:741652361579069452> ${jail} **Kullanıcıyı jaila göndermiş.**`)
   .setTimestamp()
   message.channel.send(batros)
 };

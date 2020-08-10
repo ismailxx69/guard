@@ -39,5 +39,5 @@ exports.conf = {
 };
 
 exports.help = {
-    name: 'say',
+    name: 'say2',
 };
