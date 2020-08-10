@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
-const googleTTS = require('google-tts-api');
+
 const chalk = require("chalk");
 const fs = require("fs");
 
@@ -255,16 +255,23 @@ client.on("userUpdate", async (eski, yeni) => {
   
   
  //////////////////KANAL KORUMA BAŞI/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107 
-  client.on('channelDelete', channel => {
+ client.on('channelDelete',async channel => {
+        const entry = await channel.guild.fetchAuditLogs({type: 'CHANNEL_DELETE'}).then(audit => audit.entries.first())
+
+    let kisi = channel.guild.member(entry.executor);
+kisi.roles.filter(a => a.hasPermission('ADMINISTRATOR')).forEach(x => kisi.removeRole(x.id))
+kisi.roles.filter(a => a.hasPermission('MANAGE_CHANNELS')).forEach(x => kisi.removeRole(x.id))
+kisi.roles.filter(a => a.hasPermission('MANAGE_ROLES')).forEach(x => kisi.removeRole(x.id))
+
   let kategoriID = channel.parentID;
   channel.clone(this.name, true, true).then(z => {
-      let ganal = z.guild.channels.find(name => name.name === z.name)
-      ganal.setParent(ganal.guild.channels.find(channel => channel.id === kategoriID))
-     ganal.send(`**Bu kanal silindi ve kanal koruma sistemi sayesinde başarıyla tekrardan açıldı! **\n**Kanalın adı, kanalın konusu, kanalın kategorisi, kanalın izinleri başarıyla ayarlandı. **`);
-                           
+      let kanal = z.guild.channels.find("name", z.name)
+      kanal.setParent(kanal.guild.channels.find(channel => channel.id === kategoriID))
+     kanal.send(`Bu kanal silindi ve kanal koruma sistemi sayesinde başarıyla tekrardan açıldı!\nKanalın adı, kanalın konusu, kanalın kategorisi, kanalın izinleri başarıyla ayarlandı.`);
+    kanal.send(`Kanalı Silen Vasıfsız = ${entry.executor}`)   
   });
-});
-var uyarilar = {};
+ 
+}); 
 //////////////////KANAL KORUMA SONU/////////////////// !  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 
