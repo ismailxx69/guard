@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = async(client, message, args) => {
   if (!message.member.roles.has("741641797352161341")) return; // BURAYA KOMUTU KULLANABİLECEK ROL ID
-  let enAltYetkiliRolü = message.guild.roles.get('742028338121539673  '); // EN ALT YETKILI ROLUNUN IDSI BURAYA
+  let enAltYetkiliRolü = message.guild.roles.get('742028338121539673'); // EN ALT YETKILI ROLUNUN IDSI BURAYA
   let yetkililer = message.guild.members.filter(uye => !uye.user.bot && uye.highestRole.position >= enAltYetkiliRolü.position && uye.presence.status !== "offline" && !uye.voiceChannel).array();
   if (yetkililer.length == 0) return message.reply('Aktif olup, seste olmayan yetkili bulunmuyor!');
   let mesaj = await message.channel.send(`**${yetkililer.length}** yetkiliye ses çağrısı yapmak istiyor musun? (evet/hayır)`);
