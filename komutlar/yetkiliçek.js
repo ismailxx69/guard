@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 exports.run = async(client, message, args) => {
-  let rol = message.guild.roles.cache.get('yetkili rol ID');
-  if (!message.member.roles.cache.has("KODU KULLANABİLECEK ROL ID")) return message.reply("Bu komutu kullanabilmek için gerekli role sahip değilsin!")
+  let rol = message.guild.roles.cache.get('742028338121539673');
+  if (!message.member.roles.cache.has("742039133442277438")) return message.reply("Bu komutu kullanabilmek için gerekli role sahip değilsin!")
   if (message.member.voiceChannel) rol.members.filter(uye => uye.voiceChannel).forEach(uye => uye.setVoiceChannel(message.member.voiceChannel.id))
   let embed = new Discord.MessageEmbed()
   .setColor("RED")
