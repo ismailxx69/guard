@@ -6,10 +6,11 @@ exports.run = function(client, message, args) {
 
   let bilgi = db.get(`yetkili.${uye.id}.erkek`)
   let kizKayitBilgi = db.get(`yetkili.${uye.id}.kiz`)
+  let ban = bilgi.ban || 0;
   const batros = new Discord.RichEmbed()
   .setTitle("Yetkili İstatistik")
   .setColor("RANDOM")
-  .setDescription(`Erkek kayıt: ${bilgi}\nKız Kayıt: ${kizKayitBilgi}`)
+  .setDescription(`Erkek kayıt: ${bilgi}\nKız Kayıt: ${kizKayitBilgi}\nBan Sayısı: ${ban}`)
   .setTimestamp()
   message.channel.send(batros)
 };

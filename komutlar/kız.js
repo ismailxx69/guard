@@ -8,7 +8,6 @@ exports.run = async (client, message, args) => {
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
    let isim = args[1];
-  
       if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
@@ -26,9 +25,7 @@ await member.setNickname(`⋆ ${isim} | ${yas}`);
     .setColor("RED")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
- 
     let embed = new Discord.RichEmbed() 
-  
   .setColor("PİNK")
   .addField(` ✩ Bellatrix İşlem Başarılı  `,  ` ${member.user} **adlı üyeye** <@&741645637086609481>  **rollerini verip ismini**  \` ⋆ ${isim} | ${yas}\` **olarak ayarladım!**  `)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
