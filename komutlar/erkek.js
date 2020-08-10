@@ -10,10 +10,12 @@ exports.run = async (client, message, args) => {
    let isim = args[1];
       if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
    let yas = args[2];
+  
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
   if(message.channel.id !== '741646195222511660') return message.channel.send('Bu Komutu Sadece <#741646195222511660> Kanalında Kullanabilirsin.')
 await member.setNickname(`⋆ ${isim} | ${yas}`);
   member.addRole("741641798073450496"); //erkek rol id,
+  db.add(`yetkili.${message.author.id}.erkek`, 1);
   member.addRole("741655869854318663");
   member.addRole("741641798874693652");
   db.add(`yetkili.${message.author.id}.erkek`, 1); 
