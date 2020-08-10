@@ -381,7 +381,7 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
       });
     });
   };
-
+});
 //////////////////SAĞ TIK BAN KORUMA BAŞI///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 client.on('guildMemberRemove', async (member) => {// SYLVESTER 35½
@@ -446,4 +446,4 @@ client.on("message", msg => {
   }
 
 });
-//////////////////BOT DM GÖRME SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
+//////////////////BOT DM GÖRME SONU///////////////////! ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
