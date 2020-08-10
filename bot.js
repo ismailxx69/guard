@@ -368,6 +368,20 @@ client.channels.get('741661572929290312').send(new Discord.RichEmbed().setAuthor
 
 //////////////////ULTRA GELİŞMİŞ ROL KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
+client.on("voiceStateUpdate", async (oldMember, newMember) => {
+  let kanalID = "BURAYA SES KANALI IDSİ";
+  if (newMember.id !== client.user.id && newMember.voiceChannel && newMember.voiceChannel.id === kanalID) {
+    googleTTS("Kanala Hoş Geldin!", "tr", 1).then(soylenecek => {
+      newMember.voiceChannel.join().then(kanal => {
+        kanal.playStream(soylenecek).on("end", () => {
+          setTimeout(() => {
+            newMember.voiceChannel.leave();
+          }, 2000)
+        });
+      });
+    });
+  };
+
 //////////////////SAĞ TIK BAN KORUMA BAŞI///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 client.on('guildMemberRemove', async (member) => {// SYLVESTER 35½
@@ -400,8 +414,6 @@ console.log('!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107')
 
 //////////////////HOŞ GELDİN MESAJI BAŞI//////////////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
-
-
 client.on(`guildMemberAdd`, async member => {
 var maze = new Discord.RichEmbed()
 .setColor("GREEN")
@@ -417,6 +429,7 @@ client.channels.get("741646195222511660").send(maze)
 
 //////////////////BOT DM GÖRME BAŞI///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 client.on("message", msg => {
+    if (msg.author.bot) return;
   var dm = client.channels.get("741644910083440660"); //mesajın geleceği kanal idsi//
   if (msg.channel.type === "dm") {
     if (msg.author.id === client.user.id) return;
@@ -431,7 +444,6 @@ client.on("message", msg => {
 
     dm.send(botdm);
   }
-  if (msg.channel.bot) return;
+
 });
 //////////////////BOT DM GÖRME SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
-
