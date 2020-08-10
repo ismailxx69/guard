@@ -7,7 +7,7 @@ exports.run = async(client, message, args, prefix, ayar, emoji) => {
   let uye = message.mentions.members.first();
   let sure = args[1];
   let sebep = args.slice(2).join(' ');
-  let logKanali = "735861880115167283"; // LOG KANALININ ID
+  let logKanali = "741661572929290312"; // LOG KANALININ ID
   if (!uye || !sure || !sebep) return message.reply('Doğru kullanmalısın!\n' +this.help.usage);
   if (!uye.voiceChannel) return message.reply('Kişi bir ses kanalda değil!');
   if (!uye.voiceChannel.permissionsFor(message.author).has('MUTE_MEMBERS')) return message.reply('Bunu yapman için yeterli izinlere sahip değilsin!');
