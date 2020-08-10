@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
 if(!message.member.roles.has("742045569454702624")) return message.reply(`Bu komutu kullanabilmen için  yetkiye <@&742045569454702624> sahip olman lazım.`);
   if (!message.guild.member(user).bannable) return message.reply('Yetkilileri banlayamam.'); 
   message.guild.ban(user, 2);
-
+db.add(`yetkili.${message.author.id}.ban`, 1);
   const embed = new Discord.RichEmbed()
   .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
     .setColor(0x00AE86)

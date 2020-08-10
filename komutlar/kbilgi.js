@@ -6,11 +6,13 @@ exports.run = function(client, message, args) {
 
   let bilgi = db.get(`yetkili.${uye.id}.erkek`)
   let kizKayitBilgi = db.get(`yetkili.${uye.id}.kiz`)
- let ban = bilgi.ban || 0;
+ let ban  = db.get(`yetkili.${uye.id}.ban`)
+ let mute  = db.get(`yetkili.${uye.id}.mute`)
   const batros = new Discord.RichEmbed()
-  .setTitle("Kayıt İstatistik")
+  .setTitle("Yetkili İstatistik")
   .setColor("RANDOM")
-  .setDescription(`<a:kirmizitik:742061635665133609>  ${bilgi} **Erkek üyeyi kayıt etmiş. **\n <a:kirmizitik:742061635665133609> ${kizKayitBilgi} **Kadın üyeyi kayıt etmiş.** \n <a:kirmizitik:742061635665133609> ${ban} **Kişiyi banlamış.**`)
+  .setThumbnail(message.guild.iconURL)
+  .setDescription(`<a:bellatrix13:741652361579069452>  ${bilgi} **Erkek üyeyi kayıt etmiş. **\n\n <a:bellatrix13:741652361579069452>  ${kizKayitBilgi} **Kadın üyeyi kayıt etmiş.** \n\n <a:bellatrix13:741652361579069452>  ${ban} **Kişiyi banlamış.** \n\n <a:bellatrix13:741652361579069452> ${mute} **Kişiye sustur atmış.** `)
   .setTimestamp()
   message.channel.send(batros)
 };
@@ -24,7 +26,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "kayıtbilgi",
+  name: "yetkilibilgi",
   description: "yetkili kayit vb istatistik",
   usage: "yi"
 };
