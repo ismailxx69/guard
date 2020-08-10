@@ -1,44 +1,47 @@
-const Discord = require("discord.js"); 
-exports.run = async (client, message, args) => {
+const Discord = require('discord.js');
+const client = new Discord.Client();
 const db = require('quick.db');
-  
-    if(!message.member.roles.has('742045569454702624')) return message.reply('Yetersiz yetki.')      
-
-  let logs = message.guild.channels.find("name", "log");
-  if(!logs) return message.channel.send("Bu Komutu Kullana Bilmek İçin *log** Adında Bir Kanal Açmalısın");
-
-  
- let kürşat2 = message.mentions.users.first()  
-  if(!kürşat2) return message.reply("Lütfen Kullanıcı Etiketle");
-
-  let kürşat = args.join(" ");
-  if(!kürşat) kürşat = "Sebep Belirtilmedi.";
-
-  message.guild.member(kürşat2).ban(kürşat);
-db.add(`yetkili.${message.author.id}.ban`, 1);
-  let logsEmbed = new Discord.RichEmbed() 
-  .setTitle("Kullanıcı Banlandı")
-  .setFooter("Developed by SYLVESTER")
-  .setColor("#ff0000")
+exports.run = (client, message, args) => {
+  if (!message.guild) {
+  const ozelmesajuyari = new Discord.RichEmbed()
+  .setColor(0xFF0000)
   .setTimestamp()
-  .addField("Banlanan Kişi:", `${kürşat2}, ID: ${kürşat2.id}`)
-  .addField("Sebep:", kürşat)
-  .addField("Yetkili:", `${message.author}, ID: ${message.author.id}`)
-  .addField("Zaman:", message.createdAt)
-  .addField("Kanal:", message.channel)
+  .setAuthor(message.author.username, message.author.avatarURL)
+  .addField(':warning: Uyarı :warning:', '`ban` adlı komutu özel mesajlarda kullanamazsın.')
+  return message.author.sendEmbed(ozelmesajuyari); }
+  let guild = message.guild
+  let reason = args.slice(1).join('...');
+  let user = message.mentions.users.first();
+  let modlog = guild.channels.find('name', 'log');
+  if (!modlog) return message.reply('`log` kanalını bulamıyorum.');
+  if (reason.length < 1) return message.reply('Ban sebebini yazmalısın.');
+  if (message.mentions.users.size < 1) return message.reply('Kimi banlayacağını yazmalısın.').catch(console.error);
+if(!message.member.roles.has("742045569454702624")) return message.reply(`Bu komutu kullanabilmen için  yetkiye <@&742045569454702624> sahip olman lazım.`);
+  if (!message.guild.member(user).bannable) return message.reply('Yetkilileri banlayamam.'); 
+  db.add(`yetkili.${message.author.id}.ban`, 1);
+  message.guild.ban(user, 2);
+
+  const embed = new Discord.RichEmbed()
+  .setImage(`https://media0.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif?cid=ecf05e476a20dec5fbceba1210fc1b68f21b853c1d28e442&rid=giphy.gif`)
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Eylem:', 'Ban')
+    .addField('Kullanıcı:', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Yetkili:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Sebep', reason);
   
-  logs.send(logsEmbed);
-}
+  return guild.channels.get(modlog.id).sendEmbed(embed);
+};
+
 exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: [],
-    permLevel: 0
-}
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 2
+};
 
 exports.help = {
-    name: 'ban',
-  category: 'moderasyon',
-    description: 'İstediğiniz Kişiyi Banlarsınız',
-    usage: '.ban'
-}
+  name: 'ban',
+  description: 'İstediğiniz kişiyi banlar.',
+  usage: 'ban [kullanıcı] [sebep]'
+};

@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
   const batros = new Discord.RichEmbed()
   .setTitle("Yetkili İstatistik")
   .setColor("RANDOM")
-  .setDescription(`Erkek kayıt: ${bilgi}\nKız Kayıt: ${kizKayitBilgi}\nBan Sayısı: ${ban}`)
+  .setDescription(`<Erkek kayıt: ${bilgi}\nKız Kayıt: ${kizKayitBilgi}\nBan Sayısı: ${ban}`)
   .setTimestamp()
   message.channel.send(batros)
 };
@@ -24,7 +24,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "yetkili-istatistik",
+  name: "kayıtbilgi",
   description: "yetkili kayit vb istatistik",
   usage: "yi"
 };
