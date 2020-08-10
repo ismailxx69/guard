@@ -366,6 +366,7 @@ client.channels.get('741661572929290312').send(new Discord.RichEmbed().setAuthor
 
 
 
+
 //////////////////ULTRA GELİŞMİŞ ROL KORUMA SONU///////////////////!  ✩ rєч sчlvєstєr ᵇᵉˡˡᵃᵗʳᶤˣ ಡ#0107
 
 client.on("voiceStateUpdate", async (oldMember, newMember) => {
