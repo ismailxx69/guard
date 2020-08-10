@@ -15,6 +15,7 @@ exports.run = async (client, message, args) => {
   if(message.channel.id !== '741646195222511660') return message.channel.send('Bu Komutu Sadece <#741646195222511660> Kanalında Kullanabilirsin.')
 await member.setNickname(`⋆ ${isim} | ${yas}`);
   member.addRole("741645637086609481"); //kız rol ıd
+  db.add(`yetkili.${message.author.id}.kiz`, 1);
   member.addRole("741655869430693938");
   member.addRole("741655869409722418");
   member.removeRole("741641795867246612"); //kayıtsız rol id
