@@ -6,11 +6,11 @@ exports.run = function(client, message, args) {
 
   let bilgi = db.get(`yetkili.${uye.id}.erkek`)
   let kizKayitBilgi = db.get(`yetkili.${uye.id}.kiz`)
-  let ban = bilgi.ban || 0;
+ let ban = bilgi.ban || 0;
   const batros = new Discord.RichEmbed()
-  .setTitle("Yetkili İstatistik")
+  .setTitle("Kayıt İstatistik")
   .setColor("RANDOM")
-  .setDescription(`<Erkek kayıt: ${bilgi}\nKız Kayıt: ${kizKayitBilgi}\nBan Sayısı: ${ban}`)
+  .setDescription(`<a:kirmizitik:742061635665133609>  ${bilgi} **Erkek üyeyi kayıt etmiş. **\n <a:kirmizitik:742061635665133609> ${kizKayitBilgi} **Kadın üyeyi kayıt etmiş.** \n <a:kirmizitik:742061635665133609> ${ban} **Kişiyi banlamış.**`)
   .setTimestamp()
   message.channel.send(batros)
 };
